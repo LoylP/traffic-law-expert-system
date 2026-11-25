@@ -30,7 +30,8 @@ from typing import Dict, List, Optional, Tuple
 # =========================
 # Each decree can have multiple files (e.g., ND100 split into ND100.txt and ND100_02.txt)
 # Format: (decree_id, [list_of_files])
-DATA_DIR = Path(__file__).parent.parent.parent / "KG" / "data" / "processed"
+BASE_DIR = Path(__file__).resolve().parents[2]
+DATA_DIR = BASE_DIR / "data" / "processed"
 
 INPUTS = [
     ("100", [str(DATA_DIR / "nghi_dinh_100.txt")]),
@@ -38,8 +39,7 @@ INPUTS = [
     ("168", [str(DATA_DIR / "nghi_dinh_168.txt")]),
 ]
 
-OUT_DIR = Path("cleaned_txt")
-OUT_DIR.mkdir(exist_ok=True)
+OUT_DIR = BASE_DIR / "data" / "structured"
 
 OUT_JSONL = OUT_DIR / "law_corpus.jsonl"
 OUT_AMEND_MAP = OUT_DIR / "amendment_map.json"
@@ -253,7 +253,13 @@ def make_citation_id(base: str, article: Optional[int], clause: Optional[str], p
         parts.append(f"K{clause}")
     if point is not None:
         parts.append(f"P{point.lower()}")
-    return "-".join(parts)
+    return canonical_citation_id("-".join(parts))
+
+
+def canonical_citation_id(citation_id: str) -> str:
+    """Normalize decree IDs with optional publication years to the corpus format."""
+    citation_id = re.sub(r"\s+", "", str(citation_id))
+    return re.sub(r"^(ND\d+)_\d{4}(?=-D)", r"\1", citation_id, flags=re.IGNORECASE)
 
 # =========================
 # Amendment extraction (scope-aware)
@@ -708,6 +714,8 @@ def parse_one(decree_id: str, file_list: List[str], amend_map: Dict[str, List[di
 # MAIN
 # =========================
 def main():
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+
     # 1) Extract amendment maps from all decrees (any decree can be an amender)
     amend_maps: List[Dict[str, List[dict]]] = []
     for did, files in INPUTS:
@@ -746,7 +754,7 @@ def main():
 
     print("Saved:", OUT_JSONL, "| chunks:", len(all_chunks))
     print("Saved:", OUT_AMEND_MAP, "| keys:", len(amend_map))
-    print("NOTE: amendment_map keys are citation_id of TARGET units (ND100_2019..., ND123_2021..., ND168_2024...)")
+    print("NOTE: amendment_map keys use canonical law_corpus citation IDs.")
 
 if __name__ == "__main__":
     main()

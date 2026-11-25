@@ -75,43 +75,14 @@ corpus://dataset-traffic-law#dieu-X-khoan-Y-diem-Z | NĐ 168/2024, Điều X Kho
 
 ---
 
-### 4. Lọc, đánh giá độ tin cậy & xuất dữ liệu
+### 4. Tái tạo dữ liệu P0
 
-#### Lọc vi phạm hợp lệ
+Chạy `make data` để lần lượt dựng law corpus, trích xuất vi phạm NĐ 168,
+xây knowledge graph và in thống kê. Chạy `make test` để kiểm tra tính toàn
+vẹn của citation, mức phạt, phương tiện và cạnh `BASED_ON`.
 
-- Phải có từ `phạt tiền`
-- `description` đủ dài (≥ 10 ký tự)
-- Không phải câu tham chiếu chéo
-
-#### Deduplication
-
-Bỏ bản ghi trùng theo `(điều, khoản, điểm, nội dung)`.
-
-#### Confidence label
-
-| Label | Điều kiện |
-|-------|-----------|
-| `high` | `fine_min > 0` + có action keyword + có điểm cụ thể |
-| `medium` | `fine_min > 0` |
-| `low` | Còn lại |
-
-#### Sắp xếp & xuất
-
-- Sắp xếp theo confidence (cao → thấp), sau đó theo `fine_min`
-- Xuất: **CSV + JSON** với 10 trường chuẩn hóa
-
----
-
-### Kết quả đầu ra — cấu trúc mỗi bản ghi
-
-| Trường | Nội dung |
-|--------|----------|
-| `violation_id` | V001, V002... |
-| `description_natural` | Mô tả vi phạm tự nhiên |
-| `normalized_violation` | Mô tả đã chuẩn hóa (≤ 180 ký tự) |
-| `vehicle_type` | ô tô / xe máy / xe đạp... |
-| `context_condition` | đường cao tốc / đèn tín hiệu... |
-| `fine_min` / `fine_max` | Mức phạt (đồng) |
-| `additional_sanctions` | Tước GPLX / tịch thu... |
-| `legal_basis` | Điều/khoản/điểm trong NĐ 168 |
-| `confidence_label` | high / medium / low |
+Mỗi bản ghi trong `data/structured/violations_168_clean.json` có
+`citation_id`, `description`, `description_full`, `vehicle_class`,
+`fine_min`/`fine_max`, mức phạt tổ chức (nếu có), `points_deducted`,
+`sanctions`, `consequence_accident`, `excludes` và nguyên văn `legal_text`.
+Các citation dùng chung định dạng chuẩn của `law_corpus.jsonl`.

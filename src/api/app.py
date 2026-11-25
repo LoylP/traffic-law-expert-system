@@ -14,6 +14,8 @@ sys.path.append(str(ROOT_DIR))
 from src.kg.hybrid_search import LegalRetriever
 from src.kg.llm_processor import GeminiQueryProcessor
 from src.db.history_store import QueryHistoryDB
+from src.extract.legal_corpus_builder import canonical_citation_id
+from src.extract.vehicle_mapping import detect_vehicle
 
 
 BASE_DIR = Path(__file__).resolve().parents[2]
@@ -35,9 +37,8 @@ def load_amendment_map(amendment_path: Path) -> Dict[str, Any]:
     with open(amendment_path, "r", encoding="utf-8") as f:
         amendment_map = json.load(f)
 
-    # normalize key: bỏ _2019 nếu có
     normalized_amendment_map = {
-        k.replace("_2019", ""): v for k, v in amendment_map.items()
+        canonical_citation_id(k): v for k, v in amendment_map.items()
     }
     return normalized_amendment_map
 
@@ -50,10 +51,13 @@ def enrich_result(result: Dict[str, Any], amendment_map: Dict[str, Any]) -> Dict
     node = dict(result.get("raw_node", {}))
 
     citation_id = node.get("citation_id")
-    amendments = amendment_map.get(citation_id, []) if citation_id else []
+    amendments = (
+        amendment_map.get(canonical_citation_id(citation_id), []) if citation_id else []
+    )
 
     node["amendments"] = amendments
     result["raw_node"] = node
+    result["vehicle_class"] = node.get("vehicle_class")
     return result
 
 
@@ -74,6 +78,7 @@ class SearchResponse(BaseModel):
     original_query: str
     processed_query: Optional[str] = None
     vehicle_type: Optional[str] = None
+    vehicle_class: Optional[str] = None
     expand_queries: Optional[List[str]] = None
     top_k: int
     results: Optional[List[Dict[str, Any]]] = None
@@ -180,6 +185,7 @@ def search_llm(payload: LLMSearchRequest):
         refined_data = llm_engine.rewrite(payload.query)
         refined_query = refined_data.get("rewritten_query", payload.query)
         vehicle_type = refined_data.get("vehicle_type")
+        vehicle_class = detect_vehicle(vehicle_type or "")
         expand_queries = refined_data.get("expand_query", [refined_query])
 
         # Search nhiều candidate để LLM chọn
@@ -227,6 +233,11 @@ def search_llm(payload: LLMSearchRequest):
             original_query=payload.query,
             processed_query=refined_query,
             vehicle_type=vehicle_type,
+            vehicle_class=(
+                best_result.get("raw_node", {}).get("vehicle_class")
+                if best_result
+                else vehicle_class
+            ),
             expand_queries=expand_queries,
             top_k=1 if best_result else 0,
             results=None,

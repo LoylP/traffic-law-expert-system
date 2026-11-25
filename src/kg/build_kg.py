@@ -3,10 +3,9 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
-from typing import Dict, List, Optional, Any
+from typing import Dict, List, Any
 
-import networkx as nx
-
+from src.extract.legal_corpus_builder import canonical_citation_id
 
 # =========================
 # PATH CONFIG
@@ -18,7 +17,7 @@ KG_DIR = DATA_DIR / "kg"
 KG_DIR.mkdir(parents=True, exist_ok=True)
 
 LAW_CORPUS_FILE = STRUCTURED_DIR / "law_corpus.jsonl"
-VIOLATIONS_FILE = STRUCTURED_DIR / "violations_300_update.json"
+VIOLATIONS_FILE = STRUCTURED_DIR / "violations_168_clean.json"
 
 OUT_NODES = KG_DIR / "kg_nodes.jsonl"
 OUT_EDGES = KG_DIR / "kg_edges.jsonl"
@@ -98,49 +97,6 @@ def dedup_edges(edges: List[dict]) -> List[dict]:
 
 
 # =========================
-# PARSE LEGAL BASIS
-# =========================
-def parse_legal_basis_to_citation_id(legal_basis: str) -> Optional[str]:
-    """
-    Parse:
-    - 'NĐ 168/2024/NĐ-CP, Điều 15 Khoản 1 Điểm g'
-    - 'NĐ 100/2019/NĐ-CP, Điều 5 Khoản 3'
-    - 'corpus://... | NĐ 168/2024/NĐ-CP, Điều 15 Khoản 1 Điểm g'
-    -> ND168_2024-D15-K1-Pg
-    """
-    if not legal_basis:
-        return None
-
-    basis = legal_basis.strip()
-    if "|" in basis:
-        basis = basis.split("|")[-1].strip()
-
-    basis = re.sub(r"\s+", " ", basis)
-
-    pattern = re.compile(
-        r"(?:NĐ|Nghị định)\s+(\d+)/(\d+)/NĐ-CP,\s*"
-        r"Điều\s+(\d+)"
-        r"(?:\s+Khoản\s+([0-9a-zA-Z]+))?"
-        r"(?:\s+Điểm\s+([a-zđA-ZĐ]))?",
-        re.IGNORECASE
-    )
-
-    m = pattern.search(basis)
-    if not m:
-        return None
-
-    decree_num, year, article, clause, point = m.groups()
-
-    citation_id = f"ND{decree_num}_{year}-D{article}"
-    if clause:
-        citation_id += f"-K{str(clause).lower()}"
-    if point:
-        citation_id += f"-P{str(point).lower()}"
-
-    return citation_id
-
-
-# =========================
 # BUILD KG
 # =========================
 def build_kg(
@@ -155,13 +111,11 @@ def build_kg(
     nodes: Dict[str, dict] = {}
     edges: List[dict] = []
 
-    add_node(nodes, "UNKNOWN_LEGAL_UNIT", "Unknown", name="Unknown legal unit")
-
     # =========================
     # 1) LEGAL NODES
     # =========================
     for row in law_units:
-        citation_id = row["citation_id"]
+        citation_id = canonical_citation_id(row["citation_id"])
         decree_id = str(row.get("decree_id", "")).strip()
         decree_no = row.get("decree_no", "")
         chapter_no = row.get("chapter_no")
@@ -278,94 +232,130 @@ def build_kg(
                     add_edge(edges, amend_event_id, "RECORDED_IN_DECREE", f"DECREE_{amd_id}")
 
     # =========================
-    # 2) VIOLATION NODES
+    # 2) VEHICLE CLASSES
     # =========================
-    resolved_count = 0
-    unresolved_count = 0
-    unparsed_count = 0
+    vehicle_classes = {
+        "VEH_ANY": ("Bất kỳ phương tiện nào", None),
+        "VEH_MOTOR": ("Phương tiện cơ giới", "VEH_ANY"),
+        "VEH_CAR": ("Ô tô", "VEH_MOTOR"),
+        "VEH_MOTORBIKE": ("Mô tô, xe gắn máy", "VEH_MOTOR"),
+        "VEH_SPECIAL": ("Xe máy chuyên dùng", "VEH_ANY"),
+        "VEH_BICYCLE_RUDIMENTARY": ("Xe đạp, xe thô sơ", "VEH_ANY"),
+        "VEH_PEDESTRIAN": ("Người đi bộ", "VEH_ANY"),
+    }
+    for vehicle_id, (label, parent) in vehicle_classes.items():
+        add_node(nodes, vehicle_id, "VehicleClass", label=label, parent=parent)
+        if parent:
+            add_edge(edges, vehicle_id, "SUBCLASS_OF", parent)
 
+    # =========================
+    # 3) VIOLATION NODES
+    # =========================
+    law_ids = {
+        node["citation_id"]: node_id
+        for node_id, node in nodes.items()
+        if node.get("type") == "LegalUnit"
+    }
+    violations_by_citation: Dict[str, List[str]] = {}
+    unresolved: List[str] = []
     for item in violations:
         violation_id = str(item.get("violation_id", "")).strip()
-        if not violation_id:
+        citation_id = canonical_citation_id(item.get("citation_id", ""))
+        if not violation_id or not citation_id:
+            unresolved.append(f"{violation_id or '<missing id>'}: citation_id rỗng")
             continue
 
         violation_node_id = f"VIOLATION_{violation_id}"
+        description = normalize_text(item.get("description", ""))
+        vehicle_class = item.get("vehicle_class", "VEH_ANY")
+        vehicle = nodes.get(vehicle_class)
+        if vehicle is None or vehicle.get("type") != "VehicleClass":
+            unresolved.append(f"{violation_id}: vehicle_class không hợp lệ ({vehicle_class})")
+            continue
+        legal_unit_id = law_ids.get(citation_id)
+        if legal_unit_id is None:
+            unresolved.append(f"{violation_id}: không tìm thấy LegalUnit {citation_id}")
+            continue
 
-        description_natural = item.get("description_natural", "")
-        normalized_violation = item.get("normalized_violation", "")
-        vehicle_type = item.get("vehicle_type", "khác")
-        context_condition = item.get("context_condition", "")
-        fine_min = item.get("fine_min")
-        fine_max = item.get("fine_max")
-        additional_sanctions = item.get("additional_sanctions", "")
-        legal_basis = item.get("legal_basis", "")
-        confidence_label = item.get("confidence_label", "")
-
+        legal_basis = (
+            f"{item.get('source', '')}, Điều {item.get('article')} "
+            f"Khoản {item.get('clause')}"
+            + (f" Điểm {item['point']}" if item.get("point") else "")
+        )
+        sanctions = item.get("sanctions", [])
         add_node(
             nodes,
             violation_node_id,
             "Violation",
             violation_id=violation_id,
-            description_natural=description_natural,
-            normalized_violation=normalized_violation,
-            vehicle_type=vehicle_type,
-            context_condition=context_condition,
-            fine_min=fine_min,
-            fine_max=fine_max,
-            additional_sanctions=additional_sanctions,
+            citation_id=citation_id,
+            article=item.get("article"),
+            clause=item.get("clause"),
+            point=item.get("point"),
+            description=description,
+            description_full=normalize_text(item.get("description_full", "")),
+            vehicle_class=vehicle_class,
+            fine_min=item.get("fine_min"),
+            fine_max=item.get("fine_max"),
+            fine_org_min=item.get("fine_org_min"),
+            fine_org_max=item.get("fine_org_max"),
+            points_deducted=item.get("points_deducted", 0),
+            sanctions=sanctions,
+            consequence_accident=item.get("consequence_accident", False),
+            refers_to=item.get("refers_to", []),
+            excludes=item.get("excludes", []),
+            legal_text=item.get("legal_text", ""),
+            source=item.get("source", ""),
+            description_natural=description,
+            normalized_violation=description,
+            vehicle_type=vehicle.get("label", vehicle_class),
+            context_condition="",
+            additional_sanctions=sanctions,
             legal_basis=legal_basis,
-            confidence_label=confidence_label,
+            confidence_label="",
         )
+        add_edge(edges, violation_node_id, "BASED_ON", legal_unit_id)
+        add_edge(edges, violation_node_id, "APPLIES_TO", vehicle_class)
+        violations_by_citation.setdefault(citation_id, []).append(violation_node_id)
 
-        vehicle_node_id = f"VEHICLE_{slugify(vehicle_type)}"
-        add_node(nodes, vehicle_node_id, "VehicleType", name=vehicle_type)
-        add_edge(edges, violation_node_id, "APPLIES_TO", vehicle_node_id)
-
-        legal_unit_id = parse_legal_basis_to_citation_id(legal_basis)
-
-        if legal_unit_id and legal_unit_id in nodes:
-            add_edge(
-                edges,
-                violation_node_id,
-                "BASED_ON",
-                legal_unit_id,
-                legal_basis=legal_basis
+        for sanction in sanctions:
+            sanction_type = str(sanction.get("type", ""))
+            sanction_id = "SANCTION_" + slugify(
+                f"{sanction_type}_{sanction.get('duration_min', '')}_{sanction.get('duration_max', '')}"
             )
-            resolved_count += 1
-        elif legal_unit_id:
-            add_edge(
-                edges,
-                violation_node_id,
-                "BASED_ON_UNRESOLVED",
-                legal_unit_id,
-                legal_basis=legal_basis
+            add_node(
+                nodes,
+                sanction_id,
+                "AdditionalSanction",
+                sanction_type=sanction_type,
+                type_name=sanction_type,
+                duration_min=sanction.get("duration_min"),
+                duration_max=sanction.get("duration_max"),
             )
-            unresolved_count += 1
-        else:
-            add_edge(
-                edges,
-                violation_node_id,
-                "BASED_ON_UNPARSED",
-                "UNKNOWN_LEGAL_UNIT",
-                legal_basis=legal_basis
-            )
-            unparsed_count += 1
+            add_edge(edges, violation_node_id, "HAS_SANCTION", sanction_id)
 
-    # =========================
-    # 3) NETWORKX
-    # =========================
-    G = nx.MultiDiGraph()
+    for item in violations:
+        violation_node_id = f"VIOLATION_{item.get('violation_id', '')}"
+        if violation_node_id not in nodes:
+            continue
+        for excluded_id in item.get("excludes", []):
+            target_citation = canonical_citation_id(excluded_id)
+            for target in violations_by_citation.get(target_citation, []):
+                add_edge(edges, violation_node_id, "EXCLUDES", target)
 
-    for node_id, node_data in nodes.items():
-        G.add_node(node_id, **node_data)
+    if unresolved:
+        print("Không resolve được các violation:")
+        for failure in unresolved:
+            print(f"- {failure}")
+        raise SystemExit(1)
+
+    resolved_count = len(violations)
+    if resolved_count != len(
+        [edge for edge in edges if edge["relation"] == "BASED_ON"]
+    ):
+        raise AssertionError("Số cạnh BASED_ON không bằng số violation")
 
     edges = dedup_edges(edges)
-    for idx, e in enumerate(edges):
-        source = e["source"]
-        relation = e["relation"]
-        target = e["target"]
-        attrs = {k: v for k, v in e.items() if k not in {"source", "relation", "target"}}
-        G.add_edge(source, target, key=f"{relation}_{idx}", relation=relation, **attrs)
 
     # =========================
     # 4) EXPORT
@@ -379,9 +369,8 @@ def build_kg(
     print(f"Saved nodes: {out_nodes_path} | count = {len(node_rows)}")
     print(f"Saved edges: {out_edges_path} | count = {len(edge_rows)}")
     print(f"Resolved legal basis: {resolved_count}")
-    print(f"Unresolved legal basis: {unresolved_count}")
-    print(f"Unparsed legal basis: {unparsed_count}")
-    print(f"NetworkX graph: {G.number_of_nodes()} nodes | {G.number_of_edges()} edges")
+    print("Unresolved legal basis: 0")
+    print(f"BASED_ON edges: {resolved_count}")
 
 
 if __name__ == "__main__":

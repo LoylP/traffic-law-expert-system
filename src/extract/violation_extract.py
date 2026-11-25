@@ -1,302 +1,391 @@
-import os
-import re
+from __future__ import annotations
+
 import json
+import re
+from collections import Counter
+from pathlib import Path
+from typing import Any
 
-dir_input = "data/processed/"
-dir_output = "data/structured/"
-FILE_PATH = "nghi_dinh_168.txt"
+from src.extract.legal_corpus_builder import canonical_citation_id, make_citation_id
+from src.extract.vehicle_mapping import ARTICLE_TO_VEHICLE_168, vehicle_for_article
 
-DECREE = "NĐ 168/2024/NĐ-CP"
+BASE_DIR = Path(__file__).resolve().parents[2]
+PROCESSED_FILE = BASE_DIR / "data/processed/nghi_dinh_168.txt"
+LAW_CORPUS_FILE = BASE_DIR / "data/structured/law_corpus.jsonl"
+OUTPUT_FILE = BASE_DIR / "data/structured/violations_168_clean.json"
+REPORT_FILE = BASE_DIR / "data/structured/extract_report.md"
+LEGACY_FILE = Path("/tmp/legacy_violations.json")
+SOURCE = "NĐ 168/2024/NĐ-CP"
 
-vehicle_keywords = [
-    "xe ô tô",
-    "xe mô tô",
-    "xe gắn máy",
-    "xe thô sơ",
-    "xe đạp",
-    "xe đạp máy",
-    "xe cơ giới",
-    "máy kéo",
-    "xe máy chuyên dùng",
-    "xe vệ sinh môi trường",
-    "xe cứu hộ",
-    "xe cứu thương",
-    "đi bộ",
-    "dẫn dắt vật nuôi"
-]
-
-
-# =====================================================
-# Money
-# =====================================================
-
-def normalize_money(v):
-    return int(v.replace(".", ""))
+ARTICLE_RE = re.compile(r"^\s*Điều\s+(\d+)\.?\s*(.*)$", re.IGNORECASE)
+CLAUSE_RE = re.compile(r"^\s*(\d+)\.\s*(.*)$")
+POINT_RE = re.compile(r"^\s*([a-zđ])\)\s*(.*)$", re.IGNORECASE)
+MONEY_RANGE_RE = re.compile(
+    r"từ\s+([\d.]+)\s*đồng\s+đến\s+([\d.]+)\s*đồng", re.IGNORECASE
+)
+POINT_REF_RE = re.compile(
+    r"điểm\s+([a-zđ](?:\s*(?:,|;|và|hoặc)\s*(?:điểm\s+)?[a-zđ])*)\s+"
+    r"khoản\s+(\d+)(?:\s+Điều\s+(\d+))?",
+    re.IGNORECASE,
+)
+CLAUSE_REF_RE = re.compile(r"khoản\s+(\d+)(?:\s+Điều\s+(\d+))?", re.IGNORECASE)
 
 
-def extract_fine(text):
-
-    m = re.search(r"từ\s+([\d\.]+)\s+đồng\s+đến\s+([\d\.]+)\s+đồng", text)
-
-    if m:
-        return normalize_money(m.group(1)), normalize_money(m.group(2))
-
-    return None, None
+def extract_chapter_2(text: str) -> str:
+    start = re.search(r"(?mi)^\s*Chương\s+II\b", text)
+    if start is None:
+        raise ValueError(f"Không tìm thấy Chương II trong {PROCESSED_FILE}")
+    end = re.search(r"(?mi)^\s*Chương\s+III\b", text[start.end() :])
+    return text[start.start() : start.end() + end.start()] if end else text[start.start() :]
 
 
-# =====================================================
-# Vehicle extract
-# =====================================================
+def parse_structure(lines: list[str]) -> dict[int, dict[str, Any]]:
+    tree: dict[int, dict[str, Any]] = {}
+    article: dict[str, Any] | None = None
+    clause: dict[str, Any] | None = None
+    point: dict[str, str] | None = None
 
-def extract_vehicle_from_dieu(text):
+    def append_text(target: dict[str, Any], value: str) -> None:
+        target["text"] = f"{target['text']} {value}".strip()
 
-    text = text.lower()
-
-    for v in vehicle_keywords:
-        if v in text:
-            return v
-
-    return "khác"
-
-
-def extract_vehicle_from_khoan(text):
-
-    text = text.lower()
-
-    m = re.search(r"đối với người\s+(.+?)\s+thực hiện", text)
-
-    if m:
-
-        candidate = m.group(1).strip()
-
-        for v in vehicle_keywords:
-            if v in candidate:
-                return v
-
-    return "khác"
-
-
-# =====================================================
-# Clean description
-# =====================================================
-
-def remove_point_prefix(text):
-    return re.sub(r"^[a-zđ]\)\s*", "", text)
-
-
-def remove_khoan_prefix(text):
-    return re.sub(r"^\d+\.\s*", "", text)
-
-
-def clean_description(text):
-
-    text = remove_point_prefix(text)
-
-    text = remove_khoan_prefix(text)
-
-    text = re.sub(r"trừ.+", "", text)
-
-    text = text.strip()
-
-    text = text.rstrip(",;.")
-
-    return text
-
-
-# =====================================================
-# Extract Chapter II
-# =====================================================
-
-def extract_chapter_2(text):
-
-    start = text.find("Chương II")
-
-    end = text.find("Chương III")
-
-    if start == -1:
-        raise Exception("Không tìm thấy Chương II")
-
-    if end == -1:
-        return text[start:]
-
-    return text[start:end]
-
-
-# =====================================================
-# Parse structure
-# =====================================================
-
-def parse_structure(lines):
-
-    data = {}
-
-    current_dieu = None
-    current_khoan = None
-
-    for line in lines:
-
-        line = line.strip()
-
-        if not line:
+    for raw_line in lines:
+        line = raw_line.strip()
+        if not line or re.match(r"^Mục\s+\d+\b", line, re.IGNORECASE):
             continue
 
-        # =========================
-        # Điều
-        # =========================
-
-        dieu_match = re.match(r"Điều\s+(\d+)", line)
-
-        if dieu_match:
-
-            current_dieu = dieu_match.group(1)
-
-            vehicle = extract_vehicle_from_dieu(line)
-
-            data[current_dieu] = {
-                "vehicle": vehicle,
-                "khoan": {}
-            }
-
+        article_match = ARTICLE_RE.match(line)
+        if article_match:
+            article_no = int(article_match.group(1))
+            article = {"title": article_match.group(2).strip(), "clauses": {}}
+            tree[article_no] = article
+            clause = None
+            point = None
             continue
 
-        # =========================
-        # Khoản
-        # =========================
-
-        khoan_match = re.match(r"(\d+)\.", line)
-
-        if khoan_match and current_dieu:
-
-            current_khoan = khoan_match.group(1)
-
-            vehicle = extract_vehicle_from_khoan(line)
-
-            if vehicle == "khác":
-                vehicle = data[current_dieu]["vehicle"]
-
-            data[current_dieu]["khoan"][current_khoan] = {
-                "text": line,
-                "vehicle": vehicle,
-                "points": {}
-            }
-
+        if article is None:
             continue
 
-        # =========================
-        # Điểm
-        # =========================
+        clause_match = CLAUSE_RE.match(line)
+        if clause_match:
+            clause_no = clause_match.group(1)
+            clause = {"text": clause_match.group(2).strip(), "points": {}}
+            article["clauses"][clause_no] = clause
+            point = None
+            continue
 
-        point_match = re.match(r"([a-zđ])\)", line)
+        point_match = POINT_RE.match(line)
+        if point_match and clause is not None:
+            point_letter = point_match.group(1).lower()
+            point = {"text": point_match.group(2).strip()}
+            clause["points"][point_letter] = point
+            continue
 
-        if point_match and current_dieu and current_khoan:
+        if point is not None:
+            append_text(point, line)
+        elif clause is not None:
+            append_text(clause, line)
 
-            p = point_match.group(1)
-
-            vehicle = data[current_dieu]["khoan"][current_khoan]["vehicle"]
-
-            data[current_dieu]["khoan"][current_khoan]["points"][p] = {
-                "text": line,
-                "vehicle": vehicle
-            }
-
-    return data
+    return tree
 
 
-# =====================================================
-# Build JSON
-# =====================================================
+def _money_value(value: str) -> int:
+    return int(value.replace(".", ""))
 
-def build_json(tree):
 
-    results = []
+def extract_fines(text: str) -> tuple[int | None, int | None, int | None, int | None]:
+    matches = list(MONEY_RANGE_RE.finditer(text))
+    if not matches:
+        return None, None, None, None
 
-    vid = 1
+    org_match = None
+    personal_match = matches[0]
+    if len(matches) > 1 and re.search(
+        r"đối với cá nhân.{0,180}đối với tổ chức", text, re.IGNORECASE
+    ):
+        personal_match, org_match = matches[0], matches[1]
 
-    for dieu in tree:
+    fine_min, fine_max = (
+        _money_value(personal_match.group(1)),
+        _money_value(personal_match.group(2)),
+    )
+    if org_match:
+        org_min, org_max = _money_value(org_match.group(1)), _money_value(org_match.group(2))
+        return fine_min, fine_max, org_min, org_max
+    return fine_min, fine_max, None, None
 
-        for khoan in tree[dieu]["khoan"]:
 
-            kdata = tree[dieu]["khoan"][khoan]
+def _citation(article: int, clause: str, point: str | None = None) -> str:
+    return canonical_citation_id(make_citation_id("ND168", article, clause, point))
 
-            fine_min, fine_max = extract_fine(kdata["text"])
 
-            vehicle = kdata["vehicle"]
+def _references(text: str, law_ids: set[str], default_article: int) -> list[str]:
+    references: list[str] = []
+    covered: list[tuple[int, int]] = []
+    for match in POINT_REF_RE.finditer(text):
+        article = int(match.group(3) or default_article)
+        clause = match.group(2)
+        covered.append(match.span())
+        letters = re.findall(r"(?:điểm\s+)?([a-zđ])", match.group(1), re.IGNORECASE)
+        for letter in letters:
+            cid = _citation(article, clause, letter.lower())
+            if cid in law_ids:
+                references.append(cid)
 
-            if kdata["points"]:
+    for match in CLAUSE_REF_RE.finditer(text):
+        if any(start <= match.start() < end for start, end in covered):
+            continue
+        article = int(match.group(2) or default_article)
+        cid = _citation(article, match.group(1))
+        if cid in law_ids:
+            references.append(cid)
+    return list(dict.fromkeys(references))
 
-                for p in kdata["points"]:
 
-                    pdata = kdata["points"][p]
+def _text_for_unit(unit: dict[str, Any]) -> str:
+    return str(unit.get("text", ""))
 
-                    text = pdata["text"]
 
-                    desc = clean_description(text)
+def _parse_legacy_citation(record: dict[str, Any]) -> str | None:
+    basis = str(record.get("legal_basis", ""))
+    match = re.search(
+        r"Điều\s+(\d+)\s+Khoản\s+(\d+)(?:\s+Điểm\s+([a-zđ]))?",
+        basis,
+        re.IGNORECASE,
+    )
+    if not match:
+        return None
+    article, clause, point = match.groups()
+    return _citation(int(article), clause, point.lower() if point else None)
 
-                    record = {
-                        "violation_id": f"V{vid:04d}",
-                        "description_natural": desc,
-                        "normalized_violation": desc,
-                        "vehicle_type": vehicle,
-                        "context_condition": "",
-                        "fine_min": fine_min,
-                        "fine_max": fine_max,
-                        "additional_sanctions": "",
-                        "legal_basis": f"{DECREE}, Điều {dieu} Khoản {khoan} Điểm {p}",
-                        "confidence_label": ""
+
+def _sanctions_for_clause(text: str) -> list[dict[str, Any]]:
+    sanctions: list[dict[str, Any]] = []
+    lowered = text.lower()
+    if "tước quyền sử dụng giấy phép lái xe" in lowered or "tước giấy phép lái xe" in lowered:
+        months = [
+            int(value)
+            for value in re.findall(r"(\d+)\s*tháng", lowered)
+        ]
+        sanction: dict[str, Any] = {"type": "revoke_license"}
+        if months:
+            sanction["duration_min"] = min(months)
+            sanction["duration_max"] = max(months)
+        sanctions.append(sanction)
+    if "tịch thu" in lowered:
+        sanctions.append({"type": "confiscate"})
+    if "biện pháp khắc phục hậu quả" in lowered or re.search(r"\bbuộc\b", lowered):
+        sanctions.append({"type": "remedy"})
+    return sanctions
+
+
+def build_violations(
+    tree: dict[int, dict[str, Any]], law_rows: list[dict[str, Any]]
+) -> tuple[list[dict[str, Any]], list[str], dict[int, str]]:
+    law_by_id = {canonical_citation_id(row["citation_id"]): row for row in law_rows}
+    law_ids = set(law_by_id)
+    article_vehicles: dict[int, str] = {}
+    rows: list[dict[str, Any]] = []
+    unparsed: list[str] = []
+
+    for article_no, article_data in sorted(tree.items()):
+        article_vehicles[article_no] = vehicle_for_article(article_no, article_data["title"])
+        for clause_no, clause_data in article_data["clauses"].items():
+            clause_text = clause_data["text"]
+            if "phạt tiền" not in clause_text.lower():
+                continue
+            fines = extract_fines(clause_text)
+            if fines[0] is None or fines[1] is None or fines[0] <= 0 or fines[1] <= 0:
+                if "ngoài việc bị phạt tiền" not in clause_text.lower():
+                    unparsed.append(
+                        f"Điều {article_no} khoản {clause_no}: không trích được khung phạt ({clause_text[:180]})"
+                    )
+                continue
+            point_items = clause_data["points"]
+            candidates = point_items.items() if point_items else [(None, None)]
+            for point_letter, point_data in candidates:
+                point_text = point_data["text"] if point_data else None
+                citation_id = _citation(article_no, clause_no, point_letter)
+                if citation_id not in law_by_id:
+                    raise AssertionError(f"Citation không có trong law_corpus: {citation_id}")
+                unit = law_by_id[citation_id]
+                description = re.sub(r"^[a-zđ]\)\s*", "", point_text or clause_text, flags=re.I).strip()
+                description_full = " ".join(
+                    value for value in (clause_text, description) if value
+                )
+                specific_text = f"{clause_text} {point_text or ''}".strip()
+                accident = bool(
+                    re.search(r"gây\s+tai\s+nạn\s+giao\s+thông", specific_text, re.IGNORECASE)
+                )
+                refers_to = _references(specific_text, law_ids, article_no) if accident else []
+                excludes = _references(specific_text, law_ids, article_no) if "trừ các hành vi" in specific_text.lower() else []
+                vehicle = article_vehicles[article_no]
+                if article_no not in ARTICLE_TO_VEHICLE_168:
+                    detected_vehicle = vehicle_for_article(-1, specific_text)
+                    if detected_vehicle != "VEH_ANY" and detected_vehicle != vehicle:
+                        vehicle = detected_vehicle
+
+                rows.append(
+                    {
+                        "violation_id": f"V{len(rows) + 1:04d}",
+                        "citation_id": citation_id,
+                        "article": article_no,
+                        "clause": str(clause_no),
+                        "point": point_letter,
+                        "description": description,
+                        "description_full": description_full,
+                        "vehicle_class": vehicle,
+                        "fine_min": fines[0],
+                        "fine_max": fines[1],
+                        "fine_org_min": fines[2],
+                        "fine_org_max": fines[3],
+                        "points_deducted": 0,
+                        "sanctions": [],
+                        "consequence_accident": accident,
+                        "refers_to": refers_to,
+                        "excludes": excludes,
+                        "legal_text": _text_for_unit(unit),
+                        "source": SOURCE,
                     }
+                )
 
-                    results.append(record)
+    for article_no, article_data in tree.items():
+        for clause_no, clause_data in article_data["clauses"].items():
+            source_texts = [clause_data["text"]]
+            source_texts.extend(
+                point_data["text"] for point_data in clause_data["points"].values()
+            )
+            for text in source_texts:
+                targets = _references(text, law_ids, article_no)
+                if not targets:
+                    targets = [_citation(article_no, clause_no)]
+                target_rows = [
+                    row
+                    for target in targets
+                    for row in rows
+                    if row["citation_id"] == target
+                    or target == _citation(row["article"], row["clause"])
+                ]
 
-                    vid += 1
+                points_match = re.search(
+                    r"(?:trừ\s+điểm\s+giấy\s+phép\s+lái\s+xe\s+(\d+)\s+điểm|"
+                    r"trừ\s+(\d+)\s+điểm\s+giấy\s+phép\s+lái\s+xe)",
+                    text,
+                    re.IGNORECASE,
+                )
+                if points_match:
+                    points = int(next(value for value in points_match.groups() if value))
+                    for row in target_rows:
+                        row["points_deducted"] = points
 
-            else:
+                sanctions = _sanctions_for_clause(text)
+                for row in target_rows:
+                    for sanction in sanctions:
+                        if sanction not in row["sanctions"]:
+                            row["sanctions"].append(sanction)
 
-                desc = clean_description(kdata["text"])
-
-                record = {
-                    "violation_id": f"V{vid:04d}",
-                    "description_natural": desc,
-                    "normalized_violation": desc,
-                    "vehicle_type": vehicle,
-                    "context_condition": "",
-                    "fine_min": fine_min,
-                    "fine_max": fine_max,
-                    "additional_sanctions": "",
-                    "legal_basis": f"{DECREE}, Điều {dieu} Khoản {khoan}",
-                    "confidence_label": ""
-                }
-
-                results.append(record)
-
-                vid += 1
-
-    return results
+    return rows, unparsed, article_vehicles
 
 
-# =====================================================
-# MAIN
-# =====================================================
+def _comparison_report(rows: list[dict[str, Any]]) -> list[str]:
+    if not LEGACY_FILE.exists():
+        return ["Không có `/tmp/legacy_violations.json`; bỏ qua đối chiếu dữ liệu cũ."]
 
-def main():
+    with LEGACY_FILE.open(encoding="utf-8") as file:
+        legacy = json.load(file)
+    new_by_citation = {row["citation_id"]: row for row in rows}
+    old_by_citation: dict[str, dict[str, Any]] = {}
+    for record in legacy:
+        citation_id = _parse_legacy_citation(record)
+        if citation_id:
+            old_by_citation[citation_id] = record
 
-    os.makedirs(dir_output, exist_ok=True)
+    overlap = set(new_by_citation) & set(old_by_citation)
+    only_new = set(new_by_citation) - set(old_by_citation)
+    only_old = set(old_by_citation) - set(new_by_citation)
+    lines = [
+        f"- Trùng citation_id: {len(overlap)}",
+        f"- Chỉ có ở bản mới: {len(only_new)}",
+        f"- Chỉ có ở bản cũ: {len(only_old)}",
+        "- 20 cặp mức phạt lệch nhau tối đa:",
+    ]
+    differences = []
+    for citation_id in sorted(overlap):
+        current, previous = new_by_citation[citation_id], old_by_citation[citation_id]
+        old_fine = (previous.get("fine_min"), previous.get("fine_max"))
+        new_fine = (current.get("fine_min"), current.get("fine_max"))
+        if old_fine != new_fine:
+            differences.append(f"  - `{citation_id}`: cũ {old_fine}, mới {new_fine}")
+    lines.extend(differences[:20] or ["  - Không có mức phạt lệch nhau."])
+    return lines
 
-    with open(os.path.join(dir_input, FILE_PATH), "r", encoding="utf-8") as f:
-        text = f.read()
 
-    chap2 = extract_chapter_2(text)
+def write_report(
+    rows: list[dict[str, Any]],
+    unparsed: list[str],
+    article_vehicles: dict[int, str],
+) -> None:
+    by_article = Counter(row["article"] for row in rows)
+    by_vehicle = Counter(row["vehicle_class"] for row in rows)
+    with_points = sum(row["points_deducted"] > 0 for row in rows)
+    with_sanctions = sum(bool(row["sanctions"]) for row in rows)
+    with_excludes = sum(bool(row["excludes"]) for row in rows)
+    lines = [
+        "# Báo cáo trích xuất vi phạm NĐ 168",
+        "",
+        f"- Tổng số vi phạm: {len(rows)}",
+        f"- Có trừ điểm GPLX: {with_points}",
+        f"- Có chế tài bổ sung/khắc phục: {with_sanctions}",
+        f"- Có loại trừ: {with_excludes}",
+        "",
+        "## Số vi phạm theo Điều và vehicle_class",
+        "",
+        "| Điều | Vehicle class | Số vi phạm |",
+        "|---:|---|---:|",
+    ]
+    for article_no, vehicle in sorted(article_vehicles.items()):
+        lines.append(f"| {article_no} | {vehicle} | {by_article[article_no]} |")
+    lines.extend(
+        [
+            "",
+            "## Tổng theo vehicle_class",
+            "",
+            *[f"- {vehicle}: {count}" for vehicle, count in sorted(by_vehicle.items())],
+            "",
+            "## Khoản không parse được mức phạt",
+            "",
+            *([f"- {item}" for item in unparsed] or ["- Không có."]),
+            "",
+            "## Đối chiếu bản legacy",
+            "",
+            *_comparison_report(rows),
+            "",
+        ]
+    )
+    REPORT_FILE.write_text("\n".join(lines), encoding="utf-8")
 
-    lines = chap2.split("\n")
 
-    tree = parse_structure(lines)
+def main() -> None:
+    text = PROCESSED_FILE.read_text(encoding="utf-8")
+    tree = parse_structure(extract_chapter_2(text).splitlines())
+    with LAW_CORPUS_FILE.open(encoding="utf-8") as file:
+        law_rows = [json.loads(line) for line in file if line.strip()]
 
-    results = build_json(tree)
+    violations, unparsed, article_vehicles = build_violations(tree, law_rows)
+    known_ids = {canonical_citation_id(row["citation_id"]) for row in law_rows}
+    missing = [row["citation_id"] for row in violations if row["citation_id"] not in known_ids]
+    if missing:
+        raise AssertionError(f"Citation không tồn tại trong law_corpus: {missing[:20]}")
 
-    with open(os.path.join(dir_output, "violations_168.json"), "w", encoding="utf-8") as f:
+    OUTPUT_FILE.write_text(
+        json.dumps(violations, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    write_report(violations, unparsed, article_vehicles)
 
-        json.dump(results, f, ensure_ascii=False, indent=2)
-
-    print(f"Extracted {len(results)} violations")
+    for article_no, vehicle in sorted(article_vehicles.items()):
+        print(f"Điều {article_no}: {vehicle}")
+    print(f"Đã trích xuất {len(violations)} vi phạm -> {OUTPUT_FILE}")
+    print(f"Báo cáo: {REPORT_FILE}")
 
 
 if __name__ == "__main__":

@@ -7,6 +7,7 @@ from rank_bm25 import BM25Okapi
 from sentence_transformers import SentenceTransformer
 from sklearn.preprocessing import minmax_scale
 from underthesea import word_tokenize
+from src.extract.vehicle_mapping import detect_vehicle
 
 class LegalRetriever:
     def __init__(self, nodes_path, cache_dir, model_name="intfloat/multilingual-e5-large"):
@@ -36,14 +37,24 @@ class LegalRetriever:
             for line in f:
                 node = json.loads(line)
                 if node.get("type") == "Violation":
-                    # Tập trung vào description_natural và vehicle_type
-                    text_search = f"{node.get('vehicle_type', '')} {node.get('description_natural', '')}"
+                    description = node.get("description") or node.get("description_natural", "")
+                    vehicle = " ".join(
+                        value
+                        for value in (
+                            node.get("vehicle_class", ""),
+                            node.get("vehicle_type", ""),
+                        )
+                        if value
+                    )
+                    text_search = f"{vehicle} {description}"
                     violation_rows.append({
                         "violation_id": str(node.get("violation_id")),
                         "text": text_search,
                         "raw_node": node
                     })
-        return pd.DataFrame(violation_rows).drop_duplicates(subset=["violation_id"])
+        return pd.DataFrame(violation_rows).drop_duplicates(
+            subset=["violation_id"]
+        ).reset_index(drop=True)
 
     def _prepare_indices(self):
         # BM25 Index
@@ -72,13 +83,28 @@ class LegalRetriever:
         q_emb = self.model.encode([f"query: {query}"], normalize_embeddings=True)[0]
         emb_scores_all = np.dot(self.doc_embeddings, q_emb)
 
-        # Filter by vehicle_type if provided
+        # Accept the legacy free-text vehicle argument and the ontology ID.
         if vehicle_type:
-            indices = [i for i, row in self.df_corpus.iterrows() 
-                      if row['raw_node'].get('vehicle_type', '').lower() == vehicle_type.lower()]
+            requested_class = vehicle_type if vehicle_type.startswith("VEH_") else detect_vehicle(vehicle_type)
+            if requested_class:
+                indices = [
+                    i
+                    for i, row in self.df_corpus.iterrows()
+                    if row["raw_node"].get("vehicle_class") == requested_class
+                ]
+            else:
+                indices = [
+                    i
+                    for i, row in self.df_corpus.iterrows()
+                    if str(row["raw_node"].get("vehicle_type", "")).lower()
+                    == vehicle_type.lower()
+                ]
         else:
             indices = list(range(len(self.df_corpus)))
-        
+
+        if not indices:
+            return []
+
         bm25_scores = bm25_scores_all[indices]
         emb_scores = emb_scores_all[indices]
 
