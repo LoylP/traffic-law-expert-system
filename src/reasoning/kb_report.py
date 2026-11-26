@@ -87,6 +87,7 @@ def generate_report():
     rule_files = {
         "derive.yaml": "Derive",
         "classify_core.yaml": "Classify Core",
+        "classify_auto.yaml": "Classify Auto",
         "escalate.yaml": "Escalate",
         "ask.yaml": "Ask",
         "temporal.yaml": "Temporal",
@@ -111,8 +112,8 @@ def generate_report():
             total_verified += verified
             total_unverified += unverified
             
-            # Collect for CSV
-            for rule in rules:
+            # Collect for CSV (machine-generated rules need no manual review)
+            for rule in [] if filename == "classify_auto.yaml" else rules:
                 all_rules.append({
                     "rule_id": rule["id"],
                     "type": rule.get("type", ""),

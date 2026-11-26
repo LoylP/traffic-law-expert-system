@@ -5,6 +5,8 @@ import re
 from pathlib import Path
 from typing import Dict, List, Any
 
+import yaml
+
 from src.extract.legal_corpus_builder import canonical_citation_id
 
 # =========================
@@ -14,6 +16,7 @@ BASE_DIR = Path(__file__).resolve().parents[2]
 DATA_DIR = BASE_DIR / "data"
 STRUCTURED_DIR = DATA_DIR / "structured"
 KG_DIR = DATA_DIR / "kg"
+KNOWLEDGE_DIR = DATA_DIR / "knowledge"
 KG_DIR.mkdir(parents=True, exist_ok=True)
 
 LAW_CORPUS_FILE = STRUCTURED_DIR / "law_corpus.jsonl"
@@ -97,6 +100,109 @@ def dedup_edges(edges: List[dict]) -> List[dict]:
 
 
 # =========================
+# KNOWLEDGE (YAML) -> NODES / EDGES
+# =========================
+# ontology.yaml section -> node type
+ONTOLOGY_NODE_TYPES = {
+    "vehicle_classes": "VehicleClass",
+    "road_types": "RoadType",
+    "time_contexts": "TimeContext",
+    "alcohol_levels": "AlcoholLevel",
+    "speed_bands": "SpeedBand",
+    "consequences": "Consequence",
+    "resistance_behaviors": "ResistanceBehavior",
+    "subjects": "Subject",
+}
+# DESIGN §4.2: Circumstance SUBCLASS_OF (Aggravating | Mitigating)
+CIRCUMSTANCE_KINDS = {
+    "aggravating": ("Aggravating", "Tình tiết tăng nặng"),
+    "mitigating": ("Mitigating", "Tình tiết giảm nhẹ"),
+}
+
+
+def load_yaml(path: Path) -> dict:
+    return yaml.safe_load(path.read_text(encoding="utf-8"))
+
+
+def add_ontology_nodes(nodes: Dict[str, dict], edges: List[dict], knowledge_dir: Path) -> None:
+    ontology = load_yaml(knowledge_dir / "ontology.yaml")
+    for section, node_type in ONTOLOGY_NODE_TYPES.items():
+        for item in ontology[section]:
+            attrs = {k: v for k, v in item.items() if k != "id"}
+            add_node(nodes, item["id"], node_type, **attrs)
+            if item.get("parent"):
+                add_edge(edges, item["id"], "SUBCLASS_OF", item["parent"])
+
+    for act in load_yaml(knowledge_dir / "acts.yaml")["acts"]:
+        # related_violations is materialised as INSTANCE_OF_ACT edges
+        attrs = {k: v for k, v in act.items() if k not in ("id", "related_violations")}
+        add_node(nodes, act["id"], "Act", **attrs)
+
+    for kind_id, label in CIRCUMSTANCE_KINDS.values():
+        add_node(nodes, kind_id, "CircumstanceKind", label=label)
+    circumstances = load_yaml(knowledge_dir / "circumstances.yaml")
+    for item in circumstances["mitigating_circumstances"] + circumstances["aggravating_circumstances"]:
+        attrs = {k: v for k, v in item.items() if k != "id"}
+        add_node(nodes, item["id"], "Circumstance", **attrs)
+        add_edge(edges, item["id"], "SUBCLASS_OF", CIRCUMSTANCE_KINDS[item["kind"]][0])
+
+
+def add_knowledge_edges(
+    nodes: Dict[str, dict],
+    edges: List[dict],
+    violations_by_citation: Dict[str, List[str]],
+    knowledge_dir: Path,
+) -> List[str]:
+    """INSTANCE_OF_ACT, REQUIRES_CONTEXT, ESCALATES_TO. Returns unresolved references."""
+    unresolved: List[str] = []
+
+    def violation_nodes(citation_id: str, origin: str) -> List[str]:
+        found = violations_by_citation.get(canonical_citation_id(citation_id), [])
+        if not found:
+            unresolved.append(f"{origin}: không tìm thấy Violation {citation_id}")
+        return found
+
+    def as_list(value: Any) -> list:
+        return value if isinstance(value, list) else [value]
+
+    for act in load_yaml(knowledge_dir / "acts.yaml")["acts"]:
+        for citation_id in act.get("related_violations", []):
+            for source in violation_nodes(citation_id, act["id"]):
+                add_edge(edges, source, "INSTANCE_OF_ACT", act["id"])
+
+    rules_dir = knowledge_dir / "rules"
+    for rule in load_yaml(rules_dir / "classify_core.yaml")["rules"]:
+        citation_id = rule["then"].get("add_violation")
+        if not citation_id:
+            continue
+        for key in ("has_context", "road_type", "time_context"):
+            if key not in rule["when"]:
+                continue
+            targets = as_list(rule["when"][key])
+            for target in targets:
+                if target not in nodes:
+                    unresolved.append(f"{rule['id']}: không tìm thấy ngữ cảnh {target}")
+                    continue
+                for source in violation_nodes(citation_id, rule["id"]):
+                    # any_of: the rule accepts any one of several contexts (OR)
+                    add_edge(
+                        edges, source, "REQUIRES_CONTEXT", target,
+                        rule_id=rule["id"], any_of=len(targets) > 1,
+                    )
+
+    for rule in load_yaml(rules_dir / "escalate.yaml")["rules"]:
+        targets = violation_nodes(rule["then"]["escalate_to"], rule["id"])
+        for citation_id in as_list(rule["when"]["has_violation"]):
+            for source in violation_nodes(citation_id, rule["id"]):
+                for target in targets:
+                    add_edge(
+                        edges, source, "ESCALATES_TO", target,
+                        rule_id=rule["id"], consequence=rule["when"].get("consequence", []),
+                    )
+    return unresolved
+
+
+# =========================
 # BUILD KG
 # =========================
 def build_kg(
@@ -104,6 +210,7 @@ def build_kg(
     violations_path: Path = VIOLATIONS_FILE,
     out_nodes_path: Path = OUT_NODES,
     out_edges_path: Path = OUT_EDGES,
+    knowledge_dir: Path = KNOWLEDGE_DIR,
 ):
     law_units = load_jsonl(law_corpus_path)
     violations = load_json(violations_path)
@@ -232,21 +339,9 @@ def build_kg(
                     add_edge(edges, amend_event_id, "RECORDED_IN_DECREE", f"DECREE_{amd_id}")
 
     # =========================
-    # 2) VEHICLE CLASSES
+    # 2) ONTOLOGY NODES (data/knowledge/*.yaml)
     # =========================
-    vehicle_classes = {
-        "VEH_ANY": ("Bất kỳ phương tiện nào", None),
-        "VEH_MOTOR": ("Phương tiện cơ giới", "VEH_ANY"),
-        "VEH_CAR": ("Ô tô", "VEH_MOTOR"),
-        "VEH_MOTORBIKE": ("Mô tô, xe gắn máy", "VEH_MOTOR"),
-        "VEH_SPECIAL": ("Xe máy chuyên dùng", "VEH_ANY"),
-        "VEH_BICYCLE_RUDIMENTARY": ("Xe đạp, xe thô sơ", "VEH_ANY"),
-        "VEH_PEDESTRIAN": ("Người đi bộ", "VEH_ANY"),
-    }
-    for vehicle_id, (label, parent) in vehicle_classes.items():
-        add_node(nodes, vehicle_id, "VehicleClass", label=label, parent=parent)
-        if parent:
-            add_edge(edges, vehicle_id, "SUBCLASS_OF", parent)
+    add_ontology_nodes(nodes, edges, knowledge_dir)
 
     # =========================
     # 3) VIOLATION NODES
@@ -343,8 +438,12 @@ def build_kg(
             for target in violations_by_citation.get(target_citation, []):
                 add_edge(edges, violation_node_id, "EXCLUDES", target)
 
+    unresolved.extend(
+        add_knowledge_edges(nodes, edges, violations_by_citation, knowledge_dir)
+    )
+
     if unresolved:
-        print("Không resolve được các violation:")
+        print("Không resolve được các tham chiếu:")
         for failure in unresolved:
             print(f"- {failure}")
         raise SystemExit(1)

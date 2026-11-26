@@ -13,6 +13,12 @@ ARTICLE_TO_VEHICLE_168 = {
 
 
 def detect_vehicle(text: str) -> Optional[str]:
+    match = match_vehicle(text)
+    return match[0] if match else None
+
+
+def match_vehicle(text: str) -> Optional[tuple[str, str]]:
+    """Return (vehicle_class, matched phrase) for the first matching pattern."""
     normalized = re.sub(r"\s+", " ", text.lower())
     patterns = (
         (r"(?<!\w)xe\s+máy\s+chuyên\s+dùng(?!\w)", "VEH_SPECIAL"),
@@ -23,8 +29,9 @@ def detect_vehicle(text: str) -> Optional[str]:
         (r"(?<!\w)xe\s+cơ\s+giới(?!\w)", "VEH_MOTOR"),
     )
     for pattern, vehicle_class in patterns:
-        if re.search(pattern, normalized):
-            return vehicle_class
+        found = re.search(pattern, normalized)
+        if found:
+            return vehicle_class, found.group(0)
     return None
 
 

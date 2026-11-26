@@ -8232,6 +8232,26 @@
 {"source": "VEH_SPECIAL", "relation": "SUBCLASS_OF", "target": "VEH_ANY"}
 {"source": "VEH_BICYCLE_RUDIMENTARY", "relation": "SUBCLASS_OF", "target": "VEH_ANY"}
 {"source": "VEH_PEDESTRIAN", "relation": "SUBCLASS_OF", "target": "VEH_ANY"}
+{"source": "CIR_PREVENT_HARM", "relation": "SUBCLASS_OF", "target": "Mitigating"}
+{"source": "CIR_VOLUNTARY_CONFESS", "relation": "SUBCLASS_OF", "target": "Mitigating"}
+{"source": "CIR_PROVOKED", "relation": "SUBCLASS_OF", "target": "Mitigating"}
+{"source": "CIR_COERCED", "relation": "SUBCLASS_OF", "target": "Mitigating"}
+{"source": "CIR_PREGNANT_ELDERLY_DISABLED", "relation": "SUBCLASS_OF", "target": "Mitigating"}
+{"source": "CIR_HARDSHIP", "relation": "SUBCLASS_OF", "target": "Mitigating"}
+{"source": "CIR_BACKWARD", "relation": "SUBCLASS_OF", "target": "Mitigating"}
+{"source": "CIR_ORGANIZED", "relation": "SUBCLASS_OF", "target": "Aggravating"}
+{"source": "CIR_REPEAT", "relation": "SUBCLASS_OF", "target": "Aggravating"}
+{"source": "CIR_MULTIPLE_TIMES", "relation": "SUBCLASS_OF", "target": "Aggravating"}
+{"source": "CIR_INCITE_MINOR", "relation": "SUBCLASS_OF", "target": "Aggravating"}
+{"source": "CIR_USE_MENTALLY_ILL", "relation": "SUBCLASS_OF", "target": "Aggravating"}
+{"source": "CIR_INSULT_OFFICER", "relation": "SUBCLASS_OF", "target": "Aggravating"}
+{"source": "CIR_ABUSE_POSITION", "relation": "SUBCLASS_OF", "target": "Aggravating"}
+{"source": "CIR_EXPLOIT_DISASTER", "relation": "SUBCLASS_OF", "target": "Aggravating"}
+{"source": "CIR_DURING_SENTENCE", "relation": "SUBCLASS_OF", "target": "Aggravating"}
+{"source": "CIR_CONTINUE_AFTER_STOP", "relation": "SUBCLASS_OF", "target": "Aggravating"}
+{"source": "CIR_CONCEAL", "relation": "SUBCLASS_OF", "target": "Aggravating"}
+{"source": "CIR_LARGE_SCALE", "relation": "SUBCLASS_OF", "target": "Aggravating"}
+{"source": "CIR_MANY_VICTIMS", "relation": "SUBCLASS_OF", "target": "Aggravating"}
 {"source": "VIOLATION_V0001", "relation": "BASED_ON", "target": "ND168-D6-K1-Pa"}
 {"source": "VIOLATION_V0001", "relation": "APPLIES_TO", "target": "VEH_CAR"}
 {"source": "VIOLATION_V0002", "relation": "BASED_ON", "target": "ND168-D6-K1-Pb"}
@@ -9806,3 +9826,112 @@
 {"source": "VIOLATION_V0538", "relation": "EXCLUDES", "target": "VIOLATION_V0546"}
 {"source": "VIOLATION_V0562", "relation": "EXCLUDES", "target": "VIOLATION_V0565"}
 {"source": "VIOLATION_V0562", "relation": "EXCLUDES", "target": "VIOLATION_V0566"}
+{"source": "VIOLATION_V0062", "relation": "INSTANCE_OF_ACT", "target": "ACT_RED_LIGHT"}
+{"source": "VIOLATION_V0119", "relation": "INSTANCE_OF_ACT", "target": "ACT_RED_LIGHT"}
+{"source": "VIOLATION_V0055", "relation": "INSTANCE_OF_ACT", "target": "ACT_ALCOHOL"}
+{"source": "VIOLATION_V0061", "relation": "INSTANCE_OF_ACT", "target": "ACT_ALCOHOL"}
+{"source": "VIOLATION_V0067", "relation": "INSTANCE_OF_ACT", "target": "ACT_ALCOHOL"}
+{"source": "VIOLATION_V0113", "relation": "INSTANCE_OF_ACT", "target": "ACT_ALCOHOL"}
+{"source": "VIOLATION_V0123", "relation": "INSTANCE_OF_ACT", "target": "ACT_ALCOHOL"}
+{"source": "VIOLATION_V0127", "relation": "INSTANCE_OF_ACT", "target": "ACT_ALCOHOL"}
+{"source": "VIOLATION_V0011", "relation": "INSTANCE_OF_ACT", "target": "ACT_SPEEDING"}
+{"source": "VIOLATION_V0041", "relation": "INSTANCE_OF_ACT", "target": "ACT_SPEEDING"}
+{"source": "VIOLATION_V0053", "relation": "INSTANCE_OF_ACT", "target": "ACT_SPEEDING"}
+{"source": "VIOLATION_V0057", "relation": "INSTANCE_OF_ACT", "target": "ACT_SPEEDING"}
+{"source": "VIOLATION_V0085", "relation": "INSTANCE_OF_ACT", "target": "ACT_SPEEDING"}
+{"source": "VIOLATION_V0105", "relation": "INSTANCE_OF_ACT", "target": "ACT_SPEEDING"}
+{"source": "VIOLATION_V0122", "relation": "INSTANCE_OF_ACT", "target": "ACT_SPEEDING"}
+{"source": "VIOLATION_V0091", "relation": "INSTANCE_OF_ACT", "target": "ACT_NO_HELMET"}
+{"source": "VIOLATION_V0092", "relation": "INSTANCE_OF_ACT", "target": "ACT_PASSENGER_NO_HELMET"}
+{"source": "VIOLATION_V0063", "relation": "INSTANCE_OF_ACT", "target": "ACT_IGNORE_OFFICER"}
+{"source": "VIOLATION_V0120", "relation": "INSTANCE_OF_ACT", "target": "ACT_IGNORE_OFFICER"}
+{"source": "VIOLATION_V0038", "relation": "INSTANCE_OF_ACT", "target": "ACT_WRONG_LANE"}
+{"source": "VIOLATION_V0097", "relation": "INSTANCE_OF_ACT", "target": "ACT_WRONG_LANE"}
+{"source": "VIOLATION_V0064", "relation": "INSTANCE_OF_ACT", "target": "ACT_WRONG_WAY"}
+{"source": "VIOLATION_V0117", "relation": "INSTANCE_OF_ACT", "target": "ACT_WRONG_WAY"}
+{"source": "VIOLATION_V0007", "relation": "INSTANCE_OF_ACT", "target": "ACT_OVERLOAD_PASSENGER"}
+{"source": "VIOLATION_V0051", "relation": "INSTANCE_OF_ACT", "target": "ACT_OVERLOAD_PASSENGER"}
+{"source": "VIOLATION_V0090", "relation": "INSTANCE_OF_ACT", "target": "ACT_OVERLOAD_PASSENGER"}
+{"source": "VIOLATION_V0095", "relation": "INSTANCE_OF_ACT", "target": "ACT_OVERLOAD_PASSENGER"}
+{"source": "VIOLATION_V0044", "relation": "INSTANCE_OF_ACT", "target": "ACT_PHONE_WHILE_DRIVING"}
+{"source": "VIOLATION_V0109", "relation": "INSTANCE_OF_ACT", "target": "ACT_PHONE_WHILE_DRIVING"}
+{"source": "VIOLATION_V0068", "relation": "INSTANCE_OF_ACT", "target": "ACT_REFUSE_ALCOHOL_TEST"}
+{"source": "VIOLATION_V0128", "relation": "INSTANCE_OF_ACT", "target": "ACT_REFUSE_ALCOHOL_TEST"}
+{"source": "VIOLATION_V0060", "relation": "INSTANCE_OF_ACT", "target": "ACT_HIT_AND_RUN"}
+{"source": "VIOLATION_V0126", "relation": "INSTANCE_OF_ACT", "target": "ACT_HIT_AND_RUN"}
+{"source": "VIOLATION_V0055", "relation": "REQUIRES_CONTEXT", "target": "BAC_L1", "rule_id": "R-CLS-ALC-CAR-L1", "any_of": false}
+{"source": "VIOLATION_V0061", "relation": "REQUIRES_CONTEXT", "target": "BAC_L2", "rule_id": "R-CLS-ALC-CAR-L2", "any_of": false}
+{"source": "VIOLATION_V0067", "relation": "REQUIRES_CONTEXT", "target": "BAC_L3", "rule_id": "R-CLS-ALC-CAR-L3", "any_of": false}
+{"source": "VIOLATION_V0113", "relation": "REQUIRES_CONTEXT", "target": "BAC_L1", "rule_id": "R-CLS-ALC-MOTO-L1", "any_of": false}
+{"source": "VIOLATION_V0123", "relation": "REQUIRES_CONTEXT", "target": "BAC_L2", "rule_id": "R-CLS-ALC-MOTO-L2", "any_of": false}
+{"source": "VIOLATION_V0127", "relation": "REQUIRES_CONTEXT", "target": "BAC_L3", "rule_id": "R-CLS-ALC-MOTO-L3", "any_of": false}
+{"source": "VIOLATION_V0011", "relation": "REQUIRES_CONTEXT", "target": "SPEED_5_10", "rule_id": "R-CLS-SPD-CAR-5-10", "any_of": false}
+{"source": "VIOLATION_V0041", "relation": "REQUIRES_CONTEXT", "target": "SPEED_10_20", "rule_id": "R-CLS-SPD-CAR-10-20", "any_of": false}
+{"source": "VIOLATION_V0053", "relation": "REQUIRES_CONTEXT", "target": "SPEED_20_35", "rule_id": "R-CLS-SPD-CAR-20-35", "any_of": false}
+{"source": "VIOLATION_V0057", "relation": "REQUIRES_CONTEXT", "target": "SPEED_OVER_35", "rule_id": "R-CLS-SPD-CAR-OVER-35", "any_of": false}
+{"source": "VIOLATION_V0085", "relation": "REQUIRES_CONTEXT", "target": "SPEED_5_10", "rule_id": "R-CLS-SPD-MOTO-5-10", "any_of": false}
+{"source": "VIOLATION_V0105", "relation": "REQUIRES_CONTEXT", "target": "SPEED_10_20", "rule_id": "R-CLS-SPD-MOTO-10-20", "any_of": false}
+{"source": "VIOLATION_V0122", "relation": "REQUIRES_CONTEXT", "target": "SPEED_20_35", "rule_id": "R-CLS-SPD-MOTO-OVER-20", "any_of": true}
+{"source": "VIOLATION_V0122", "relation": "REQUIRES_CONTEXT", "target": "SPEED_OVER_35", "rule_id": "R-CLS-SPD-MOTO-OVER-20", "any_of": true}
+{"source": "VIOLATION_V0071", "relation": "REQUIRES_CONTEXT", "target": "ROAD_EXPRESSWAY", "rule_id": "R-CLS-WAY-CAR-EXPRESSWAY", "any_of": false}
+{"source": "VIOLATION_V0011", "relation": "ESCALATES_TO", "target": "VIOLATION_V0065", "rule_id": "R-ESC-CAR-GEN", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0041", "relation": "ESCALATES_TO", "target": "VIOLATION_V0065", "rule_id": "R-ESC-CAR-GEN", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0053", "relation": "ESCALATES_TO", "target": "VIOLATION_V0065", "rule_id": "R-ESC-CAR-GEN", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0057", "relation": "ESCALATES_TO", "target": "VIOLATION_V0065", "rule_id": "R-ESC-CAR-GEN", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0001", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-SIGNS", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0002", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-SIGNS", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0003", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-SIGNS", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0004", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-SIGNS", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0005", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-SIGNS", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0008", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-YIELD", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0012", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-LIGHT", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0017", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-LIGHT", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0018", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-LIGHT", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0023", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-LIGHT", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0024", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-LIGHT", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0025", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-LIGHT", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0026", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-TUNNEL", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0028", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-TUNNEL", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0029", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-TUNNEL", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0039", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-PASS-LANE", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0040", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-PASS-LANE", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0042", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-PASS-LANE", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0044", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-PASS-LANE", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0049", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-PASS-LANE", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0050", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-PASS-LANE", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0052", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-PASS-LANE", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0058", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-HIGHWAY", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0062", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-REDLIGHT-OFFICER", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0063", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-REDLIGHT-OFFICER", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0064", "relation": "ESCALATES_TO", "target": "VIOLATION_V0066", "rule_id": "R-ESC-CAR-REDLIGHT-OFFICER", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0038", "relation": "ESCALATES_TO", "target": "VIOLATION_V0065", "rule_id": "R-ESC-CAR-WRONGLANE-ACCIDENT", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0085", "relation": "ESCALATES_TO", "target": "VIOLATION_V0134", "rule_id": "R-ESC-MOTO-GEN", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0105", "relation": "ESCALATES_TO", "target": "VIOLATION_V0134", "rule_id": "R-ESC-MOTO-GEN", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0122", "relation": "ESCALATES_TO", "target": "VIOLATION_V0134", "rule_id": "R-ESC-MOTO-GEN", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0074", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-SIGNS", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0077", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-SIGNS", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0078", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-SIGNS", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0080", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-SIGNS", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0081", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-SIGNS", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0082", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-SIGNS", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0083", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-SIGNS", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0086", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-PARK", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0088", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-PARK", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0090", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-PARK", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0095", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-CARRY", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0099", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-CARRY", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0100", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-CARRY", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0101", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-CARRY", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0103", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-CARRY", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0109", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-PHONE", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0115", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-YIELD", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0116", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-YIELD", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0119", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-REDLIGHT-OFFICER", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0120", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-REDLIGHT-OFFICER", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0121", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-REDLIGHT-OFFICER", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0124", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-GROUP", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0125", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-GROUP", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0131", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-GROUP", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0133", "relation": "ESCALATES_TO", "target": "VIOLATION_V0135", "rule_id": "R-ESC-MOTO-GROUP", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0097", "relation": "ESCALATES_TO", "target": "VIOLATION_V0134", "rule_id": "R-ESC-MOTO-WRONGLANE-WAY-ACCIDENT", "consequence": ["CONS_ACCIDENT"]}
+{"source": "VIOLATION_V0117", "relation": "ESCALATES_TO", "target": "VIOLATION_V0134", "rule_id": "R-ESC-MOTO-WRONGLANE-WAY-ACCIDENT", "consequence": ["CONS_ACCIDENT"]}

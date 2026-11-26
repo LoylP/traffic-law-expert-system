@@ -51,7 +51,7 @@ CONDITION_OPERATORS: frozenset[str] = frozenset(
 
 # Condition keys that read working memory rather than a Facts field.
 SPECIAL_CONDITION_KEYS: frozenset[str] = frozenset(
-    {"has_act", "has_context", "has_violation", "also_has_violation"}
+    {"has_act", "has_context", "has_violation", "also_has_violation", "grounded_violation"}
 )
 
 
@@ -102,6 +102,8 @@ class Facts(BaseModel):
     vehicle_class: str | None = None
     acts: list[str] = Field(default_factory=list)
     free_behaviors: list[str] = Field(default_factory=list)
+    # citation_id do OntologyGrounder ánh xạ trực tiếp (DESIGN §5.2, luật classify_auto)
+    grounded_violations: list[str] = Field(default_factory=list)
     speed_limit_kmh: float | None = None
     actual_speed_kmh: float | None = None
     speed_over_kmh: float | None = None

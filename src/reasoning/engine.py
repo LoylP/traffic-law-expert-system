@@ -121,6 +121,17 @@ class InferenceEngine:
         self._order = {rule.id: index for index, rule in enumerate(self.kb.rules)}
 
     # -- matching -------------------------------------------------------
+    def _vehicle_matches(self, value: str | None, cond: Any) -> bool:
+        """A rule's class also covers its subclasses; VEH_ANY covers unknown too."""
+        wanted = set(_as_list(cond))
+        if "VEH_ANY" in wanted:
+            return True
+        while value is not None:
+            if value in wanted:
+                return True
+            value = self.kb.vehicle_parents.get(value)
+        return False
+
     def _condition_holds(self, wm: WorkingMemory, key: str, cond: Any) -> bool:
         if key == "has_act":
             return any(act in wm.acts for act in _as_list(cond))
@@ -128,6 +139,10 @@ class InferenceEngine:
             return any(ctx in wm.contexts for ctx in _as_list(cond))
         if key in ("has_violation", "also_has_violation"):
             return any(cid in wm.violations for cid in _as_list(cond))
+        if key == "grounded_violation":
+            return any(cid in wm.facts["grounded_violations"] for cid in _as_list(cond))
+        if key == "vehicle_class" and not isinstance(cond, dict):
+            return self._vehicle_matches(wm.facts["vehicle_class"], cond)
 
         value = wm.value_of(key)
         if value is _MISSING:
@@ -152,6 +167,10 @@ class InferenceEngine:
                 matched[key] = [c for c in _as_list(rule.when[key]) if c in wm.contexts]
             elif key in ("has_violation", "also_has_violation"):
                 matched[key] = [v for v in _as_list(rule.when[key]) if v in wm.violations]
+            elif key == "grounded_violation":
+                matched[key] = [
+                    v for v in _as_list(rule.when[key]) if v in wm.facts["grounded_violations"]
+                ]
             else:
                 value = wm.value_of(key)
                 matched[key] = None if value is _MISSING else value

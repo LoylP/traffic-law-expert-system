@@ -7,7 +7,11 @@ from pathlib import Path
 from typing import Any
 
 from src.extract.legal_corpus_builder import canonical_citation_id, make_citation_id
-from src.extract.vehicle_mapping import ARTICLE_TO_VEHICLE_168, vehicle_for_article
+from src.extract.vehicle_mapping import (
+    ARTICLE_TO_VEHICLE_168,
+    match_vehicle,
+    vehicle_for_article,
+)
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 PROCESSED_FILE = BASE_DIR / "data/processed/nghi_dinh_168.txt"
@@ -178,14 +182,70 @@ def _sanctions_for_clause(text: str) -> list[dict[str, Any]]:
     return sanctions
 
 
+def _override_reason(clause_text: str, point_text: str | None, vehicle: str) -> str:
+    """Explain which phrase made a violation differ from its article default."""
+    for location, text in (("điểm", point_text), ("lời dẫn khoản", clause_text)):
+        match = match_vehicle(text or "")
+        if match and match[0] == vehicle:
+            return f"Nội dung {location} nêu “{match[1]}”"
+    return "Suy ra từ nội dung khoản + điểm"
+
+
+def _vehicle_group_table(
+    rows: list[dict[str, Any]],
+    article_vehicles: dict[int, str],
+    override_reasons: dict[str, str],
+) -> list[str]:
+    groups: dict[tuple[int, str], list[dict[str, Any]]] = {}
+    for row in rows:
+        groups.setdefault((row["article"], row["vehicle_class"]), []).append(row)
+
+    lines = [
+        "| Điều | Vehicle class | Class mặc định của Điều | Số vi phạm | override_reason |",
+        "|---:|---|---|---:|---|",
+    ]
+    for (article_no, vehicle), members in sorted(groups.items()):
+        reasons = Counter(
+            override_reasons[row["citation_id"]]
+            for row in members
+            if row["citation_id"] in override_reasons
+        )
+        summary = "; ".join(f"{reason} ({count})" for reason, count in sorted(reasons.items()))
+        lines.append(
+            f"| {article_no} | {vehicle} | {article_vehicles[article_no]} "
+            f"| {len(members)} | {summary or '—'} |"
+        )
+    lines.append(f"| **Tổng** | | | **{len(rows)}** | |")
+    return lines
+
+
+def _override_table(
+    rows: list[dict[str, Any]],
+    article_vehicles: dict[int, str],
+    override_reasons: dict[str, str],
+) -> list[str]:
+    lines = [
+        "| citation_id | Class mặc định | Vehicle class | override_reason |",
+        "|---|---|---|---|",
+    ]
+    lines.extend(
+        f"| {row['citation_id']} | {article_vehicles[row['article']]} "
+        f"| {row['vehicle_class']} | {override_reasons[row['citation_id']]} |"
+        for row in rows
+        if row["citation_id"] in override_reasons
+    )
+    return lines
+
+
 def build_violations(
     tree: dict[int, dict[str, Any]], law_rows: list[dict[str, Any]]
-) -> tuple[list[dict[str, Any]], list[str], dict[int, str]]:
+) -> tuple[list[dict[str, Any]], list[str], dict[int, str], dict[str, str]]:
     law_by_id = {canonical_citation_id(row["citation_id"]): row for row in law_rows}
     law_ids = set(law_by_id)
     article_vehicles: dict[int, str] = {}
     rows: list[dict[str, Any]] = []
     unparsed: list[str] = []
+    override_reasons: dict[str, str] = {}
 
     for article_no, article_data in sorted(tree.items()):
         article_vehicles[article_no] = vehicle_for_article(article_no, article_data["title"])
@@ -223,6 +283,9 @@ def build_violations(
                     detected_vehicle = vehicle_for_article(-1, specific_text)
                     if detected_vehicle != "VEH_ANY" and detected_vehicle != vehicle:
                         vehicle = detected_vehicle
+                        override_reasons[citation_id] = _override_reason(
+                            clause_text, point_text, detected_vehicle
+                        )
 
                 rows.append(
                     {
@@ -283,7 +346,7 @@ def build_violations(
                         if sanction not in row["sanctions"]:
                             row["sanctions"].append(sanction)
 
-    return rows, unparsed, article_vehicles
+    return rows, unparsed, article_vehicles, override_reasons
 
 
 def _comparison_report(rows: list[dict[str, Any]]) -> list[str]:
@@ -323,8 +386,8 @@ def write_report(
     rows: list[dict[str, Any]],
     unparsed: list[str],
     article_vehicles: dict[int, str],
+    override_reasons: dict[str, str],
 ) -> None:
-    by_article = Counter(row["article"] for row in rows)
     by_vehicle = Counter(row["vehicle_class"] for row in rows)
     with_points = sum(row["points_deducted"] > 0 for row in rows)
     with_sanctions = sum(bool(row["sanctions"]) for row in rows)
@@ -339,17 +402,18 @@ def write_report(
         "",
         "## Số vi phạm theo Điều và vehicle_class",
         "",
-        "| Điều | Vehicle class | Số vi phạm |",
-        "|---:|---|---:|",
+        *_vehicle_group_table(rows, article_vehicles, override_reasons),
     ]
-    for article_no, vehicle in sorted(article_vehicles.items()):
-        lines.append(f"| {article_no} | {vehicle} | {by_article[article_no]} |")
     lines.extend(
         [
             "",
             "## Tổng theo vehicle_class",
             "",
             *[f"- {vehicle}: {count}" for vehicle, count in sorted(by_vehicle.items())],
+            "",
+            f"## Violation bị đổi vehicle_class so với mặc định của Điều ({len(override_reasons)})",
+            "",
+            *_override_table(rows, article_vehicles, override_reasons),
             "",
             "## Khoản không parse được mức phạt",
             "",
@@ -370,7 +434,9 @@ def main() -> None:
     with LAW_CORPUS_FILE.open(encoding="utf-8") as file:
         law_rows = [json.loads(line) for line in file if line.strip()]
 
-    violations, unparsed, article_vehicles = build_violations(tree, law_rows)
+    violations, unparsed, article_vehicles, override_reasons = build_violations(
+        tree, law_rows
+    )
     known_ids = {canonical_citation_id(row["citation_id"]) for row in law_rows}
     missing = [row["citation_id"] for row in violations if row["citation_id"] not in known_ids]
     if missing:
@@ -380,7 +446,7 @@ def main() -> None:
         json.dumps(violations, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
-    write_report(violations, unparsed, article_vehicles)
+    write_report(violations, unparsed, article_vehicles, override_reasons)
 
     for article_no, vehicle in sorted(article_vehicles.items()):
         print(f"Điều {article_no}: {vehicle}")

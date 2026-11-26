@@ -6,6 +6,13 @@ from pathlib import Path
 
 from src.kg.build_kg import OUT_EDGES, OUT_NODES
 
+# Listed explicitly so that a missing type shows up as 0.
+KNOWLEDGE_NODE_TYPES = (
+    "Act", "VehicleClass", "RoadType", "TimeContext", "AlcoholLevel", "SpeedBand",
+    "Consequence", "ResistanceBehavior", "Circumstance", "CircumstanceKind", "Subject",
+)
+KNOWLEDGE_RELATIONS = ("INSTANCE_OF_ACT", "REQUIRES_CONTEXT", "ESCALATES_TO", "SUBCLASS_OF")
+
 
 def load_jsonl(path: Path) -> list[dict]:
     with path.open(encoding="utf-8") as file:
@@ -15,8 +22,10 @@ def load_jsonl(path: Path) -> list[dict]:
 def main() -> None:
     nodes = load_jsonl(OUT_NODES)
     edges = load_jsonl(OUT_EDGES)
-    node_counts = Counter(node["type"] for node in nodes)
-    edge_counts = Counter(edge["relation"] for edge in edges)
+    node_counts = Counter({name: 0 for name in KNOWLEDGE_NODE_TYPES})
+    node_counts.update(node["type"] for node in nodes)
+    edge_counts = Counter({name: 0 for name in KNOWLEDGE_RELATIONS})
+    edge_counts.update(edge["relation"] for edge in edges)
     violations = [node for node in nodes if node.get("type") == "Violation"]
     vehicles = Counter(node.get("vehicle_class", "VEH_ANY") for node in violations)
 

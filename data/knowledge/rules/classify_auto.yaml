@@ -1,0 +1,6024 @@
+# FILE TỰ SINH bởi src/reasoning/gen_auto_rules.py (make data). KHÔNG sửa tay.
+# Nguồn: data/structured/violations_168_clean.json; bỏ qua citation đã có trong classify_core.yaml
+
+rules:
+- id: R-AUTO-ND168-D6-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K1-Pa
+  then:
+    add_violation: ND168-D6-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K1-Pb
+  then:
+    add_violation: ND168-D6-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K1-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K1-Pc
+  then:
+    add_violation: ND168-D6-K1-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K1-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K1-Pd
+  then:
+    add_violation: ND168-D6-K1-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K1-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K1-Pđ
+  then:
+    add_violation: ND168-D6-K1-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K2-Pa
+  then:
+    add_violation: ND168-D6-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K2-Pb
+  then:
+    add_violation: ND168-D6-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K2-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K2-Pc
+  then:
+    add_violation: ND168-D6-K2-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K2-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K2-Pd
+  then:
+    add_violation: ND168-D6-K2-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K2-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K2-Pđ
+  then:
+    add_violation: ND168-D6-K2-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K3-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K3-Pb
+  then:
+    add_violation: ND168-D6-K3-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K3-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K3-Pc
+  then:
+    add_violation: ND168-D6-K3-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K3-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K3-Pd
+  then:
+    add_violation: ND168-D6-K3-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K3-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K3-Pđ
+  then:
+    add_violation: ND168-D6-K3-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K3-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K3-Pe
+  then:
+    add_violation: ND168-D6-K3-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K3-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K3-Pg
+  then:
+    add_violation: ND168-D6-K3-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K3-Ph
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K3-Ph
+  then:
+    add_violation: ND168-D6-K3-Ph
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K3-Pi
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K3-Pi
+  then:
+    add_violation: ND168-D6-K3-Pi
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K3-Pk
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K3-Pk
+  then:
+    add_violation: ND168-D6-K3-Pk
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K3-Pl
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K3-Pl
+  then:
+    add_violation: ND168-D6-K3-Pl
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K3-Pm
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K3-Pm
+  then:
+    add_violation: ND168-D6-K3-Pm
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K3-Pn
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K3-Pn
+  then:
+    add_violation: ND168-D6-K3-Pn
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K3-Po
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K3-Po
+  then:
+    add_violation: ND168-D6-K3-Po
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K3-Pp
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K3-Pp
+  then:
+    add_violation: ND168-D6-K3-Pp
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K4-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K4-Pa
+  then:
+    add_violation: ND168-D6-K4-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K4-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K4-Pb
+  then:
+    add_violation: ND168-D6-K4-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K4-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K4-Pc
+  then:
+    add_violation: ND168-D6-K4-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K4-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K4-Pd
+  then:
+    add_violation: ND168-D6-K4-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K4-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K4-Pđ
+  then:
+    add_violation: ND168-D6-K4-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K4-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K4-Pe
+  then:
+    add_violation: ND168-D6-K4-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K4-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K4-Pg
+  then:
+    add_violation: ND168-D6-K4-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K4-Ph
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K4-Ph
+  then:
+    add_violation: ND168-D6-K4-Ph
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K4-Pi
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K4-Pi
+  then:
+    add_violation: ND168-D6-K4-Pi
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K4-Pk
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K4-Pk
+  then:
+    add_violation: ND168-D6-K4-Pk
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K4-Pl
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K4-Pl
+  then:
+    add_violation: ND168-D6-K4-Pl
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K5-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K5-Pa
+  then:
+    add_violation: ND168-D6-K5-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K5-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K5-Pc
+  then:
+    add_violation: ND168-D6-K5-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K5-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K5-Pd
+  then:
+    add_violation: ND168-D6-K5-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K5-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K5-Pe
+  then:
+    add_violation: ND168-D6-K5-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K5-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K5-Pg
+  then:
+    add_violation: ND168-D6-K5-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K5-Pi
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K5-Pi
+  then:
+    add_violation: ND168-D6-K5-Pi
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K5-Pk
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K5-Pk
+  then:
+    add_violation: ND168-D6-K5-Pk
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K5-Pl
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K5-Pl
+  then:
+    add_violation: ND168-D6-K5-Pl
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K5-Pm
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K5-Pm
+  then:
+    add_violation: ND168-D6-K5-Pm
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K5-Pn
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K5-Pn
+  then:
+    add_violation: ND168-D6-K5-Pn
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K5-Po
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K5-Po
+  then:
+    add_violation: ND168-D6-K5-Po
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K5-Pp
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K5-Pp
+  then:
+    add_violation: ND168-D6-K5-Pp
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K5-Pq
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K5-Pq
+  then:
+    add_violation: ND168-D6-K5-Pq
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K6-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K6-Pb
+  then:
+    add_violation: ND168-D6-K6-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K6-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K6-Pd
+  then:
+    add_violation: ND168-D6-K6-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K7-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K7-Pb
+  then:
+    add_violation: ND168-D6-K7-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K7-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K7-Pc
+  then:
+    add_violation: ND168-D6-K7-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K10-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K10-Pa
+  then:
+    add_violation: ND168-D6-K10-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K10-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K10-Pb
+  then:
+    add_violation: ND168-D6-K10-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K11-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K11-Pc
+  then:
+    add_violation: ND168-D6-K11-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K11-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K11-Pd
+  then:
+    add_violation: ND168-D6-K11-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K12
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K12
+  then:
+    add_violation: ND168-D6-K12
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D6-K13
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D6-K13
+  then:
+    add_violation: ND168-D6-K13
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K1-Pa
+  then:
+    add_violation: ND168-D7-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K1-Pb
+  then:
+    add_violation: ND168-D7-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K1-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K1-Pc
+  then:
+    add_violation: ND168-D7-K1-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K1-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K1-Pd
+  then:
+    add_violation: ND168-D7-K1-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K1-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K1-Pđ
+  then:
+    add_violation: ND168-D7-K1-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K1-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K1-Pe
+  then:
+    add_violation: ND168-D7-K1-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K1-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K1-Pg
+  then:
+    add_violation: ND168-D7-K1-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K1-Ph
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K1-Ph
+  then:
+    add_violation: ND168-D7-K1-Ph
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K1-Pi
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K1-Pi
+  then:
+    add_violation: ND168-D7-K1-Pi
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K1-Pk
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K1-Pk
+  then:
+    add_violation: ND168-D7-K1-Pk
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K2-Pa
+  then:
+    add_violation: ND168-D7-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K2-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K2-Pc
+  then:
+    add_violation: ND168-D7-K2-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K2-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K2-Pd
+  then:
+    add_violation: ND168-D7-K2-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K2-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K2-Pđ
+  then:
+    add_violation: ND168-D7-K2-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K2-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K2-Pe
+  then:
+    add_violation: ND168-D7-K2-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K2-Pk
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K2-Pk
+  then:
+    add_violation: ND168-D7-K2-Pk
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K3-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K3-Pa
+  then:
+    add_violation: ND168-D7-K3-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K3-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K3-Pc
+  then:
+    add_violation: ND168-D7-K3-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K3-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K3-Pđ
+  then:
+    add_violation: ND168-D7-K3-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K3-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K3-Pe
+  then:
+    add_violation: ND168-D7-K3-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K3-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K3-Pg
+  then:
+    add_violation: ND168-D7-K3-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K3-Ph
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K3-Ph
+  then:
+    add_violation: ND168-D7-K3-Ph
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K3-Pi
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K3-Pi
+  then:
+    add_violation: ND168-D7-K3-Pi
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K3-Pk
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K3-Pk
+  then:
+    add_violation: ND168-D7-K3-Pk
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K3-Pl
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K3-Pl
+  then:
+    add_violation: ND168-D7-K3-Pl
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K4-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K4-Pb
+  then:
+    add_violation: ND168-D7-K4-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K4-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K4-Pc
+  then:
+    add_violation: ND168-D7-K4-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K4-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K4-Pd
+  then:
+    add_violation: ND168-D7-K4-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K5-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K5-Pa
+  then:
+    add_violation: ND168-D7-K5-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K5-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K5-Pb
+  then:
+    add_violation: ND168-D7-K5-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K5-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K5-Pc
+  then:
+    add_violation: ND168-D7-K5-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K6-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K6-Pb
+  then:
+    add_violation: ND168-D7-K6-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K6-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K6-Pc
+  then:
+    add_violation: ND168-D7-K6-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K6-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K6-Pd
+  then:
+    add_violation: ND168-D7-K6-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K7-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K7-Pb
+  then:
+    add_violation: ND168-D7-K7-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K7-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K7-Pđ
+  then:
+    add_violation: ND168-D7-K7-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K9-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K9-Pa
+  then:
+    add_violation: ND168-D7-K9-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K9-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K9-Pb
+  then:
+    add_violation: ND168-D7-K9-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K9-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K9-Pe
+  then:
+    add_violation: ND168-D7-K9-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K9-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K9-Pg
+  then:
+    add_violation: ND168-D7-K9-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K9-Ph
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K9-Ph
+  then:
+    add_violation: ND168-D7-K9-Ph
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K9-Pi
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K9-Pi
+  then:
+    add_violation: ND168-D7-K9-Pi
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K9-Pk
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K9-Pk
+  then:
+    add_violation: ND168-D7-K9-Pk
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K10-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K10-Pa
+  then:
+    add_violation: ND168-D7-K10-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D7-K10-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D7-K10-Pb
+  then:
+    add_violation: ND168-D7-K10-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K1-Pa
+  then:
+    add_violation: ND168-D8-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K1-Pb
+  then:
+    add_violation: ND168-D8-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K2-Pa
+  then:
+    add_violation: ND168-D8-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K2-Pb
+  then:
+    add_violation: ND168-D8-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K2-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K2-Pc
+  then:
+    add_violation: ND168-D8-K2-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K2-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K2-Pd
+  then:
+    add_violation: ND168-D8-K2-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K2-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K2-Pđ
+  then:
+    add_violation: ND168-D8-K2-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K3-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K3-Pa
+  then:
+    add_violation: ND168-D8-K3-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K3-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K3-Pb
+  then:
+    add_violation: ND168-D8-K3-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K3-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K3-Pc
+  then:
+    add_violation: ND168-D8-K3-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K3-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K3-Pd
+  then:
+    add_violation: ND168-D8-K3-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K3-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K3-Pđ
+  then:
+    add_violation: ND168-D8-K3-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K4-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K4-Pa
+  then:
+    add_violation: ND168-D8-K4-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K4-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K4-Pb
+  then:
+    add_violation: ND168-D8-K4-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K4-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K4-Pc
+  then:
+    add_violation: ND168-D8-K4-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K4-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K4-Pd
+  then:
+    add_violation: ND168-D8-K4-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K4-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K4-Pđ
+  then:
+    add_violation: ND168-D8-K4-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K4-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K4-Pe
+  then:
+    add_violation: ND168-D8-K4-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K5-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K5-Pa
+  then:
+    add_violation: ND168-D8-K5-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K5-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K5-Pb
+  then:
+    add_violation: ND168-D8-K5-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K5-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K5-Pc
+  then:
+    add_violation: ND168-D8-K5-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K5-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K5-Pd
+  then:
+    add_violation: ND168-D8-K5-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K5-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K5-Pđ
+  then:
+    add_violation: ND168-D8-K5-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K5-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K5-Pe
+  then:
+    add_violation: ND168-D8-K5-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K6-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K6-Pa
+  then:
+    add_violation: ND168-D8-K6-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K6-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K6-Pb
+  then:
+    add_violation: ND168-D8-K6-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K6-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K6-Pc
+  then:
+    add_violation: ND168-D8-K6-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K6-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K6-Pd
+  then:
+    add_violation: ND168-D8-K6-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K6-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K6-Pđ
+  then:
+    add_violation: ND168-D8-K6-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K6-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K6-Pe
+  then:
+    add_violation: ND168-D8-K6-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K6-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K6-Pg
+  then:
+    add_violation: ND168-D8-K6-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K6-Ph
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K6-Ph
+  then:
+    add_violation: ND168-D8-K6-Ph
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K6-Pi
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K6-Pi
+  then:
+    add_violation: ND168-D8-K6-Pi
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K7-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K7-Pa
+  then:
+    add_violation: ND168-D8-K7-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K7-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K7-Pb
+  then:
+    add_violation: ND168-D8-K7-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K7-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K7-Pc
+  then:
+    add_violation: ND168-D8-K7-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K7-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K7-Pd
+  then:
+    add_violation: ND168-D8-K7-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K8-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K8-Pa
+  then:
+    add_violation: ND168-D8-K8-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K8-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K8-Pb
+  then:
+    add_violation: ND168-D8-K8-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K8-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K8-Pc
+  then:
+    add_violation: ND168-D8-K8-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K8-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K8-Pd
+  then:
+    add_violation: ND168-D8-K8-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K9-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K9-Pa
+  then:
+    add_violation: ND168-D8-K9-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K9-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K9-Pb
+  then:
+    add_violation: ND168-D8-K9-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K9-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K9-Pc
+  then:
+    add_violation: ND168-D8-K9-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K9-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K9-Pd
+  then:
+    add_violation: ND168-D8-K9-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K9-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K9-Pđ
+  then:
+    add_violation: ND168-D8-K9-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D8-K9-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D8-K9-Pe
+  then:
+    add_violation: ND168-D8-K9-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K1-Pa
+  then:
+    add_violation: ND168-D9-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K1-Pb
+  then:
+    add_violation: ND168-D9-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K1-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K1-Pc
+  then:
+    add_violation: ND168-D9-K1-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K1-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K1-Pd
+  then:
+    add_violation: ND168-D9-K1-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K1-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K1-Pđ
+  then:
+    add_violation: ND168-D9-K1-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K1-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K1-Pe
+  then:
+    add_violation: ND168-D9-K1-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K1-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K1-Pg
+  then:
+    add_violation: ND168-D9-K1-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K1-Ph
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K1-Ph
+  then:
+    add_violation: ND168-D9-K1-Ph
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K1-Pi
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K1-Pi
+  then:
+    add_violation: ND168-D9-K1-Pi
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K1-Pk
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K1-Pk
+  then:
+    add_violation: ND168-D9-K1-Pk
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K1-Pl
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K1-Pl
+  then:
+    add_violation: ND168-D9-K1-Pl
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K1-Pm
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K1-Pm
+  then:
+    add_violation: ND168-D9-K1-Pm
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K1-Pn
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K1-Pn
+  then:
+    add_violation: ND168-D9-K1-Pn
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K1-Po
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K1-Po
+  then:
+    add_violation: ND168-D9-K1-Po
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K1-Pp
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K1-Pp
+  then:
+    add_violation: ND168-D9-K1-Pp
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K2-Pa
+  then:
+    add_violation: ND168-D9-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K2-Pb
+  then:
+    add_violation: ND168-D9-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K2-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K2-Pc
+  then:
+    add_violation: ND168-D9-K2-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K2-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K2-Pd
+  then:
+    add_violation: ND168-D9-K2-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K2-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K2-Pđ
+  then:
+    add_violation: ND168-D9-K2-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K3-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K3-Pa
+  then:
+    add_violation: ND168-D9-K3-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K3-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K3-Pb
+  then:
+    add_violation: ND168-D9-K3-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K3-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K3-Pc
+  then:
+    add_violation: ND168-D9-K3-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K3-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K3-Pd
+  then:
+    add_violation: ND168-D9-K3-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K4-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K4-Pa
+  then:
+    add_violation: ND168-D9-K4-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K4-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K4-Pb
+  then:
+    add_violation: ND168-D9-K4-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K4-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K4-Pc
+  then:
+    add_violation: ND168-D9-K4-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K4-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K4-Pd
+  then:
+    add_violation: ND168-D9-K4-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K4-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K4-Pđ
+  then:
+    add_violation: ND168-D9-K4-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D9-K5
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D9-K5
+  then:
+    add_violation: ND168-D9-K5
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D10-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_PEDESTRIAN
+    grounded_violation: ND168-D10-K1-Pa
+  then:
+    add_violation: ND168-D10-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D10-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_PEDESTRIAN
+    grounded_violation: ND168-D10-K1-Pb
+  then:
+    add_violation: ND168-D10-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D10-K1-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_PEDESTRIAN
+    grounded_violation: ND168-D10-K1-Pc
+  then:
+    add_violation: ND168-D10-K1-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D10-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_PEDESTRIAN
+    grounded_violation: ND168-D10-K2-Pa
+  then:
+    add_violation: ND168-D10-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D10-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_PEDESTRIAN
+    grounded_violation: ND168-D10-K2-Pb
+  then:
+    add_violation: ND168-D10-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D10-K2-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_PEDESTRIAN
+    grounded_violation: ND168-D10-K2-Pc
+  then:
+    add_violation: ND168-D10-K2-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D11-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D11-K1-Pa
+  then:
+    add_violation: ND168-D11-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D11-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D11-K1-Pb
+  then:
+    add_violation: ND168-D11-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D11-K1-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D11-K1-Pc
+  then:
+    add_violation: ND168-D11-K1-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D11-K1-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D11-K1-Pd
+  then:
+    add_violation: ND168-D11-K1-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D11-K1-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D11-K1-Pđ
+  then:
+    add_violation: ND168-D11-K1-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D11-K1-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D11-K1-Pe
+  then:
+    add_violation: ND168-D11-K1-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D11-K1-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D11-K1-Pg
+  then:
+    add_violation: ND168-D11-K1-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D11-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D11-K2-Pa
+  then:
+    add_violation: ND168-D11-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D11-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D11-K2-Pb
+  then:
+    add_violation: ND168-D11-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D11-K2-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTOR
+    grounded_violation: ND168-D11-K2-Pc
+  then:
+    add_violation: ND168-D11-K2-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D11-K3
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D11-K3
+  then:
+    add_violation: ND168-D11-K3
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K1
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D12-K1
+  then:
+    add_violation: ND168-D12-K1
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K2-Pa
+  then:
+    add_violation: ND168-D12-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K2-Pb
+  then:
+    add_violation: ND168-D12-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K2-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K2-Pc
+  then:
+    add_violation: ND168-D12-K2-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K2-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D12-K2-Pd
+  then:
+    add_violation: ND168-D12-K2-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K2-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D12-K2-Pđ
+  then:
+    add_violation: ND168-D12-K2-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K2-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K2-Pe
+  then:
+    add_violation: ND168-D12-K2-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K2-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K2-Pg
+  then:
+    add_violation: ND168-D12-K2-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K3
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K3
+  then:
+    add_violation: ND168-D12-K3
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K4
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D12-K4
+  then:
+    add_violation: ND168-D12-K4
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K5-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D12-K5-Pa
+  then:
+    add_violation: ND168-D12-K5-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K5-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D12-K5-Pb
+  then:
+    add_violation: ND168-D12-K5-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K6-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K6-Pa
+  then:
+    add_violation: ND168-D12-K6-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K6-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K6-Pb
+  then:
+    add_violation: ND168-D12-K6-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K6-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K6-Pc
+  then:
+    add_violation: ND168-D12-K6-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K6-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K6-Pd
+  then:
+    add_violation: ND168-D12-K6-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K7
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K7
+  then:
+    add_violation: ND168-D12-K7
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K8
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K8
+  then:
+    add_violation: ND168-D12-K8
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K9
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K9
+  then:
+    add_violation: ND168-D12-K9
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K10
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K10
+  then:
+    add_violation: ND168-D12-K10
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K11-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K11-Pa
+  then:
+    add_violation: ND168-D12-K11-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K11-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K11-Pb
+  then:
+    add_violation: ND168-D12-K11-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K11-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K11-Pc
+  then:
+    add_violation: ND168-D12-K11-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K12
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K12
+  then:
+    add_violation: ND168-D12-K12
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K13
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K13
+  then:
+    add_violation: ND168-D12-K13
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K14-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K14-Pa
+  then:
+    add_violation: ND168-D12-K14-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D12-K14-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D12-K14-Pb
+  then:
+    add_violation: ND168-D12-K14-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K1
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K1
+  then:
+    add_violation: ND168-D13-K1
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K2-Pa
+  then:
+    add_violation: ND168-D13-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K2-Pb
+  then:
+    add_violation: ND168-D13-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K2-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K2-Pc
+  then:
+    add_violation: ND168-D13-K2-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K3-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K3-Pa
+  then:
+    add_violation: ND168-D13-K3-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K3-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K3-Pb
+  then:
+    add_violation: ND168-D13-K3-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K3-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K3-Pc
+  then:
+    add_violation: ND168-D13-K3-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K3-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K3-Pd
+  then:
+    add_violation: ND168-D13-K3-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K4-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K4-Pa
+  then:
+    add_violation: ND168-D13-K4-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K4-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K4-Pb
+  then:
+    add_violation: ND168-D13-K4-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K4-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K4-Pc
+  then:
+    add_violation: ND168-D13-K4-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K5-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K5-Pa
+  then:
+    add_violation: ND168-D13-K5-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K5-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K5-Pb
+  then:
+    add_violation: ND168-D13-K5-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K5-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K5-Pc
+  then:
+    add_violation: ND168-D13-K5-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K5-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K5-Pd
+  then:
+    add_violation: ND168-D13-K5-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K6-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K6-Pa
+  then:
+    add_violation: ND168-D13-K6-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K6-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K6-Pb
+  then:
+    add_violation: ND168-D13-K6-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K7-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K7-Pa
+  then:
+    add_violation: ND168-D13-K7-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K7-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K7-Pb
+  then:
+    add_violation: ND168-D13-K7-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K8-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K8-Pa
+  then:
+    add_violation: ND168-D13-K8-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D13-K8-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D13-K8-Pb
+  then:
+    add_violation: ND168-D13-K8-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D14-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D14-K1-Pa
+  then:
+    add_violation: ND168-D14-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D14-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D14-K1-Pb
+  then:
+    add_violation: ND168-D14-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D14-K1-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D14-K1-Pc
+  then:
+    add_violation: ND168-D14-K1-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D14-K1-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D14-K1-Pd
+  then:
+    add_violation: ND168-D14-K1-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D14-K1-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D14-K1-Pđ
+  then:
+    add_violation: ND168-D14-K1-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D14-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D14-K2-Pa
+  then:
+    add_violation: ND168-D14-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D14-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D14-K2-Pb
+  then:
+    add_violation: ND168-D14-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D14-K2-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D14-K2-Pc
+  then:
+    add_violation: ND168-D14-K2-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D14-K2-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D14-K2-Pd
+  then:
+    add_violation: ND168-D14-K2-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D14-K2-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D14-K2-Pđ
+  then:
+    add_violation: ND168-D14-K2-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D14-K3-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D14-K3-Pa
+  then:
+    add_violation: ND168-D14-K3-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D14-K3-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D14-K3-Pb
+  then:
+    add_violation: ND168-D14-K3-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D15-K1
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D15-K1
+  then:
+    add_violation: ND168-D15-K1
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D15-K2
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_BICYCLE_RUDIMENTARY
+    grounded_violation: ND168-D15-K2
+  then:
+    add_violation: ND168-D15-K2
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D16-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D16-K1-Pa
+  then:
+    add_violation: ND168-D16-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D16-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D16-K1-Pb
+  then:
+    add_violation: ND168-D16-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D16-K1-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D16-K1-Pc
+  then:
+    add_violation: ND168-D16-K1-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D16-K1-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D16-K1-Pd
+  then:
+    add_violation: ND168-D16-K1-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D16-K1-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D16-K1-Pđ
+  then:
+    add_violation: ND168-D16-K1-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D16-K1-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D16-K1-Pe
+  then:
+    add_violation: ND168-D16-K1-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D16-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D16-K2-Pa
+  then:
+    add_violation: ND168-D16-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D16-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D16-K2-Pb
+  then:
+    add_violation: ND168-D16-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D16-K2-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D16-K2-Pc
+  then:
+    add_violation: ND168-D16-K2-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D16-K2-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D16-K2-Pd
+  then:
+    add_violation: ND168-D16-K2-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D16-K2-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D16-K2-Pđ
+  then:
+    add_violation: ND168-D16-K2-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D17-K1
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D17-K1
+  then:
+    add_violation: ND168-D17-K1
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D17-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D17-K2-Pa
+  then:
+    add_violation: ND168-D17-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D17-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D17-K2-Pb
+  then:
+    add_violation: ND168-D17-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D17-K3
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D17-K3
+  then:
+    add_violation: ND168-D17-K3
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D17-K4
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D17-K4
+  then:
+    add_violation: ND168-D17-K4
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTOR
+    grounded_violation: ND168-D18-K2-Pa
+  then:
+    add_violation: ND168-D18-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTOR
+    grounded_violation: ND168-D18-K2-Pb
+  then:
+    add_violation: ND168-D18-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K2-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D18-K2-Pc
+  then:
+    add_violation: ND168-D18-K2-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K2-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D18-K2-Pd
+  then:
+    add_violation: ND168-D18-K2-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K3-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D18-K3-Pa
+  then:
+    add_violation: ND168-D18-K3-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K3-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D18-K3-Pb
+  then:
+    add_violation: ND168-D18-K3-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K3-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D18-K3-Pc
+  then:
+    add_violation: ND168-D18-K3-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K4-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D18-K4-Pa
+  then:
+    add_violation: ND168-D18-K4-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K4-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTOR
+    grounded_violation: ND168-D18-K4-Pb
+  then:
+    add_violation: ND168-D18-K4-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K4-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTOR
+    grounded_violation: ND168-D18-K4-Pc
+  then:
+    add_violation: ND168-D18-K4-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K5-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D18-K5-Pa
+  then:
+    add_violation: ND168-D18-K5-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K5-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D18-K5-Pb
+  then:
+    add_violation: ND168-D18-K5-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K5-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D18-K5-Pc
+  then:
+    add_violation: ND168-D18-K5-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K6
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D18-K6
+  then:
+    add_violation: ND168-D18-K6
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K7-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D18-K7-Pa
+  then:
+    add_violation: ND168-D18-K7-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K7-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D18-K7-Pb
+  then:
+    add_violation: ND168-D18-K7-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K7-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D18-K7-Pc
+  then:
+    add_violation: ND168-D18-K7-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K7-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D18-K7-Pd
+  then:
+    add_violation: ND168-D18-K7-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K8-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D18-K8-Pa
+  then:
+    add_violation: ND168-D18-K8-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K8-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D18-K8-Pb
+  then:
+    add_violation: ND168-D18-K8-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K8-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D18-K8-Pc
+  then:
+    add_violation: ND168-D18-K8-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K9-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D18-K9-Pa
+  then:
+    add_violation: ND168-D18-K9-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D18-K9-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D18-K9-Pb
+  then:
+    add_violation: ND168-D18-K9-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D19-K1
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D19-K1
+  then:
+    add_violation: ND168-D19-K1
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D19-K2
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_SPECIAL
+    grounded_violation: ND168-D19-K2
+  then:
+    add_violation: ND168-D19-K2
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K1
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K1
+  then:
+    add_violation: ND168-D20-K1
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K2
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K2
+  then:
+    add_violation: ND168-D20-K2
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K3-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K3-Pa
+  then:
+    add_violation: ND168-D20-K3-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K3-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K3-Pb
+  then:
+    add_violation: ND168-D20-K3-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K3-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K3-Pc
+  then:
+    add_violation: ND168-D20-K3-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K3-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K3-Pd
+  then:
+    add_violation: ND168-D20-K3-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K3-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K3-Pđ
+  then:
+    add_violation: ND168-D20-K3-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K3-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K3-Pe
+  then:
+    add_violation: ND168-D20-K3-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K3-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K3-Pg
+  then:
+    add_violation: ND168-D20-K3-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K3-Ph
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K3-Ph
+  then:
+    add_violation: ND168-D20-K3-Ph
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K3-Pi
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K3-Pi
+  then:
+    add_violation: ND168-D20-K3-Pi
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K3-Pk
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K3-Pk
+  then:
+    add_violation: ND168-D20-K3-Pk
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K4
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K4
+  then:
+    add_violation: ND168-D20-K4
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K5-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K5-Pa
+  then:
+    add_violation: ND168-D20-K5-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K5-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K5-Pb
+  then:
+    add_violation: ND168-D20-K5-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K5-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K5-Pc
+  then:
+    add_violation: ND168-D20-K5-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K5-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K5-Pd
+  then:
+    add_violation: ND168-D20-K5-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K5-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K5-Pđ
+  then:
+    add_violation: ND168-D20-K5-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K5-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K5-Pe
+  then:
+    add_violation: ND168-D20-K5-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K5-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K5-Pg
+  then:
+    add_violation: ND168-D20-K5-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K5-Ph
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K5-Ph
+  then:
+    add_violation: ND168-D20-K5-Ph
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K5-Pi
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K5-Pi
+  then:
+    add_violation: ND168-D20-K5-Pi
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K5-Pk
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K5-Pk
+  then:
+    add_violation: ND168-D20-K5-Pk
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K5-Pl
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K5-Pl
+  then:
+    add_violation: ND168-D20-K5-Pl
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K5-Pm
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K5-Pm
+  then:
+    add_violation: ND168-D20-K5-Pm
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K6-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K6-Pa
+  then:
+    add_violation: ND168-D20-K6-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K6-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K6-Pb
+  then:
+    add_violation: ND168-D20-K6-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K6-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K6-Pc
+  then:
+    add_violation: ND168-D20-K6-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K6-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K6-Pd
+  then:
+    add_violation: ND168-D20-K6-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K6-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K6-Pđ
+  then:
+    add_violation: ND168-D20-K6-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K6-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K6-Pe
+  then:
+    add_violation: ND168-D20-K6-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K7
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K7
+  then:
+    add_violation: ND168-D20-K7
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D20-K8
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D20-K8
+  then:
+    add_violation: ND168-D20-K8
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K1-Pa
+  then:
+    add_violation: ND168-D21-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K1-Pb
+  then:
+    add_violation: ND168-D21-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K2-Pa
+  then:
+    add_violation: ND168-D21-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K2-Pb
+  then:
+    add_violation: ND168-D21-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K2-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K2-Pc
+  then:
+    add_violation: ND168-D21-K2-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K2-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K2-Pd
+  then:
+    add_violation: ND168-D21-K2-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K2-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K2-Pđ
+  then:
+    add_violation: ND168-D21-K2-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K3-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K3-Pa
+  then:
+    add_violation: ND168-D21-K3-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K3-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K3-Pb
+  then:
+    add_violation: ND168-D21-K3-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K4
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K4
+  then:
+    add_violation: ND168-D21-K4
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K5-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K5-Pa
+  then:
+    add_violation: ND168-D21-K5-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K5-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K5-Pb
+  then:
+    add_violation: ND168-D21-K5-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K5-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K5-Pc
+  then:
+    add_violation: ND168-D21-K5-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K5-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K5-Pd
+  then:
+    add_violation: ND168-D21-K5-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K6-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K6-Pa
+  then:
+    add_violation: ND168-D21-K6-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K6-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K6-Pb
+  then:
+    add_violation: ND168-D21-K6-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K6-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K6-Pc
+  then:
+    add_violation: ND168-D21-K6-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K6-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K6-Pd
+  then:
+    add_violation: ND168-D21-K6-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K6-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K6-Pđ
+  then:
+    add_violation: ND168-D21-K6-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K7-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K7-Pa
+  then:
+    add_violation: ND168-D21-K7-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K7-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K7-Pb
+  then:
+    add_violation: ND168-D21-K7-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K8-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K8-Pa
+  then:
+    add_violation: ND168-D21-K8-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K8-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K8-Pb
+  then:
+    add_violation: ND168-D21-K8-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K8-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K8-Pc
+  then:
+    add_violation: ND168-D21-K8-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K8-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K8-Pd
+  then:
+    add_violation: ND168-D21-K8-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K8-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K8-Pđ
+  then:
+    add_violation: ND168-D21-K8-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K9
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K9
+  then:
+    add_violation: ND168-D21-K9
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K10-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K10-Pa
+  then:
+    add_violation: ND168-D21-K10-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K10-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K10-Pb
+  then:
+    add_violation: ND168-D21-K10-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D21-K11
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D21-K11
+  then:
+    add_violation: ND168-D21-K11
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D22-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D22-K1-Pa
+  then:
+    add_violation: ND168-D22-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D22-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D22-K1-Pb
+  then:
+    add_violation: ND168-D22-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D22-K2
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D22-K2
+  then:
+    add_violation: ND168-D22-K2
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D22-K3-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D22-K3-Pa
+  then:
+    add_violation: ND168-D22-K3-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D22-K3-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D22-K3-Pb
+  then:
+    add_violation: ND168-D22-K3-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D22-K3-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D22-K3-Pc
+  then:
+    add_violation: ND168-D22-K3-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D22-K3-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D22-K3-Pd
+  then:
+    add_violation: ND168-D22-K3-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D23-K1
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D23-K1
+  then:
+    add_violation: ND168-D23-K1
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D23-K2
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D23-K2
+  then:
+    add_violation: ND168-D23-K2
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D23-K3
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D23-K3
+  then:
+    add_violation: ND168-D23-K3
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D23-K4
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D23-K4
+  then:
+    add_violation: ND168-D23-K4
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D23-K5
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D23-K5
+  then:
+    add_violation: ND168-D23-K5
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D24-K1
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D24-K1
+  then:
+    add_violation: ND168-D24-K1
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D24-K2
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D24-K2
+  then:
+    add_violation: ND168-D24-K2
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D25-K1
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D25-K1
+  then:
+    add_violation: ND168-D25-K1
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K1-Pa
+  then:
+    add_violation: ND168-D26-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K1-Pb
+  then:
+    add_violation: ND168-D26-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K2-Pa
+  then:
+    add_violation: ND168-D26-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K2-Pb
+  then:
+    add_violation: ND168-D26-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K2-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K2-Pc
+  then:
+    add_violation: ND168-D26-K2-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K2-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D26-K2-Pd
+  then:
+    add_violation: ND168-D26-K2-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K2-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D26-K2-Pđ
+  then:
+    add_violation: ND168-D26-K2-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K2-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D26-K2-Pe
+  then:
+    add_violation: ND168-D26-K2-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K3
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K3
+  then:
+    add_violation: ND168-D26-K3
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K4-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D26-K4-Pa
+  then:
+    add_violation: ND168-D26-K4-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K4-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K4-Pb
+  then:
+    add_violation: ND168-D26-K4-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K4-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K4-Pc
+  then:
+    add_violation: ND168-D26-K4-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K4-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D26-K4-Pd
+  then:
+    add_violation: ND168-D26-K4-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K4-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K4-Pđ
+  then:
+    add_violation: ND168-D26-K4-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K4-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K4-Pe
+  then:
+    add_violation: ND168-D26-K4-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K4-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D26-K4-Pg
+  then:
+    add_violation: ND168-D26-K4-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K5
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K5
+  then:
+    add_violation: ND168-D26-K5
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K6-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D26-K6-Pa
+  then:
+    add_violation: ND168-D26-K6-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K6-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K6-Pb
+  then:
+    add_violation: ND168-D26-K6-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K6-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K6-Pc
+  then:
+    add_violation: ND168-D26-K6-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K6-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K6-Pd
+  then:
+    add_violation: ND168-D26-K6-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K7-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D26-K7-Pa
+  then:
+    add_violation: ND168-D26-K7-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K7-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D26-K7-Pb
+  then:
+    add_violation: ND168-D26-K7-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K7-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K7-Pc
+  then:
+    add_violation: ND168-D26-K7-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K7-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D26-K7-Pd
+  then:
+    add_violation: ND168-D26-K7-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K7-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K7-Pđ
+  then:
+    add_violation: ND168-D26-K7-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K7-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D26-K7-Pe
+  then:
+    add_violation: ND168-D26-K7-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K7-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K7-Pg
+  then:
+    add_violation: ND168-D26-K7-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K7-Ph
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K7-Ph
+  then:
+    add_violation: ND168-D26-K7-Ph
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K7-Pi
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D26-K7-Pi
+  then:
+    add_violation: ND168-D26-K7-Pi
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K8-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D26-K8-Pa
+  then:
+    add_violation: ND168-D26-K8-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K8-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K8-Pb
+  then:
+    add_violation: ND168-D26-K8-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K8-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K8-Pc
+  then:
+    add_violation: ND168-D26-K8-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K9-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K9-Pa
+  then:
+    add_violation: ND168-D26-K9-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K9-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K9-Pb
+  then:
+    add_violation: ND168-D26-K9-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K10-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K10-Pa
+  then:
+    add_violation: ND168-D26-K10-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K10-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D26-K10-Pb
+  then:
+    add_violation: ND168-D26-K10-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D26-K11
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D26-K11
+  then:
+    add_violation: ND168-D26-K11
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D27-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D27-K1-Pa
+  then:
+    add_violation: ND168-D27-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D27-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D27-K1-Pb
+  then:
+    add_violation: ND168-D27-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D27-K1-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D27-K1-Pc
+  then:
+    add_violation: ND168-D27-K1-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D27-K2
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D27-K2
+  then:
+    add_violation: ND168-D27-K2
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D27-K3-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D27-K3-Pa
+  then:
+    add_violation: ND168-D27-K3-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D27-K3-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D27-K3-Pb
+  then:
+    add_violation: ND168-D27-K3-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D27-K3-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D27-K3-Pc
+  then:
+    add_violation: ND168-D27-K3-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D27-K3-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D27-K3-Pd
+  then:
+    add_violation: ND168-D27-K3-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D28-K1
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D28-K1
+  then:
+    add_violation: ND168-D28-K1
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D28-K2
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D28-K2
+  then:
+    add_violation: ND168-D28-K2
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D28-K3
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D28-K3
+  then:
+    add_violation: ND168-D28-K3
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D29-K1
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D29-K1
+  then:
+    add_violation: ND168-D29-K1
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D29-K2
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D29-K2
+  then:
+    add_violation: ND168-D29-K2
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D29-K3
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D29-K3
+  then:
+    add_violation: ND168-D29-K3
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D30-K1
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D30-K1
+  then:
+    add_violation: ND168-D30-K1
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D30-K2
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D30-K2
+  then:
+    add_violation: ND168-D30-K2
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D31-K1
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D31-K1
+  then:
+    add_violation: ND168-D31-K1
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D31-K2
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D31-K2
+  then:
+    add_violation: ND168-D31-K2
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D32-K1-Pa
+  then:
+    add_violation: ND168-D32-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D32-K1-Pb
+  then:
+    add_violation: ND168-D32-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K2-Pa
+  then:
+    add_violation: ND168-D32-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K2-Pb
+  then:
+    add_violation: ND168-D32-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K3-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D32-K3-Pa
+  then:
+    add_violation: ND168-D32-K3-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K3-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D32-K3-Pb
+  then:
+    add_violation: ND168-D32-K3-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K3-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D32-K3-Pc
+  then:
+    add_violation: ND168-D32-K3-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K4
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D32-K4
+  then:
+    add_violation: ND168-D32-K4
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K5
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K5
+  then:
+    add_violation: ND168-D32-K5
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K6
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K6
+  then:
+    add_violation: ND168-D32-K6
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K7-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K7-Pa
+  then:
+    add_violation: ND168-D32-K7-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K7-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K7-Pb
+  then:
+    add_violation: ND168-D32-K7-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K7-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K7-Pc
+  then:
+    add_violation: ND168-D32-K7-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K7-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K7-Pd
+  then:
+    add_violation: ND168-D32-K7-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K7-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K7-Pđ
+  then:
+    add_violation: ND168-D32-K7-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K7-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K7-Pe
+  then:
+    add_violation: ND168-D32-K7-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K7-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K7-Pg
+  then:
+    add_violation: ND168-D32-K7-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K7-Ph
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K7-Ph
+  then:
+    add_violation: ND168-D32-K7-Ph
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K7-Pi
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K7-Pi
+  then:
+    add_violation: ND168-D32-K7-Pi
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K7-Pk
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K7-Pk
+  then:
+    add_violation: ND168-D32-K7-Pk
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K7-Pl
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K7-Pl
+  then:
+    add_violation: ND168-D32-K7-Pl
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K7-Pm
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K7-Pm
+  then:
+    add_violation: ND168-D32-K7-Pm
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K7-Pn
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K7-Pn
+  then:
+    add_violation: ND168-D32-K7-Pn
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K7-Po
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K7-Po
+  then:
+    add_violation: ND168-D32-K7-Po
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K8-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D32-K8-Pa
+  then:
+    add_violation: ND168-D32-K8-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K8-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D32-K8-Pb
+  then:
+    add_violation: ND168-D32-K8-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K8-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D32-K8-Pc
+  then:
+    add_violation: ND168-D32-K8-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K8-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D32-K8-Pd
+  then:
+    add_violation: ND168-D32-K8-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K8-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D32-K8-Pđ
+  then:
+    add_violation: ND168-D32-K8-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K8-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D32-K8-Pe
+  then:
+    add_violation: ND168-D32-K8-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K8-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D32-K8-Pg
+  then:
+    add_violation: ND168-D32-K8-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K8-Ph
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D32-K8-Ph
+  then:
+    add_violation: ND168-D32-K8-Ph
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K9-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K9-Pa
+  then:
+    add_violation: ND168-D32-K9-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K9-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K9-Pb
+  then:
+    add_violation: ND168-D32-K9-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K9-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K9-Pc
+  then:
+    add_violation: ND168-D32-K9-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K9-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K9-Pd
+  then:
+    add_violation: ND168-D32-K9-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K9-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K9-Pđ
+  then:
+    add_violation: ND168-D32-K9-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K9-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K9-Pe
+  then:
+    add_violation: ND168-D32-K9-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K10
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D32-K10
+  then:
+    add_violation: ND168-D32-K10
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K11-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K11-Pa
+  then:
+    add_violation: ND168-D32-K11-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K11-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K11-Pb
+  then:
+    add_violation: ND168-D32-K11-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K11-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K11-Pc
+  then:
+    add_violation: ND168-D32-K11-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K11-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K11-Pd
+  then:
+    add_violation: ND168-D32-K11-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K11-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K11-Pđ
+  then:
+    add_violation: ND168-D32-K11-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K12-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K12-Pa
+  then:
+    add_violation: ND168-D32-K12-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K12-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K12-Pb
+  then:
+    add_violation: ND168-D32-K12-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K12-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K12-Pc
+  then:
+    add_violation: ND168-D32-K12-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K12-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K12-Pd
+  then:
+    add_violation: ND168-D32-K12-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K13-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K13-Pa
+  then:
+    add_violation: ND168-D32-K13-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K13-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K13-Pb
+  then:
+    add_violation: ND168-D32-K13-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K13-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K13-Pc
+  then:
+    add_violation: ND168-D32-K13-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K13-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K13-Pd
+  then:
+    add_violation: ND168-D32-K13-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K13-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K13-Pđ
+  then:
+    add_violation: ND168-D32-K13-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K14-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K14-Pa
+  then:
+    add_violation: ND168-D32-K14-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K14-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K14-Pb
+  then:
+    add_violation: ND168-D32-K14-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K14-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K14-Pc
+  then:
+    add_violation: ND168-D32-K14-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K14-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K14-Pd
+  then:
+    add_violation: ND168-D32-K14-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K14-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K14-Pđ
+  then:
+    add_violation: ND168-D32-K14-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K14-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K14-Pe
+  then:
+    add_violation: ND168-D32-K14-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K14-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K14-Pg
+  then:
+    add_violation: ND168-D32-K14-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K14-Ph
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K14-Ph
+  then:
+    add_violation: ND168-D32-K14-Ph
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K14-Pi
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K14-Pi
+  then:
+    add_violation: ND168-D32-K14-Pi
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K15
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K15
+  then:
+    add_violation: ND168-D32-K15
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K16-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K16-Pa
+  then:
+    add_violation: ND168-D32-K16-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K16-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K16-Pb
+  then:
+    add_violation: ND168-D32-K16-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D32-K16-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D32-K16-Pc
+  then:
+    add_violation: ND168-D32-K16-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D33-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D33-K1-Pa
+  then:
+    add_violation: ND168-D33-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D33-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D33-K1-Pb
+  then:
+    add_violation: ND168-D33-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D33-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D33-K2-Pa
+  then:
+    add_violation: ND168-D33-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D33-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D33-K2-Pb
+  then:
+    add_violation: ND168-D33-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D33-K3
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D33-K3
+  then:
+    add_violation: ND168-D33-K3
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D34-K1
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D34-K1
+  then:
+    add_violation: ND168-D34-K1
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D34-K2
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D34-K2
+  then:
+    add_violation: ND168-D34-K2
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D34-K3-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D34-K3-Pa
+  then:
+    add_violation: ND168-D34-K3-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D34-K3-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D34-K3-Pb
+  then:
+    add_violation: ND168-D34-K3-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D34-K3-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D34-K3-Pc
+  then:
+    add_violation: ND168-D34-K3-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D34-K3-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D34-K3-Pd
+  then:
+    add_violation: ND168-D34-K3-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D34-K4-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D34-K4-Pa
+  then:
+    add_violation: ND168-D34-K4-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D34-K4-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D34-K4-Pb
+  then:
+    add_violation: ND168-D34-K4-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D34-K4-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D34-K4-Pc
+  then:
+    add_violation: ND168-D34-K4-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D34-K5-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D34-K5-Pa
+  then:
+    add_violation: ND168-D34-K5-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D34-K5-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D34-K5-Pb
+  then:
+    add_violation: ND168-D34-K5-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D35-K1
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D35-K1
+  then:
+    add_violation: ND168-D35-K1
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D35-K2
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D35-K2
+  then:
+    add_violation: ND168-D35-K2
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D36-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D36-K1-Pa
+  then:
+    add_violation: ND168-D36-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D36-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D36-K1-Pb
+  then:
+    add_violation: ND168-D36-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D36-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D36-K2-Pa
+  then:
+    add_violation: ND168-D36-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D36-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D36-K2-Pb
+  then:
+    add_violation: ND168-D36-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D36-K2-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D36-K2-Pc
+  then:
+    add_violation: ND168-D36-K2-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D36-K2-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D36-K2-Pd
+  then:
+    add_violation: ND168-D36-K2-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D37-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D37-K1-Pa
+  then:
+    add_violation: ND168-D37-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D37-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D37-K1-Pb
+  then:
+    add_violation: ND168-D37-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D37-K2
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D37-K2
+  then:
+    add_violation: ND168-D37-K2
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D37-K3-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D37-K3-Pa
+  then:
+    add_violation: ND168-D37-K3-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D37-K3-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D37-K3-Pb
+  then:
+    add_violation: ND168-D37-K3-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D37-K3-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D37-K3-Pc
+  then:
+    add_violation: ND168-D37-K3-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D37-K4-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D37-K4-Pa
+  then:
+    add_violation: ND168-D37-K4-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D37-K4-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D37-K4-Pb
+  then:
+    add_violation: ND168-D37-K4-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D37-K5
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D37-K5
+  then:
+    add_violation: ND168-D37-K5
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D37-K6
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D37-K6
+  then:
+    add_violation: ND168-D37-K6
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D38-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D38-K1-Pa
+  then:
+    add_violation: ND168-D38-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D38-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTORBIKE
+    grounded_violation: ND168-D38-K1-Pb
+  then:
+    add_violation: ND168-D38-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D38-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D38-K2-Pa
+  then:
+    add_violation: ND168-D38-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D38-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_CAR
+    grounded_violation: ND168-D38-K2-Pb
+  then:
+    add_violation: ND168-D38-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K1-Pa
+  then:
+    add_violation: ND168-D39-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K1-Pb
+  then:
+    add_violation: ND168-D39-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K1-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K1-Pc
+  then:
+    add_violation: ND168-D39-K1-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K1-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K1-Pd
+  then:
+    add_violation: ND168-D39-K1-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K1-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K1-Pđ
+  then:
+    add_violation: ND168-D39-K1-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K1-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K1-Pe
+  then:
+    add_violation: ND168-D39-K1-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K2-Pa
+  then:
+    add_violation: ND168-D39-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K2-Pb
+  then:
+    add_violation: ND168-D39-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K2-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K2-Pc
+  then:
+    add_violation: ND168-D39-K2-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K3-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K3-Pa
+  then:
+    add_violation: ND168-D39-K3-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K3-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K3-Pb
+  then:
+    add_violation: ND168-D39-K3-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K3-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K3-Pc
+  then:
+    add_violation: ND168-D39-K3-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K3-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K3-Pd
+  then:
+    add_violation: ND168-D39-K3-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K3-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K3-Pđ
+  then:
+    add_violation: ND168-D39-K3-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K3-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K3-Pe
+  then:
+    add_violation: ND168-D39-K3-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K3-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTOR
+    grounded_violation: ND168-D39-K3-Pg
+  then:
+    add_violation: ND168-D39-K3-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K3-Ph
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K3-Ph
+  then:
+    add_violation: ND168-D39-K3-Ph
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K3-Pi
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K3-Pi
+  then:
+    add_violation: ND168-D39-K3-Pi
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K3-Pk
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K3-Pk
+  then:
+    add_violation: ND168-D39-K3-Pk
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K4-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K4-Pa
+  then:
+    add_violation: ND168-D39-K4-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K4-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K4-Pb
+  then:
+    add_violation: ND168-D39-K4-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K4-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K4-Pc
+  then:
+    add_violation: ND168-D39-K4-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K4-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K4-Pd
+  then:
+    add_violation: ND168-D39-K4-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K4-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K4-Pđ
+  then:
+    add_violation: ND168-D39-K4-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K4-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K4-Pe
+  then:
+    add_violation: ND168-D39-K4-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K4-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K4-Pg
+  then:
+    add_violation: ND168-D39-K4-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K4-Ph
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K4-Ph
+  then:
+    add_violation: ND168-D39-K4-Ph
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K4-Pi
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K4-Pi
+  then:
+    add_violation: ND168-D39-K4-Pi
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K4-Pk
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K4-Pk
+  then:
+    add_violation: ND168-D39-K4-Pk
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K5-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K5-Pa
+  then:
+    add_violation: ND168-D39-K5-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K5-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K5-Pb
+  then:
+    add_violation: ND168-D39-K5-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K5-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K5-Pc
+  then:
+    add_violation: ND168-D39-K5-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K5-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K5-Pd
+  then:
+    add_violation: ND168-D39-K5-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K5-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K5-Pđ
+  then:
+    add_violation: ND168-D39-K5-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K5-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K5-Pe
+  then:
+    add_violation: ND168-D39-K5-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K5-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K5-Pg
+  then:
+    add_violation: ND168-D39-K5-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K5-Ph
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K5-Ph
+  then:
+    add_violation: ND168-D39-K5-Ph
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K5-Pi
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K5-Pi
+  then:
+    add_violation: ND168-D39-K5-Pi
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K5-Pk
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K5-Pk
+  then:
+    add_violation: ND168-D39-K5-Pk
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K6
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K6
+  then:
+    add_violation: ND168-D39-K6
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K7-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K7-Pa
+  then:
+    add_violation: ND168-D39-K7-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K7-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K7-Pb
+  then:
+    add_violation: ND168-D39-K7-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D39-K7-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D39-K7-Pc
+  then:
+    add_violation: ND168-D39-K7-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K1-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K1-Pa
+  then:
+    add_violation: ND168-D40-K1-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K1-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K1-Pb
+  then:
+    add_violation: ND168-D40-K1-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K1-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K1-Pc
+  then:
+    add_violation: ND168-D40-K1-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K2-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_MOTOR
+    grounded_violation: ND168-D40-K2-Pa
+  then:
+    add_violation: ND168-D40-K2-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K2-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K2-Pb
+  then:
+    add_violation: ND168-D40-K2-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K2-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K2-Pc
+  then:
+    add_violation: ND168-D40-K2-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K2-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K2-Pd
+  then:
+    add_violation: ND168-D40-K2-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K2-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K2-Pđ
+  then:
+    add_violation: ND168-D40-K2-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K2-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K2-Pe
+  then:
+    add_violation: ND168-D40-K2-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K2-Pg
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K2-Pg
+  then:
+    add_violation: ND168-D40-K2-Pg
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K3-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K3-Pa
+  then:
+    add_violation: ND168-D40-K3-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K3-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K3-Pb
+  then:
+    add_violation: ND168-D40-K3-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K3-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K3-Pc
+  then:
+    add_violation: ND168-D40-K3-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K3-Pd
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K3-Pd
+  then:
+    add_violation: ND168-D40-K3-Pd
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K3-Pđ
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K3-Pđ
+  then:
+    add_violation: ND168-D40-K3-Pđ
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K3-Pe
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K3-Pe
+  then:
+    add_violation: ND168-D40-K3-Pe
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K4-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K4-Pa
+  then:
+    add_violation: ND168-D40-K4-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K4-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K4-Pb
+  then:
+    add_violation: ND168-D40-K4-Pb
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K4-Pc
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K4-Pc
+  then:
+    add_violation: ND168-D40-K4-Pc
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K5-Pa
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K5-Pa
+  then:
+    add_violation: ND168-D40-K5-Pa
+  source: auto
+  verified: true
+- id: R-AUTO-ND168-D40-K5-Pb
+  type: classify
+  priority: 10
+  when:
+    vehicle_class: VEH_ANY
+    grounded_violation: ND168-D40-K5-Pb
+  then:
+    add_violation: ND168-D40-K5-Pb
+  source: auto
+  verified: true
