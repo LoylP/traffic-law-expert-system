@@ -14,3 +14,5 @@ openai
 requests
 pydantic>=2
 pyyaml
+matplotlib
+openpyxl

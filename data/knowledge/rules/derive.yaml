@@ -115,7 +115,7 @@ rules:
       add_context_from: speed_band
     explain: "Người dùng cho biết khoảng vượt tốc độ (không có số km/h)"
     source: "Suy diễn của nhóm"
-    verified: false
+    verified: true
 
   - id: R-DER-ALC-10
     type: derive
@@ -128,7 +128,7 @@ rules:
       add_context_from: alcohol_level
     explain: "Người dùng cho biết mức nồng độ cồn (không có số đo)"
     source: "Suy diễn của nhóm"
-    verified: false
+    verified: true
 
   # Từ chối kiểm tra ↔ hành vi không chấp hành yêu cầu kiểm tra
   - id: R-DER-ALC-11
@@ -140,7 +140,7 @@ rules:
       set_facts: {alcohol_test_refused: true}
     explain: "Không chấp hành yêu cầu kiểm tra nồng độ cồn là từ chối kiểm tra"
     source: "NĐ 168/2024, Điều 6 khoản 11 điểm b; Điều 7 khoản 9 điểm đ"
-    verified: false
+    verified: true
 
   - id: R-DER-ALC-12
     type: derive
@@ -151,7 +151,7 @@ rules:
       add_acts: [ACT_REFUSE_ALCOHOL_TEST]
     explain: "Từ chối kiểm tra nồng độ cồn → không chấp hành yêu cầu kiểm tra"
     source: "NĐ 168/2024, Điều 6 khoản 11 điểm b; Điều 7 khoản 9 điểm đ"
-    verified: false
+    verified: true
 
   - id: R-DER-ALC-13
     type: derive
@@ -163,7 +163,7 @@ rules:
       add_acts: [ACT_ALCOHOL]
     explain: "Có uống rượu, bia rồi tham gia giao thông → xem xét hành vi có nồng độ cồn; mức xử phạt phụ thuộc nồng độ đo được"
     source: "Suy diễn của nhóm"
-    verified: false
+    verified: true
 
   # Gây tai nạn rồi bỏ đi hàm ý có tai nạn
   - id: R-DER-RES-05
@@ -175,7 +175,7 @@ rules:
       add_consequence: [CONS_ACCIDENT]
     explain: "Hành vi gây tai nạn rồi không dừng lại hàm ý đã xảy ra tai nạn"
     source: "NĐ 168/2024, Điều 6 khoản 8; Điều 7 khoản 9 điểm c"
-    verified: false
+    verified: true
 
   # Suy loại phương tiện từ hành vi (CHỈ khi người dùng không nêu phương tiện)
   - id: R-DER-VEH-01
@@ -190,7 +190,7 @@ rules:
     explain: "Quy định xử phạt người điều khiển xe không thắt dây đai an toàn thuộc nhóm xe ô tô"
     legal_excerpt: "Không thắt dây đai an toàn khi điều khiển xe chạy trên đường"
     source: "NĐ 168/2024, Điều 6 khoản 3 điểm k, điểm l"
-    verified: false
+    verified: true
 
   - id: R-DER-VEH-02
     type: derive
@@ -204,7 +204,7 @@ rules:
     explain: "Hành vi về mũ bảo hiểm cho người đi mô tô, xe máy được xếp vào nhóm mô tô, xe gắn máy (xe đạp máy có quy định riêng, được ghi chú)"
     legal_excerpt: 'Không đội "mũ bảo hiểm cho người đi mô tô, xe máy"'
     source: "NĐ 168/2024, Điều 7 khoản 2 điểm h, i; Điều 9 khoản 4 điểm d, đ"
-    verified: false
+    verified: true
 
   # Nhóm 2: Map BAC → AlcoholLevel
   - id: R-DER-ALC-01
@@ -414,4 +414,65 @@ rules:
     explain: "Mô tả 'đi vào đường một chiều theo chiều ngược lại' → ACT_WRONG_WAY"
     source: "NĐ 168/2024, Điều 6 khoản 9 điểm d; Điều 7 khoản 7 điểm a"
     note: "Rule này sẽ chạy sau OntologyGrounder; nếu grounder đã map thì không cần"
+    verified: true
+
+  # Giấy phép lái xe: số đo → khoảng. Dưới 50 cm3 / 04 kW: không suy diễn, để hỏi lại.
+  - id: R-DER-MOTO-CC-01
+    type: derive
+    priority: 55
+    when: {engine_capacity_cc: {gte: 50, lte: 125}}
+    then:
+      set_facts: {motorbike_type: MOTO_UP_TO_125}
+    explain: "Dung tích từ 50 đến 125 cm3 → mô tô đến 125 cm3"
+    source: "NĐ 168/2024, Điều 18 khoản 4 điểm a, khoản 5"
+    verified: true
+
+  - id: R-DER-MOTO-CC-02
+    type: derive
+    priority: 55
+    when: {engine_capacity_cc: {gt: 125}}
+    then:
+      set_facts: {motorbike_type: MOTO_OVER_125}
+    explain: "Dung tích trên 125 cm3"
+    source: "NĐ 168/2024, Điều 18 khoản 7"
+    verified: true
+
+  - id: R-DER-MOTO-KW-01
+    type: derive
+    priority: 55
+    when: {motor_power_kw: {gte: 4, lte: 11}}
+    then:
+      set_facts: {motorbike_type: MOTO_UP_TO_125}
+    explain: "Công suất động cơ điện từ 04 đến 11 kW"
+    source: "NĐ 168/2024, Điều 18 khoản 4 điểm a, khoản 5"
+    verified: true
+
+  - id: R-DER-MOTO-KW-02
+    type: derive
+    priority: 55
+    when: {motor_power_kw: {gt: 11}}
+    then:
+      set_facts: {motorbike_type: MOTO_OVER_125}
+    explain: "Công suất động cơ điện trên 11 kW"
+    source: "NĐ 168/2024, Điều 18 khoản 7"
+    verified: true
+
+  - id: R-DER-LIC-EXP-01
+    type: derive
+    priority: 55
+    when: {license_expired_months: {lt: 12}}
+    then:
+      set_facts: {license_expiry: LIC_EXPIRED_UNDER_1Y}
+    explain: "Hết hạn dưới 12 tháng → dưới 01 năm"
+    source: "NĐ 168/2024, Điều 18 khoản 8 điểm a"
+    verified: true
+
+  - id: R-DER-LIC-EXP-02
+    type: derive
+    priority: 55
+    when: {license_expired_months: {gte: 12}}
+    then:
+      set_facts: {license_expiry: LIC_EXPIRED_1Y_PLUS}
+    explain: "Hết hạn từ 12 tháng → từ 01 năm trở lên"
+    source: "NĐ 168/2024, Điều 18 khoản 9 điểm a"
     verified: true

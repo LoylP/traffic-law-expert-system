@@ -18,8 +18,10 @@ acts:
     related_violations:
       - "ND168-D6-K9-Pb"   # Xe ô tô - Điều 6 khoản 9 điểm b
       - "ND168-D7-K7-Pc"   # Xe máy - Điều 7 khoản 7 điểm c
-    legal_ref: "NĐ 168/2024, Điều 6 khoản 9 điểm b; Điều 7 khoản 7 điểm c"
-    verified: true
+      - "ND168-D9-K2-Pđ"   # Xe đạp, xe thô sơ - Điều 9 khoản 2 điểm đ
+      - "ND168-D10-K1-Pb"  # Người đi bộ - Điều 10 khoản 1 điểm b
+    legal_ref: "NĐ 168/2024, Điều 6 khoản 9 điểm b; Điều 7 khoản 7 điểm c; Điều 9 khoản 2 điểm đ; Điều 10 khoản 1 điểm b"
+    verified: false
 
   # 2. Nhóm nồng độ cồn
   - id: ACT_ALCOHOL
@@ -191,19 +193,83 @@ acts:
     verified: true
 
   - id: ACT_NO_LICENSE
-    label: "Điều khiển xe không có giấy phép lái xe"
+    label: "Điều khiển xe không có giấy phép lái xe (hoặc giấy phép không còn giá trị sử dụng)"
     synonyms:
       - "không có bằng lái"
-      - "lái xe không giấy phép"
+      - "không có bằng lái xe"
       - "không có giấy phép lái xe"
-      - "vi phạm giấy phép"
+      - "lái xe không giấy phép"
+      - "không bằng lái"
       - "chưa có bằng lái"
+      - "chưa có giấy phép lái xe"
+      - "chưa thi bằng lái"
+      - "bằng lái bị trừ hết điểm"
+    related_violations:
+      - "ND168-D18-K5-Pa"
+      - "ND168-D18-K7-Pb"
+      - "ND168-D18-K9-Pb"
+    note: "Gồm cả GPLX bị trừ hết điểm, không do cơ quan có thẩm quyền cấp, bị tẩy xóa, không còn hiệu lực (theo nguyên văn các điểm)."
+    legal_ref: "NĐ 168/2024, Điều 18 khoản 5 điểm a; Điều 18 khoản 7 điểm b; Điều 18 khoản 9 điểm b"
+    verified: false
+
+  - id: ACT_LICENSE_MISMATCH
+    label: "Có giấy phép lái xe nhưng không phù hợp với loại xe đang điều khiển"
+    synonyms:
+      - "bằng lái không phù hợp"
+      - "bằng lái xe không phù hợp"
+      - "giấy phép lái xe không phù hợp"
+      - "bằng lái không đúng hạng"
+      - "giấy phép lái xe không đúng hạng"
+      - "sai hạng bằng lái"
+      - "không đúng hạng bằng"
+      - "không có bằng lái phù hợp"
+      - "không có giấy phép lái xe phù hợp"
+      - "dùng bằng không đúng loại xe"
+    related_violations:
+      - "ND168-D18-K5-Pa"
+      - "ND168-D18-K7-Pa"
+      - "ND168-D18-K9-Pa"
+    legal_ref: "NĐ 168/2024, Điều 18 khoản 5 điểm a; Điều 18 khoản 7 điểm a; Điều 18 khoản 9 điểm a"
+    verified: false
+
+  - id: ACT_LICENSE_EXPIRED
+    label: "Có giấy phép lái xe nhưng đã hết hạn sử dụng"
+    synonyms:
       - "bằng lái hết hạn"
-      - "giấy phép không hợp lệ"
-    related_violations: []
-    note: "Cần tìm trong violations_168_clean.json các khoản liên quan đến giấy phép lái xe"
-    legal_ref: "NĐ 168/2024, các khoản liên quan đến giấy phép lái xe"
-    verified: true
+      - "bằng lái đã hết hạn"
+      - "bằng lái xe hết hạn"
+      - "bằng lái xe đã hết hạn"
+      - "bằng lái bị hết hạn"
+      - "giấy phép lái xe hết hạn"
+      - "giấy phép lái xe đã hết hạn"
+      - "gplx hết hạn"
+      - "bằng lái ô tô hết hạn"
+      - "bằng lái ô tô đã hết hạn"
+      - "hết hạn bằng lái"
+    related_violations:
+      - "ND168-D18-K8-Pa"
+      - "ND168-D18-K9-Pa"
+    note: "NĐ 168 chỉ tách theo thời gian hết hạn cho ô tô (Điều 18 khoản 8 điểm a, khoản 9 điểm a)."
+    legal_ref: "NĐ 168/2024, Điều 18 khoản 8 điểm a; Điều 18 khoản 9 điểm a"
+    verified: false
+
+  - id: ACT_LICENSE_NOT_CARRIED
+    label: "Không mang theo giấy phép lái xe"
+    synonyms:
+      - "không mang theo giấy phép lái xe"
+      - "không mang theo bằng lái"
+      - "không mang bằng lái"
+      - "quên mang bằng lái"
+      - "quên bằng lái ở nhà"
+      - "để quên bằng lái"
+      - "quên mang giấy phép lái xe"
+      - "không đem theo bằng lái"
+    related_violations:
+      - "ND168-D18-K2-Pd"
+      - "ND168-D18-K3-Pa"
+    note: "Điều 18 chỉ quy định với người kinh doanh vận tải; xem thêm Điều 48 khoản 3."
+    legal_ref: "NĐ 168/2024, Điều 18 khoản 2 điểm d; Điều 18 khoản 3 điểm a"
+    verified: false
 
   # NEW: Không chấp hành yêu cầu kiểm tra nồng độ cồn
   - id: ACT_REFUSE_ALCOHOL_TEST

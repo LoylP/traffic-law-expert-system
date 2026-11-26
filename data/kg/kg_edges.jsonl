@@ -9795,6 +9795,8 @@
 {"source": "VIOLATION_V0562", "relation": "EXCLUDES", "target": "VIOLATION_V0566"}
 {"source": "VIOLATION_V0062", "relation": "INSTANCE_OF_ACT", "target": "ACT_RED_LIGHT"}
 {"source": "VIOLATION_V0119", "relation": "INSTANCE_OF_ACT", "target": "ACT_RED_LIGHT"}
+{"source": "VIOLATION_V0202", "relation": "INSTANCE_OF_ACT", "target": "ACT_RED_LIGHT"}
+{"source": "VIOLATION_V0214", "relation": "INSTANCE_OF_ACT", "target": "ACT_RED_LIGHT"}
 {"source": "VIOLATION_V0055", "relation": "INSTANCE_OF_ACT", "target": "ACT_ALCOHOL"}
 {"source": "VIOLATION_V0061", "relation": "INSTANCE_OF_ACT", "target": "ACT_ALCOHOL"}
 {"source": "VIOLATION_V0067", "relation": "INSTANCE_OF_ACT", "target": "ACT_ALCOHOL"}
@@ -9822,6 +9824,16 @@
 {"source": "VIOLATION_V0095", "relation": "INSTANCE_OF_ACT", "target": "ACT_OVERLOAD_PASSENGER"}
 {"source": "VIOLATION_V0044", "relation": "INSTANCE_OF_ACT", "target": "ACT_PHONE_WHILE_DRIVING"}
 {"source": "VIOLATION_V0109", "relation": "INSTANCE_OF_ACT", "target": "ACT_PHONE_WHILE_DRIVING"}
+{"source": "VIOLATION_V0318", "relation": "INSTANCE_OF_ACT", "target": "ACT_NO_LICENSE"}
+{"source": "VIOLATION_V0323", "relation": "INSTANCE_OF_ACT", "target": "ACT_NO_LICENSE"}
+{"source": "VIOLATION_V0330", "relation": "INSTANCE_OF_ACT", "target": "ACT_NO_LICENSE"}
+{"source": "VIOLATION_V0318", "relation": "INSTANCE_OF_ACT", "target": "ACT_LICENSE_MISMATCH"}
+{"source": "VIOLATION_V0322", "relation": "INSTANCE_OF_ACT", "target": "ACT_LICENSE_MISMATCH"}
+{"source": "VIOLATION_V0329", "relation": "INSTANCE_OF_ACT", "target": "ACT_LICENSE_MISMATCH"}
+{"source": "VIOLATION_V0326", "relation": "INSTANCE_OF_ACT", "target": "ACT_LICENSE_EXPIRED"}
+{"source": "VIOLATION_V0329", "relation": "INSTANCE_OF_ACT", "target": "ACT_LICENSE_EXPIRED"}
+{"source": "VIOLATION_V0311", "relation": "INSTANCE_OF_ACT", "target": "ACT_LICENSE_NOT_CARRIED"}
+{"source": "VIOLATION_V0312", "relation": "INSTANCE_OF_ACT", "target": "ACT_LICENSE_NOT_CARRIED"}
 {"source": "VIOLATION_V0068", "relation": "INSTANCE_OF_ACT", "target": "ACT_REFUSE_ALCOHOL_TEST"}
 {"source": "VIOLATION_V0128", "relation": "INSTANCE_OF_ACT", "target": "ACT_REFUSE_ALCOHOL_TEST"}
 {"source": "VIOLATION_V0060", "relation": "INSTANCE_OF_ACT", "target": "ACT_HIT_AND_RUN"}

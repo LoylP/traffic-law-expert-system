@@ -1,0 +1,13 @@
+group,query,vehicle,notes
+A,Xe máy vượt đèn đỏ bị phạt bao nhiêu tiền?,xe máy,tra cứu đơn chuẩn
+A,Ô tô chạy quá tốc độ 25 km/h thì bị xử phạt thế nào?,ô tô,tốc độ có số cụ thể
+B,sáng nay e chở 2 đứa bạn đi học bằng xe máy bị csgt thổi,xe máy,chở quá số người; văn nói + viết tắt
+B,toi vua bi bat vi vua chay xe may vua nghe dien thoai,xe máy,không dấu; dùng điện thoại
+B,Đang chạy trên cao tốc thì ông kia quay đầu xe ô tô lại đi ngược chiều luôn,ô tô,ngược chiều trên cao tốc (loại trừ lỗi ngược chiều thường)
+C,"Tối qua đi nhậu về, chạy xe máy không đội nón, tới ngã tư còn vượt đèn đỏ, thổi ra 0,3 mg/l",xe máy,3 hành vi trong một câu
+C,lái ô tô vừa đè vạch chuyển làn bậy vừa không thắt dây an toàn,ô tô,2 hành vi; dây an toàn là slot hay bị bỏ sót
+D,"Công ty tôi có xe tải chạy quá tốc độ 15 km/h, tài xế là nhân viên công ty",ô tô,chủ thể là tổ chức → mức phạt x2
+D,"Tôi lái ô tô có nồng độ cồn 0,2 mg/l, đây là lần thứ 2 trong năm bị phạt lỗi này nhưng tôi đã thành khẩn khai báo",ô tô,tăng nặng (tái phạm) + giảm nhẹ bù trừ
+D,"Xe máy vượt đèn đỏ đâm vào người đi bộ, người đó bị thương nhẹ, tôi bỏ chạy luôn",xe máy,gây tai nạn + bỏ trốn
+E,nhậu xong chạy xe về có sao không,,thiếu loại xe và mức cồn → phải hỏi lại
+E,cho hỏi thủ tục đổi giấy phép lái xe ở đâu,,ngoài phạm vi (hành chính, không phải vi phạm) → unknown

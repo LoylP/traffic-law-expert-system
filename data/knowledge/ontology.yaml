@@ -67,6 +67,44 @@ road_types:
     label: "Đường thường"
     verified: true
 
+motorbike_types:
+  - id: MOTO_UP_TO_125
+    label: "Mô tô hai bánh đến 125 cm3 hoặc đến 11 kW"
+    legal_ref: "NĐ 168/2024, Điều 18 khoản 5"
+    verified: false
+
+  - id: MOTO_OVER_125
+    label: "Mô tô hai bánh trên 125 cm3 hoặc trên 11 kW, mô tô ba bánh"
+    legal_ref: "NĐ 168/2024, Điều 18 khoản 7"
+    verified: false
+
+  - id: MOTO_MOPED
+    label: "Xe gắn máy (không phải xe mô tô)"
+    legal_ref: "NĐ 168/2024, Điều 18 khoản 5, 7 chỉ nêu xe mô tô"
+    verified: false
+
+transport_uses:
+  - id: TRANSPORT_COMMERCIAL
+    label: "Kinh doanh vận tải"
+    legal_ref: "NĐ 168/2024, Điều 18 khoản 2 điểm d, khoản 3 điểm a"
+    verified: false
+
+  - id: TRANSPORT_PRIVATE
+    label: "Không kinh doanh vận tải"
+    legal_ref: "NĐ 168/2024, Điều 48 khoản 3 điểm c"
+    verified: false
+
+license_expiry_ranges:
+  - id: LIC_EXPIRED_UNDER_1Y
+    label: "Hết hạn dưới 01 năm"
+    legal_ref: "NĐ 168/2024, Điều 18 khoản 8 điểm a"
+    verified: false
+
+  - id: LIC_EXPIRED_1Y_PLUS
+    label: "Hết hạn từ 01 năm trở lên"
+    legal_ref: "NĐ 168/2024, Điều 18 khoản 9 điểm a"
+    verified: false
+
 time_contexts:
   - id: TIME_NIGHT
     label: "Ban đêm (18h-6h)"

@@ -1672,16 +1672,6 @@ rules:
     add_violation: ND168-D9-K2-Pd
   source: auto
   verified: true
-- id: R-AUTO-ND168-D9-K2-Pđ
-  type: classify
-  priority: 10
-  when:
-    vehicle_class: VEH_BICYCLE_RUDIMENTARY
-    grounded_violation: ND168-D9-K2-Pđ
-  then:
-    add_violation: ND168-D9-K2-Pđ
-  source: auto
-  verified: true
 - id: R-AUTO-ND168-D9-K3-Pa
   type: classify
   priority: 10
@@ -1790,16 +1780,6 @@ rules:
     grounded_violation: ND168-D10-K1-Pa
   then:
     add_violation: ND168-D10-K1-Pa
-  source: auto
-  verified: true
-- id: R-AUTO-ND168-D10-K1-Pb
-  type: classify
-  priority: 10
-  when:
-    vehicle_class: VEH_PEDESTRIAN
-    grounded_violation: ND168-D10-K1-Pb
-  then:
-    add_violation: ND168-D10-K1-Pb
   source: auto
   verified: true
 - id: R-AUTO-ND168-D10-K1-Pc
@@ -2762,26 +2742,6 @@ rules:
     add_violation: ND168-D18-K2-Pc
   source: auto
   verified: true
-- id: R-AUTO-ND168-D18-K2-Pd
-  type: classify
-  priority: 10
-  when:
-    vehicle_class: VEH_MOTORBIKE
-    grounded_violation: ND168-D18-K2-Pd
-  then:
-    add_violation: ND168-D18-K2-Pd
-  source: auto
-  verified: true
-- id: R-AUTO-ND168-D18-K3-Pa
-  type: classify
-  priority: 10
-  when:
-    vehicle_class: VEH_CAR
-    grounded_violation: ND168-D18-K3-Pa
-  then:
-    add_violation: ND168-D18-K3-Pa
-  source: auto
-  verified: true
 - id: R-AUTO-ND168-D18-K3-Pb
   type: classify
   priority: 10
@@ -2832,16 +2792,6 @@ rules:
     add_violation: ND168-D18-K4-Pc
   source: auto
   verified: true
-- id: R-AUTO-ND168-D18-K5-Pa
-  type: classify
-  priority: 10
-  when:
-    vehicle_class: VEH_MOTORBIKE
-    grounded_violation: ND168-D18-K5-Pa
-  then:
-    add_violation: ND168-D18-K5-Pa
-  source: auto
-  verified: true
 - id: R-AUTO-ND168-D18-K5-Pb
   type: classify
   priority: 10
@@ -2872,26 +2822,6 @@ rules:
     add_violation: ND168-D18-K6
   source: auto
   verified: true
-- id: R-AUTO-ND168-D18-K7-Pa
-  type: classify
-  priority: 10
-  when:
-    vehicle_class: VEH_MOTORBIKE
-    grounded_violation: ND168-D18-K7-Pa
-  then:
-    add_violation: ND168-D18-K7-Pa
-  source: auto
-  verified: true
-- id: R-AUTO-ND168-D18-K7-Pb
-  type: classify
-  priority: 10
-  when:
-    vehicle_class: VEH_MOTORBIKE
-    grounded_violation: ND168-D18-K7-Pb
-  then:
-    add_violation: ND168-D18-K7-Pb
-  source: auto
-  verified: true
 - id: R-AUTO-ND168-D18-K7-Pc
   type: classify
   priority: 10
@@ -2912,16 +2842,6 @@ rules:
     add_violation: ND168-D18-K7-Pd
   source: auto
   verified: true
-- id: R-AUTO-ND168-D18-K8-Pa
-  type: classify
-  priority: 10
-  when:
-    vehicle_class: VEH_CAR
-    grounded_violation: ND168-D18-K8-Pa
-  then:
-    add_violation: ND168-D18-K8-Pa
-  source: auto
-  verified: true
 - id: R-AUTO-ND168-D18-K8-Pb
   type: classify
   priority: 10
@@ -2940,26 +2860,6 @@ rules:
     grounded_violation: ND168-D18-K8-Pc
   then:
     add_violation: ND168-D18-K8-Pc
-  source: auto
-  verified: true
-- id: R-AUTO-ND168-D18-K9-Pa
-  type: classify
-  priority: 10
-  when:
-    vehicle_class: VEH_CAR
-    grounded_violation: ND168-D18-K9-Pa
-  then:
-    add_violation: ND168-D18-K9-Pa
-  source: auto
-  verified: true
-- id: R-AUTO-ND168-D18-K9-Pb
-  type: classify
-  priority: 10
-  when:
-    vehicle_class: VEH_CAR
-    grounded_violation: ND168-D18-K9-Pb
-  then:
-    add_violation: ND168-D18-K9-Pb
   source: auto
   verified: true
 - id: R-AUTO-ND168-D19-K1

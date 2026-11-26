@@ -443,7 +443,7 @@ rules:
       add_violation: "ND168-D6-K3-Pk"
     legal_excerpt: "Không thắt dây đai an toàn khi điều khiển xe chạy trên đường"
     source: "NĐ 168/2024, Điều 6 khoản 3 điểm k"
-    verified: false
+    verified: true
 
   - id: R-CLS-BELT-PASS-CAR
     type: classify
@@ -455,4 +455,158 @@ rules:
       add_violation: "ND168-D6-K3-Pl"
     legal_excerpt: "Chở người trên xe ô tô không thắt dây đai an toàn (tại vị trí có trang bị dây đai an toàn) khi xe đang chạy"
     source: "NĐ 168/2024, Điều 6 khoản 3 điểm l"
-    verified: false
+    verified: true
+
+  # 8. Đèn tín hiệu cho xe đạp / người đi bộ; 9. Giấy phép lái xe (Điều 18)
+  - id: R-CLS-RED-BIKE
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_BICYCLE_RUDIMENTARY
+      has_act: ACT_RED_LIGHT
+    then:
+      add_violation: "ND168-D9-K2-Pđ"
+    legal_excerpt: "Không chấp hành hiệu lệnh của đèn tín hiệu giao thông."
+    source: "NĐ 168/2024, Điều 9 khoản 2 điểm đ"
+    verified: true
+
+  - id: R-CLS-RED-PED
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_PEDESTRIAN
+      has_act: ACT_RED_LIGHT
+    then:
+      add_violation: "ND168-D10-K1-Pb"
+    legal_excerpt: "Không chấp hành hiệu lệnh hoặc chỉ dẫn của đèn tín hiệu, biển báo hiệu, vạch kẻ đường, trừ hành vi vi phạm quy định tại điểm a khoản 2 Điều này;"
+    source: "NĐ 168/2024, Điều 10 khoản 1 điểm b"
+    verified: true
+
+  - id: R-CLS-LIC-NONE-MOTO-125
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_NO_LICENSE
+      motorbike_type: MOTO_UP_TO_125
+    then:
+      add_violation: "ND168-D18-K5-Pa"
+    legal_excerpt: "Không có giấy phép lái xe hoặc sử dụng giấy phép lái xe đã bị trừ hết điểm hoặc sử dụng giấy phép lái xe không do cơ quan có thẩm quyền cấp, giấy phép lái xe bị tẩy xóa, giấy phép lái xe không còn hiệu lực, giấy phép lái xe không phù hợp với loại xe đang điều khiển;"
+    source: "NĐ 168/2024, Điều 18 khoản 5 điểm a"
+    verified: true
+
+  - id: R-CLS-LIC-NONE-MOTO-OVER
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_NO_LICENSE
+      motorbike_type: MOTO_OVER_125
+    then:
+      add_violation: "ND168-D18-K7-Pb"
+    legal_excerpt: "Không có giấy phép lái xe hoặc sử dụng giấy phép lái xe đã bị trừ hết điểm, giấy phép lái xe không do cơ quan có thẩm quyền cấp, giấy phép lái xe bị tẩy xóa, giấy phép lái xe không còn hiệu lực;"
+    source: "NĐ 168/2024, Điều 18 khoản 7 điểm b"
+    verified: true
+
+  - id: R-CLS-LIC-NONE-CAR
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_NO_LICENSE
+    then:
+      add_violation: "ND168-D18-K9-Pb"
+    legal_excerpt: "Không có giấy phép lái xe hoặc sử dụng giấy phép lái xe đã bị trừ hết điểm hoặc sử dụng giấy phép lái xe không do cơ quan có thẩm quyền cấp, giấy phép lái xe bị tẩy xóa, giấy phép lái xe không còn hiệu lực."
+    source: "NĐ 168/2024, Điều 18 khoản 9 điểm b"
+    verified: true
+
+  - id: R-CLS-LIC-MISMATCH-MOTO-125
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_LICENSE_MISMATCH
+      motorbike_type: MOTO_UP_TO_125
+    then:
+      add_violation: "ND168-D18-K5-Pa"
+    legal_excerpt: "Không có giấy phép lái xe hoặc sử dụng giấy phép lái xe đã bị trừ hết điểm hoặc sử dụng giấy phép lái xe không do cơ quan có thẩm quyền cấp, giấy phép lái xe bị tẩy xóa, giấy phép lái xe không còn hiệu lực, giấy phép lái xe không phù hợp với loại xe đang điều khiển;"
+    source: "NĐ 168/2024, Điều 18 khoản 5 điểm a"
+    verified: true
+
+  - id: R-CLS-LIC-MISMATCH-MOTO-OVER
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_LICENSE_MISMATCH
+      motorbike_type: MOTO_OVER_125
+    then:
+      add_violation: "ND168-D18-K7-Pa"
+    legal_excerpt: "Có giấy phép lái xe nhưng không phù hợp với loại xe đang điều khiển;"
+    source: "NĐ 168/2024, Điều 18 khoản 7 điểm a"
+    verified: true
+
+  - id: R-CLS-LIC-MISMATCH-CAR
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_LICENSE_MISMATCH
+    then:
+      add_violation: "ND168-D18-K9-Pa"
+    legal_excerpt: "Có giấy phép lái xe nhưng không phù hợp với loại xe đang điều khiển hoặc có giấy phép lái xe nhưng đã hết hạn sử dụng từ 01 năm trở lên;"
+    source: "NĐ 168/2024, Điều 18 khoản 9 điểm a"
+    verified: true
+
+  - id: R-CLS-LIC-EXP-CAR-UNDER1Y
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_LICENSE_EXPIRED
+      license_expiry: LIC_EXPIRED_UNDER_1Y
+    then:
+      add_violation: "ND168-D18-K8-Pa"
+    legal_excerpt: "Có giấy phép lái xe nhưng đã hết hạn sử dụng dưới 01 năm;"
+    source: "NĐ 168/2024, Điều 18 khoản 8 điểm a"
+    verified: true
+
+  - id: R-CLS-LIC-EXP-CAR-1Y
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_LICENSE_EXPIRED
+      license_expiry: LIC_EXPIRED_1Y_PLUS
+    then:
+      add_violation: "ND168-D18-K9-Pa"
+    legal_excerpt: "Có giấy phép lái xe nhưng không phù hợp với loại xe đang điều khiển hoặc có giấy phép lái xe nhưng đã hết hạn sử dụng từ 01 năm trở lên;"
+    source: "NĐ 168/2024, Điều 18 khoản 9 điểm a"
+    verified: true
+
+  - id: R-CLS-LIC-CARRY-MOTO
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_LICENSE_NOT_CARRIED
+      transport_use: TRANSPORT_COMMERCIAL
+      motorbike_type: {in: [MOTO_UP_TO_125, MOTO_OVER_125]}
+    then:
+      add_violation: "ND168-D18-K2-Pd"
+    legal_excerpt: "Người điều khiển xe mô tô và các loại xe tương tự xe mô tô kinh doanh vận tải không mang theo giấy phép lái xe trừ hành vi vi phạm quy định tại điểm b khoản 5, điểm c khoản 7 Điều này."
+    source: "NĐ 168/2024, Điều 18 khoản 2 điểm d"
+    verified: true
+
+  - id: R-CLS-LIC-CARRY-CAR
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_LICENSE_NOT_CARRIED
+      transport_use: TRANSPORT_COMMERCIAL
+    then:
+      add_violation: "ND168-D18-K3-Pa"
+    legal_excerpt: "Người điều khiển xe ô tô, xe chở người bốn bánh có gắn động cơ, xe chở hàng bốn bánh có gắn động cơ và các loại xe tương tự xe ô tô kinh doanh vận tải không mang theo giấy phép lái xe, trừ hành vi vi phạm quy định tại điểm c khoản 8 Điều này;"
+    source: "NĐ 168/2024, Điều 18 khoản 3 điểm a"
+    verified: true

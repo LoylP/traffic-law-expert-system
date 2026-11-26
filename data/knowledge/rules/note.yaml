@@ -18,3 +18,34 @@ rules:
     source: "Phân tích từ NĐ 168/2024 không có quy định cụ thể cho hành vi này"
     note: "Không đổi status nếu đã có violation khác; chỉ đặt status out_of_scope khi không có violation nào"
     verified: true
+
+  - id: R-NOTE-LIC-MOPED
+    type: note
+    priority: 25
+    when: {has_act: [ACT_NO_LICENSE, ACT_LICENSE_MISMATCH, ACT_LICENSE_NOT_CARRIED], vehicle_class: VEH_MOTORBIKE, motorbike_type: MOTO_MOPED}
+    then:
+      add_notes: ["Các quy định về giấy phép lái xe được hệ thống áp dụng tại NĐ 168/2024 (Điều 18 khoản 2 điểm d, khoản 5, khoản 7) chỉ nêu xe mô tô và xe tương tự xe mô tô, không nêu xe gắn máy: không đủ căn cứ để xử phạt xe gắn máy về hành vi này."]
+    explain: "Các quy định về giấy phép lái xe được hệ thống áp dụng tại NĐ 168/2024 (Điều 18 khoản 2 điểm d, khoản 5, khoản 7) chỉ nêu xe mô tô và xe tương tự xe mô tô, không nêu xe gắn máy"
+    source: "NĐ 168/2024, Điều 18 khoản 2 điểm d, khoản 5, khoản 7"
+    verified: true
+
+  - id: R-NOTE-LIC-PRIVATE
+    type: note
+    priority: 25
+    when: {has_act: ACT_LICENSE_NOT_CARRIED, transport_use: TRANSPORT_PRIVATE}
+    then:
+      add_notes: ["Điều 18 chỉ quy định mức phạt không mang theo giấy phép lái xe đối với người kinh doanh vận tải. Theo Điều 48 khoản 3 NĐ 168/2024: khi kiểm tra không xuất trình được thì bị lập biên bản về hành vi không có giấy tờ; nếu xuất trình được trong thời hạn hẹn thì người không kinh doanh vận tải không bị ra quyết định xử phạt, quá thời hạn thì bị xử phạt theo biên bản."]
+    explain: "Điều 18 chỉ quy định mức phạt không mang theo giấy phép lái xe đối với người kinh doanh vận tải"
+    source: "NĐ 168/2024, Điều 48 khoản 3"
+    legal_excerpt: "Trong thời hạn hẹn đến giải quyết vụ việc vi phạm ghi trong biên bản vi phạm hành chính, nếu người vi phạm (trừ trường hợp quy định tại điểm b khoản này) xuất trình được các giấy tờ hoặc thông tin của các giấy tờ được tích hợp trong tài khoản định danh điện tử theo quy định thì người có thẩm quyền không ra quyết định xử phạt vi phạm hành chính đối với hành vi vi phạm không có giấy tờ, không mang theo giấy tờ và không xử phạt đối với chủ phương tiện;"
+    verified: true
+
+  - id: R-NOTE-LIC-EXP-MOTO
+    type: note
+    priority: 25
+    when: {has_act: ACT_LICENSE_EXPIRED, vehicle_class: VEH_MOTORBIKE}
+    then:
+      add_notes: ["NĐ 168/2024 không có điểm riêng về giấy phép lái xe mô tô hết hạn sử dụng; Điều 18 khoản 5, khoản 7 có nêu trường hợp giấy phép “không còn hiệu lực”. Hệ thống không tự đồng nhất hai trường hợp này; cần xác định giấy phép có còn hiệu lực hay không."]
+    explain: "NĐ 168/2024 không có điểm riêng về giấy phép lái xe mô tô hết hạn sử dụng; Điều 18 khoản 5, khoản 7 có nêu trường hợp giấy phép “không còn hiệu lực”"
+    source: "NĐ 168/2024, Điều 18 khoản 5, khoản 7"
+    verified: true

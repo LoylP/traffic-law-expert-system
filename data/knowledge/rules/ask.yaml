@@ -29,7 +29,7 @@ rules:
           label: "Người đi bộ"
     explain: "Loại phương tiện quyết định điều khoản áp dụng (NĐ 168/2024, Điều 6–10)"
     source: "Suy diễn của nhóm"
-    verified: false
+    verified: true
 
   - id: R-ASK-ALC-01
     type: ask
@@ -58,7 +58,7 @@ rules:
           remove_acts: [ACT_ALCOHOL]
     explain: "Mức nồng độ cồn quyết định khoản xử phạt"
     source: "NĐ 168/2024, Điều 6 khoản 6, 9, 11; Điều 7 khoản 6, 8, 9"
-    verified: false
+    verified: true
 
   - id: R-ASK-SPD-01
     type: ask
@@ -82,7 +82,7 @@ rules:
           label: "Vượt trên 35 km/h"
     explain: "Mức vượt tốc độ quyết định khoản xử phạt"
     source: "NĐ 168/2024, Điều 6 khoản 3, 5, 6, 7; Điều 7 khoản 2, 4, 8"
-    verified: false
+    verified: true
 
   # Biến thể: đã biết tốc độ thực tế → chỉ hỏi tốc độ cho phép
   - id: R-ASK-SPD-02
@@ -100,7 +100,7 @@ rules:
       number_field: speed_limit_kmh
     explain: "Cần tốc độ cho phép để tính mức vượt tốc độ"
     source: "Suy diễn của nhóm"
-    verified: false
+    verified: true
 
   # Biến thể: đã biết tốc độ cho phép → chỉ hỏi tốc độ thực tế
   - id: R-ASK-SPD-03
@@ -118,7 +118,7 @@ rules:
       number_field: actual_speed_kmh
     explain: "Cần tốc độ thực tế để tính mức vượt tốc độ"
     source: "Suy diễn của nhóm"
-    verified: false
+    verified: true
 
   - id: R-ASK-PASS-01
     type: ask
@@ -135,7 +135,7 @@ rules:
           label: "Từ 03 người trở lên"
     explain: "Số người được chở quyết định khoản xử phạt"
     source: "NĐ 168/2024, Điều 7 khoản 2 điểm g, khoản 3 điểm b"
-    verified: false
+    verified: true
 
   - id: R-ASK-ROAD-01
     type: ask
@@ -152,7 +152,64 @@ rules:
           label: "Đường khác (không phải cao tốc)"
     explain: "Một số hành vi trên đường cao tốc có khung xử phạt riêng"
     source: "NĐ 168/2024, Điều 6 khoản 11 điểm đ"
-    verified: false
+    verified: true
+
+  - id: R-ASK-TRANSPORT-01
+    type: ask
+    priority: 70
+    then:
+      ask_field: transport_use
+      slot_label: "việc có kinh doanh vận tải hay không"
+      known_if: [[transport_use]]
+      question_text: "Bạn điều khiển xe để kinh doanh vận tải hay không?"
+      options:
+        - value: TRANSPORT_COMMERCIAL
+          label: "Có kinh doanh vận tải"
+        - value: TRANSPORT_PRIVATE
+          label: "Không kinh doanh vận tải"
+    explain: "Lỗi không mang theo giấy phép lái xe chỉ quy định với người kinh doanh vận tải"
+    source: "NĐ 168/2024, Điều 18 khoản 2 điểm d, khoản 3 điểm a"
+    verified: true
+
+  - id: R-ASK-MOTO-01
+    type: ask
+    priority: 60
+    then:
+      ask_field: motorbike_type
+      slot_label: "loại mô tô (dung tích/công suất)"
+      known_if: [[motorbike_type]]
+      question_text: "Xe thuộc loại nào (dung tích xi-lanh hoặc công suất động cơ điện)?"
+      input_type: number
+      unit: "cm3"
+      number_field: engine_capacity_cc
+      number_max: 3000
+      options:
+        - value: MOTO_UP_TO_125
+          label: "Mô tô đến 125 cm3 (hoặc đến 11 kW)"
+        - value: MOTO_OVER_125
+          label: "Mô tô trên 125 cm3 (hoặc trên 11 kW), mô tô ba bánh"
+        - value: MOTO_MOPED
+          label: "Xe gắn máy (không phải xe mô tô)"
+    explain: "Dung tích/công suất quyết định khoản xử phạt về giấy phép lái xe"
+    source: "NĐ 168/2024, Điều 18 khoản 5, khoản 7"
+    verified: true
+
+  - id: R-ASK-LIC-EXP-01
+    type: ask
+    priority: 60
+    then:
+      ask_field: license_expiry
+      slot_label: "thời gian giấy phép lái xe đã hết hạn"
+      known_if: [[license_expiry], [license_expired_months]]
+      question_text: "Giấy phép lái xe đã hết hạn bao lâu?"
+      options:
+        - value: LIC_EXPIRED_UNDER_1Y
+          label: "Dưới 01 năm"
+        - value: LIC_EXPIRED_1Y_PLUS
+          label: "Từ 01 năm trở lên"
+    explain: "Thời gian hết hạn quyết định khoản xử phạt đối với ô tô"
+    source: "NĐ 168/2024, Điều 18 khoản 8 điểm a, khoản 9 điểm a"
+    verified: true
 
   # KHÔNG hỏi khi acts rỗng và không ground được (DESIGN: để unknown).
   # KHÔNG hỏi ngoại lệ (passenger_exception...), hậu quả, tình tiết: không nêu = không có.

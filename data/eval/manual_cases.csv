@@ -1,0 +1,80 @@
+group,query,vehicle,notes
+A,Xe máy vượt đèn đỏ bị phạt bao nhiêu tiền?,xe máy,vượt đèn đỏ
+A,Ô tô chạy quá tốc độ 25 km/h thì bị xử phạt thế nào?,ô tô,"tốc độ, khung trên 20 đến 35"
+A,Xe máy chạy quá tốc độ 20 km/h bị phạt gì?,xe máy,biên: đúng 20 km/h thuộc khung 10–20
+A,Xe ô tô vượt tốc độ 40 km/h phạt bao nhiêu?,ô tô,"tốc độ, khung trên 35"
+A,"Lái ô tô có nồng độ cồn vượt quá 0,4 mg/l khí thở bị phạt ra sao?",ô tô,nồng độ cồn mức cao nhất
+A,"Xe máy bị thổi nồng độ cồn 0,35 mg/l phạt bao nhiêu?",xe máy,nồng độ cồn mức giữa
+A,Lái ô tô không thắt dây an toàn bị phạt bao nhiêu?,ô tô,dây đai an toàn người lái
+A,Xe máy đi ngược chiều trên đường một chiều phạt bao nhiêu?,xe máy,ngược chiều đường thường
+A,Xe máy đi vào đường cao tốc bị phạt bao nhiêu tiền?,xe máy,xe máy vào cao tốc
+A,Tôi lái xe ô tô con nhưng dùng giấy phép lái xe hạng A1 thì bị xử phạt lỗi gì?,ô tô,GPLX không phù hợp loại xe
+A,Lái ô tô không nhường đường cho người đi bộ ở vạch qua đường bị phạt bao nhiêu?,ô tô,không nhường đường người đi bộ
+A,Đi bộ sang đường không đúng nơi quy định bị phạt gì?,người đi bộ,người đi bộ
+A,Ô tô chạy quá tốc độ 5 km/h bị phạt bao nhiêu?,ô tô,biên: đúng 5 km/h thuộc khung 5 đến dưới 10
+A,Người đi bộ đi vào đường cao tốc bị phạt bao nhiêu?,người đi bộ,người đi bộ vào cao tốc
+A,Người đi bộ vượt qua dải phân cách bị phạt bao nhiêu?,người đi bộ,người đi bộ vượt dải phân cách
+A,Đi xe đạp vào đường cao tốc bị phạt bao nhiêu?,xe đạp,xe thô sơ vào cao tốc
+A,Xe máy không gắn biển số bị phạt thế nào?,xe máy,không gắn biển số
+A,Lái ô tô không nhường đường cho xe cứu thương đang làm nhiệm vụ bị phạt bao nhiêu?,ô tô,không nhường đường xe ưu tiên
+A,Lái ô tô mà trong cơ thể có chất ma túy bị xử phạt thế nào?,ô tô,chất ma túy khi điều khiển xe
+A,Xe máy rẽ trái không bật xi-nhan bị phạt bao nhiêu?,xe máy,chuyển hướng không có tín hiệu báo trước
+B,sáng nay e chở 2 đứa bạn đi học bằng xe máy bị csgt thổi,xe máy,"chở 2 người; văn nói, viết tắt"
+B,toi vua bi bat vi vua chay xe may vua nghe dien thoai,xe máy,không dấu; dùng điện thoại
+B,Đang chạy trên cao tốc thì ông kia quay đầu xe ô tô lại đi ngược chiều luôn,ô tô,quay đầu/ngược chiều trên cao tốc; kể về người khác
+B,tối qua lỡ làm 2 lon bia xong chạy honda về gặp chốt đo lên 0.15 thì đi bao nhiêu củ,xe máy,"tiếng lóng honda, củ; nồng độ cồn mức thấp"
+B,chạy xe hơi 80 km/h đoạn biển 60 phạt mấy triệu,ô tô,phải tự tính mức vượt 20
+B,ko doi mbh phat bao nhieu vay,,không nêu xe; mũ bảo hiểm → suy ra xe máy bằng luật derive
+B,xe dap dien vuot den do co bi phat ko,xe đạp điện,không dấu; xe đạp điện ứng với xe đạp máy
+B,chay xe may len via he bi phat ntn,xe máy,không dấu; đi trên vỉa hè
+B,chạy xe hơi lấn qua vạch liền màu vàng ở giữa đường có bị lụm không ad,ô tô,văn nói; đè vạch liền phân chia hai chiều
+B,quên bật đèn lúc 7h tối chạy xe máy ngoài đường bị phạt nhiu z,xe máy,teencode; không bật đèn chiếu sáng ban đêm
+B,bữa trước lái xe bán tải đậu ngay góc ngã tư cách có 3m bị phạt nguội,ô tô,đỗ xe trong phạm vi gần nơi giao nhau
+B,lái xe 4 chỗ mà gắn cái giá che mất 1 số trên biển số sau bị phạt nặng ko,ô tô,che lấp biển số
+B,chạy xe máy kẹp 3 gồm 1 người lớn với 1 đứa con nít 10 tuổi có bị thổi ko,xe máy,biên: ngoại lệ chở trẻ em dưới 12 tuổi
+B,bị csgt kêu thổi nồng độ cồn mà tôi chạy xe máy không chịu thổi thì sao,xe máy,từ chối kiểm tra nồng độ cồn
+B,con tui mới 15 tuổi lấy xe wave 110cc chạy đi học bị công an giữ xe,xe máy,người chưa đủ tuổi điều khiển xe
+B,tối qua nhậu xong chạy xe máy về bị thổi 0.25 phạt mấy triệu vậy,xe máy,"biên: đúng 0,25 mg/l thuộc mức thấp nhất"
+B,bị bắt vì chạy xe hổng có mủ bảo hiểm nè,,phương ngữ + lỗi chính tả; không nêu xe → suy ra xe máy bằng luật derive
+B,thằng bạn t lái xe hơi mà cầm điện thoại facetime bị bắt phạt 5 triệu,ô tô,"văn nói + tiếng Anh; người hỏi tự nêu số tiền, hệ thống không được dựa theo"
+C,"Tối qua đi nhậu về, chạy xe máy không đội nón, tới ngã tư còn vượt đèn đỏ, thổi ra 0,3 mg/l",xe máy,3 hành vi: cồn + mũ bảo hiểm + đèn đỏ
+C,lái ô tô vừa đè vạch chuyển làn bậy vừa không thắt dây an toàn,ô tô,2 hành vi: làn đường + dây an toàn
+C,Chạy xe máy quá tốc độ 30 km/h mà còn vượt đèn đỏ luôn,xe máy,2 hành vi: tốc độ + đèn đỏ
+C,"Lái ô tô không thắt dây an toàn, vừa nghe điện thoại vừa chạy quá tốc độ 12 km/h",ô tô,3 hành vi: dây an toàn + điện thoại + tốc độ
+C,"Đi xe máy không đội mũ bảo hiểm, chở thêm 2 người nữa, lại còn đi ngược chiều",xe máy,3 hành vi: mũ bảo hiểm + chở 2 người + ngược chiều
+C,"Uống rượu xong lái ô tô đi ngược chiều trên cao tốc, thổi ra 0,5 mg/l",ô tô,2 hành vi nặng: cồn + ngược chiều cao tốc
+C,Lái ô tô quá tốc độ 40 km/h trên cao tốc mà không thắt dây an toàn,ô tô,2 hành vi: tốc độ + dây an toàn
+C,chay xe may wave 110cc khong doi non khong co bang lai vuot den do,xe máy,3 hành vi; không dấu: mũ bảo hiểm + không GPLX + đèn đỏ
+C,Lái ô tô vừa sử dụng điện thoại vừa vượt đèn đỏ tại ngã tư,ô tô,2 hành vi: điện thoại + đèn đỏ
+C,Đi xe đạp điện không đội mũ bảo hiểm và vượt đèn đỏ,xe đạp điện,2 hành vi; xe đạp máy
+C,"Lái ô tô có nồng độ cồn 0,5 mg/l mà còn vượt đèn đỏ",ô tô,2 hành vi: cồn mức cao + đèn đỏ
+C,vua chay xe may vua nghe dt khong doi non vuot den do luon,xe máy,"3 hành vi; không dấu, viết tắt dt"
+D,"Công ty tôi có xe tải chạy quá tốc độ 15 km/h, tài xế là nhân viên công ty",xe tải,xác định người vi phạm là tài xế hay tổ chức; chốt khi verify
+D,"Tôi lái ô tô có nồng độ cồn 0,2 mg/l, đây là lần thứ 2 trong năm bị phạt lỗi này nhưng tôi đã thành khẩn khai báo",ô tô,tăng nặng tái phạm + giảm nhẹ thành khẩn → bù trừ
+D,"Xe máy vượt đèn đỏ đâm vào người đi bộ, người đó bị thương nhẹ, tôi bỏ chạy luôn",xe máy,gây tai nạn + bỏ trốn
+D,Lái ô tô gây tai nạn rồi bỏ chạy không cứu giúp nạn nhân bị phạt thế nào?,ô tô,gây tai nạn bỏ trốn
+D,Tôi lái ô tô đi ngược chiều gây tai nạn làm hư hỏng xe khác nhưng đã tự nguyện bồi thường thiệt hại cho họ,ô tô,gây tai nạn + giảm nhẹ tự nguyện khắc phục
+D,"Tôi đang mang thai, đi xe máy vượt đèn đỏ thì có được giảm nhẹ không?",xe máy,giảm nhẹ: phụ nữ có thai
+D,"3 tháng trước tôi bị phạt lỗi vượt đèn đỏ, nay lái ô tô lại vượt đèn đỏ lần nữa",ô tô,tăng nặng: tái phạm cùng hành vi
+D,"Tôi lái ô tô vượt đèn đỏ, khi bị dừng xe còn lăng mạ chửi bới CSGT",ô tô,tăng nặng: lăng mạ người thi hành công vụ
+D,Bị CSGT ra hiệu dừng xe máy nhưng tôi không chấp hành mà bỏ chạy,xe máy,không chấp hành hiệu lệnh + bỏ chạy
+D,"Doanh nghiệp vận tải của tôi giao xe đầu kéo cho tài xế không có giấy phép lái xe chạy, công ty bị phạt bao nhiêu?",ô tô,chủ thể tổ chức; lỗi của chủ phương tiện
+D,"Tôi cho bạn mượn xe máy, bạn tôi chưa có bằng lái và chạy vượt đèn đỏ thì tôi có bị phạt không?",xe máy,chủ xe cá nhân giao xe cho người không đủ điều kiện
+D,"Lái xe máy có nồng độ cồn 0,5 mg/l gây tai nạn rồi bỏ chạy, bị xử lý ra sao?",xe máy,cồn mức cao + gây tai nạn bỏ trốn
+E,nhậu xong chạy xe về có sao không,,thiếu loại xe và mức cồn → hỏi lại
+E,e uong 2 lon bia roi lai xe co bi phat ko,,không dấu; thiếu loại xe và mức cồn → hỏi lại
+E,vượt đèn đỏ phạt nhiêu vậy bạn,,thiếu loại xe → hỏi lại
+E,bi ban toc do vuot 20km phat bao nhieu,,tiếng lóng bắn tốc độ; thiếu loại xe → hỏi lại
+E,Đi xe máy không có bằng lái bị phạt bao nhiêu?,xe máy,thiếu dung tích xe → hỏi loại mô tô
+E,GPLX hết hạn mà vẫn lái xe thì sao,,thiếu loại xe và thời gian hết hạn → hỏi lại
+E,cho hỏi thủ tục đổi giấy phép lái xe ở đâu,,ngoài phạm vi: thủ tục hành chính
+E,cách tra cứu phạt nguội ô tô trên điện thoại như thế nào,,ngoài phạm vi: hướng dẫn dịch vụ
+E,mua xe máy cũ nhưng chủ cũ không chịu đi làm thủ tục sang tên thì kiện ở đâu,,ngoài phạm vi: tranh chấp dân sự
+E,tai nạn giao thông thì bồi thường bao nhiêu tiền,,ngoài phạm vi: bồi thường dân sự
+E,có cách nào tránh bị phạt không,,ngoài phạm vi
+E,đi sai làn bị phạt bao nhiêu,,thiếu loại xe → hỏi lại
+E,chở quá người bị phạt bao nhiêu tiền,,thiếu loại xe và số người → hỏi lại
+E,chạy xe máy 60 km/h có bị phạt không,xe máy,thiếu tốc độ cho phép → hỏi lại
+E,csgt thổi ndc 0.3 phạt bn ae,,viết tắt; có mức cồn nhưng thiếu loại xe → hỏi lại
+E,chạy quá tốt độ 30 cây số bị phạt bao nhiêu,,lỗi chính tả; thiếu loại xe → hỏi lại
+E,giá xe VinFast VF8 bao nhiêu tiền,,hoàn toàn ngoài phạm vi

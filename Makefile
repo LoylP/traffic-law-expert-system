@@ -1,6 +1,6 @@
 PYTHON ?= python3.11
 
-.PHONY: data test
+.PHONY: data test eval-validate eval-smoke eval-local
 
 data:
 	$(PYTHON) -m src.extract.legal_corpus_builder
@@ -11,3 +11,15 @@ data:
 
 test:
 	$(PYTHON) -m pytest
+
+eval-validate:
+	$(PYTHON) scripts/validate_cases.py
+
+# Smoke results go to their own folder so they never mix with data/eval/results.
+eval-smoke:
+	$(PYTHON) -m src.eval.run_eval --cases data/eval/smoke_cases.jsonl \
+		--config oracle_facts regex_extractor --out data/eval/smoke_results
+
+eval-local:
+	$(PYTHON) -m src.eval.run_eval --cases data/eval/test_cases.jsonl \
+		--config oracle_facts regex_extractor

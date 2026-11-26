@@ -49,7 +49,7 @@ GROUNDED_WARNING = (
 MAX_QUESTION_ROUNDS = 3
 UNKNOWN_REPLIES = ("không biết", "không nhớ", "không rõ lắm", "chưa rõ")
 # Spellings accepted for the unit of a numeric question (spaces removed).
-UNIT_ALIASES = {"km/h": ("km", "kmh", "km/giờ"), "mg/l": ("mg/lítkhíthở", "mg/lkhíthở")}
+UNIT_ALIASES = {"km/h": ("km", "kmh", "km/giờ"), "cm3": ("cc", "cm³", "phânkhối"), "mg/l": ("mg/lítkhíthở", "mg/lkhíthở")}
 
 
 class ConsultOptions(BaseModel):

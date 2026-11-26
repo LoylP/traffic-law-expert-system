@@ -68,6 +68,58 @@ DRANK_PATTERN = (
 )
 
 
+# Driving-licence slots: filled only from explicit wording (never by the LLM).
+LICENSE_SLOTS = (
+    "motorbike_type",
+    "engine_capacity_cc",
+    "motor_power_kw",
+    "transport_use",
+    "license_expiry",
+    "license_expired_months",
+)
+# A bound ("trên 125 cm3") is a range, not a measured value.
+_BOUND = r"(?<!\w)(?:trên|hơn|dưới|đến|tới)\s+"
+_CC = r"\s*(?:cm\s*3|cm³|cc(?!\w)|phân khối|xi[\s-]*lanh)"
+_KW = r"\s*kw(?![\wh])"
+_LICENSE_WORDS = r"(?:bằng(?: lái)?(?: xe)?|giấy phép lái xe|gplx)"
+_DURATION = r"(\d+|một|hai|ba|bốn|năm|sáu)\s*(tháng|năm)(?!\w)"
+
+
+def license_slots(text: str) -> dict[str, tuple[Any, int, int]]:
+    """slot -> (value, start, end) for the licence slots stated in normalized text."""
+    found: dict[str, tuple[Any, int, int]] = {}
+
+    def first(slot: str, pattern: str, value: Any) -> None:
+        match = re.search(pattern, text)
+        if match and slot not in found:
+            found[slot] = (value(match) if callable(value) else value, *match.span())
+
+    first("motorbike_type", rf"(?:mô tô|xe máy)\s+(?:ba|3) bánh", "MOTO_OVER_125")
+    first("motorbike_type", rf"(?<!\w)(?:trên|hơn)\s+(?:125(?:{_CC})?|11{_KW})(?!\d)", "MOTO_OVER_125")
+    first("motorbike_type", rf"(?<!\w)(?:dưới|đến|tới)\s+(?:125{_CC}|11{_KW})", "MOTO_UP_TO_125")
+    for slot, unit in (("engine_capacity_cc", _CC), ("motor_power_kw", _KW)):
+        for match in re.finditer(rf"({NUMBER}){unit}", text):
+            if not re.search(_BOUND + "$", text[: match.start()]):
+                found[slot] = (to_number(match.group(1)), *match.span())
+                break
+
+    first("transport_use", r"(?:không|chẳng)(?: phải)?(?: là)?(?: đi| chạy)? kinh doanh(?: vận tải)?",
+          "TRANSPORT_PRIVATE")
+    first("transport_use", r"kinh doanh vận tải", "TRANSPORT_COMMERCIAL")
+
+    if re.search(rf"(?<!\w){_LICENSE_WORDS}", text):
+        expired = r"hết hạn(?: sử dụng)?(?: được)?(?: đã)?\s+"
+        first("license_expiry", expired + rf"(?:dưới|chưa (?:đến|tới|đầy|được)|chưa)\s+(?:0?1|một)\s*năm",
+              "LIC_EXPIRED_UNDER_1Y")
+        first("license_expiry", expired + r"(?:từ|trên|hơn|quá)\s+(?:0?1|một)\s*năm",
+              "LIC_EXPIRED_1Y_PLUS")
+        if "license_expiry" not in found:
+            first("license_expired_months", expired + _DURATION,
+                  lambda m: float(_NUMBER_WORDS.get(m.group(1)) or int(m.group(1)))
+                  * (12 if m.group(2) == "năm" else 1))
+    return found
+
+
 def normalize(text: str) -> str:
     """NFC + lowercase. Length-preserving for NFC input, so spans map back."""
     return unicodedata.normalize("NFC", text).lower()
@@ -166,6 +218,10 @@ class RegexExtractor:
                 add(kind, item_id)
                 note(kind, start, end)
 
+        for slot, (value, start, end) in license_slots(text).items():
+            data[slot] = value
+            note(slot, start, end)
+
         self._speed(text, data, note)
         self._alcohol(text, data, search, add)
 
@@ -243,7 +299,7 @@ class RegexExtractor:
         take("speed_limit_kmh", rf"(?:đường|đoạn|khu vực|biển)\s+(?:giới hạn\s+)?({NUMBER})(?!\d|[.,]\d|\s*(?:mg|/|\.\d))\s*(?:km)?")
         take("speed_over_kmh", rf"{over_cue}(?:\s+(?:tốc độ|quy định|giới hạn|cho phép))*\s+(?:đến |tới |khoảng )?({NUMBER}){SPEED_UNIT}")
         take("actual_speed_kmh", rf"({NUMBER}){SPEED_UNIT}")
-        take("actual_speed_kmh", rf"(?:chạy|phóng|tốc độ(?: thực tế)?(?: là)?)\s+({NUMBER})(?!\d|[.,]\d)(?!\s*(?:người|mg|tuổi))")
+        take("actual_speed_kmh", rf"(?:chạy|phóng|tốc độ(?: thực tế)?(?: là)?)\s+({NUMBER})(?!\d|[.,]\d)(?!\s*(?:người|mg|tuổi|phân khối|cc|cm|kw|tháng|năm|bánh))")
         if "speed_over_kmh" in data and "speed_limit_kmh" in data and "actual_speed_kmh" in data:
             del data["speed_over_kmh"]  # the derive rule computes it
 

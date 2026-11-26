@@ -219,3 +219,10 @@ node_modules/
 data/kg/embedding_cache/
 data/db/
 .llm_cache/
+data/eval/cache/
+data/eval/smoke_results/
+data/eval/results/
+data/eval/cache/
+data/eval/report/
+data/eval/smoke_results/
+data/eval/mac_trial/

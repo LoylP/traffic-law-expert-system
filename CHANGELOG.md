@@ -1,5 +1,18 @@
 # Changelog
 
+## P4.1 — bổ sung tri thức trước khi đóng băng eval
+- Tách `ACT_NO_LICENSE` thành 4 act (không có, không phù hợp, hết hạn, không mang theo GPLX; Điều 18) cho ô tô và mô tô; thêm tín hiệu đèn cho xe đạp/xe thô sơ (Điều 9 K2 đ) và người đi bộ (Điều 10 K1 b).
+- Luật mới: 12 classify, 6 derive, 3 note, 3 ask (`verified: false`, đã thêm vào `verify_sheet.csv`). `ACT_RED_LIGHT` và `ACT_NO_LICENSE` chuyển về `verified: false` vì nội dung thay đổi.
+- `Facts` thêm `motorbike_type`, `engine_capacity_cc`, `motor_power_kw`, `transport_use`, `license_expiry`, `license_expired_months`; enum tương ứng trong `ontology.yaml`. Các slot này chỉ đọc bằng regex (`license_slots`), không lấy từ LLM. Sửa regex tốc độ để không đọc “150 phân khối” thành tốc độ; thêm đơn vị `cc` khi trả lời câu hỏi.
+- Eval: thêm slot hỏi `license_class`, `transport`, `license_expiry`; thêm 9 case nháp (tổng 80). Sinh lại `classify_auto.yaml` và `data/kg`.
+- Test: `tests/test_license_signal_rules.py`.
+
+## P4
+- Evaluation: `src/eval/run_eval.py` (7 configs, all metrics, resume, LLM cache replay), `aggregate.py` (tables, charts), `llm_only` baseline.
+- Test-case tooling in `scripts/`: draft, manual import, verify sheet, apply, validate. 71 draft + 10 smoke cases (all `verified: false`).
+- Colab notebook `notebooks/colab_eval.ipynb`, `requirements-eval.txt`, Makefile targets `eval-validate`, `eval-smoke`, `eval-local`.
+- No change to the reasoning core, knowledge base or data.
+
 ## P3b.2
 - Nguyên tắc “không tự điền dữ kiện”: RegexExtractor và LLM extractor không còn tự suy `ACT_SPEEDING` từ số km/h, `ACT_ALCOHOL` / `drank_alcohol` từ nhau, tai nạn hay phản ứng từ hành vi; mọi suy diễn nằm ở derive rule (có trace). Phương tiện chỉ lấy khi câu nêu rõ (`vehicle_mapping.match_user_vehicles`). LLM: schema cho null ở mọi slot, thêm 3 ví dụ đối lập, chốt chặn xác định bỏ giá trị câu không nêu.
 - Từ đồng nghĩa: bỏ “phóng nhanh”, “chạy tốc độ cao”, “đã từng bị (xử) phạt”; thêm “quá tốc độ” và các cách nói tái phạm nêu rõ “lỗi này”. Từ đồng nghĩa bắt đầu bằng đi/chạy/lái cho phép chen tên xe sau động từ.

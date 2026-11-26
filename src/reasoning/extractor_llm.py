@@ -17,8 +17,10 @@ from src.reasoning.extractor_regex import (
     _ROAD_PATTERNS,
     _TIME_PATTERNS,
     DRANK_PATTERN,
+    LICENSE_SLOTS,
     NUMBER,
     RegexExtractor,
+    license_slots,
     normalize,
     parse_date,
     to_number,
@@ -32,7 +34,8 @@ logger = logging.getLogger(__name__)
 SYNONYMS_PER_ID = 3
 PROMPT_TOKEN_BUDGET = 6000
 # Filled by other pipeline steps (grounder, follow-up answers), never by the extractor.
-EXCLUDED_FIELDS = ("grounded_violations", "speed_band", "alcohol_level", "unknown_slots")
+# LICENSE_SLOTS are read by `license_slots` (explicit wording only), not by the model.
+EXCLUDED_FIELDS = ("grounded_violations", "speed_band", "alcohol_level", "unknown_slots", *LICENSE_SLOTS)
 # Hit-and-run needs an accident; small models confuse it with fleeing a police stop.
 # "phóng nhanh", "chạy nhanh" do not state that a speed limit was exceeded.
 _SPEED_WORDS = re.compile(r"tốc độ(?!\s+cao)|km|cây số|vượt mức")
@@ -332,6 +335,9 @@ def sanitize_facts(
             evidence[field] = span
         elif parts:
             warnings.append(f"evidence.{field}: bỏ vì không phải nguyên văn")
+    for slot, (value, start, end) in license_slots(text).items():
+        updates[slot] = value
+        evidence[slot] = text[start:end]
     updates["evidence"] = evidence
     updates["free_behaviors"] = list(dict.fromkeys(b.strip() for b in facts.free_behaviors if b.strip()))
 

@@ -121,6 +121,13 @@ class Facts(BaseModel):
     # Ranges the user picks when there is no measured value (no number is made up).
     speed_band: str | None = None
     alcohol_level: str | None = None
+    # Driving licence (NĐ 168 Điều 18). IDs from ontology.yaml; numbers only if stated.
+    motorbike_type: str | None = None
+    engine_capacity_cc: float | None = None
+    motor_power_kw: float | None = None
+    transport_use: str | None = None
+    license_expiry: str | None = None
+    license_expired_months: float | None = None
     road_type: str | None = None
     time_context: str | None = None
     violation_date: date | None = None
