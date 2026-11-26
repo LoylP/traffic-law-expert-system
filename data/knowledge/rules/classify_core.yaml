@@ -431,3 +431,28 @@ rules:
     legal_excerpt: "Gây tai nạn giao thông không dừng ngay phương tiện, không giữ nguyên hiện trường, không trợ giúp người bị nạn, không ở lại hiện trường hoặc không đến trình báo ngay với cơ quan công an, Ủy ban nhân dân nơi gần nhất;"
     source: "NĐ 168/2024, Điều 7 khoản 9 điểm c"
     verified: true
+
+  # 7. Dây đai an toàn (ô tô)
+  - id: R-CLS-BELT-CAR
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_NO_SEATBELT
+    then:
+      add_violation: "ND168-D6-K3-Pk"
+    legal_excerpt: "Không thắt dây đai an toàn khi điều khiển xe chạy trên đường"
+    source: "NĐ 168/2024, Điều 6 khoản 3 điểm k"
+    verified: false
+
+  - id: R-CLS-BELT-PASS-CAR
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_PASSENGER_NO_SEATBELT
+    then:
+      add_violation: "ND168-D6-K3-Pl"
+    legal_excerpt: "Chở người trên xe ô tô không thắt dây đai an toàn (tại vị trí có trang bị dây đai an toàn) khi xe đang chạy"
+    source: "NĐ 168/2024, Điều 6 khoản 3 điểm l"
+    verified: false

@@ -1,5 +1,5 @@
-import { ChatbotShell } from "@/components/chatbot/ChatbotShell";
+import { ChatWorkspace } from "@/components/chat/ChatWorkspace";
 
 export default function HomePage() {
-  return <ChatbotShell />;
+  return <ChatWorkspace />;
 }

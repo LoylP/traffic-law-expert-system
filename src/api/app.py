@@ -17,6 +17,7 @@ from src.db.history_store import QueryHistoryDB
 from src.extract.legal_corpus_builder import canonical_citation_id
 from src.extract.vehicle_mapping import detect_vehicle
 from src.reasoning.kb_report import kb_stats
+from src.reasoning.knowledge_base import KnowledgeBase
 from src.reasoning.llm_client import LLMClient
 from src.reasoning.pipeline import ConsultOptions, ConsultOutcome, ExpertPipeline
 from src.reasoning.schema import ConsultResult
@@ -276,6 +277,8 @@ def consult_history_record(outcome: ConsultOutcome) -> Dict[str, Any]:
         "llm_calls": outcome.llm_calls,
         "warnings": outcome.warnings,
         "latency_ms": result.latency_ms,
+        # Full response, so the web app can reopen the case read-only.
+        "result": result.model_dump(mode="json"),
     }
 
 
@@ -301,6 +304,33 @@ def consult(payload: ConsultRequest):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Lỗi tư vấn: {str(e)}")
+
+
+def knowledge_label_map(kb: KnowledgeBase) -> Dict[str, str]:
+    """ID -> Vietnamese label for every ontology item, act and circumstance."""
+    labels = {
+        item["id"]: item["label"]
+        for group in kb.ontology.values()
+        if isinstance(group, list)
+        for item in group
+        if isinstance(item, dict) and "id" in item and "label" in item
+    }
+    for items in (kb.acts, kb.circumstances):
+        labels.update({item_id: item["label"] for item_id, item in items.items()})
+    # The clarification questions word the vehicle classes the way users say them.
+    for rule in kb.rules:
+        if rule.then.get("ask_field") == "vehicle_class" and rule.then.get("options"):
+            labels.update({o["value"]: o["label"] for o in rule.then["options"]})
+    return labels
+
+
+@app.get("/knowledge/labels")
+def knowledge_labels():
+    try:
+        pipeline: ExpertPipeline = app.state.pipeline
+        return {"labels": knowledge_label_map(pipeline.kb)}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Lỗi lấy nhãn tri thức: {str(e)}")
 
 
 @app.get("/knowledge/stats")

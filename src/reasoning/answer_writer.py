@@ -1,8 +1,9 @@
 """AnswerWriter (DESIGN §8): rephrases the decided result. It never decides.
 
-The LLM text is accepted only if every amount, article, point deduction and
-duration it mentions already exists in the payload; otherwise the Vietnamese
-template is used.
+The LLM never sees violation descriptions or fine ranges. Its text is accepted
+only if every number, amount, article, point deduction and duration it mentions
+already exists in the payload and it quotes no legal threshold; otherwise the
+Vietnamese template is used.
 """
 
 from __future__ import annotations
@@ -36,7 +37,10 @@ SYSTEM_PROMPT = f"""Bạn viết câu trả lời tiếng Việt cho người h�
 Dữ liệu JSON dưới đây là kết quả ĐÃ được hệ chuyên gia quyết định.
 - Chỉ diễn đạt lại dữ liệu trong JSON, tối đa {MAX_WORDS} từ, không dùng markdown.
 - Đây là mức ĐỀ XUẤT tham khảo, chưa phải quyết định xử phạt: không viết "bạn đã bị xử phạt".
-- Với mỗi hành vi, nêu căn cứ đúng như trường label và mức đề xuất của hành vi đó.
+- CHỈ được nêu: nhãn căn cứ của từng hành vi (Điều/Khoản/Điểm, đúng như trường label), \
+tổng tiền phạt đề xuất, điểm giấy phép lái xe bị trừ, hình thức bổ sung và số tình tiết \
+tăng nặng (aggravating_count), giảm nhẹ (mitigating_count).
+- KHÔNG mô tả hay diễn giải lại nội dung điều luật, hành vi, ngưỡng nồng độ cồn hoặc tốc độ.
 - KHÔNG thêm điều luật, khoản, số tiền, số điểm, số tháng hay hình thức phạt không có trong JSON.
 - KHÔNG tự cộng, trừ hay làm tròn số. Viết số tiền bằng chữ số, ví dụ "5.000.000 đồng".
 - Số điểm giấy phép lái xe bị trừ là total_points_deducted, không cộng dồn."""
@@ -57,6 +61,9 @@ _ARTICLE = re.compile(r"(?<!\w)điều\s+(\d+)")
 _CLAUSE = re.compile(r"(?<!\w)khoản\s+(\d+)")
 _POINTS = re.compile(r"(\d+)\s*điểm|trừ\s+(\d+)(?![\d.,])(?!\s*(?:triệu|nghìn|đồng|tháng))")
 _MONTHS = re.compile(r"(\d+)\s*(?:(?:đến|tới|-|–)\s*(\d+)\s*)?tháng")
+_NUMBER_TOKEN = re.compile(r"\d+(?:[.,]\d+)*")
+# Units that only appear when the text restates a legal threshold.
+_THRESHOLD_UNITS = ("miligam", "km/h")
 
 
 def _value(amount: str, unit: str = "đồng") -> int:
@@ -79,6 +86,24 @@ def _numbers(pattern: re.Pattern[str], text: str) -> set[int]:
     return {int(g) for m in pattern.finditer(text.lower()) for g in m.groups() if g}
 
 
+def _plain_numbers(text: str) -> set[str]:
+    """Number tokens outside money expressions (those are checked by value)."""
+    text = text.lower()
+    for pattern in (_MONEY_RANGE, _MONEY, _BARE_GROUPED):
+        text = pattern.sub(" ", text)
+    return set(_NUMBER_TOKEN.findall(text))
+
+
+def _integers(value: Any) -> set[str]:
+    if isinstance(value, int) and not isinstance(value, bool):
+        return {str(value)}
+    if isinstance(value, dict):
+        value = list(value.values())
+    if isinstance(value, (list, tuple)):
+        return {n for item in value for n in _integers(item)}
+    return set()
+
+
 def _strings(value: Any) -> list[str]:
     if isinstance(value, str):
         return [value]
@@ -96,23 +121,9 @@ def check_answer(text: str, payload: dict[str, Any]) -> list[str]:
     points = _numbers(_POINTS, source) | {payload.get("total_points_deducted") or 0}
     months = _numbers(_MONTHS, source)
     amounts.add(payload.get("total_recommended_fine") or 0)
-    for item in payload.get("violations", []):
-        amounts.update(item.get("fine_range") or [])
-        amounts.add(item.get("recommended_fine") or 0)
-        points.add(item.get("points_deducted") or 0)
-        for sanction in item.get("sanctions", []):
-            months.update(
-                v for v in (sanction.get("duration_min"), sanction.get("duration_max")) if v is not None
-            )
-
-    sanctions_text = " ".join(
-        [source]
-        + [
-            SANCTION_LABELS.get(s.get("type"), "")
-            for item in payload.get("violations", [])
-            for s in item.get("sanctions", [])
-        ]
-    ).lower()
+    points |= {item.get("points_deducted") or 0 for item in payload.get("violations", [])}
+    numbers = set(_NUMBER_TOKEN.findall(source)) | _integers(payload)
+    sanctions_text = source.lower()
 
     problems = []
     invented = [t for t in _SANCTION_TERMS if t in text.lower() and t not in sanctions_text]
@@ -124,7 +135,11 @@ def check_answer(text: str, payload: dict[str, Any]) -> list[str]:
         problems.append(f"dài hơn {MAX_WORDS} từ")
     if _SPELLED_MONEY.search(text.lower()):
         problems.append("số tiền viết bằng chữ nên không kiểm chứng được")
+    quoted = [u for u in _THRESHOLD_UNITS if u in text.lower()]
+    if quoted:
+        problems.append(f"diễn giải lại ngưỡng của điều luật: {quoted}")
     for label, found, allowed in (
+        ("con số", _plain_numbers(text), numbers),
         ("số tiền", money_values(text), amounts),
         ("Điều", _numbers(_ARTICLE, text), _numbers(_ARTICLE, source)),
         ("khoản", _numbers(_CLAUSE, text), _numbers(_CLAUSE, source)),
@@ -156,15 +171,23 @@ class AnswerWriter:
 
     @staticmethod
     def payload(result: ConsultResult, penalty: PenaltySummary) -> dict[str, Any]:
+        """Only what the answer may mention: no descriptions, thresholds or ranges."""
         return {
             "status": result.status,
+            "violation_count": len(result.violations),
             "violations": [
-                v.model_dump(mode="json", exclude={"citation_id", "legal_text"})
+                {
+                    "label": v.label,
+                    "points_deducted": v.points_deducted,
+                    "sanctions": [sanction_text(s) for s in v.sanctions],
+                }
                 for v in result.violations
             ],
             "total_recommended_fine": result.total_recommended_fine,
             "total_recommended_fine_text": format_money(result.total_recommended_fine),
             "total_points_deducted": penalty.total_points_deducted,
+            "aggravating_count": len(penalty.aggravating),
+            "mitigating_count": len(penalty.mitigating),
         }
 
     def write(
@@ -180,7 +203,7 @@ class AnswerWriter:
         LLM can neither drop nor alter them. Only decided answers go to the LLM.
         """
         remarks = list(remarks or [])
-        if use_llm and self.client and result.status == "answered":
+        if use_llm and self.client and result.status == "answered" and not result.branches:
             payload = self.payload(result, penalty)
             try:
                 text = self.client.chat_text(
@@ -197,6 +220,34 @@ class AnswerWriter:
                     return "\n".join([text.strip(), *remarks, DISCLAIMER]), "llm"
                 logger.warning("AnswerWriter output rejected: %s", "; ".join(problems))
         return self.template(result, penalty, remarks), "template"
+
+    @staticmethod
+    def summary(result: ConsultResult, remarks: list[str], writer: str) -> str:
+        """Short lead paragraph without the remarks and the disclaimer."""
+        if writer == "llm":
+            return result.answer_text.removesuffix("\n".join(["", *remarks, DISCLAIMER])).strip()
+        if result.status == "unknown":
+            return UNKNOWN_TEXT
+        if result.status == "out_of_scope":
+            return OUT_OF_SCOPE_TEXT
+        total = format_money(result.total_recommended_fine)
+        if result.branches:
+            lead = (
+                f"Chưa thể kết luận một mức duy nhất vì phụ thuộc vào "
+                f"{', '.join(result.depends_on)}. Có {len(result.branches)} khả năng."
+            )
+            if result.violations:
+                lead += (
+                    f" Phần đã xác định: {len(result.violations)} hành vi, "
+                    f"tiền phạt đề xuất {total}."
+                )
+            return lead
+        if result.status == "need_info":
+            return "Cần bổ sung thông tin để kết luận đầy đủ."
+        return (
+            f"Xác định {len(result.violations)} hành vi vi phạm. "
+            f"Tổng tiền phạt đề xuất: {total}."
+        )
 
     @staticmethod
     def template(result: ConsultResult, penalty: PenaltySummary, remarks: list[str]) -> str:
@@ -233,7 +284,19 @@ class AnswerWriter:
                     f"Tổng số điểm giấy phép lái xe bị trừ: {penalty.total_points_deducted} "
                     "(không cộng dồn giữa các hành vi)."
                 )
+        if result.branches:
+            lines.append(f"Các khả năng, phụ thuộc vào {', '.join(result.depends_on)}:")
+            for branch in result.branches:
+                when = "; ".join(
+                    f"{c.slot_label}: {' hoặc '.join(c.labels)}" for c in branch.conditions
+                )
+                for item in branch.violations:
+                    line = f"- Nếu {when}: {item.label}"
+                    if item.fine_range:
+                        low, high = item.fine_range
+                        line += f", khung phạt {format_money(low)} – {format_money(high)}"
+                    lines.append(line + ".")
         lines += remarks
-        if result.violations:
+        if result.violations or result.branches:
             lines.append(DISCLAIMER)
         return "\n".join(lines)

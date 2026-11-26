@@ -118,6 +118,9 @@ class Facts(BaseModel):
     bac_blood_mg_100ml: float | None = None
     bac_breath_mg_l: float | None = None
     alcohol_test_refused: bool | None = None
+    # Ranges the user picks when there is no measured value (no number is made up).
+    speed_band: str | None = None
+    alcohol_level: str | None = None
     road_type: str | None = None
     time_context: str | None = None
     violation_date: date | None = None
@@ -134,6 +137,8 @@ class Facts(BaseModel):
     no_helmet_who: Literal["driver", "passenger", "both"] | None = None
     subject: str = "SUBJ_INDIVIDUAL"
     circumstances: list[str] = Field(default_factory=list)
+    # Slots the user answered "Không rõ" to: never asked again, reported as branches.
+    unknown_slots: list[str] = Field(default_factory=list)
     evidence: dict[str, str] = Field(default_factory=dict)
 
 
@@ -183,6 +188,24 @@ class Question(BaseModel):
     input_type: str | None = None
     unit: str | None = None
     rule_id: str
+    slot: str = ""
+    # A typed number fills this field (e.g. a measured value instead of a range).
+    number_field: str | None = None
+    number_max: float | None = None
+
+
+class BranchCondition(BaseModel):
+    slot: str
+    slot_label: str
+    values: list[Any]
+    labels: list[str]
+
+
+class Branch(BaseModel):
+    """One possible outcome while some slots stay unknown."""
+
+    conditions: list[BranchCondition]
+    hits: list[ViolationHit]
 
 
 Status = Literal["answered", "need_info", "unknown", "out_of_scope", "out_of_scope_temporal"]
@@ -197,6 +220,9 @@ class EngineResult(BaseModel):
     circumstances: list[str] = Field(default_factory=list)
     hits: list[ViolationHit] = Field(default_factory=list)
     questions: list[Question] = Field(default_factory=list)
+    branches: list[Branch] = Field(default_factory=list)
+    depends_on: list[str] = Field(default_factory=list)  # slot labels behind the branches
+    branches_incomplete: bool = False  # some values of those slots lead to no known rule
     notes: list[str] = Field(default_factory=list)
     message: str | None = None
     trace: list[TraceStep] = Field(default_factory=list)
@@ -273,6 +299,8 @@ class FactUsed(BaseModel):
     field: str
     value: Any
     evidence: str | None = None
+    origin: Literal["user", "derived"] = "user"
+    derived_from: str | None = None  # set when origin == "derived"
 
 
 class LegalCitation(BaseModel):
@@ -303,6 +331,15 @@ class ConsultViolation(BaseModel):
     points_deducted: int = 0
     sanctions: list[Sanction] = Field(default_factory=list)
     legal_text: str | None = None
+    # Display data copied from PenaltyDecision (the UI must not recompute it).
+    allowed_range_after_circumstances: tuple[int, int] | None = None
+    points_conditional: list[ConditionalPoints] = Field(default_factory=list)
+    org_rule_applied: bool = False
+
+
+class ConsultBranch(BaseModel):
+    conditions: list[BranchCondition]
+    violations: list[ConsultViolation]
 
 
 class ConsultResult(BaseModel):
@@ -312,6 +349,15 @@ class ConsultResult(BaseModel):
     violations: list[ConsultViolation] = Field(default_factory=list)
     total_recommended_fine: int = 0
     questions: list[Question] = Field(default_factory=list)
+    branches: list[ConsultBranch] = Field(default_factory=list)
+    depends_on: list[str] = Field(default_factory=list)
     explanation: Explanation = Field(default_factory=Explanation)
     answer_text: str = ""
+    # answer_text split into its parts, plus the decision totals from PenaltySummary.
+    summary_text: str = ""
+    notes: list[str] = Field(default_factory=list)
+    total_points_deducted: int = 0
+    sanctions: list[Sanction] = Field(default_factory=list)
+    aggravating: list[str] = Field(default_factory=list)
+    mitigating: list[str] = Field(default_factory=list)
     latency_ms: dict[str, float] = Field(default_factory=dict)

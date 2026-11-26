@@ -11,13 +11,16 @@ import unicodedata
 from datetime import date
 from typing import Any
 
-from src.extract.vehicle_mapping import match_vehicle
+from src.extract.vehicle_mapping import match_user_vehicles
 from src.reasoning.knowledge_base import KnowledgeBase, get_knowledge_base
 from src.reasoning.schema import ExtractionResult, Facts
 
 NUMBER = r"\d+(?:[.,]\d+)?"
 SPEED_UNIT = r"\s*(?:km\s*/\s*(?:h|giờ)|kmh|km|cây số)"
 
+# "đi ngược chiều" also covers "đi xe máy ngược chiều": the vehicle may follow the verb.
+_DRIVE_VERBS = ("đi", "chạy", "lái")
+_VEHICLE_GAP = r"(?:\s+(?:xe|ô tô|mô tô)(?:\s+(?!không|chưa|chẳng)\w+){0,2}?)?"
 _NEGATION = re.compile(r"(?<!\w)(?:không|chưa|chẳng|chả)(?:\s+(?:hề|có|bị))?\s*$")
 
 # A synonym of these also describes other people ("tông người già"), so it only
@@ -48,7 +51,7 @@ _ROAD_PATTERNS = (
     ("ROAD_RESIDENTIAL", r"khu (?:vực )?(?:đông )?dân cư|khu đông dân"),
 )
 _TIME_PATTERNS = (
-    ("TIME_NIGHT", r"ban đêm|buổi tối|tối qua|tối nay|nửa đêm|đêm khuya|lúc khuya|\d{1,2}\s*(?:h|giờ)\s*(?:đêm|tối)"),
+    ("TIME_NIGHT", r"ban đêm|buổi tối|tối qua|tối nay|đêm qua|đêm nay|nửa đêm|đêm khuya|lúc khuya|\d{1,2}\s*(?:h|giờ)\s*(?:đêm|tối)"),
     ("TIME_DAY", r"ban ngày|buổi sáng|sáng nay|buổi trưa|buổi chiều|giữa trưa"),
 )
 _ORGANIZATION = (
@@ -58,6 +61,11 @@ _ORGANIZATION = (
 )
 _NUMBER_WORDS = {"một": 1, "hai": 2, "ba": 3, "bốn": 4, "năm": 5, "sáu": 6}
 _COUNT = r"(\d+|một|hai|ba|bốn|năm|sáu)(?!\w)"
+DRANK_PATTERN = (
+    r"(?:uống|nhậu|làm)(?:\s+\w+){0,2}?\s+(?:rượu|bia)|(?<!\w)nhậu(?!\w)|say xỉn|"
+    r"uống (?:một )?(?:chút|ít|vài (?:ly|chén|lon|cốc))(?!\s+(?:nước|trà|cà phê|thuốc|sữa))|"
+    r"có (?:nồng độ )?cồn|nồng độ cồn|thổi (?:ra )?cồn"
+)
 
 
 def normalize(text: str) -> str:
@@ -84,6 +92,13 @@ def parse_date(text: str) -> date | None:
             except ValueError:
                 return None
     return None
+
+
+def _phrase_pattern(phrase: str) -> str:
+    verb, _, rest = phrase.partition(" ")
+    if verb in _DRIVE_VERBS and rest:
+        return rf"{verb}{_VEHICLE_GAP}\s+{re.escape(rest)}"
+    return re.escape(phrase)
 
 
 class RegexExtractor:
@@ -127,17 +142,18 @@ class RegexExtractor:
                 values.append(item)
 
         # -- vehicle ------------------------------------------------------
-        vehicle = match_vehicle(text)
-        if vehicle:
-            data["vehicle_class"] = vehicle[0]
-            found = re.search(r"\s+".join(map(re.escape, vehicle[1].split())), text)
+        vehicles = match_user_vehicles(text)
+        if vehicles:
+            vehicle_class, phrase = vehicles[0]
+            data["vehicle_class"] = vehicle_class
+            found = re.search(r"\s+".join(map(re.escape, phrase.split())), text)
             if found:
                 note("vehicle_class", found.start(), found.end())
 
         # -- synonyms (longest first, matches never overlap) --------------
         taken: list[tuple[int, int]] = []
         for phrase, kind, item_id in self._lexicon:
-            for found in re.finditer(rf"(?<!\w){re.escape(phrase)}(?!\w)", text):
+            for found in re.finditer(rf"(?<!\w){_phrase_pattern(phrase)}(?!\w)", text):
                 start, end = found.span()
                 if any(start < b and a < end for a, b in taken):
                     continue
@@ -150,7 +166,7 @@ class RegexExtractor:
                 add(kind, item_id)
                 note(kind, start, end)
 
-        self._speed(text, data, note, add)
+        self._speed(text, data, note)
         self._alcohol(text, data, search, add)
 
         # -- people -------------------------------------------------------
@@ -176,14 +192,10 @@ class RegexExtractor:
         for resistance, pattern in _RESISTANCE_PATTERNS.items():
             if search("resistance", pattern):
                 add("resistance", resistance)
-        if "ACT_OBSTRUCT_OFFICER" in acts:
-            add("resistance", "RES_OBSTRUCT")
         if search("officer_signal", _OFFICER_SIGNAL):
             data["officer_signal"] = True
-        if search("consequence", _ACCIDENT) or "ACT_HIT_AND_RUN" in acts:
+        if search("consequence", _ACCIDENT):
             add("consequence", "CONS_ACCIDENT")
-            if "ACT_HIT_AND_RUN" in acts:
-                add("resistance", "RES_FLEE")
 
         # -- context, date, subject ---------------------------------------
         for field, patterns in (("road_type", _ROAD_PATTERNS), ("time_context", _TIME_PATTERNS)):
@@ -199,7 +211,8 @@ class RegexExtractor:
 
         # Nothing recognised: hand the description to the OntologyGrounder.
         recognised = {"acts", "resistance", "consequence", "speed_over_kmh", "actual_speed_kmh",
-                      "bac_blood_mg_100ml", "bac_breath_mg_l", "no_helmet_who", "passengers_count"}
+                      "bac_blood_mg_100ml", "bac_breath_mg_l", "no_helmet_who", "passengers_count",
+                      "drank_alcohol", "alcohol_test_refused"}
         if not recognised & set(data) and len(text.split()) >= 4:
             data["free_behaviors"] = [original.strip(" .?!")]
 
@@ -211,7 +224,7 @@ class RegexExtractor:
         return _NUMBER_WORDS.get(token) or int(token)
 
     @staticmethod
-    def _speed(text: str, data: dict[str, Any], note, add) -> None:
+    def _speed(text: str, data: dict[str, Any], note) -> None:
         limit_cue = r"(?:giới hạn|cho phép|tối đa|biển(?: báo)?|quy định(?: là)?)"
         over_cue = r"(?:quá tốc độ|vượt tốc độ|vượt quá|chạy quá|lố tốc độ|quá|lố)"
         used: list[tuple[int, int]] = []
@@ -233,11 +246,6 @@ class RegexExtractor:
         take("actual_speed_kmh", rf"(?:chạy|phóng|tốc độ(?: thực tế)?(?: là)?)\s+({NUMBER})(?!\d|[.,]\d)(?!\s*(?:người|mg|tuổi))")
         if "speed_over_kmh" in data and "speed_limit_kmh" in data and "actual_speed_kmh" in data:
             del data["speed_over_kmh"]  # the derive rule computes it
-        if "speed_over_kmh" in data:
-            add("acts", "ACT_SPEEDING")
-        elif "actual_speed_kmh" in data and "speed_limit_kmh" in data:
-            if data["actual_speed_kmh"] > data["speed_limit_kmh"]:
-                add("acts", "ACT_SPEEDING")
 
     @staticmethod
     def _alcohol(text: str, data: dict[str, Any], search, add) -> None:
@@ -252,11 +260,6 @@ class RegexExtractor:
             data["bac_breath_mg_l"] = to_number(found.group(1))
 
         measured = any(data.get(f, 0) > 0 for f in ("bac_blood_mg_100ml", "bac_breath_mg_l"))
-        drank = search(
-            "drank_alcohol",
-            r"(?:uống|nhậu|làm)(?:\s+\w+){0,2}?\s+(?:rượu|bia)|(?<!\w)nhậu(?!\w)|say xỉn|"
-            r"có (?:nồng độ )?cồn|nồng độ cồn|thổi (?:ra )?cồn",
-        )
         # "từ chối thổi nồng độ cồn": mentions alcohol but is a refusal.
         if search(
             "acts",
@@ -267,12 +270,13 @@ class RegexExtractor:
             add("acts", "ACT_REFUSE_ALCOHOL_TEST")
         refused = "ACT_REFUSE_ALCOHOL_TEST" in data.get("acts", [])
         if refused:
-            data["alcohol_test_refused"] = True
             if "ACT_ALCOHOL" in data.get("acts", []) and not measured:
                 data["acts"].remove("ACT_ALCOHOL")
-        if refused:  # the refusal wording alone does not say the person drank
+            # The refusal wording alone does not say the person drank.
             drank = re.search(r"(?<!không )(?:uống|nhậu|say xỉn)", text)
-        if drank or measured or "ACT_ALCOHOL" in data.get("acts", []):
+            if drank:
+                note("drank_alcohol", drank.start(), drank.end())
+        else:
+            drank = search("drank_alcohol", DRANK_PATTERN)
+        if drank:
             data["drank_alcohol"] = True
-            if not refused:
-                add("acts", "ACT_ALCOHOL")

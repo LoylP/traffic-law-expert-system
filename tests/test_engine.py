@@ -147,7 +147,7 @@ def test_no_speed_question_when_speed_over_known(engine):
 def test_speed_questions_when_nothing_known(engine):
     result = engine.infer({"vehicle_class": "VEH_CAR", "acts": ["ACT_SPEEDING"]})
     assert result.status == "need_info"
-    assert {q.field for q in result.questions} == {"actual_speed_kmh", "speed_limit_kmh"}
+    assert [q.field for q in result.questions] == ["speed_band"]  # one question per turn
 
 
 # --- 6. alcohol ask options + refuse ----------------------------------------
@@ -155,19 +155,16 @@ def test_speed_questions_when_nothing_known(engine):
 
 def test_alcohol_question_options(engine):
     result = engine.infer({"vehicle_class": "VEH_MOTORBIKE", "acts": ["ACT_ALCOHOL"]})
-    question = next(q for q in result.questions if q.field == "bac_breath_mg_l")
-    assert [(o.label, o.value) for o in question.options] == [
-        ("Đến 0,25 mg/l", 0.2),
-        ("Trên 0,25 đến 0,4 mg/l", 0.3),
-        ("Trên 0,4 mg/l", 0.5),
-        ("Từ chối kiểm tra nồng độ cồn", "refuse"),
-    ]
+    question = next(q for q in result.questions if q.field == "alcohol_level")
+    assert [o.value for o in question.options] == ["BAC_L1", "BAC_L2", "BAC_L3", "refuse", "unknown"]
+    assert question.number_field == "bac_breath_mg_l"
 
 
-@pytest.mark.parametrize("value,level", [(0.2, "BAC_L1"), (0.3, "BAC_L2"), (0.5, "BAC_L3")])
-def test_alcohol_option_values_map_to_levels(engine, value, level):
+@pytest.mark.parametrize("level", ["BAC_L1", "BAC_L2", "BAC_L3"])
+def test_alcohol_option_values_map_to_levels(engine, level):
     facts = engine.infer({"vehicle_class": "VEH_MOTORBIKE", "acts": ["ACT_ALCOHOL"]}).facts
-    result = engine.infer(engine.apply_answer(facts, "bac_breath_mg_l", value))
+    result = engine.infer(engine.apply_answer(facts, "alcohol_level", level))
+    assert result.facts.bac_breath_mg_l is None  # no measured value is made up
     assert level in result.contexts
     assert result.status == "answered"
 
@@ -176,7 +173,7 @@ def test_alcohol_option_values_map_to_levels(engine, value, level):
 def test_refuse_answer_sets_refuse_alcohol_act(engine, vehicle, citation):
     first = engine.infer({"vehicle_class": vehicle, "acts": ["ACT_ALCOHOL"]})
     assert first.status == "need_info"
-    facts = engine.apply_answer(first.facts, "bac_breath_mg_l", "refuse")
+    facts = engine.apply_answer(first.facts, "alcohol_level", "refuse")
     assert facts.bac_breath_mg_l is None
     assert facts.alcohol_test_refused is True
     assert "ACT_REFUSE_ALCOHOL_TEST" in facts.acts
@@ -284,7 +281,7 @@ def test_run_returns_engine_result_and_keeps_input_facts(engine):
 def test_missing_bac_is_need_info(engine):
     result = engine.run({"vehicle_class": "VEH_CAR", "acts": ["ACT_ALCOHOL"]})
     assert result.status == "need_info"
-    assert [q.field for q in result.questions] == ["bac_breath_mg_l"]
+    assert [q.field for q in result.questions] == ["alcohol_level"]
 
 
 def test_no_act_is_unknown(engine):

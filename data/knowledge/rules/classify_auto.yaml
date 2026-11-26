@@ -182,26 +182,6 @@ rules:
     add_violation: ND168-D6-K3-Pi
   source: auto
   verified: true
-- id: R-AUTO-ND168-D6-K3-Pk
-  type: classify
-  priority: 10
-  when:
-    vehicle_class: VEH_CAR
-    grounded_violation: ND168-D6-K3-Pk
-  then:
-    add_violation: ND168-D6-K3-Pk
-  source: auto
-  verified: true
-- id: R-AUTO-ND168-D6-K3-Pl
-  type: classify
-  priority: 10
-  when:
-    vehicle_class: VEH_CAR
-    grounded_violation: ND168-D6-K3-Pl
-  then:
-    add_violation: ND168-D6-K3-Pl
-  source: auto
-  verified: true
 - id: R-AUTO-ND168-D6-K3-Pm
   type: classify
   priority: 10

@@ -1,5 +1,26 @@
 # Changelog
 
+## P3b.2
+- Nguyên tắc “không tự điền dữ kiện”: RegexExtractor và LLM extractor không còn tự suy `ACT_SPEEDING` từ số km/h, `ACT_ALCOHOL` / `drank_alcohol` từ nhau, tai nạn hay phản ứng từ hành vi; mọi suy diễn nằm ở derive rule (có trace). Phương tiện chỉ lấy khi câu nêu rõ (`vehicle_mapping.match_user_vehicles`). LLM: schema cho null ở mọi slot, thêm 3 ví dụ đối lập, chốt chặn xác định bỏ giá trị câu không nêu.
+- Từ đồng nghĩa: bỏ “phóng nhanh”, “chạy tốc độ cao”, “đã từng bị (xử) phạt”; thêm “quá tốc độ” và các cách nói tái phạm nêu rõ “lỗi này”. Từ đồng nghĩa bắt đầu bằng đi/chạy/lái cho phép chen tên xe sau động từ.
+- Derive mới: suy ô tô từ dây an toàn, mô tô/xe gắn máy từ mũ bảo hiểm (kèm ghi chú ngoại lệ); khoảng tốc độ / mức cồn; uống rượu, bia; từ chối kiểm tra cồn. Thêm `ACT_NO_SEATBELT`, `ACT_PASSENGER_NO_SEATBELT` và 2 classify rule. Luật mới và `ask.yaml` để `verified: false`.
+- Hỏi lại tổng quát: `ask.yaml` chỉ khai báo slot; engine thử giá trị các slot thiếu, chỉ hỏi slot làm đổi Điều/Khoản/Điểm, mỗi lượt 1 câu, luôn có “Không rõ”, tối đa 3 lượt; sau đó trả các nhánh khả năng.
+- `Facts` thêm `speed_band`, `alcohol_level` (chọn khoảng không ghi số đo giả), `unknown_slots`; `Question` thêm `slot`, `number_field`, `number_max`; `ConsultResult` thêm `branches`, `depends_on`; `FactUsed` thêm `origin`, `derived_from`.
+- Web: hiển thị nhánh khả năng, “suy ra từ …”, ô nhập số đo cạnh các lựa chọn.
+- Test: mới `tests/test_no_assumption.py`.
+
+## P3b.1
+- Session chỉ gộp facts khi lượt trước là `need_info`; sau `answered` / `unknown` / `out_of_scope`, lượt mới bắt đầu từ facts trống (giữ `session_id`). Thêm từ đồng nghĩa “đã từng bị phạt” cho `CIR_REPEAT`.
+- AnswerWriter: LLM chỉ nhận nhãn căn cứ, tổng tiền, điểm GPLX, hình thức bổ sung và số tình tiết (không còn mô tả, khung phạt, mức phạt từng hành vi); dùng template nếu câu trả lời có “miligam”, “km/h” hoặc số không có trong payload.
+- Web: chip gợi ý nhanh chỉ hiện khi chưa có tin nhắn; thêm padding dưới vùng tin nhắn; `devIndicators: false`; khi mở “Vì sao?”, header và phần tô bằng chứng theo đúng câu hỏi của câu trả lời đang chọn; bỏ việc tự mở vụ việc mới sau `out_of_scope`.
+
+## P3b
+- `src/web` thiết kế lại toàn bộ: token màu light/dark (`@theme`), Be Vietnam Pro, bố cục 3 vùng + drawer/bottom sheet, màn chào 6 gợi ý, thẻ kết quả, panel “Vì sao?”, hỏi bổ sung, trạng thái lỗi/đang xử lý, vụ việc gần đây, trang lịch sử mở lại kết quả chỉ xem; giữ tra cứu cũ trong “Nâng cao”. Xoá `components/chatbot/`; thêm `clsx`.
+- `.gitignore`: bỏ ignore `src/web/lib/` (luật `lib/` của Python làm mất các file helper của web).
+- API: thêm `GET /knowledge/labels`; history `consult` lưu thêm toàn bộ response (`result`).
+- `ConsultResult` thêm trường (chỉ bổ sung): `summary_text`, `notes`, `total_points_deducted`, `sanctions`, `aggravating`, `mitigating`; `ConsultViolation` thêm `allowed_range_after_circumstances`, `points_conditional`, `org_rule_applied`. Lý do: web không phải tự tính lại từ dữ liệu pháp lý.
+- Sửa lỗi extractor: “gây tai nạn” không còn bị gán `ACT_HIT_AND_RUN` nếu câu không nói người lái bỏ đi/không dừng lại.
+
 ## P3
 - Mới: `llm_client.py` (ollama native / openai_compatible / gemini; constrained → prompt_only, bỏ `<think>`, retry, cache, metadata chế độ), `extractor_llm.py`, `extractor_regex.py`, `grounder.py`, `answer_writer.py`, `pipeline.py`.
 - Chốt chặn xác định trên output LLM: bỏ ID lạ, số tốc độ/nồng độ cồn/ngày không có trong câu, `ACT_HIT_AND_RUN` khi câu không nói tai nạn, `ACT_SPEEDING` khi câu không nói tốc độ; câu trả lời sai số tiền/Điều/khoản/điểm/tháng/hình thức phạt thì dùng template.

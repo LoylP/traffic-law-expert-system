@@ -7,6 +7,7 @@ most once). Conflict resolution: priority desc → specificity desc → file ord
 
 from __future__ import annotations
 
+import itertools
 import json
 from datetime import date
 from typing import Any, Iterable
@@ -14,6 +15,8 @@ from typing import Any, Iterable
 from src.reasoning.knowledge_base import KnowledgeBase, get_knowledge_base
 from src.reasoning.schema import (
     PHASE_ORDER,
+    Branch,
+    BranchCondition,
     EngineResult,
     Facts,
     Question,
@@ -26,6 +29,13 @@ _MISSING = object()
 
 # Pseudo rule id of the built-in "specific beats general" exclusion.
 SPECIFICITY_RULE_ID = "ENGINE-EXC-SPECIFICITY"
+# Answer meaning "I do not know": the slot is not asked again.
+UNKNOWN_VALUE = "unknown"
+UNKNOWN_LABEL = "Không rõ"
+# Phases replayed to see what a value of a missing slot would lead to.
+PROBE_PHASES = ("derive", "temporal", "classify", "escalate", "exclude")
+# Option keys that change more than the asked slot; such options are not probed.
+_EFFECT_KEYS = ("set_facts", "set_acts", "remove_acts")
 
 
 def _as_list(value: Any) -> list[Any]:
@@ -89,6 +99,9 @@ class WorkingMemory:
         self.circumstances: list[str] = list(dict.fromkeys(facts.circumstances))
         self.violations: dict[str, ViolationHit] = {}
         self.questions: list[Question] = []
+        self.branches: list[Branch] = []
+        self.depends_on: list[str] = []
+        self.branches_incomplete = False
         self.notes: list[str] = []
         self.status: str | None = None
         self.message: str | None = None
@@ -132,6 +145,7 @@ class InferenceEngine:
             raise ValueError(f"unknown rule type(s): {sorted(unknown)}")
         self.enabled_types = enabled - set(disabled_types)
         self._order = {rule.id: index for index, rule in enumerate(self.kb.rules)}
+        self._by_phase: dict[str, list[Rule]] = {}
 
     # -- matching -------------------------------------------------------
     def _vehicle_matches(self, value: str | None, cond: Any) -> bool:
@@ -215,6 +229,18 @@ class InferenceEngine:
         then = rule.then
         produced: dict[str, Any] = {}
 
+        if "set_facts" in then:  # derive only fills what is still empty
+            filled = {k: v for k, v in then["set_facts"].items() if _is_empty(wm.facts[k])}
+            wm.facts.update(filled)
+            produced["set_facts"] = filled
+        if "add_consequence" in then:
+            wm.facts["consequence"] = list(wm.facts["consequence"])
+            produced["consequence"] = _add_unique(
+                wm.facts["consequence"], _as_list(then["add_consequence"])
+            )
+        if "add_context_from" in then:
+            value = wm.facts[then["add_context_from"]]
+            produced["contexts"] = _add_unique(wm.contexts, [value])
         if then.get("compute_speed_over"):
             over = float(wm.facts["actual_speed_kmh"]) - float(wm.facts["speed_limit_kmh"])
             wm.facts["speed_over_kmh"] = over
@@ -262,24 +288,25 @@ class InferenceEngine:
             wm.status = then["set_status_if_no_violation"]
             produced["status"] = wm.status
 
-        if "ask_field" in then:
-            question = Question(
-                field=then["ask_field"],
-                text=then.get("question_text", ""),
-                options=then.get("options", []),
-                input_type=then.get("input_type"),
-                unit=then.get("unit"),
-                rule_id=rule.id,
-            )
-            wm.questions.append(question)
-            produced["question"] = question.field
         return produced
+
+    def _rules(self, wm: WorkingMemory, phase: str) -> list[Rule]:
+        """Rules of a phase, without the grounded-only rules that cannot match."""
+        if phase not in self._by_phase:
+            self._by_phase[phase] = self.kb.rules_of(phase)
+        grounded = set(wm.facts["grounded_violations"])
+        return [
+            rule
+            for rule in self._by_phase[phase]
+            if "grounded_violation" not in rule.when
+            or grounded & set(_as_list(rule.when["grounded_violation"]))
+        ]
 
     def _run_phase(self, wm: WorkingMemory, phase: str, fired: set[tuple[str, str]]) -> None:
         """Match → resolve → fire until no new (rule, binding) pair is left."""
         while True:
             eligible = []
-            for rule in self.kb.rules_of(phase):
+            for rule in self._rules(wm, phase):
                 if not self._matches(wm, rule):
                     continue
                 matched = self._matched_facts(wm, rule)
@@ -331,8 +358,195 @@ class InferenceEngine:
                 )
             )
 
+    # -- missing slots --------------------------------------------------
+    # An ask rule only declares a slot (its question, the options and when it is
+    # known). Whether to ask is decided here: a missing slot matters when the
+    # classify rules of the current acts read it AND its value changes which
+    # citations come out.
+
+    def _slots(self) -> list[Rule]:
+        """The primary ask rule of every slot (the one with options), best first."""
+        primary = [r for r in self.kb.rules_of("ask") if r.then.get("options")]
+        return sorted(primary, key=self._rank)
+
+    @staticmethod
+    def _slot_name(rule: Rule) -> str:
+        return rule.then.get("slot") or rule.then["ask_field"]
+
+    @staticmethod
+    def _probe_options(rule: Rule) -> list[dict[str, Any]]:
+        return [o for o in rule.then["options"] if not any(k in o for k in _EFFECT_KEYS)]
+
+    @staticmethod
+    def _is_known(facts: dict[str, Any], rule: Rule) -> bool:
+        """known_if: the slot is known when every field of any group is stated."""
+
+        def stated(name: str) -> bool:
+            value = facts[name]
+            return value is not False and not _is_empty(value)
+
+        return any(all(stated(f) for f in group) for group in rule.then["known_if"])
+
+    def _is_relevant(self, wm: WorkingMemory, slot_rule: Rule) -> bool:
+        """Does a classify rule for one of the current acts read this slot?"""
+        name = slot_rule.then["ask_field"]
+        values = {o["value"] for o in self._probe_options(slot_rule)}
+        return any(
+            set(_as_list(rule.when.get("has_act"))) & set(wm.acts)
+            and (name in rule.when or set(_as_list(rule.when.get("has_context"))) & values)
+            for rule in self._rules(wm, "classify")
+        )
+
+    def _probe(self, facts: Facts) -> dict[str, ViolationHit]:
+        wm = WorkingMemory(facts)
+        fired: set[tuple[str, str]] = set()
+        for phase in PROBE_PHASES:
+            if phase not in self.enabled_types:
+                continue
+            self._run_phase(wm, phase, fired)
+            if phase == "exclude":
+                self._exclude_general_hits(wm)
+            if wm.status == "out_of_scope_temporal":
+                break
+        return wm.violations
+
+    def _resolve_missing_slots(self, wm: WorkingMemory, facts: Facts, allow_questions: bool) -> None:
+        """Ask the first slot that changes the result, or list the branches."""
+        slots = [
+            rule
+            for rule in self._slots()
+            if not self._is_known(wm.facts, rule) and self._is_relevant(wm, rule)
+        ]
+        if not slots:
+            return
+        # Outcome of every combination of values of the missing slots.
+        domains = [[o["value"] for o in self._probe_options(rule)] for rule in slots]
+        outcomes = {
+            combo: self._probe(
+                facts.model_copy(
+                    update={r.then["ask_field"]: v for r, v in zip(slots, combo)}, deep=True
+                )
+            )
+            for combo in itertools.product(*domains)
+        }
+        mattering = []
+        for index in range(len(slots)):
+            seen: dict[tuple, set[frozenset[str]]] = {}
+            for combo, hits in outcomes.items():
+                others = combo[:index] + combo[index + 1 :]
+                seen.setdefault(others, set()).add(frozenset(hits))
+            if any(len(results) > 1 for results in seen.values()):
+                mattering.append(index)
+        if not mattering:
+            return
+
+        # Only what holds whatever the missing values are counts as determined.
+        stable = set.intersection(*(set(hits) for hits in outcomes.values()))
+        pending = [cid for cid in wm.violations if cid not in stable]
+        for cid in pending:
+            del wm.violations[cid]
+
+        unknown = set(wm.facts["unknown_slots"])
+        askable = [slots[i] for i in mattering if self._slot_name(slots[i]) not in unknown]
+        if askable and allow_questions:
+            self._ask(wm, askable[0], pending)
+        else:
+            self._branch(wm, [slots[i] for i in mattering], mattering, outcomes, stable)
+
+    def _question_rule(self, wm: WorkingMemory, slot_rule: Rule) -> Rule:
+        """A conditional variant of the slot (ask only the missing half), else the primary."""
+        name = self._slot_name(slot_rule)
+        for rule in self.kb.rules_of("ask"):
+            if rule.when and self._slot_name(rule) == name and self._matches(wm, rule):
+                return rule
+        return slot_rule
+
+    def _ask(self, wm: WorkingMemory, slot_rule: Rule, pending: list[str]) -> None:
+        rule = self._question_rule(wm, slot_rule)
+        then = rule.then
+        question = Question(
+            field=then["ask_field"],
+            slot=self._slot_name(rule),
+            text=then.get("question_text", ""),
+            options=[*then.get("options", []), {"value": UNKNOWN_VALUE, "label": UNKNOWN_LABEL}],
+            input_type=then.get("input_type"),
+            unit=then.get("unit"),
+            number_field=then.get("number_field"),
+            number_max=then.get("number_max"),
+            rule_id=rule.id,
+        )
+        wm.questions.append(question)
+        produced: dict[str, Any] = {"question": question.field}
+        if pending:
+            produced["pending_violations"] = pending
+        wm.trace.append(
+            TraceStep(
+                rule_id=rule.id,
+                type="ask",
+                matched_facts={"missing_slot": question.slot},
+                produced=produced,
+                explain=rule.explain,
+                source=rule.source,
+            )
+        )
+
+    def _branch(
+        self,
+        wm: WorkingMemory,
+        slots: list[Rule],
+        positions: list[int],
+        outcomes: dict[tuple, dict[str, ViolationHit]],
+        stable: set[str],
+    ) -> None:
+        projected: dict[tuple, dict[str, ViolationHit]] = {}
+        for combo, hits in outcomes.items():
+            projected.setdefault(tuple(combo[i] for i in positions), hits)
+        groups: dict[tuple[str, ...], list[tuple]] = {}
+        for combo, hits in projected.items():
+            extra = tuple(cid for cid in hits if cid not in stable)
+            if extra:
+                groups.setdefault(extra, []).append(combo)
+            else:
+                wm.branches_incomplete = True
+        options = [{o["value"]: o["label"] for o in self._probe_options(r)} for r in slots]
+        for extra, combos in groups.items():
+            columns = [list(dict.fromkeys(c[i] for c in combos)) for i in range(len(slots))]
+            size = 1
+            for column in columns:
+                size *= len(column)
+            # Merge the combinations only when the merged condition says exactly the same.
+            rows = [columns] if size == len(combos) else [[[v] for v in c] for c in combos]
+            for row in rows:
+                conditions = [
+                    BranchCondition(
+                        slot=self._slot_name(rule),
+                        slot_label=rule.then["slot_label"],
+                        values=values,
+                        labels=[options[i][v] for v in values],
+                    )
+                    for i, (rule, values) in enumerate(zip(slots, row))
+                    if len(values) < len(options[i])
+                ]
+                wm.branches.append(
+                    Branch(conditions=conditions, hits=[projected[combos[0]][c] for c in extra])
+                )
+        wm.depends_on = [rule.then["slot_label"] for rule in slots]
+        for rule in slots:
+            wm.trace.append(
+                TraceStep(
+                    rule_id=rule.id,
+                    type="ask",
+                    matched_facts={"missing_slot": self._slot_name(rule)},
+                    produced={"depends_on": rule.then["slot_label"]},
+                    explain=f"Thiếu {rule.then['slot_label']}: không tự chọn, liệt kê các khả năng.",
+                    source=rule.source,
+                )
+            )
+
     # -- public API -----------------------------------------------------
-    def run(self, facts: Facts | dict[str, Any]) -> EngineResult:
+    def run(self, facts: Facts | dict[str, Any], allow_questions: bool = True) -> EngineResult:
+        """`allow_questions=False` (question limit reached) turns every slot that
+        would be asked into branches."""
         if not isinstance(facts, Facts):
             facts = Facts.model_validate(facts)
         wm = WorkingMemory(facts)
@@ -340,6 +554,9 @@ class InferenceEngine:
 
         for phase in PHASE_ORDER:
             if phase not in self.enabled_types:
+                continue
+            if phase == "ask":
+                self._resolve_missing_slots(wm, facts, allow_questions)
                 continue
             self._run_phase(wm, phase, fired)
             if phase == "exclude":
@@ -356,6 +573,9 @@ class InferenceEngine:
             circumstances=wm.circumstances,
             hits=list(wm.violations.values()),
             questions=wm.questions,
+            branches=wm.branches,
+            depends_on=wm.depends_on,
+            branches_incomplete=wm.branches_incomplete,
             notes=wm.notes,
             message=wm.message,
             trace=wm.trace,
@@ -369,7 +589,7 @@ class InferenceEngine:
             return wm.status
         if wm.questions:
             return "need_info"
-        if wm.violations:
+        if wm.violations or wm.branches:
             return "answered"
         if wm.status:  # e.g. out_of_scope set by a note rule (only when no violation)
             return wm.status
@@ -378,12 +598,25 @@ class InferenceEngine:
     def apply_answer(self, facts: Facts, field: str, value: Any) -> Facts:
         """Merge the user's answer to a question into facts.
 
+        "Không rõ" fills nothing: the slot is recorded in `unknown_slots`.
+
         If the matching ask-rule option declares effects (`set_facts`, `set_acts`,
         `remove_acts`) they are applied instead of writing the raw value; e.g.
         R-ASK-ALC-01 option `refuse` → alcohol_test_refused=True, add
         ACT_REFUSE_ALCOHOL_TEST, drop ACT_ALCOHOL.
         """
         data = facts.model_dump()
+        if value == UNKNOWN_VALUE:
+            slot = next(
+                (
+                    self._slot_name(r)
+                    for r in self.kb.rules_of("ask")
+                    if r.then["ask_field"] == field
+                ),
+                field,
+            )
+            _add_unique(data["unknown_slots"], [slot])
+            return Facts.model_validate(data)
         option = self._find_option(field, value)
         effects = {k: option[k] for k in ("set_facts", "set_acts", "remove_acts") if option and k in option}
         if effects:

@@ -1,79 +1,20 @@
-# Ask Rules - Luật hỏi bổ sung khi thiếu dữ kiện bắt buộc
-# Dữ kiện bắt buộc thiếu → câu hỏi bổ sung với options
+# Ask Rules - khai báo SLOT, không viết điều kiện riêng cho từng tình huống.
+# Engine chỉ hỏi một slot khi: (1) slot chưa biết (known_if), (2) luật classify của
+# hành vi đang xét có đọc slot đó (has_context ∩ option, hoặc khóa trùng ask_field),
+# và (3) các giá trị của slot dẫn tới Điều/Khoản/Điểm khác nhau.
+# priority quyết định thứ tự hỏi: phương tiện → slot đặc thù của hành vi.
+# Mỗi lượt chỉ hỏi 1 câu; engine tự thêm option "Không rõ".
+# Option có set_facts/set_acts/remove_acts không được dùng để lập nhánh khả năng.
+# Luật có `when` là biến thể: dùng thay câu hỏi chính của cùng `slot` khi khớp.
 
 rules:
-  # Hỏi nồng độ cồn khi có ACT_ALCOHOL nhưng thiếu BAC
-  - id: R-ASK-ALC-01
-    type: ask
-    priority: 20
-    when:
-      has_act: ACT_ALCOHOL
-      bac_blood_mg_100ml: {is_null: true}
-      bac_breath_mg_l: {is_null: true}
-      alcohol_test_refused: {not_true: true}
-    then:
-      ask_field: bac_breath_mg_l
-      question_text: "Nồng độ cồn đo được trong hơi thở là bao nhiêu?"
-      options:
-        - value: 0.2
-          label: "Đến 0,25 mg/l"
-        - value: 0.3
-          label: "Trên 0,25 đến 0,4 mg/l"
-        - value: 0.5
-          label: "Trên 0,4 mg/l"
-        - value: refuse
-          label: "Từ chối kiểm tra nồng độ cồn"
-          # Engine.apply_answer: không ghi "refuse" vào bac_breath_mg_l mà áp dụng các hiệu ứng sau
-          set_facts: {alcohol_test_refused: true}
-          set_acts: [ACT_REFUSE_ALCOHOL_TEST]
-          remove_acts: [ACT_ALCOHOL]
-    explain: "Cần biết mức nồng độ cồn chính xác để xác định khoản xử phạt, hoặc biết có từ chối kiểm tra"
-    source: "Suy diễn của nhóm"
-    note: "Chọn 'refuse' → engine.apply_answer đặt alcohol_test_refused=true, thêm ACT_REFUSE_ALCOHOL_TEST, bỏ ACT_ALCOHOL"
-    verified: true
-
-  # Hỏi tốc độ khi có ACT_SPEEDING nhưng thiếu speed hoặc chưa tính được speed_over_kmh
-  - id: R-ASK-SPD-01
-    type: ask
-    priority: 20
-    when:
-      has_act: ACT_SPEEDING
-      speed_over_kmh: {is_null: true}
-      actual_speed_kmh: {is_null: true}
-    then:
-      ask_field: actual_speed_kmh
-      question_text: "Tốc độ thực tế của xe là bao nhiêu km/h?"
-      input_type: number
-      unit: "km/h"
-    explain: "Cần biết tốc độ thực tế để tính mức vượt tốc độ"
-    source: "Suy diễn của nhóm"
-    verified: true
-
-  - id: R-ASK-SPD-02
-    type: ask
-    priority: 20
-    when:
-      has_act: ACT_SPEEDING
-      speed_over_kmh: {is_null: true}
-      speed_limit_kmh: {is_null: true}
-    then:
-      ask_field: speed_limit_kmh
-      question_text: "Tốc độ cho phép trên đoạn đường đó là bao nhiêu km/h?"
-      input_type: number
-      unit: "km/h"
-    explain: "Cần biết tốc độ giới hạn để tính mức vượt tốc độ"
-    source: "Suy diễn của nhóm"
-    verified: true
-
-  # Hỏi loại phương tiện khi vehicle_class null mà có act
   - id: R-ASK-VEH-01
     type: ask
-    priority: 25
-    when:
-      vehicle_class: {is_null: true}
-      acts: {not_empty: true}
+    priority: 100
     then:
       ask_field: vehicle_class
+      slot_label: "loại phương tiện"
+      known_if: [[vehicle_class]]
       question_text: "Loại phương tiện vi phạm là gì?"
       options:
         - value: VEH_CAR
@@ -86,9 +27,132 @@ rules:
           label: "Xe đạp, xe thô sơ"
         - value: VEH_PEDESTRIAN
           label: "Người đi bộ"
-    explain: "Cần biết loại phương tiện để xác định điều khoản xử phạt chính xác"
+    explain: "Loại phương tiện quyết định điều khoản áp dụng (NĐ 168/2024, Điều 6–10)"
     source: "Suy diễn của nhóm"
-    verified: true
+    verified: false
 
-  # KHÔNG hỏi khi acts rỗng và không ground được
-  # Theo DESIGN: "acts rỗng và không ground được → không hỏi, để unknown"
+  - id: R-ASK-ALC-01
+    type: ask
+    priority: 60
+    then:
+      ask_field: alcohol_level
+      slot_label: "mức nồng độ cồn"
+      known_if: [[alcohol_level], [bac_blood_mg_100ml], [bac_breath_mg_l], [alcohol_test_refused]]
+      question_text: "Nồng độ cồn đo được ở mức nào?"
+      input_type: number
+      unit: "mg/l"
+      number_field: bac_breath_mg_l
+      number_max: 3
+      options:
+        - value: BAC_L1
+          label: "Đến 0,25 mg/l khí thở (hoặc đến 50 mg/100 ml máu)"
+        - value: BAC_L2
+          label: "Trên 0,25 đến 0,4 mg/l (trên 50 đến 80 mg/100 ml máu)"
+        - value: BAC_L3
+          label: "Trên 0,4 mg/l (trên 80 mg/100 ml máu)"
+        - value: refuse
+          label: "Từ chối kiểm tra nồng độ cồn"
+          # Engine.apply_answer: không ghi "refuse" vào alcohol_level mà áp dụng các hiệu ứng sau
+          set_facts: {alcohol_test_refused: true}
+          set_acts: [ACT_REFUSE_ALCOHOL_TEST]
+          remove_acts: [ACT_ALCOHOL]
+    explain: "Mức nồng độ cồn quyết định khoản xử phạt"
+    source: "NĐ 168/2024, Điều 6 khoản 6, 9, 11; Điều 7 khoản 6, 8, 9"
+    verified: false
+
+  - id: R-ASK-SPD-01
+    type: ask
+    priority: 60
+    then:
+      ask_field: speed_band
+      slot_label: "mức vượt tốc độ"
+      known_if: [[speed_band], [speed_over_kmh], [actual_speed_kmh, speed_limit_kmh]]
+      question_text: "Xe chạy vượt tốc độ cho phép bao nhiêu km/h?"
+      input_type: number
+      unit: "km/h"
+      number_field: speed_over_kmh
+      options:
+        - value: SPEED_5_10
+          label: "Vượt từ 5 đến dưới 10 km/h"
+        - value: SPEED_10_20
+          label: "Vượt từ 10 đến 20 km/h"
+        - value: SPEED_20_35
+          label: "Vượt trên 20 đến 35 km/h"
+        - value: SPEED_OVER_35
+          label: "Vượt trên 35 km/h"
+    explain: "Mức vượt tốc độ quyết định khoản xử phạt"
+    source: "NĐ 168/2024, Điều 6 khoản 3, 5, 6, 7; Điều 7 khoản 2, 4, 8"
+    verified: false
+
+  # Biến thể: đã biết tốc độ thực tế → chỉ hỏi tốc độ cho phép
+  - id: R-ASK-SPD-02
+    type: ask
+    priority: 60
+    when:
+      actual_speed_kmh: {not_null: true}
+      speed_limit_kmh: {is_null: true}
+    then:
+      ask_field: speed_limit_kmh
+      slot: speed_band
+      question_text: "Tốc độ cho phép trên đoạn đường đó là bao nhiêu km/h?"
+      input_type: number
+      unit: "km/h"
+      number_field: speed_limit_kmh
+    explain: "Cần tốc độ cho phép để tính mức vượt tốc độ"
+    source: "Suy diễn của nhóm"
+    verified: false
+
+  # Biến thể: đã biết tốc độ cho phép → chỉ hỏi tốc độ thực tế
+  - id: R-ASK-SPD-03
+    type: ask
+    priority: 60
+    when:
+      speed_limit_kmh: {not_null: true}
+      actual_speed_kmh: {is_null: true}
+    then:
+      ask_field: actual_speed_kmh
+      slot: speed_band
+      question_text: "Tốc độ thực tế của xe là bao nhiêu km/h?"
+      input_type: number
+      unit: "km/h"
+      number_field: actual_speed_kmh
+    explain: "Cần tốc độ thực tế để tính mức vượt tốc độ"
+    source: "Suy diễn của nhóm"
+    verified: false
+
+  - id: R-ASK-PASS-01
+    type: ask
+    priority: 60
+    then:
+      ask_field: passengers_count
+      slot_label: "số người được chở"
+      known_if: [[passengers_count]]
+      question_text: "Xe chở theo bao nhiêu người (không tính người lái)?"
+      options:
+        - value: 2
+          label: "02 người"
+        - value: 3
+          label: "Từ 03 người trở lên"
+    explain: "Số người được chở quyết định khoản xử phạt"
+    source: "NĐ 168/2024, Điều 7 khoản 2 điểm g, khoản 3 điểm b"
+    verified: false
+
+  - id: R-ASK-ROAD-01
+    type: ask
+    priority: 40
+    then:
+      ask_field: road_type
+      slot_label: "loại đường"
+      known_if: [[road_type]]
+      question_text: "Hành vi xảy ra trên đường cao tốc hay đường khác?"
+      options:
+        - value: ROAD_EXPRESSWAY
+          label: "Đường cao tốc"
+        - value: ROAD_NORMAL
+          label: "Đường khác (không phải cao tốc)"
+    explain: "Một số hành vi trên đường cao tốc có khung xử phạt riêng"
+    source: "NĐ 168/2024, Điều 6 khoản 11 điểm đ"
+    verified: false
+
+  # KHÔNG hỏi khi acts rỗng và không ground được (DESIGN: để unknown).
+  # KHÔNG hỏi ngoại lệ (passenger_exception...), hậu quả, tình tiết: không nêu = không có.

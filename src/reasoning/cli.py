@@ -61,8 +61,15 @@ def render_result(result: EngineResult, penalty: PenaltySummary, explainer: Expl
             f"**Tổng tiền phạt đề xuất: {format_money(penalty.total_recommended_fine)}**",
             f"**Điểm GPLX bị trừ: {penalty.total_points_deducted}**",
         ]
-    else:
+    elif not result.branches:
         lines.append("- (chưa xác định được vi phạm)")
+
+    if result.branches:
+        lines += ["", f"## Các khả năng (phụ thuộc vào {', '.join(result.depends_on)})"]
+        for branch in result.branches:
+            when = "; ".join(f"{c.slot_label}: {' hoặc '.join(c.labels)}" for c in branch.conditions)
+            cited = ", ".join(explainer.label_of(h.citation_id) for h in branch.hits)
+            lines.append(f"- {when} → {cited}")
 
     if result.questions:
         lines += ["", "## Câu hỏi bổ sung"]

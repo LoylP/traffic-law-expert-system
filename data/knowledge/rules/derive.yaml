@@ -104,6 +104,108 @@ rules:
     source: "Suy diễn của nhóm"
     verified: true
 
+  # Người dùng chỉ chọn KHOẢNG (không có số đo) → ngữ cảnh tương ứng
+  - id: R-DER-SPEED-10
+    type: derive
+    priority: 56
+    when:
+      speed_band: {not_null: true}
+      speed_over_kmh: {is_null: true}
+    then:
+      add_context_from: speed_band
+    explain: "Người dùng cho biết khoảng vượt tốc độ (không có số km/h)"
+    source: "Suy diễn của nhóm"
+    verified: false
+
+  - id: R-DER-ALC-10
+    type: derive
+    priority: 56
+    when:
+      alcohol_level: {not_null: true}
+      bac_blood_mg_100ml: {is_null: true}
+      bac_breath_mg_l: {is_null: true}
+    then:
+      add_context_from: alcohol_level
+    explain: "Người dùng cho biết mức nồng độ cồn (không có số đo)"
+    source: "Suy diễn của nhóm"
+    verified: false
+
+  # Từ chối kiểm tra ↔ hành vi không chấp hành yêu cầu kiểm tra
+  - id: R-DER-ALC-11
+    type: derive
+    priority: 63
+    when:
+      has_act: ACT_REFUSE_ALCOHOL_TEST
+    then:
+      set_facts: {alcohol_test_refused: true}
+    explain: "Không chấp hành yêu cầu kiểm tra nồng độ cồn là từ chối kiểm tra"
+    source: "NĐ 168/2024, Điều 6 khoản 11 điểm b; Điều 7 khoản 9 điểm đ"
+    verified: false
+
+  - id: R-DER-ALC-12
+    type: derive
+    priority: 62
+    when:
+      alcohol_test_refused: true
+    then:
+      add_acts: [ACT_REFUSE_ALCOHOL_TEST]
+    explain: "Từ chối kiểm tra nồng độ cồn → không chấp hành yêu cầu kiểm tra"
+    source: "NĐ 168/2024, Điều 6 khoản 11 điểm b; Điều 7 khoản 9 điểm đ"
+    verified: false
+
+  - id: R-DER-ALC-13
+    type: derive
+    priority: 61
+    when:
+      drank_alcohol: true
+      alcohol_test_refused: {not_true: true}
+    then:
+      add_acts: [ACT_ALCOHOL]
+    explain: "Có uống rượu, bia rồi tham gia giao thông → xem xét hành vi có nồng độ cồn; mức xử phạt phụ thuộc nồng độ đo được"
+    source: "Suy diễn của nhóm"
+    verified: false
+
+  # Gây tai nạn rồi bỏ đi hàm ý có tai nạn
+  - id: R-DER-RES-05
+    type: derive
+    priority: 49
+    when:
+      has_act: ACT_HIT_AND_RUN
+    then:
+      add_consequence: [CONS_ACCIDENT]
+    explain: "Hành vi gây tai nạn rồi không dừng lại hàm ý đã xảy ra tai nạn"
+    source: "NĐ 168/2024, Điều 6 khoản 8; Điều 7 khoản 9 điểm c"
+    verified: false
+
+  # Suy loại phương tiện từ hành vi (CHỈ khi người dùng không nêu phương tiện)
+  - id: R-DER-VEH-01
+    type: derive
+    priority: 45
+    when:
+      vehicle_class: {is_null: true}
+      has_act: [ACT_NO_SEATBELT, ACT_PASSENGER_NO_SEATBELT]
+    then:
+      set_facts: {vehicle_class: VEH_CAR}
+      add_notes: ["Phương tiện được suy ra là ô tô từ hành vi liên quan dây đai an toàn. Nếu bạn là người được chở (không phải người lái) thì áp dụng quy định riêng cho người được chở (NĐ 168/2024, Điều 12)."]
+    explain: "Quy định xử phạt người điều khiển xe không thắt dây đai an toàn thuộc nhóm xe ô tô"
+    legal_excerpt: "Không thắt dây đai an toàn khi điều khiển xe chạy trên đường"
+    source: "NĐ 168/2024, Điều 6 khoản 3 điểm k, điểm l"
+    verified: false
+
+  - id: R-DER-VEH-02
+    type: derive
+    priority: 45
+    when:
+      vehicle_class: {is_null: true}
+      has_act: [ACT_NO_HELMET, ACT_PASSENGER_NO_HELMET]
+    then:
+      set_facts: {vehicle_class: VEH_MOTORBIKE}
+      add_notes: ["Phương tiện được suy ra là mô tô, xe gắn máy từ hành vi liên quan mũ bảo hiểm. Nếu bạn đi xe đạp máy thì áp dụng NĐ 168/2024, Điều 9 khoản 4 (điểm d, đ)."]
+    explain: "Hành vi về mũ bảo hiểm cho người đi mô tô, xe máy được xếp vào nhóm mô tô, xe gắn máy (xe đạp máy có quy định riêng, được ghi chú)"
+    legal_excerpt: 'Không đội "mũ bảo hiểm cho người đi mô tô, xe máy"'
+    source: "NĐ 168/2024, Điều 7 khoản 2 điểm h, i; Điều 9 khoản 4 điểm d, đ"
+    verified: false
+
   # Nhóm 2: Map BAC → AlcoholLevel
   - id: R-DER-ALC-01
     type: derive

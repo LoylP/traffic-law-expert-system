@@ -123,7 +123,10 @@ aggravating_circumstances:
       - "vi phạm lại"
       - "phạm lần hai"
       - "tái vi phạm"
-      - "đã từng bị xử phạt"
+      - "đã từng bị xử phạt về lỗi này"
+      - "đã từng bị phạt lỗi này"
+      - "đã bị phạt lỗi này"
+      - "bị phạt cùng lỗi này"
       - "phạm lại trong thời gian"
     legal_ref: "Luật XLVPHC Điều 10 khoản 1 điểm b"
     verified: true

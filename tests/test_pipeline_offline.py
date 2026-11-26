@@ -73,7 +73,7 @@ def test_sample(pipeline, message, status, citations):
 def test_need_info_then_answer_in_same_session(pipeline):
     first = consult(pipeline, "Tôi uống rượu rồi lái ô tô")
     assert first.status == "need_info"
-    assert [q.field for q in first.questions] == ["bac_breath_mg_l"]
+    assert [q.field for q in first.questions] == ["alcohol_level"]
     assert first.session_id
 
     outcome = pipeline.consult_detailed("0,3 mg/l", first.session_id, OFFLINE)
@@ -97,6 +97,42 @@ def test_free_text_follow_up_is_merged(pipeline):
     second = consult(pipeline, "tôi đi xe máy nhé", session_id=first.session_id)
     assert second.status == "answered"
     assert [v.citation_id for v in second.violations] == ["ND168-D7-K7-Pc"]
+
+
+def test_answered_turn_does_not_leak_into_next_turn(pipeline):
+    first = consult(pipeline, "uống bia lái ô tô 0,3 mg/l, đã từng bị phạt lỗi này")
+    assert first.status == "answered"
+    assert "CIR_REPEAT" in first.facts.circumstances
+    second = consult(pipeline, "lái ô tô đo được 0,1 mg/l", session_id=first.session_id)
+    assert second.session_id == first.session_id
+    assert second.status == "answered"
+    assert "CIR_REPEAT" not in second.facts.circumstances
+    assert second.total_recommended_fine == 7_000_000
+
+
+@pytest.mark.parametrize(
+    "message,status",
+    [("Hôm nay trời đẹp quá", "unknown"), ("Ngày 15/06/2024 tôi lái ô tô vượt đèn đỏ", "out_of_scope")],
+)
+def test_unknown_or_out_of_scope_turn_starts_over(pipeline, message, status):
+    first = consult(pipeline, message)
+    assert first.status == status
+    second = consult(pipeline, "Tôi đi xe máy vượt đèn đỏ", session_id=first.session_id)
+    assert second.status == "answered"
+    assert second.facts.violation_date is None
+    assert [v.citation_id for v in second.violations] == ["ND168-D7-K7-Pc"]
+
+
+def test_follow_up_keeps_facts_then_next_turn_starts_over(pipeline):
+    first = consult(pipeline, "uống bia lái ô tô, đã từng bị phạt lỗi này")
+    assert first.status == "need_info"
+    second = consult(pipeline, "0,3 mg/l", session_id=first.session_id)
+    assert second.status == "answered"
+    assert "CIR_REPEAT" in second.facts.circumstances
+    assert [v.citation_id for v in second.violations] == ["ND168-D6-K9-Pa"]
+    third = consult(pipeline, "Tôi đi xe máy vượt đèn đỏ", session_id=first.session_id)
+    assert third.facts.circumstances == [] and third.facts.bac_breath_mg_l is None
+    assert [v.citation_id for v in third.violations] == ["ND168-D7-K7-Pc"]
 
 
 def test_session_expires():

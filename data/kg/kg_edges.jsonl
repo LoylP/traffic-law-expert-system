@@ -9826,6 +9826,8 @@
 {"source": "VIOLATION_V0128", "relation": "INSTANCE_OF_ACT", "target": "ACT_REFUSE_ALCOHOL_TEST"}
 {"source": "VIOLATION_V0060", "relation": "INSTANCE_OF_ACT", "target": "ACT_HIT_AND_RUN"}
 {"source": "VIOLATION_V0126", "relation": "INSTANCE_OF_ACT", "target": "ACT_HIT_AND_RUN"}
+{"source": "VIOLATION_V0020", "relation": "INSTANCE_OF_ACT", "target": "ACT_NO_SEATBELT"}
+{"source": "VIOLATION_V0021", "relation": "INSTANCE_OF_ACT", "target": "ACT_PASSENGER_NO_SEATBELT"}
 {"source": "VIOLATION_V0055", "relation": "REQUIRES_CONTEXT", "target": "BAC_L1", "rule_id": "R-CLS-ALC-CAR-L1", "any_of": false}
 {"source": "VIOLATION_V0061", "relation": "REQUIRES_CONTEXT", "target": "BAC_L2", "rule_id": "R-CLS-ALC-CAR-L2", "any_of": false}
 {"source": "VIOLATION_V0067", "relation": "REQUIRES_CONTEXT", "target": "BAC_L3", "rule_id": "R-CLS-ALC-CAR-L3", "any_of": false}

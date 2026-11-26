@@ -9,7 +9,20 @@ import logging
 import re
 from typing import Any
 
-from src.reasoning.extractor_regex import NUMBER, RegexExtractor, normalize, parse_date, to_number
+from src.extract.vehicle_mapping import match_user_vehicles
+from src.reasoning.extractor_regex import (
+    _OFFICER,
+    _OFFICER_SIGNAL,
+    _RESISTANCE_PATTERNS,
+    _ROAD_PATTERNS,
+    _TIME_PATTERNS,
+    DRANK_PATTERN,
+    NUMBER,
+    RegexExtractor,
+    normalize,
+    parse_date,
+    to_number,
+)
 from src.reasoning.knowledge_base import KnowledgeBase, get_knowledge_base
 from src.reasoning.llm_client import LLMClient, LLMError
 from src.reasoning.schema import ExtractionResult, Facts
@@ -18,11 +31,19 @@ logger = logging.getLogger(__name__)
 
 SYNONYMS_PER_ID = 3
 PROMPT_TOKEN_BUDGET = 6000
-# Filled by other pipeline steps, never by the extractor.
-EXCLUDED_FIELDS = ("grounded_violations",)
+# Filled by other pipeline steps (grounder, follow-up answers), never by the extractor.
+EXCLUDED_FIELDS = ("grounded_violations", "speed_band", "alcohol_level", "unknown_slots")
 # Hit-and-run needs an accident; small models confuse it with fleeing a police stop.
-_SPEED_WORDS = re.compile(r"tốc|km|nhanh|phóng|cây số")
+# "phóng nhanh", "chạy nhanh" do not state that a speed limit was exceeded.
+_SPEED_WORDS = re.compile(r"tốc độ(?!\s+cao)|km|cây số|vượt mức")
+# Aggravating facts about the past: accepted only with the wording of circumstances.yaml.
+_HISTORY_CIRCUMSTANCES = ("CIR_REPEAT", "CIR_MULTIPLE_TIMES")
 _ACCIDENT_WORDS = re.compile(r"tai nạn|tông|đâm|va chạm|va quẹt|quẹt (?:vào|trúng|phải)")
+# ...and the message must say the driver left or did not stop to help.
+_LEFT_SCENE_WORDS = re.compile(
+    r"bỏ (?:chạy|trốn|đi|mặc)|(?:chạy|đi) (?:trốn|mất|luôn)|trốn|rời (?:khỏi )?hiện trường|"
+    r"không (?:chịu )?(?:dừng|giúp|cứu|giữ(?: nguyên)? hiện trường)"
+)
 # Numbers decide the fine bracket, so they must be written in the message.
 NUMERIC_FIELDS = (
     "speed_limit_kmh",
@@ -37,7 +58,13 @@ INSTRUCTIONS = """Bạn là bộ trích xuất dữ kiện cho hệ chuyên gia 
 
 Quy tắc:
 1. Chỉ dùng ID có trong các danh mục bên dưới. Không tự tạo ID.
-2. Chỉ ghi điều người dùng nói. Trường không được nhắc tới thì bỏ qua hoặc để null / [].
+2. Chỉ ghi dữ kiện được NÊU RÕ trong câu. KHÔNG đoán theo thói quen nói, KHÔNG điền giá trị \
+"thường gặp". Trường không được nêu rõ thì để null. Cụm chung chung -> null: "chạy xe", "đi xe", \
+"lái xe", "về bằng xe" (không biết loại xe); "chạy nhanh", "phóng nhanh" (chưa nói quá tốc độ); \
+"ngoài đường" (không biết loại đường); "có uống chút" (chỉ drank_alcohol=true, không có số đo); \
+"bị bắt mấy lần rồi", "trước đây bị phạt rồi" (không phải tái phạm: CIR_REPEAT chỉ khi nói rõ \
+tái phạm hoặc đã bị xử phạt về chính lỗi này). KHÔNG suy loại xe từ hành vi (mũ bảo hiểm, \
+dây an toàn...): hệ chuyên gia tự suy luận.
 3. Chỉ chọn ID hành vi khi ĐÚNG hành vi đó. Hành vi vi phạm không khớp ID nào trong danh mục \
 (vd: dừng đỗ sai chỗ, không bật đèn, không gương chiếu hậu): KHÔNG chọn ID gần giống, mà chép cụm \
 mô tả vào free_behaviors. Đã có trong acts thì không ghi lại vào free_behaviors.
@@ -54,6 +81,30 @@ Không có số đo thì để null.
 11. KHÔNG nêu điều luật, KHÔNG nêu mức phạt, KHÔNG tư vấn."""
 
 FEW_SHOT: tuple[tuple[str, dict[str, Any]], ...] = (
+    # Contrast pairs: vague wording -> null, explicit wording -> value.
+    (
+        "Nhậu xong chạy xe về, ngoài đường phóng nhanh, trước giờ bị bắt mấy lần rồi.",
+        {"drank_alcohol": True, "evidence": {"drank_alcohol": "Nhậu xong"}},
+    ),
+    (
+        "Lái ô tô trên cao tốc, thổi được 0,3 mg/l khí thở.",
+        {
+            "vehicle_class": "VEH_CAR",
+            "acts": ["ACT_ALCOHOL"],
+            "bac_breath_mg_l": 0.3,
+            "road_type": "ROAD_EXPRESSWAY",
+            "evidence": {
+                "vehicle_class": "ô tô",
+                "acts": "thổi được 0,3 mg/l",
+                "bac_breath_mg_l": "0,3 mg/l",
+                "road_type": "cao tốc",
+            },
+        },
+    ),
+    (
+        "Đi xe không thắt dây an toàn, trước đây bị phạt rồi.",
+        {"acts": ["ACT_NO_SEATBELT"], "evidence": {"acts": "không thắt dây an toàn"}},
+    ),
     (
         "Tôi đi xe máy vượt đèn đỏ thì sao?",
         {
@@ -84,7 +135,7 @@ FEW_SHOT: tuple[tuple[str, dict[str, Any]], ...] = (
         "đầu không đội nón, còn vừa chạy vừa tháo biển số.",
         {
             "vehicle_class": "VEH_MOTORBIKE",
-            "acts": ["ACT_ALCOHOL", "ACT_SPEEDING", "ACT_OVERLOAD_PASSENGER", "ACT_NO_HELMET"],
+            "acts": ["ACT_SPEEDING", "ACT_OVERLOAD_PASSENGER", "ACT_NO_HELMET"],
             "free_behaviors": ["vừa chạy vừa tháo biển số"],
             "actual_speed_kmh": 72,
             "speed_limit_kmh": 50,
@@ -93,7 +144,7 @@ FEW_SHOT: tuple[tuple[str, dict[str, Any]], ...] = (
             "passengers_count": 2,
             "no_helmet_who": "driver",
             "evidence": {
-                "acts": "nhậu xong; 72 km/h; kẹp ba; đầu không đội nón",
+                "acts": "72 km/h; kẹp ba; đầu không đội nón",
                 "drank_alcohol": "nhậu xong",
                 "actual_speed_kmh": "72 km/h",
                 "speed_limit_kmh": "giới hạn 50",
@@ -175,6 +226,9 @@ def build_schema(kb: KnowledgeBase) -> dict[str, Any]:
         "properties": {n: {"type": "string"} for n in properties if n != "evidence"},
         "additionalProperties": False,
     }
+    for name, spec in properties.items():
+        if {"type": "null"} not in spec.get("anyOf", []):
+            properties[name] = {"anyOf": [spec, {"type": "null"}]}
     return {
         "type": "object",
         "properties": properties,
@@ -188,7 +242,8 @@ def build_system_prompt(kb: KnowledgeBase) -> str:
     ids = allowed_ids(kb)
     sources = {**kb.acts, **kb.circumstances}
     titles = {
-        "vehicle_class": "vehicle_class (loại phương tiện; \"xe máy\" = VEH_MOTORBIKE, ô tô/xe tải/xe khách = VEH_CAR)",
+        "vehicle_class": "vehicle_class (chỉ khi câu nêu rõ loại xe: \"xe máy\" là VEH_MOTORBIKE; "
+        "ô tô, xe tải, xe khách là VEH_CAR; chỉ nói \"xe\" thì null)",
         "acts": "acts (hành vi)",
         "circumstances": "circumstances (tình tiết)",
         "road_type": "road_type",
@@ -280,7 +335,8 @@ def sanitize_facts(
     updates["evidence"] = evidence
     updates["free_behaviors"] = list(dict.fromkeys(b.strip() for b in facts.free_behaviors if b.strip()))
 
-    # Keep the alcohol facts consistent (the rules key on the acts).
+    _drop_unstated(facts, updates, evidence, message, text, kb, warnings)
+
     acts = list(facts.acts)
     has_speed = any(updates.get(f, getattr(facts, f)) is not None for f in NUMERIC_FIELDS[:3])
     if "ACT_SPEEDING" in acts and not has_speed and not _SPEED_WORDS.search(text):
@@ -289,22 +345,76 @@ def sanitize_facts(
     if "ACT_HIT_AND_RUN" in acts and not _ACCIDENT_WORDS.search(text):
         acts.remove("ACT_HIT_AND_RUN")
         warnings.append("ACT_HIT_AND_RUN: bỏ vì câu không nói đến tai nạn")
+    elif "ACT_HIT_AND_RUN" in acts and not _LEFT_SCENE_WORDS.search(text):
+        acts.remove("ACT_HIT_AND_RUN")
+        warnings.append("ACT_HIT_AND_RUN: bỏ vì câu không nói người lái bỏ đi hoặc không dừng lại")
+    # Refusing the test is not a measured level. Everything else that follows from
+    # a fact (drank -> alcohol act, refusal <-> act) is left to the derive rules.
     refused = facts.alcohol_test_refused is True or "ACT_REFUSE_ALCOHOL_TEST" in acts
     measured = any(
         (updates.get(f, getattr(facts, f)) or 0) > 0
         for f in ("bac_blood_mg_100ml", "bac_breath_mg_l")
     )
-    if refused:
-        updates["alcohol_test_refused"] = True
-        if "ACT_REFUSE_ALCOHOL_TEST" not in acts:
-            acts.append("ACT_REFUSE_ALCOHOL_TEST")
-        if not measured and "ACT_ALCOHOL" in acts:
-            acts.remove("ACT_ALCOHOL")
-    elif facts.drank_alcohol is True and "ACT_ALCOHOL" not in acts:
-        acts.append("ACT_ALCOHOL")
+    if refused and not measured and "ACT_ALCOHOL" in acts:
+        acts.remove("ACT_ALCOHOL")
     updates["acts"] = acts
 
     return facts.model_copy(update=updates), warnings
+
+
+def _drop_unstated(
+    facts: Facts,
+    updates: dict[str, Any],
+    evidence: dict[str, str],
+    message: str,
+    text: str,
+    kb: KnowledgeBase,
+    warnings: list[str],
+) -> None:
+    """Deterministic guard for "never fill what was not said": small models guess
+    even when told not to. A value survives only if the message backs it."""
+
+    def drop(field: str, value: Any, empty: Any = None) -> None:
+        updates[field] = empty
+        evidence.pop(field, None)
+        warnings.append(f"{field}={value}: bỏ vì câu không nêu rõ")
+
+    # vehicle: only a class the message names (vehicle_mapping.py)
+    named = list(dict.fromkeys(c for c, _ in match_user_vehicles(text)))
+    if facts.vehicle_class and facts.vehicle_class not in named:
+        # A wrong class is replaced only when the message names exactly one.
+        drop("vehicle_class", facts.vehicle_class, named[0] if len(named) == 1 else None)
+
+    for field, patterns in (("road_type", _ROAD_PATTERNS), ("time_context", _TIME_PATTERNS)):
+        value = getattr(facts, field)
+        if value and not any(v == value and re.search(p, text) for v, p in patterns):
+            drop(field, value)
+
+    if facts.consequence and not _ACCIDENT_WORDS.search(text):
+        drop("consequence", facts.consequence, [])
+
+    # evidence (already checked to be verbatim) or a known wording
+    if facts.officer_signal and not (
+        re.search(_OFFICER_SIGNAL, text)
+        or re.search(_OFFICER, normalize(evidence.get("officer_signal", "")))
+    ):
+        drop("officer_signal", True)
+    if facts.resistance and "resistance" not in evidence:
+        kept = [r for r in facts.resistance if re.search(_RESISTANCE_PATTERNS[r], text)]
+        if kept != facts.resistance:
+            drop("resistance", facts.resistance, kept)
+    if facts.drank_alcohol and "drank_alcohol" not in evidence and not re.search(DRANK_PATTERN, text):
+        drop("drank_alcohol", True)
+    for field in ("passenger_exception", "passenger_helmet_exception"):
+        if getattr(facts, field) and field not in evidence:
+            drop(field, True)
+
+    history = [c for c in facts.circumstances if c in _HISTORY_CIRCUMSTANCES]
+    if history:
+        stated = set(RegexExtractor(kb).extract(message).facts.circumstances)
+        kept = [c for c in facts.circumstances if c not in history or c in stated]
+        if kept != facts.circumstances:
+            drop("circumstances", sorted(set(facts.circumstances) - set(kept)), kept)
 
 
 class FactExtractor:

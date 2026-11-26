@@ -49,8 +49,9 @@ acts:
     synonyms:
       - "chạy quá tốc độ"
       - "vượt tốc độ"
-      - "phóng nhanh"
-      - "chạy tốc độ cao"
+      - "chạy lố tốc độ"
+      - "quá tốc độ quy định"
+      - "quá tốc độ"
       - "vi phạm tốc độ"
       - "lái xe quá tốc độ"
       - "chạy nhanh vượt mức"
@@ -236,3 +237,33 @@ acts:
       - "ND168-D7-K9-Pc"   # Xe máy - khoản 9 điểm c
     legal_ref: "NĐ 168/2024, Điều 6 khoản 8; Điều 7 khoản 9 điểm c"
     verified: true
+
+  # Dây đai an toàn
+  - id: ACT_NO_SEATBELT
+    label: "Người điều khiển xe không thắt dây đai an toàn"
+    synonyms:
+      - "không thắt dây an toàn"
+      - "không thắt dây đai an toàn"
+      - "không cài dây an toàn"
+      - "không cài dây đai an toàn"
+      - "không đeo dây an toàn"
+      - "quên thắt dây an toàn"
+    related_violations:
+      - "ND168-D6-K3-Pk"
+    legal_ref: "NĐ 168/2024, Điều 6 khoản 3 điểm k"
+    verified: false
+
+  - id: ACT_PASSENGER_NO_SEATBELT
+    label: "Chở người trên xe ô tô không thắt dây đai an toàn"
+    synonyms:
+      - "chở người không thắt dây an toàn"
+      - "chở người không thắt dây đai an toàn"
+      - "người ngồi cạnh không thắt dây an toàn"
+      - "người ngồi sau không thắt dây an toàn"
+      - "hành khách không thắt dây an toàn"
+      - "người trên xe không thắt dây an toàn"
+    related_violations:
+      - "ND168-D6-K3-Pl"
+    legal_ref: "NĐ 168/2024, Điều 6 khoản 3 điểm l"
+    verified: false
+

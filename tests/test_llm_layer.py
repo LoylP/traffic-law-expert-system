@@ -119,6 +119,19 @@ def test_sanitize_drops_unbacked_values():
     assert warnings
 
 
+@pytest.mark.parametrize(
+    ("message", "kept"),
+    [
+        ("ô tô chạy quá tốc độ gây tai nạn", False),
+        ("ô tô gây tai nạn rồi bỏ chạy", True),
+        ("lái ô tô tông người ta nhưng không dừng lại", True),
+    ],
+)
+def test_hit_and_run_needs_leaving_the_scene(message, kept):
+    facts, _ = sanitize_facts({"acts": ["ACT_HIT_AND_RUN"]}, message, get_knowledge_base())
+    assert ("ACT_HIT_AND_RUN" in facts.acts) is kept
+
+
 def test_extractor_falls_back_to_regex(monkeypatch):
     fake_server(monkeypatch, *[requests.Timeout("slow")] * 3)
     result = FactExtractor(LLMClient(LLMConfig())).extract("xe máy vượt đèn đỏ")
@@ -138,8 +151,8 @@ def decided():
 
 
 GOOD = (
-    "Theo Điều 7 Khoản 7 Điểm c NĐ 168/2024, mức phạt đề xuất là 5.000.000 đồng "
-    "(khung 4 đến 6 triệu đồng), trừ 4 điểm giấy phép lái xe."
+    "Theo NĐ 168/2024, Điều 7 Khoản 7 Điểm c: tổng mức phạt đề xuất là 5.000.000 đồng, "
+    "trừ 4 điểm giấy phép lái xe."
 )
 
 
@@ -161,6 +174,11 @@ def test_writer_accepts_faithful_text(decided):
         "Bạn bị phạt cảnh cáo và 5.000.000 đồng.",
         "Phương tiện sẽ bị tịch thu.",
         "từ " * 160,
+        "Khung phạt từ 4 đến 6 triệu đồng.",
+        "Hành vi có nồng độ cồn chưa vượt quá miligam cho phép.",
+        "Bạn chạy quá tốc độ tính theo km/h.",
+        "Ngưỡng áp dụng là 0,25.",
+        "Bạn có 3 tình tiết tăng nặng.",
     ],
 )
 def test_writer_rejects_invented_content(decided, bad):
@@ -176,3 +194,11 @@ def test_writer_falls_back_to_template(monkeypatch, decided):
     assert source == "template" and "9.999.000" not in text and "5.000.000" in text
     text, source = writer.write(result, penalty, remarks=["Ghi chú X"])
     assert source == "llm" and text.startswith(GOOD) and "Ghi chú X" in text
+
+
+def test_writer_payload_has_no_legal_wording(decided):
+    result, penalty = decided
+    payload = AnswerWriter.payload(result, penalty)
+    assert set(payload["violations"][0]) == {"label", "points_deducted", "sanctions"}
+    assert result.violations[0].description not in json.dumps(payload, ensure_ascii=False)
+    assert payload["aggravating_count"] == payload["mitigating_count"] == 0
