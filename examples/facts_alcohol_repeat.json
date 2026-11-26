@@ -1,0 +1,13 @@
+{
+  "vehicle_class": "VEH_CAR",
+  "drank_alcohol": true,
+  "bac_breath_mg_l": 0.3,
+  "circumstances": [
+    "CIR_REPEAT"
+  ],
+  "evidence": {
+    "vehicle_class": "lái ô tô",
+    "bac_breath_mg_l": "đo được 0,3 mg/l khí thở",
+    "circumstances": "tái phạm"
+  }
+}

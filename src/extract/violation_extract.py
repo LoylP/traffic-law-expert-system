@@ -33,6 +33,21 @@ POINT_REF_RE = re.compile(
     re.IGNORECASE,
 )
 CLAUSE_REF_RE = re.compile(r"khoản\s+(\d+)(?:\s+Điều\s+(\d+))?", re.IGNORECASE)
+# "trừ hành vi ... Điều này" / "(trừ trường hợp ...)": carve-outs, not sanction targets.
+CARVE_OUT_RE = re.compile(
+    r"\(\s*trừ\s[^()]*\)|"
+    r"\btrừ\s+(?:các\s+)?(?:hành\s+vi|trường\s+hợp)[^;]*?"
+    r"(?:Điều\s+(?:này|\d+(?:\s+của\s+Nghị\s+định\s+này)?)|(?=;)|$)",
+    re.IGNORECASE,
+)
+# Counts produced before whole-clause references were resolved (kept for the report).
+BASELINE_COUNTS = {"points_deducted": 143, "sanctions": 159}
+# Condition attached to a point deduction, as worded in the deduction clause.
+POINTS_CONDITION_RE = re.compile(
+    r"\(\s*(trường\s+hợp[^()]*?)\s*\)|"
+    r"\b(trong\s+trường\s+hợp\b.*?)(?=,?\s*(?:còn\s+)?bị\s+trừ\s+điểm)",
+    re.IGNORECASE,
+)
 
 
 def extract_chapter_2(text: str) -> str:
@@ -122,27 +137,62 @@ def _citation(article: int, clause: str, point: str | None = None) -> str:
     return canonical_citation_id(make_citation_id("ND168", article, clause, point))
 
 
-def _references(text: str, law_ids: set[str], default_article: int) -> list[str]:
-    references: list[str] = []
+def _iter_references(
+    text: str, default_article: int
+) -> list[tuple[int, str, str | None]]:
+    """(article, clause, point) references; point is None for a whole clause."""
+    references: list[tuple[int, str, str | None]] = []
     covered: list[tuple[int, int]] = []
     for match in POINT_REF_RE.finditer(text):
         article = int(match.group(3) or default_article)
         clause = match.group(2)
         covered.append(match.span())
-        letters = re.findall(r"(?:điểm\s+)?([a-zđ])", match.group(1), re.IGNORECASE)
-        for letter in letters:
-            cid = _citation(article, clause, letter.lower())
-            if cid in law_ids:
-                references.append(cid)
+        group = re.sub(r"\b(?:điểm|và|hoặc)\b", " ", match.group(1), flags=re.IGNORECASE)
+        for letter in re.findall(r"[a-zđ]", group, re.IGNORECASE):
+            references.append((article, clause, letter.lower()))
 
     for match in CLAUSE_REF_RE.finditer(text):
         if any(start <= match.start() < end for start, end in covered):
             continue
         article = int(match.group(2) or default_article)
-        cid = _citation(article, match.group(1))
-        if cid in law_ids:
-            references.append(cid)
+        references.append((article, match.group(1), None))
     return list(dict.fromkeys(references))
+
+
+def _references(text: str, law_ids: set[str], default_article: int) -> list[str]:
+    ids = (_citation(*ref) for ref in _iter_references(text, default_article))
+    return list(dict.fromkeys(cid for cid in ids if cid in law_ids))
+
+
+def _referenced_rows(
+    text: str, rows: list[dict[str, Any]], default_article: int
+) -> list[dict[str, Any]]:
+    """Violations targeted by a supplementary clause. A whole-clause reference
+    covers every violation of that clause (law_corpus has no clause-level unit
+    when the clause is split into points, so we match on rows, not on IDs)."""
+    refs = set(_iter_references(CARVE_OUT_RE.sub(" ", text), default_article))
+    return [
+        row
+        for row in rows
+        if (row["article"], row["clause"], None) in refs
+        or (row["article"], row["clause"], row["point"]) in refs
+    ]
+
+
+def _points_condition(text: str) -> str:
+    """Verbatim condition of a deduction sentence; the whole sentence if unmarked."""
+    match = POINTS_CONDITION_RE.search(text)
+    return next(value for value in match.groups() if value) if match else text
+
+
+def _apply_points(row: dict[str, Any], candidates: list[dict[str, Any]]) -> None:
+    """With several deduction levels, keep the lowest as the base value and list
+    the higher ones with their condition, to be shown rather than auto-applied."""
+    if not candidates:
+        return
+    base = min(item["points"] for item in candidates)
+    row["points_deducted"] = base
+    row["points_conditional"] = [item for item in candidates if item["points"] > base]
 
 
 def _text_for_unit(unit: dict[str, Any]) -> str:
@@ -239,13 +289,16 @@ def _override_table(
 
 def build_violations(
     tree: dict[int, dict[str, Any]], law_rows: list[dict[str, Any]]
-) -> tuple[list[dict[str, Any]], list[str], dict[int, str], dict[str, str]]:
+) -> tuple[
+    list[dict[str, Any]], list[str], dict[int, str], dict[str, str], list[str]
+]:
     law_by_id = {canonical_citation_id(row["citation_id"]): row for row in law_rows}
     law_ids = set(law_by_id)
     article_vehicles: dict[int, str] = {}
     rows: list[dict[str, Any]] = []
     unparsed: list[str] = []
     override_reasons: dict[str, str] = {}
+    conditional_notes: list[str] = []
 
     for article_no, article_data in sorted(tree.items()):
         article_vehicles[article_no] = vehicle_for_article(article_no, article_data["title"])
@@ -302,6 +355,7 @@ def build_violations(
                         "fine_org_min": fines[2],
                         "fine_org_max": fines[3],
                         "points_deducted": 0,
+                        "points_conditional": [],
                         "sanctions": [],
                         "consequence_accident": accident,
                         "refers_to": refers_to,
@@ -311,42 +365,67 @@ def build_violations(
                     }
                 )
 
+    # Points and supplementary sanctions are stated only in non-fine clauses; in
+    # fine clauses, words like "bắt buộc" or "chằng buộc" describe the violation.
+    fine_clauses = {(row["article"], row["clause"]) for row in rows}
+    deductions: dict[str, list[dict[str, Any]]] = {}
     for article_no, article_data in tree.items():
         for clause_no, clause_data in article_data["clauses"].items():
-            source_texts = [clause_data["text"]]
+            if (article_no, str(clause_no)) in fine_clauses:
+                continue
+            source_texts: list[tuple[str | None, str]] = [(None, clause_data["text"])]
             source_texts.extend(
-                point_data["text"] for point_data in clause_data["points"].values()
+                (letter, point_data["text"])
+                for letter, point_data in clause_data["points"].items()
             )
-            for text in source_texts:
-                targets = _references(text, law_ids, article_no)
-                if not targets:
-                    targets = [_citation(article_no, clause_no)]
-                target_rows = [
-                    row
-                    for target in targets
-                    for row in rows
-                    if row["citation_id"] == target
-                    or target == _citation(row["article"], row["clause"])
-                ]
+            for point_letter, text in source_texts:
+                target_rows = _referenced_rows(text, rows, article_no)
 
                 points_match = re.search(
-                    r"(?:trừ\s+điểm\s+giấy\s+phép\s+lái\s+xe\s+(\d+)\s+điểm|"
+                    r"(?:trừ\s+điểm\s+giấy\s+phép\s+lái\s+xe\b[^;]*?(\d+)\s+điểm|"
                     r"trừ\s+(\d+)\s+điểm\s+giấy\s+phép\s+lái\s+xe)",
                     text,
                     re.IGNORECASE,
                 )
                 if points_match:
                     points = int(next(value for value in points_match.groups() if value))
+                    source = _citation(article_no, str(clause_no), point_letter)
+                    if target_rows and source not in law_ids:
+                        raise AssertionError(f"Citation không có trong law_corpus: {source}")
                     for row in target_rows:
-                        row["points_deducted"] = points
+                        deductions.setdefault(row["citation_id"], []).append(
+                            {
+                                "points": points,
+                                "condition": _points_condition(text),
+                                "source": source,
+                            }
+                        )
 
-                sanctions = _sanctions_for_clause(text)
+                sanctions = _sanctions_for_clause(CARVE_OUT_RE.sub(" ", text))
                 for row in target_rows:
                     for sanction in sanctions:
                         if sanction not in row["sanctions"]:
                             row["sanctions"].append(sanction)
 
-    return rows, unparsed, article_vehicles, override_reasons
+    for row in rows:
+        _apply_points(row, deductions.get(row["citation_id"], []))
+        if row["points_conditional"]:
+            levels = "; ".join(
+                f"{item['points']} điểm nếu “{item['condition']}” ({item['source']})"
+                for item in row["points_conditional"]
+            )
+            base = next(
+                item
+                for item in deductions[row["citation_id"]]
+                if item["points"] == row["points_deducted"]
+            )
+            conditional_notes.append(
+                f"`{row['citation_id']}`: mức cơ bản {base['points']} điểm "
+                f"({base['source']}, bản thân mức này gắn điều kiện “{base['condition']}”); "
+                f"không tự áp: {levels}"
+            )
+
+    return rows, unparsed, article_vehicles, override_reasons, conditional_notes
 
 
 def _comparison_report(rows: list[dict[str, Any]]) -> list[str]:
@@ -387,6 +466,7 @@ def write_report(
     unparsed: list[str],
     article_vehicles: dict[int, str],
     override_reasons: dict[str, str],
+    conditional_notes: list[str],
 ) -> None:
     by_vehicle = Counter(row["vehicle_class"] for row in rows)
     with_points = sum(row["points_deducted"] > 0 for row in rows)
@@ -399,6 +479,20 @@ def write_report(
         f"- Có trừ điểm GPLX: {with_points}",
         f"- Có chế tài bổ sung/khắc phục: {with_sanctions}",
         f"- Có loại trừ: {with_excludes}",
+        "",
+        "## Trước và sau khi sửa gán dẫn chiếu nguyên khoản",
+        "",
+        "| Số violation có | Trước | Sau |",
+        "|---|---:|---:|",
+        f"| points_deducted > 0 | {BASELINE_COUNTS['points_deducted']} | {with_points} |",
+        f"| sanctions | {BASELINE_COUNTS['sanctions']} | {with_sanctions} |",
+        "",
+        f"## Mức trừ điểm phụ thuộc điều kiện ({len(conditional_notes)})",
+        "",
+        "`points_deducted` giữ mức thấp nhất; mức cao hơn nằm trong `points_conditional` "
+        "để hiển thị trong phần giải thích, không tự áp.",
+        "",
+        *([f"- {item}" for item in conditional_notes] or ["- Không có."]),
         "",
         "## Số vi phạm theo Điều và vehicle_class",
         "",
@@ -434,8 +528,8 @@ def main() -> None:
     with LAW_CORPUS_FILE.open(encoding="utf-8") as file:
         law_rows = [json.loads(line) for line in file if line.strip()]
 
-    violations, unparsed, article_vehicles, override_reasons = build_violations(
-        tree, law_rows
+    violations, unparsed, article_vehicles, override_reasons, conditional_notes = (
+        build_violations(tree, law_rows)
     )
     known_ids = {canonical_citation_id(row["citation_id"]) for row in law_rows}
     missing = [row["citation_id"] for row in violations if row["citation_id"] not in known_ids]
@@ -446,7 +540,7 @@ def main() -> None:
         json.dumps(violations, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
-    write_report(violations, unparsed, article_vehicles, override_reasons)
+    write_report(violations, unparsed, article_vehicles, override_reasons, conditional_notes)
 
     for article_no, vehicle in sorted(article_vehicles.items()):
         print(f"Điều {article_no}: {vehicle}")

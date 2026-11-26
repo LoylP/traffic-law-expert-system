@@ -265,6 +265,16 @@ aggravating_circumstances:
     legal_ref: "Luật XLVPHC Điều 10 khoản 1 điểm m"
     verified: true
 
+# Luật XLVPHC Điều 10 khoản 2: tình tiết đã là hành vi bị xử phạt thì không tính tăng nặng.
+# PenaltyDecider chỉ loại tình tiết khi một trong các vi phạm dưới đây có mặt trong cùng lần xử phạt.
+violation_overlaps:
+  - circumstance: CIR_INSULT_OFFICER
+    violations:
+      - "ND168-D12-K14-Pa"
+    legal_excerpt: "Xúc phạm, đe dọa, cản trở, chống đối người thi hành công vụ về bảo đảm trật tự, an toàn giao thông đường bộ;"
+    legal_ref: "Luật XLVPHC Điều 10 khoản 2; NĐ 168/2024, Điều 12 khoản 14 điểm a"
+    verified: true
+
 notes:
   - "Tình tiết tại Điều 10 khoản 2: Tình tiết đã được quy định là hành vi vi phạm thì không được coi là tình tiết tăng nặng"
   - "Ví dụ: nếu vi phạm đã có yếu tố 'gây tai nạn' trong cấu thành vi phạm thì không tính lại làm tình tiết tăng nặng"

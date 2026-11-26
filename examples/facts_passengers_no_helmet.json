@@ -1,0 +1,9 @@
+{
+  "vehicle_class": "VEH_MOTORBIKE",
+  "passengers_count": 3,
+  "no_helmet_who": "driver",
+  "evidence": {
+    "passengers_count": "chở theo 3 người",
+    "no_helmet_who": "người lái không đội mũ bảo hiểm"
+  }
+}

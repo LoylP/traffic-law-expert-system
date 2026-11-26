@@ -1,0 +1,12 @@
+{
+  "vehicle_class": "VEH_MOTORBIKE",
+  "officer_signal": true,
+  "resistance": [
+    "RES_FLEE",
+    "RES_INSULT_OFFICER"
+  ],
+  "evidence": {
+    "officer_signal": "CSGT ra hiệu dừng xe",
+    "resistance": "bỏ chạy và lăng mạ CSGT"
+  }
+}

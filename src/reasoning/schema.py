@@ -51,7 +51,14 @@ CONDITION_OPERATORS: frozenset[str] = frozenset(
 
 # Condition keys that read working memory rather than a Facts field.
 SPECIAL_CONDITION_KEYS: frozenset[str] = frozenset(
-    {"has_act", "has_context", "has_violation", "also_has_violation", "grounded_violation"}
+    {
+        "has_act",
+        "has_context",
+        "has_circumstance",
+        "has_violation",
+        "also_has_violation",
+        "grounded_violation",
+    }
 )
 
 
@@ -150,6 +157,9 @@ class ViolationHit(BaseModel):
     legal_excerpt: str | None = None
     legal_text: str | None = None
     escalated_from: list[str] = Field(default_factory=list)
+    # Used by the engine's "specific beats general" exclusion.
+    acts: list[str] = Field(default_factory=list)
+    priority: int = 0
 
 
 class QuestionOption(BaseModel):
@@ -171,14 +181,130 @@ class Question(BaseModel):
 Status = Literal["answered", "need_info", "unknown", "out_of_scope", "out_of_scope_temporal"]
 
 
-class InferenceResult(BaseModel):
+class EngineResult(BaseModel):
     status: Status
-    facts: Facts
+    input_facts: Facts = Field(default_factory=Facts)
+    facts_final: Facts
     acts: list[str] = Field(default_factory=list)
     contexts: list[str] = Field(default_factory=list)
     circumstances: list[str] = Field(default_factory=list)
-    violations: list[ViolationHit] = Field(default_factory=list)
+    hits: list[ViolationHit] = Field(default_factory=list)
     questions: list[Question] = Field(default_factory=list)
     notes: list[str] = Field(default_factory=list)
     message: str | None = None
     trace: list[TraceStep] = Field(default_factory=list)
+
+    # P1 names, kept for backward compatibility.
+    @property
+    def facts(self) -> Facts:
+        return self.facts_final
+
+    @property
+    def violations(self) -> list[ViolationHit]:
+        return self.hits
+
+
+InferenceResult = EngineResult
+
+
+# ---------------------------------------------------------------------------
+# Penalty (DESIGN §7)
+# ---------------------------------------------------------------------------
+
+
+class Sanction(BaseModel):
+    type: str
+    duration_min: int | None = None  # months
+    duration_max: int | None = None
+
+
+class ConditionalPoints(BaseModel):
+    """A higher deduction that only applies under a condition (never auto-applied)."""
+
+    points: int
+    condition: str  # verbatim wording of the deduction clause
+    source: str  # citation_id of that clause
+
+
+class PenaltyDecision(BaseModel):
+    """Decision for a single violation."""
+
+    citation_id: str
+    fine_range: tuple[int, int] | None = None
+    recommended_fine: int = 0
+    # Bounds produced by the circumstances; for net = ±1 both ends are exclusive.
+    allowed_range_after_circumstances: tuple[int, int] | None = None
+    points_deducted: int = 0  # statutory value of this violation
+    points_conditional: list[ConditionalPoints] = Field(default_factory=list)
+    sanctions: list[Sanction] = Field(default_factory=list)
+    org_rule_applied: bool = False
+    reasoning: list[str] = Field(default_factory=list)
+
+
+class PenaltySummary(BaseModel):
+    """All violations handled in the same decision."""
+
+    decisions: list[PenaltyDecision] = Field(default_factory=list)
+    total_recommended_fine: int = 0
+    total_points_deducted: int = 0  # largest single value, never summed
+    points_from: str | None = None
+    sanctions: list[Sanction] = Field(default_factory=list)
+    aggravating: list[str] = Field(default_factory=list)
+    mitigating: list[str] = Field(default_factory=list)
+    excluded_circumstances: dict[str, str] = Field(default_factory=dict)
+    net: int = 0
+    reasoning: list[str] = Field(default_factory=list)
+    legal_principle_ref: str
+
+
+# ---------------------------------------------------------------------------
+# Explanation (DESIGN §8)
+# ---------------------------------------------------------------------------
+
+
+class FactUsed(BaseModel):
+    field: str
+    value: Any
+    evidence: str | None = None
+
+
+class LegalCitation(BaseModel):
+    citation_id: str
+    label: str
+    text: str | None = None  # verbatim LegalUnit text
+
+
+class Explanation(BaseModel):
+    facts_used: list[FactUsed] = Field(default_factory=list)
+    chain: list[TraceStep] = Field(default_factory=list)
+    legal_citations: list[LegalCitation] = Field(default_factory=list)
+    penalty_calc: list[str] = Field(default_factory=list)
+    faithfulness_ok: bool = False
+
+
+# ---------------------------------------------------------------------------
+# API response (DESIGN §9)
+# ---------------------------------------------------------------------------
+
+
+class ConsultViolation(BaseModel):
+    citation_id: str
+    label: str
+    description: str
+    fine_range: tuple[int, int] | None = None
+    recommended_fine: int = 0
+    points_deducted: int = 0
+    sanctions: list[Sanction] = Field(default_factory=list)
+    legal_text: str | None = None
+
+
+class ConsultResult(BaseModel):
+    session_id: str | None = None
+    status: Literal["answered", "need_info", "unknown", "out_of_scope"]
+    facts: Facts
+    violations: list[ConsultViolation] = Field(default_factory=list)
+    total_recommended_fine: int = 0
+    questions: list[Question] = Field(default_factory=list)
+    explanation: Explanation = Field(default_factory=Explanation)
+    answer_text: str = ""
+    latency_ms: dict[str, float] = Field(default_factory=dict)

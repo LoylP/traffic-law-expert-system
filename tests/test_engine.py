@@ -2,8 +2,9 @@
 
 import pytest
 
-from src.reasoning.engine import InferenceEngine, _check_operator
-from src.reasoning.schema import Facts, Rule
+from src.reasoning.engine import SPECIFICITY_RULE_ID, InferenceEngine, _check_operator
+from src.reasoning.knowledge_base import KnowledgeBase
+from src.reasoning.schema import EngineResult, Facts, Rule
 
 OBSTRUCT_NOTE = (
     "Hành vi chống đối/cản trở người thi hành công vụ không được quy định tại NĐ 168/2024; "
@@ -206,3 +207,125 @@ def test_empty_facts_unknown(engine):
     result = engine.infer({})
     assert result.status == "unknown"
     assert result.questions == []
+
+
+# --- P2: engine core ---------------------------------------------------------
+
+
+def synthetic(*rules: dict) -> InferenceEngine:
+    return InferenceEngine(KnowledgeBase(rules=[Rule.model_validate(r) for r in rules]))
+
+
+def rule(rule_id: str, rule_type: str, when: dict, then: dict, priority: int = 0) -> dict:
+    return {"id": rule_id, "type": rule_type, "priority": priority, "when": when, "then": then}
+
+
+def test_conflict_resolution_priority_then_specificity_then_file_order():
+    engine = synthetic(
+        rule("LOW", "derive", {"officer_signal": True}, {"add_acts": ["A1"]}, 1),
+        rule("TIE-FIRST", "derive", {"officer_signal": True}, {"add_acts": ["A2"]}, 5),
+        rule("TIE-SECOND", "derive", {"officer_signal": True}, {"add_acts": ["A3"]}, 5),
+        rule(
+            "SPECIFIC", "derive",
+            {"officer_signal": True, "vehicle_class": {"is_null": True}}, {"add_acts": ["A4"]}, 5,
+        ),
+        rule("HIGH", "derive", {"officer_signal": True}, {"add_acts": ["A5"]}, 9),
+    )
+    result = engine.run({"officer_signal": True})
+    assert fired(result) == ["HIGH", "SPECIFIC", "TIE-FIRST", "TIE-SECOND", "LOW"]
+
+
+def test_phase_loops_to_fixed_point_and_fires_once_per_binding():
+    engine = synthetic(
+        rule("C", "derive", {"has_act": "B"}, {"add_acts": ["C"]}, 9),
+        rule("B", "derive", {"has_act": "A"}, {"add_acts": ["B"]}, 5),
+        rule("A", "derive", {"officer_signal": True}, {"add_acts": ["A"]}, 1),
+    )
+    result = engine.run({"officer_signal": True})
+    assert result.acts == ["A", "B", "C"]
+    assert fired(result) == ["A", "B", "C"]
+
+
+def test_has_circumstance_and_matched_facts_limited_to_when_keys():
+    engine = synthetic(
+        rule("CIR", "derive", {"has_circumstance": ["CIR_REPEAT"]}, {"add_acts": ["A"]}),
+    )
+    result = engine.run({"circumstances": ["CIR_REPEAT"], "vehicle_class": "VEH_CAR"})
+    assert result.acts == ["A"]
+    assert result.trace[0].matched_facts == {"has_circumstance": ["CIR_REPEAT"]}
+
+
+def test_eq_and_in_operators():
+    assert _check_operator("eq", 2, 2)
+    assert _check_operator("in", ["a", "b"], "a")
+    assert not _check_operator("in", ["a", "b"], None)
+
+
+def test_enabled_rule_types_disables_derive():
+    engine = InferenceEngine(enabled_rule_types=["temporal", "classify", "escalate", "exclude", "note", "ask"])
+    result = engine.run({"vehicle_class": "VEH_MOTORBIKE", "no_helmet_who": "driver"})
+    assert result.hits == []
+    assert result.status == "unknown"
+
+
+def test_enabled_rule_types_rejects_unknown_type():
+    with pytest.raises(ValueError):
+        InferenceEngine(enabled_rule_types=["clasify"])
+
+
+def test_run_returns_engine_result_and_keeps_input_facts(engine):
+    result = engine.run({"vehicle_class": "VEH_MOTORBIKE", "no_helmet_who": "driver"})
+    assert isinstance(result, EngineResult)
+    assert result.facts_final.acts == ["ACT_NO_HELMET"]
+    assert result.input_facts.acts == []
+    assert citations(result) == {"ND168-D7-K2-Ph"}
+
+
+def test_missing_bac_is_need_info(engine):
+    result = engine.run({"vehicle_class": "VEH_CAR", "acts": ["ACT_ALCOHOL"]})
+    assert result.status == "need_info"
+    assert [q.field for q in result.questions] == ["bac_breath_mg_l"]
+
+
+def test_no_act_is_unknown(engine):
+    assert engine.run({"vehicle_class": "VEH_CAR"}).status == "unknown"
+
+
+def test_multiple_violations(engine):
+    result = engine.run({"vehicle_class": "VEH_MOTORBIKE", "passengers_count": 3, "no_helmet_who": "both"})
+    assert citations(result) == {"ND168-D7-K3-Pb", "ND168-D7-K2-Ph", "ND168-D7-K2-Pi"}
+
+
+def test_specific_hit_removes_general_hit_for_same_act(engine):
+    facts = {"vehicle_class": "VEH_CAR", "acts": ["ACT_WRONG_WAY"], "road_type": "ROAD_EXPRESSWAY"}
+    assert citations(engine.run(facts)) == {"ND168-D6-K11-Pđ"}
+
+
+def test_generic_exclusion_applies_without_explicit_exclude_rule():
+    engine = synthetic(
+        rule("GEN", "classify", {"has_act": "A"}, {"add_violation": "X-GENERAL"}, 10),
+        rule("SPEC", "classify", {"has_act": "A"}, {"add_violation": "X-SPECIFIC"}, 40),
+        rule("OTHER", "classify", {"has_act": "B"}, {"add_violation": "X-OTHER"}, 10),
+    )
+    result = engine.run({"acts": ["A", "B"]})
+    assert citations(result) == {"X-SPECIFIC", "X-OTHER"}
+    assert result.trace[-1].rule_id == SPECIFICITY_RULE_ID
+
+
+def test_escalated_general_hit_does_not_double_count_against_specific_hit(engine):
+    result = engine.run(
+        {
+            "vehicle_class": "VEH_CAR", "acts": ["ACT_WRONG_WAY"],
+            "road_type": "ROAD_EXPRESSWAY", "consequence": ["CONS_ACCIDENT"],
+        }
+    )
+    assert citations(result) == {"ND168-D6-K11-Pđ"}
+
+
+@pytest.mark.parametrize(
+    "vehicle,target", [("VEH_CAR", "ND168-D6-K10-Pa"), ("VEH_MOTORBIKE", "ND168-D7-K10-Pa")]
+)
+def test_accident_escalates_speeding(engine, vehicle, target):
+    result = engine.run({"vehicle_class": vehicle, "speed_over_kmh": 15, "consequence": ["CONS_ACCIDENT"]})
+    assert citations(result) == {target}
+    assert result.hits[0].acts == ["ACT_SPEEDING"]

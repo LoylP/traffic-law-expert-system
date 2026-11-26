@@ -13,6 +13,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -64,6 +65,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -85,6 +87,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -106,6 +109,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -127,6 +131,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -148,6 +153,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -171,6 +177,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -192,6 +199,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -216,6 +224,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -237,6 +246,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -258,6 +268,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -279,6 +290,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -300,6 +312,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -321,6 +334,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -342,6 +356,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -363,6 +378,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -384,6 +400,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -405,6 +422,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -426,6 +444,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -447,6 +466,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -468,6 +488,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -489,6 +510,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -510,6 +532,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -531,6 +554,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -552,6 +576,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -573,11 +598,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -598,11 +620,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -623,11 +642,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -648,11 +664,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -673,11 +686,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -698,11 +708,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -723,11 +730,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -748,11 +752,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -773,11 +774,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -798,11 +796,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -823,11 +818,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [
@@ -850,6 +842,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -871,6 +864,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -892,6 +886,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -913,6 +908,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -934,6 +930,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -955,6 +952,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -980,6 +978,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1001,6 +1000,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1022,6 +1022,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1046,6 +1047,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1067,6 +1069,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1088,6 +1091,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1109,6 +1113,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1130,6 +1135,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1151,6 +1157,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 6,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1172,6 +1179,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1192,7 +1200,8 @@
     "fine_max": 8000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1213,7 +1222,8 @@
     "fine_max": 8000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1234,7 +1244,8 @@
     "fine_max": 8000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1255,7 +1266,8 @@
     "fine_max": 8000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1277,11 +1289,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 6,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -1302,11 +1311,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -1327,11 +1333,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 6,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -1352,6 +1355,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 6,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": true,
     "refers_to": [],
@@ -1373,6 +1377,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 10,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1394,6 +1399,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1415,6 +1421,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1436,6 +1443,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1458,7 +1466,8 @@
     "fine_max": 22000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 10,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": true,
     "refers_to": [
@@ -1483,7 +1492,8 @@
     "fine_max": 22000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 10,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": true,
     "refers_to": [
@@ -1526,6 +1536,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "revoke_license",
@@ -1553,6 +1564,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "revoke_license",
@@ -1580,6 +1592,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "revoke_license",
@@ -1607,6 +1620,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "revoke_license",
@@ -1634,6 +1648,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 10,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1655,6 +1670,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -1685,6 +1701,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "revoke_license",
@@ -1714,6 +1731,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1755,6 +1773,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1776,6 +1795,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1797,6 +1817,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1818,6 +1839,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1842,6 +1864,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1863,6 +1886,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1884,6 +1908,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1905,6 +1930,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1926,6 +1952,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1947,6 +1974,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1968,6 +1996,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -1989,6 +2018,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2010,6 +2040,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2031,6 +2062,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -2056,6 +2088,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2077,6 +2110,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2098,6 +2132,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2119,6 +2154,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2140,6 +2176,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2161,6 +2198,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2182,6 +2220,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2203,6 +2242,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2224,6 +2264,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2245,6 +2286,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2266,6 +2308,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2287,6 +2330,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2308,6 +2352,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2329,6 +2374,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2350,6 +2396,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2371,6 +2418,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2392,6 +2440,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2413,6 +2462,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2434,6 +2484,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2457,6 +2508,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2478,6 +2530,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2498,7 +2551,8 @@
     "fine_max": 2000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2519,7 +2573,8 @@
     "fine_max": 2000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2540,7 +2595,8 @@
     "fine_max": 2000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2562,6 +2618,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2583,6 +2640,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2607,6 +2665,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2628,6 +2687,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2649,6 +2709,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2670,6 +2731,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 6,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2691,6 +2753,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2712,6 +2775,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2733,6 +2797,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2754,6 +2819,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2775,6 +2841,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 10,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -2796,6 +2863,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "revoke_license",
@@ -2823,6 +2891,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "revoke_license",
@@ -2850,6 +2919,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 6,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": true,
     "refers_to": [],
@@ -2871,6 +2941,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "revoke_license",
@@ -2898,6 +2969,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "revoke_license",
@@ -2925,6 +2997,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "revoke_license",
@@ -2952,6 +3025,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "revoke_license",
@@ -2979,6 +3053,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "revoke_license",
@@ -3006,6 +3081,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "revoke_license",
@@ -3033,6 +3109,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "revoke_license",
@@ -3059,7 +3136,8 @@
     "fine_max": 14000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 10,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": true,
     "refers_to": [],
@@ -3080,7 +3158,8 @@
     "fine_max": 14000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 10,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": true,
     "refers_to": [
@@ -3128,6 +3207,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3170,6 +3250,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3191,6 +3272,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3212,6 +3294,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3233,6 +3316,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3254,6 +3338,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3275,6 +3360,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3296,6 +3382,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3317,6 +3404,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3338,6 +3426,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3359,6 +3448,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3380,6 +3470,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3401,6 +3492,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3422,6 +3514,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3443,6 +3536,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3464,6 +3558,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3485,6 +3580,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3506,6 +3602,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3527,11 +3624,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -3552,11 +3646,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -3577,11 +3668,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -3602,11 +3690,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -3627,11 +3712,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -3652,11 +3734,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -3677,11 +3756,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -3702,11 +3778,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -3727,11 +3800,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -3752,11 +3822,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [
@@ -3780,11 +3847,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [
@@ -3809,11 +3873,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -3834,11 +3895,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -3859,11 +3917,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -3884,11 +3939,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -3909,6 +3961,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3930,6 +3983,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3951,6 +4005,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3972,6 +4027,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -3995,6 +4051,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": true,
     "refers_to": [
@@ -4022,6 +4079,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4043,6 +4101,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": true,
     "refers_to": [],
@@ -4064,6 +4123,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": true,
     "refers_to": [
@@ -4100,6 +4160,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4121,6 +4182,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4142,6 +4204,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4163,6 +4226,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4184,6 +4248,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4205,6 +4270,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": true,
     "refers_to": [
@@ -4228,6 +4294,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4249,6 +4316,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4270,6 +4338,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4294,6 +4363,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4315,6 +4385,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4336,6 +4407,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4357,6 +4429,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4378,6 +4451,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4399,6 +4473,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4420,6 +4495,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4441,6 +4517,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4462,6 +4539,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4483,6 +4561,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4504,6 +4583,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4525,6 +4605,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4546,6 +4627,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4567,6 +4649,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4588,6 +4671,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4609,6 +4693,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4630,6 +4715,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4651,6 +4737,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4672,6 +4759,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4693,6 +4781,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4714,6 +4803,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4735,6 +4825,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": true,
     "refers_to": [],
@@ -4756,6 +4847,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4777,6 +4869,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4798,6 +4891,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4819,6 +4913,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4840,6 +4935,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4861,6 +4957,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4882,6 +4979,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4903,6 +5001,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4924,6 +5023,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4945,6 +5045,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4966,6 +5067,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -4987,6 +5089,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5008,6 +5111,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5029,6 +5133,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5050,6 +5155,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5071,6 +5177,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5092,6 +5199,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5113,6 +5221,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5134,6 +5243,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5155,6 +5265,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5176,6 +5287,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5197,6 +5309,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5218,6 +5331,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5239,6 +5353,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5260,6 +5375,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5281,6 +5397,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5302,6 +5419,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5323,6 +5441,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5344,6 +5463,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5368,6 +5488,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5389,6 +5510,7 @@
     "fine_org_min": 500000,
     "fine_org_max": 700000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -5414,6 +5536,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5435,6 +5558,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5456,6 +5580,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5477,6 +5602,7 @@
     "fine_org_min": 1000000,
     "fine_org_max": 2000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5498,6 +5624,7 @@
     "fine_org_min": 1000000,
     "fine_org_max": 2000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5519,6 +5646,7 @@
     "fine_org_min": 1000000,
     "fine_org_max": 2000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5540,6 +5668,7 @@
     "fine_org_min": 1000000,
     "fine_org_max": 2000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5561,6 +5690,7 @@
     "fine_org_min": 4000000,
     "fine_org_max": 6000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5582,6 +5712,7 @@
     "fine_org_min": 4000000,
     "fine_org_max": 8000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5609,6 +5740,7 @@
     "fine_org_min": 6000000,
     "fine_org_max": 10000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5630,6 +5762,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5660,6 +5793,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5681,6 +5815,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": true,
     "refers_to": [],
@@ -5702,6 +5837,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5723,6 +5859,7 @@
     "fine_org_min": 20000000,
     "fine_org_max": 30000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -5748,6 +5885,7 @@
     "fine_org_min": 60000000,
     "fine_org_max": 64000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -5769,7 +5907,14 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [],
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "revoke_license",
+        "duration_min": 22,
+        "duration_max": 24
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -5790,7 +5935,14 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [],
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "revoke_license",
+        "duration_min": 22,
+        "duration_max": 24
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -5811,6 +5963,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -5836,7 +5989,12 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [],
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [
@@ -5860,7 +6018,12 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [],
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -5881,7 +6044,12 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [],
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -5902,6 +6070,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -5927,6 +6096,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -5952,6 +6122,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -5977,6 +6148,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -6001,7 +6173,8 @@
     "fine_max": 3000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -6026,7 +6199,8 @@
     "fine_max": 3000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -6051,7 +6225,8 @@
     "fine_max": 3000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -6076,7 +6251,8 @@
     "fine_max": 4000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6097,7 +6273,8 @@
     "fine_max": 4000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -6122,7 +6299,8 @@
     "fine_max": 4000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6143,7 +6321,8 @@
     "fine_max": 4000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -6168,7 +6347,8 @@
     "fine_max": 6000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -6196,7 +6376,8 @@
     "fine_max": 6000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6218,6 +6399,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6239,6 +6421,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 6,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6260,6 +6443,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 10,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -6285,6 +6469,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 6,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -6310,6 +6495,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6331,6 +6517,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6352,6 +6539,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6373,6 +6561,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6394,6 +6583,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6415,6 +6605,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -6440,6 +6631,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -6468,6 +6660,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6489,6 +6682,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6510,6 +6704,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -6534,7 +6729,8 @@
     "fine_max": 6000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 6,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -6559,7 +6755,8 @@
     "fine_max": 6000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 6,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6581,6 +6778,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6602,6 +6800,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6623,6 +6822,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6644,6 +6844,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -6669,6 +6870,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -6694,6 +6896,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -6719,6 +6922,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6740,6 +6944,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6761,6 +6966,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6782,6 +6988,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6803,6 +7010,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -6828,6 +7036,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -6853,6 +7062,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -6881,6 +7091,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6902,6 +7113,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6923,6 +7135,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6944,6 +7157,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6965,6 +7179,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -6986,11 +7201,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7011,11 +7223,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7036,11 +7245,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7061,11 +7267,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7086,6 +7289,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7107,6 +7311,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7128,6 +7333,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7149,11 +7355,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7174,11 +7377,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7199,11 +7399,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7224,6 +7421,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -7249,6 +7447,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7269,7 +7468,8 @@
     "fine_max": 4000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7291,6 +7491,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7312,6 +7513,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7333,6 +7535,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -7358,6 +7561,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7378,7 +7582,8 @@
     "fine_max": 8000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7400,6 +7605,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7421,6 +7627,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7441,7 +7648,8 @@
     "fine_max": 10000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7463,6 +7671,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7484,6 +7693,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -7509,11 +7719,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7534,6 +7741,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7555,6 +7763,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7575,7 +7784,14 @@
     "fine_max": 600000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 10,
+    "points_deducted": 4,
+    "points_conditional": [
+      {
+        "points": 10,
+        "condition": "trường hợp vượt trên 100% số người quy định được phép chở của phương tiện",
+        "source": "ND168-D20-K10-Pd"
+      }
+    ],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7599,11 +7815,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7624,11 +7837,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7649,11 +7859,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7674,11 +7881,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7699,11 +7903,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7724,11 +7925,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7749,11 +7947,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7774,11 +7969,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7799,11 +7991,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7824,11 +8013,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -7848,7 +8034,14 @@
     "fine_max": 2000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 10,
+    "points_deducted": 4,
+    "points_conditional": [
+      {
+        "points": 10,
+        "condition": "trường hợp vượt trên 100% số người quy định được phép chở của phương tiện",
+        "source": "ND168-D20-K10-Pd"
+      }
+    ],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7870,6 +8063,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7891,6 +8085,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7912,6 +8107,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7933,6 +8129,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7954,6 +8151,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7975,6 +8173,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -7996,6 +8195,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8017,6 +8217,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8038,6 +8239,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8059,6 +8261,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8080,6 +8283,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8101,6 +8305,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8121,7 +8326,8 @@
     "fine_max": 5000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8142,7 +8348,8 @@
     "fine_max": 5000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8163,7 +8370,8 @@
     "fine_max": 5000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8184,7 +8392,8 @@
     "fine_max": 5000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8205,7 +8414,8 @@
     "fine_max": 5000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8226,7 +8436,8 @@
     "fine_max": 5000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8248,6 +8459,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8269,6 +8481,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 6,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8290,6 +8503,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8311,6 +8525,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8332,6 +8547,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8352,7 +8568,8 @@
     "fine_max": 1000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8373,7 +8590,8 @@
     "fine_max": 1000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8395,6 +8613,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8415,7 +8634,8 @@
     "fine_max": 1000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8436,7 +8656,8 @@
     "fine_max": 2000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8458,6 +8679,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8478,7 +8700,8 @@
     "fine_max": 3000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8499,7 +8722,8 @@
     "fine_max": 5000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8520,7 +8744,8 @@
     "fine_max": 5000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8541,7 +8766,8 @@
     "fine_max": 5000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8562,7 +8788,8 @@
     "fine_max": 5000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8584,6 +8811,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8605,6 +8833,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8625,7 +8854,8 @@
     "fine_max": 7000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8646,7 +8876,8 @@
     "fine_max": 7000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8667,7 +8898,8 @@
     "fine_max": 7000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8695,7 +8927,8 @@
     "fine_max": 8000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 8,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8716,7 +8949,8 @@
     "fine_max": 8000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 8,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8738,11 +8972,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 10,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -8763,11 +8994,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 10,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -8788,11 +9016,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -8813,11 +9038,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -8838,11 +9060,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -8863,6 +9082,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 6,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -8883,12 +9103,9 @@
     "fine_max": 22000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_deducted": 4,
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -8908,12 +9125,9 @@
     "fine_max": 22000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_deducted": 4,
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -8934,6 +9148,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 10,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": true,
     "refers_to": [
@@ -8956,8 +9171,13 @@
     "fine_max": 3000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
-    "sanctions": [],
+    "points_deducted": 2,
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -8977,8 +9197,13 @@
     "fine_max": 3000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
-    "sanctions": [],
+    "points_deducted": 2,
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [
@@ -9004,6 +9229,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -9028,8 +9254,13 @@
     "fine_max": 15000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
-    "sanctions": [],
+    "points_deducted": 4,
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -9049,8 +9280,13 @@
     "fine_max": 15000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
-    "sanctions": [],
+    "points_deducted": 4,
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -9070,8 +9306,13 @@
     "fine_max": 15000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
-    "sanctions": [],
+    "points_deducted": 4,
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -9091,8 +9332,13 @@
     "fine_max": 15000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
-    "sanctions": [],
+    "points_deducted": 4,
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -9113,6 +9359,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9134,6 +9381,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9155,6 +9403,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9176,6 +9425,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -9201,6 +9451,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -9228,6 +9479,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9249,6 +9501,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9270,6 +9523,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9291,6 +9545,7 @@
     "fine_org_min": 1000000,
     "fine_org_max": 2000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9312,6 +9567,7 @@
     "fine_org_min": 1000000,
     "fine_org_max": 2000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9333,6 +9589,7 @@
     "fine_org_min": 2000000,
     "fine_org_max": 4000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9354,6 +9611,7 @@
     "fine_org_min": 2000000,
     "fine_org_max": 4000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9375,6 +9633,7 @@
     "fine_org_min": 2000000,
     "fine_org_max": 4000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9396,6 +9655,7 @@
     "fine_org_min": 2000000,
     "fine_org_max": 4000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9417,6 +9677,7 @@
     "fine_org_min": 2000000,
     "fine_org_max": 4000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9438,6 +9699,7 @@
     "fine_org_min": 2000000,
     "fine_org_max": 4000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9459,6 +9721,7 @@
     "fine_org_min": 4000000,
     "fine_org_max": 6000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9480,6 +9743,7 @@
     "fine_org_min": 6000000,
     "fine_org_max": 8000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -9505,6 +9769,7 @@
     "fine_org_min": 6000000,
     "fine_org_max": 8000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -9530,6 +9795,7 @@
     "fine_org_min": 6000000,
     "fine_org_max": 8000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -9555,6 +9821,7 @@
     "fine_org_min": 6000000,
     "fine_org_max": 8000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -9580,6 +9847,7 @@
     "fine_org_min": 6000000,
     "fine_org_max": 8000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -9605,6 +9873,7 @@
     "fine_org_min": 6000000,
     "fine_org_max": 8000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -9630,6 +9899,7 @@
     "fine_org_min": 6000000,
     "fine_org_max": 8000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9651,6 +9921,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 10000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9672,6 +9943,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9693,6 +9965,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9714,6 +9987,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -9739,6 +10013,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -9764,6 +10039,7 @@
     "fine_org_min": 10000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -9789,6 +10065,7 @@
     "fine_org_min": 10000000,
     "fine_org_max": 12000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9810,6 +10087,7 @@
     "fine_org_min": 10000000,
     "fine_org_max": 12000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -9835,6 +10113,7 @@
     "fine_org_min": 10000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9856,6 +10135,7 @@
     "fine_org_min": 10000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9877,6 +10157,7 @@
     "fine_org_min": 10000000,
     "fine_org_max": 12000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9898,6 +10179,7 @@
     "fine_org_min": 10000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -9923,6 +10205,7 @@
     "fine_org_min": 10000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -9948,6 +10231,7 @@
     "fine_org_min": 10000000,
     "fine_org_max": 12000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -9969,6 +10253,7 @@
     "fine_org_min": 20000000,
     "fine_org_max": 24000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -9994,6 +10279,7 @@
     "fine_org_min": 20000000,
     "fine_org_max": 24000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10015,6 +10301,7 @@
     "fine_org_min": 20000000,
     "fine_org_max": 24000000,
     "points_deducted": 6,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10036,6 +10323,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10057,6 +10345,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10078,6 +10367,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10099,6 +10389,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10120,6 +10411,7 @@
     "fine_org_min": 80000000,
     "fine_org_max": 100000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -10145,6 +10437,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10166,6 +10459,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10187,6 +10481,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10208,6 +10503,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10228,7 +10524,8 @@
     "fine_max": 5000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10249,7 +10546,8 @@
     "fine_max": 5000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10270,7 +10568,8 @@
     "fine_max": 5000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10291,7 +10590,8 @@
     "fine_max": 5000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
+    "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10313,6 +10613,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10334,6 +10635,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10355,6 +10657,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 6,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10376,6 +10679,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10397,6 +10701,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10418,6 +10723,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10439,6 +10745,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10460,6 +10767,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10481,6 +10789,7 @@
     "fine_org_min": 20000000,
     "fine_org_max": 24000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -10509,6 +10818,7 @@
     "fine_org_min": 80000000,
     "fine_org_max": 100000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -10537,6 +10847,7 @@
     "fine_org_min": 400000,
     "fine_org_max": 600000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -10562,6 +10873,7 @@
     "fine_org_min": 400000,
     "fine_org_max": 600000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10583,6 +10895,7 @@
     "fine_org_min": 600000,
     "fine_org_max": 800000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -10608,6 +10921,7 @@
     "fine_org_min": 600000,
     "fine_org_max": 800000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10629,6 +10943,7 @@
     "fine_org_min": 1600000,
     "fine_org_max": 2000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10650,10 +10965,8 @@
     "fine_org_min": 1600000,
     "fine_org_max": 2000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
-      {
-        "type": "confiscate"
-      },
       {
         "type": "remedy"
       }
@@ -10678,6 +10991,7 @@
     "fine_org_min": 1600000,
     "fine_org_max": 2000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -10703,6 +11017,7 @@
     "fine_org_min": 1600000,
     "fine_org_max": 2000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -10730,7 +11045,14 @@
     "fine_max": 1200000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 10,
+    "points_deducted": 4,
+    "points_conditional": [
+      {
+        "points": 10,
+        "condition": "trong trường hợp chủ phương tiện là người trực tiếp điều khiển phương tiện chở vượt trên 100% số người quy định được phép chở của phương tiện",
+        "source": "ND168-D32-K21-Ph"
+      }
+    ],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10751,7 +11073,14 @@
     "fine_max": 4000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 10,
+    "points_deducted": 4,
+    "points_conditional": [
+      {
+        "points": 10,
+        "condition": "trong trường hợp chủ phương tiện là người trực tiếp điều khiển phương tiện chở vượt trên 100% số người quy định được phép chở của phương tiện",
+        "source": "ND168-D32-K21-Ph"
+      }
+    ],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10773,6 +11102,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10794,10 +11124,8 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
-      {
-        "type": "confiscate"
-      },
       {
         "type": "remedy"
       }
@@ -10822,10 +11150,8 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
-      {
-        "type": "confiscate"
-      },
       {
         "type": "remedy"
       }
@@ -10850,6 +11176,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10871,6 +11198,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10892,6 +11220,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -10917,6 +11246,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -10938,10 +11268,8 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
-      {
-        "type": "confiscate"
-      },
       {
         "type": "remedy"
       }
@@ -10966,6 +11294,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -10991,6 +11320,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -11016,6 +11346,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -11041,6 +11372,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11062,6 +11394,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11083,6 +11416,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -11108,6 +11442,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11129,6 +11464,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11150,6 +11486,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11171,10 +11508,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
-      {
-        "type": "confiscate"
-      },
       {
         "type": "remedy"
       }
@@ -11199,6 +11534,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -11227,6 +11563,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -11255,6 +11592,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -11280,6 +11618,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 6,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -11305,6 +11644,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11326,6 +11666,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11347,6 +11688,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11368,6 +11710,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11389,6 +11732,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -11417,6 +11761,7 @@
     "fine_org_min": 8000000,
     "fine_org_max": 12000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -11447,6 +11792,7 @@
     "fine_org_min": 16000000,
     "fine_org_max": 20000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11468,6 +11814,7 @@
     "fine_org_min": 20000000,
     "fine_org_max": 24000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11489,6 +11836,7 @@
     "fine_org_min": 20000000,
     "fine_org_max": 24000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -11514,6 +11862,7 @@
     "fine_org_min": 20000000,
     "fine_org_max": 24000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11535,6 +11884,7 @@
     "fine_org_min": 20000000,
     "fine_org_max": 24000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -11560,6 +11910,7 @@
     "fine_org_min": 20000000,
     "fine_org_max": 24000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11581,6 +11932,7 @@
     "fine_org_min": 32000000,
     "fine_org_max": 36000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -11609,6 +11961,7 @@
     "fine_org_min": 32000000,
     "fine_org_max": 36000000,
     "points_deducted": 6,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11630,6 +11983,7 @@
     "fine_org_min": 32000000,
     "fine_org_max": 36000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -11655,6 +12009,7 @@
     "fine_org_min": 32000000,
     "fine_org_max": 36000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11676,6 +12031,7 @@
     "fine_org_min": 40000000,
     "fine_org_max": 52000000,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -11701,6 +12057,7 @@
     "fine_org_min": 40000000,
     "fine_org_max": 52000000,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11722,6 +12079,7 @@
     "fine_org_min": 40000000,
     "fine_org_max": 52000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11743,6 +12101,7 @@
     "fine_org_min": 40000000,
     "fine_org_max": 52000000,
     "points_deducted": 10,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -11768,6 +12127,7 @@
     "fine_org_min": 40000000,
     "fine_org_max": 52000000,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11789,6 +12149,7 @@
     "fine_org_min": 56000000,
     "fine_org_max": 60000000,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11810,6 +12171,7 @@
     "fine_org_min": 56000000,
     "fine_org_max": 60000000,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11831,6 +12193,7 @@
     "fine_org_min": 56000000,
     "fine_org_max": 60000000,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11852,6 +12215,7 @@
     "fine_org_min": 56000000,
     "fine_org_max": 60000000,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11873,6 +12237,7 @@
     "fine_org_min": 56000000,
     "fine_org_max": 60000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11894,6 +12259,7 @@
     "fine_org_min": 56000000,
     "fine_org_max": 60000000,
     "points_deducted": 3,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11915,6 +12281,7 @@
     "fine_org_min": 56000000,
     "fine_org_max": 60000000,
     "points_deducted": 3,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11936,6 +12303,7 @@
     "fine_org_min": 56000000,
     "fine_org_max": 60000000,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -11961,6 +12329,7 @@
     "fine_org_min": 56000000,
     "fine_org_max": 60000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -11982,6 +12351,7 @@
     "fine_org_min": 60000000,
     "fine_org_max": 80000000,
     "points_deducted": 8,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -12007,6 +12377,7 @@
     "fine_org_min": 130000000,
     "fine_org_max": 150000000,
     "points_deducted": 4,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12028,6 +12399,7 @@
     "fine_org_min": 130000000,
     "fine_org_max": 150000000,
     "points_deducted": 10,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -12053,6 +12425,7 @@
     "fine_org_min": 130000000,
     "fine_org_max": 150000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -12078,6 +12451,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12099,6 +12473,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12120,6 +12495,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "confiscate"
@@ -12145,6 +12521,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12166,6 +12543,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12187,6 +12565,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -12217,6 +12596,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -12241,8 +12621,13 @@
     "fine_max": 10000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
-    "sanctions": [],
+    "points_deducted": 2,
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -12262,8 +12647,13 @@
     "fine_max": 10000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
-    "sanctions": [],
+    "points_deducted": 2,
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -12283,8 +12673,13 @@
     "fine_max": 10000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
-    "sanctions": [],
+    "points_deducted": 2,
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -12304,8 +12699,13 @@
     "fine_max": 10000000,
     "fine_org_min": null,
     "fine_org_max": null,
-    "points_deducted": 0,
-    "sanctions": [],
+    "points_deducted": 2,
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -12326,7 +12726,12 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 2,
-    "sanctions": [],
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -12347,7 +12752,12 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 3,
-    "sanctions": [],
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -12368,7 +12778,12 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 3,
-    "sanctions": [],
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -12389,7 +12804,12 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 4,
-    "sanctions": [],
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -12410,7 +12830,12 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 10,
-    "sanctions": [],
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -12431,6 +12856,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12452,6 +12878,7 @@
     "fine_org_min": 80000000,
     "fine_org_max": 100000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12473,11 +12900,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -12498,11 +12922,8 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [
-      {
-        "type": "remedy"
-      }
-    ],
+    "points_conditional": [],
+    "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -12523,6 +12944,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12544,6 +12966,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12565,6 +12988,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12586,6 +13010,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12607,6 +13032,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12628,6 +13054,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12649,6 +13076,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -12674,6 +13102,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12695,6 +13124,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -12720,6 +13150,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -12748,6 +13179,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -12773,6 +13205,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12794,6 +13227,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12815,6 +13249,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -12840,7 +13275,15 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [],
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "confiscate"
+      },
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -12861,7 +13304,15 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [],
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "confiscate"
+      },
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -12882,7 +13333,15 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [],
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "confiscate"
+      },
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -12903,7 +13362,15 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
-    "sanctions": [],
+    "points_conditional": [],
+    "sanctions": [
+      {
+        "type": "confiscate"
+      },
+      {
+        "type": "remedy"
+      }
+    ],
     "consequence_accident": false,
     "refers_to": [],
     "excludes": [],
@@ -12924,6 +13391,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12945,6 +13413,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12966,6 +13435,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -12987,6 +13457,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13008,6 +13479,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13029,6 +13501,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13050,6 +13523,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13071,6 +13545,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13092,6 +13567,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13113,6 +13589,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13134,6 +13611,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13155,6 +13633,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13176,6 +13655,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13197,6 +13677,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13218,6 +13699,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13239,6 +13721,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13260,6 +13743,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13281,6 +13765,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [
       {
         "type": "remedy"
@@ -13306,6 +13791,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13327,6 +13813,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13348,6 +13835,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13369,6 +13857,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13390,6 +13879,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13411,6 +13901,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13432,6 +13923,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13453,6 +13945,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13474,6 +13967,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13495,6 +13989,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13516,6 +14011,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13537,6 +14033,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13558,6 +14055,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13579,6 +14077,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13600,6 +14099,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13621,6 +14121,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13642,6 +14143,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13663,6 +14165,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13684,6 +14187,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13705,6 +14209,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13726,6 +14231,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13747,6 +14253,7 @@
     "fine_org_min": 30000000,
     "fine_org_max": 40000000,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13768,6 +14275,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13789,6 +14297,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13810,6 +14319,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13831,6 +14341,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13852,6 +14363,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13873,6 +14385,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13894,6 +14407,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13915,6 +14429,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13936,6 +14451,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13957,6 +14473,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13978,6 +14495,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -13999,6 +14517,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -14020,6 +14539,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -14041,6 +14561,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -14062,6 +14583,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -14083,6 +14605,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -14104,6 +14627,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -14125,6 +14649,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -14146,6 +14671,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -14167,6 +14693,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -14188,6 +14715,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -14209,6 +14737,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -14230,6 +14759,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],
@@ -14251,6 +14781,7 @@
     "fine_org_min": null,
     "fine_org_max": null,
     "points_deducted": 0,
+    "points_conditional": [],
     "sanctions": [],
     "consequence_accident": false,
     "refers_to": [],

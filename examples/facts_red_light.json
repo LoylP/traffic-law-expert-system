@@ -1,0 +1,10 @@
+{
+  "vehicle_class": "VEH_MOTORBIKE",
+  "acts": [
+    "ACT_RED_LIGHT"
+  ],
+  "evidence": {
+    "vehicle_class": "đi xe máy",
+    "acts": "vượt đèn đỏ"
+  }
+}

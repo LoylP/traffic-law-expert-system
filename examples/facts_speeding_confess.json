@@ -1,0 +1,11 @@
+{
+  "vehicle_class": "VEH_CAR",
+  "speed_over_kmh": 25,
+  "circumstances": [
+    "CIR_VOLUNTARY_CONFESS"
+  ],
+  "evidence": {
+    "speed_over_kmh": "chạy quá tốc độ 25 km/h",
+    "circumstances": "tự nguyện khai báo"
+  }
+}

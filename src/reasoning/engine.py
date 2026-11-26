@@ -7,14 +7,15 @@ most once). Conflict resolution: priority desc → specificity desc → file ord
 
 from __future__ import annotations
 
+import json
 from datetime import date
 from typing import Any, Iterable
 
-from src.reasoning.knowledge_base import KnowledgeBase
+from src.reasoning.knowledge_base import KnowledgeBase, get_knowledge_base
 from src.reasoning.schema import (
     PHASE_ORDER,
+    EngineResult,
     Facts,
-    InferenceResult,
     Question,
     Rule,
     TraceStep,
@@ -22,6 +23,9 @@ from src.reasoning.schema import (
 )
 
 _MISSING = object()
+
+# Pseudo rule id of the built-in "specific beats general" exclusion.
+SPECIFICITY_RULE_ID = "ENGINE-EXC-SPECIFICITY"
 
 
 def _as_list(value: Any) -> list[Any]:
@@ -115,9 +119,18 @@ def _add_unique(target: list[str], items: Iterable[str]) -> list[str]:
 
 
 class InferenceEngine:
-    def __init__(self, kb: KnowledgeBase | None = None, disabled_types: Iterable[str] = ()):
-        self.kb = kb or KnowledgeBase.load()
-        self.disabled_types = set(disabled_types)
+    def __init__(
+        self,
+        kb: KnowledgeBase | None = None,
+        enabled_rule_types: Iterable[str] | None = None,
+        disabled_types: Iterable[str] = (),
+    ):
+        self.kb = kb or get_knowledge_base()
+        enabled = set(PHASE_ORDER if enabled_rule_types is None else enabled_rule_types)
+        unknown = (enabled | set(disabled_types)) - set(PHASE_ORDER)
+        if unknown:
+            raise ValueError(f"unknown rule type(s): {sorted(unknown)}")
+        self.enabled_types = enabled - set(disabled_types)
         self._order = {rule.id: index for index, rule in enumerate(self.kb.rules)}
 
     # -- matching -------------------------------------------------------
@@ -137,6 +150,8 @@ class InferenceEngine:
             return any(act in wm.acts for act in _as_list(cond))
         if key == "has_context":
             return any(ctx in wm.contexts for ctx in _as_list(cond))
+        if key == "has_circumstance":
+            return any(cir in wm.circumstances for cir in _as_list(cond))
         if key in ("has_violation", "also_has_violation"):
             return any(cid in wm.violations for cid in _as_list(cond))
         if key == "grounded_violation":
@@ -165,6 +180,8 @@ class InferenceEngine:
                 matched[key] = [a for a in _as_list(rule.when[key]) if a in wm.acts]
             elif key == "has_context":
                 matched[key] = [c for c in _as_list(rule.when[key]) if c in wm.contexts]
+            elif key == "has_circumstance":
+                matched[key] = [c for c in _as_list(rule.when[key]) if c in wm.circumstances]
             elif key in ("has_violation", "also_has_violation"):
                 matched[key] = [v for v in _as_list(rule.when[key]) if v in wm.violations]
             elif key == "grounded_violation":
@@ -178,6 +195,20 @@ class InferenceEngine:
 
     def _rank(self, rule: Rule) -> tuple[int, int, int]:
         return (-rule.priority, -rule.specificity, self._order[rule.id])
+
+    def _acts_of(self, wm: WorkingMemory, rule: Rule, citation_id: str) -> list[str]:
+        """Acts a new hit stands for: the rule's has_act, else the acts.yaml mapping."""
+        matched = [a for a in _as_list(rule.when.get("has_act")) if a in wm.acts]
+        return matched or list(self.kb.citation_acts.get(citation_id, []))
+
+    def _new_hit(self, rule: Rule, citation_id: str, **extra: Any) -> ViolationHit:
+        return ViolationHit(
+            citation_id=citation_id,
+            rule_id=rule.id,
+            legal_excerpt=rule.legal_excerpt,
+            legal_text=self.kb.legal_texts.get(citation_id),
+            **extra,
+        )
 
     # -- firing ---------------------------------------------------------
     def _fire(self, wm: WorkingMemory, rule: Rule) -> dict[str, Any]:
@@ -198,28 +229,24 @@ class InferenceEngine:
         if "add_violation" in then:
             cid = then["add_violation"]
             if cid not in wm.violations:
-                wm.violations[cid] = ViolationHit(
-                    citation_id=cid,
-                    rule_id=rule.id,
-                    legal_excerpt=rule.legal_excerpt,
-                    legal_text=self.kb.legal_texts.get(cid),
+                wm.violations[cid] = self._new_hit(
+                    rule, cid, acts=self._acts_of(wm, rule, cid), priority=rule.priority
                 )
             produced["violation"] = cid
         if "escalate_to" in then:
             target = then["escalate_to"]
             sources = [cid for cid in _as_list(rule.when.get("has_violation")) if cid in wm.violations]
-            for cid in sources:
-                del wm.violations[cid]
-            if target in wm.violations:
-                wm.violations[target].escalated_from.extend(sources)
-            else:
-                wm.violations[target] = ViolationHit(
-                    citation_id=target,
-                    rule_id=rule.id,
-                    legal_excerpt=rule.legal_excerpt,
-                    legal_text=self.kb.legal_texts.get(target),
-                    escalated_from=sources,
-                )
+            # The escalated hit keeps what it stands for, so the specificity
+            # exclusion still applies to it (DESIGN §5.2).
+            replaced = [wm.violations.pop(cid) for cid in sources]
+            if sources:
+                if target not in wm.violations:
+                    wm.violations[target] = self._new_hit(rule, target)
+                hit = wm.violations[target]
+                _add_unique(hit.escalated_from, sources)
+                for source_hit in replaced:
+                    _add_unique(hit.acts, source_hit.acts)
+                    hit.priority = max(hit.priority, source_hit.priority)
             produced["escalated"] = {"from": sources, "to": target}
         if "remove_violation" in then:
             removed = [cid for cid in _as_list(then["remove_violation"]) if wm.violations.pop(cid, None)]
@@ -248,16 +275,22 @@ class InferenceEngine:
             produced["question"] = question.field
         return produced
 
-    def _run_phase(self, wm: WorkingMemory, phase: str, fired: set[str]) -> None:
-        candidates = [r for r in self.kb.rules_of(phase) if r.id not in fired]
+    def _run_phase(self, wm: WorkingMemory, phase: str, fired: set[tuple[str, str]]) -> None:
+        """Match → resolve → fire until no new (rule, binding) pair is left."""
         while True:
-            eligible = [r for r in candidates if r.id not in fired and self._matches(wm, r)]
+            eligible = []
+            for rule in self.kb.rules_of(phase):
+                if not self._matches(wm, rule):
+                    continue
+                matched = self._matched_facts(wm, rule)
+                binding = (rule.id, json.dumps(matched, sort_keys=True, default=str))
+                if binding not in fired:
+                    eligible.append((rule, matched, binding))
             if not eligible:
                 return
-            rule = min(eligible, key=self._rank)
-            matched = self._matched_facts(wm, rule)
+            rule, matched, binding = min(eligible, key=lambda item: self._rank(item[0]))
             produced = self._fire(wm, rule)
-            fired.add(rule.id)
+            fired.add(binding)
             wm.trace.append(
                 TraceStep(
                     rule_id=rule.id,
@@ -269,32 +302,66 @@ class InferenceEngine:
                 )
             )
 
+    def _exclude_general_hits(self, wm: WorkingMemory) -> None:
+        """Drop a hit when each of its acts has a higher-priority hit."""
+        snapshot = list(wm.violations.values())
+        for hit in snapshot:
+            if not hit.acts:
+                continue
+            winners: dict[str, str] = {}
+            for act in hit.acts:
+                better = [o for o in snapshot if act in o.acts and o.priority > hit.priority]
+                if better:
+                    winners[act] = max(better, key=lambda o: o.priority).citation_id
+            if len(winners) != len(hit.acts):
+                continue
+            del wm.violations[hit.citation_id]
+            replaced_by = list(dict.fromkeys(winners.values()))
+            wm.trace.append(
+                TraceStep(
+                    rule_id=SPECIFICITY_RULE_ID,
+                    type="exclude",
+                    matched_facts={"has_violation": [hit.citation_id, *replaced_by]},
+                    produced={"removed_violations": [hit.citation_id]},
+                    explain=(
+                        f"Bỏ {hit.citation_id}: cùng hành vi đã có quy định cụ thể hơn "
+                        f"({', '.join(replaced_by)})."
+                    ),
+                    source="DESIGN §5.2 (luật exclude)",
+                )
+            )
+
     # -- public API -----------------------------------------------------
-    def infer(self, facts: Facts | dict[str, Any]) -> InferenceResult:
+    def run(self, facts: Facts | dict[str, Any]) -> EngineResult:
         if not isinstance(facts, Facts):
             facts = Facts.model_validate(facts)
         wm = WorkingMemory(facts)
-        fired: set[str] = set()
+        fired: set[tuple[str, str]] = set()
 
         for phase in PHASE_ORDER:
-            if phase in self.disabled_types:
+            if phase not in self.enabled_types:
                 continue
             self._run_phase(wm, phase, fired)
+            if phase == "exclude":
+                self._exclude_general_hits(wm)
             if phase == "temporal" and wm.status == "out_of_scope_temporal":
                 break
 
-        return InferenceResult(
+        return EngineResult(
             status=self._final_status(wm),
-            facts=wm.to_facts(),
+            input_facts=facts.model_copy(deep=True),
+            facts_final=wm.to_facts(),
             acts=wm.acts,
             contexts=wm.contexts,
             circumstances=wm.circumstances,
-            violations=list(wm.violations.values()),
+            hits=list(wm.violations.values()),
             questions=wm.questions,
             notes=wm.notes,
             message=wm.message,
             trace=wm.trace,
         )
+
+    infer = run  # P1 name
 
     @staticmethod
     def _final_status(wm: WorkingMemory) -> str:

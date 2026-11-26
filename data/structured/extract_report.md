@@ -1,9 +1,25 @@
 # Báo cáo trích xuất vi phạm NĐ 168
 
 - Tổng số vi phạm: 634
-- Có trừ điểm GPLX: 143
-- Có chế tài bổ sung/khắc phục: 159
+- Có trừ điểm GPLX: 204
+- Có chế tài bổ sung/khắc phục: 127
 - Có loại trừ: 29
+
+## Trước và sau khi sửa gán dẫn chiếu nguyên khoản
+
+| Số violation có | Trước | Sau |
+|---|---:|---:|
+| points_deducted > 0 | 143 | 204 |
+| sanctions | 159 | 127 |
+
+## Mức trừ điểm phụ thuộc điều kiện (4)
+
+`points_deducted` giữ mức thấp nhất; mức cao hơn nằm trong `points_conditional` để hiển thị trong phần giải thích, không tự áp.
+
+- `ND168-D20-K2`: mức cơ bản 4 điểm (ND168-D20-K10-Pb, bản thân mức này gắn điều kiện “trường hợp vượt trên 50% đến 100% số người quy định được phép chở của phương tiện”); không tự áp: 10 điểm nếu “trường hợp vượt trên 100% số người quy định được phép chở của phương tiện” (ND168-D20-K10-Pd)
+- `ND168-D20-K4`: mức cơ bản 4 điểm (ND168-D20-K10-Pb, bản thân mức này gắn điều kiện “trường hợp vượt trên 50% đến 100% số người quy định được phép chở của phương tiện”); không tự áp: 10 điểm nếu “trường hợp vượt trên 100% số người quy định được phép chở của phương tiện” (ND168-D20-K10-Pd)
+- `ND168-D32-K5`: mức cơ bản 4 điểm (ND168-D32-K21-Pd, bản thân mức này gắn điều kiện “trong trường hợp chủ phương tiện là người trực tiếp điều khiển phương tiện chở vượt trên 50% đến 100% số người quy định được phép chở của phương tiện”); không tự áp: 10 điểm nếu “trong trường hợp chủ phương tiện là người trực tiếp điều khiển phương tiện chở vượt trên 100% số người quy định được phép chở của phương tiện” (ND168-D32-K21-Ph)
+- `ND168-D32-K6`: mức cơ bản 4 điểm (ND168-D32-K21-Pd, bản thân mức này gắn điều kiện “trong trường hợp chủ phương tiện là người trực tiếp điều khiển phương tiện chở vượt trên 50% đến 100% số người quy định được phép chở của phương tiện”); không tự áp: 10 điểm nếu “trong trường hợp chủ phương tiện là người trực tiếp điều khiển phương tiện chở vượt trên 100% số người quy định được phép chở của phương tiện” (ND168-D32-K21-Ph)
 
 ## Số vi phạm theo Điều và vehicle_class
 
