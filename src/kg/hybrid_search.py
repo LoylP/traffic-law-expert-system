@@ -63,9 +63,9 @@ class LegalRetriever:
         
         # E5 Embeddings Index
         emb_path = self.cache_dir / "e5_large_embeddings.npy"
-        if emb_path.exists():
+        doc_embeddings = np.load(emb_path) if emb_path.exists() else None
+        if doc_embeddings is not None and len(doc_embeddings) == len(self.df_corpus):
             print("--- Loading cached embeddings ---")
-            doc_embeddings = np.load(emb_path)
         else:
             print("--- Encoding corpus (lần đầu sẽ hơi chậm) ---")
             passages = [f"passage: {t}" for t in self.df_corpus["text"]]
@@ -74,7 +74,10 @@ class LegalRetriever:
             
         return bm25, doc_embeddings
 
-    def search(self, query, top_k=5, alpha=0.5, vehicle_type=None):
+    def search(self, query, top_k=5, alpha=0.5, vehicle_type=None,
+               vehicle_classes=None, threshold=None):
+        """`vehicle_classes` keeps any of several ontology IDs; `threshold` drops
+        results whose hybrid score (min-max scaled over the candidates) is lower."""
         # BM25 Scoring
         tk_query = self._tokenize_bm25(query)
         bm25_scores_all = self.bm25.get_scores(tk_query)
@@ -84,7 +87,14 @@ class LegalRetriever:
         emb_scores_all = np.dot(self.doc_embeddings, q_emb)
 
         # Accept the legacy free-text vehicle argument and the ontology ID.
-        if vehicle_type:
+        if vehicle_classes is not None:
+            wanted = set(vehicle_classes)
+            indices = [
+                i
+                for i, row in self.df_corpus.iterrows()
+                if row["raw_node"].get("vehicle_class") in wanted
+            ]
+        elif vehicle_type:
             requested_class = vehicle_type if vehicle_type.startswith("VEH_") else detect_vehicle(vehicle_type)
             if requested_class:
                 indices = [
@@ -119,6 +129,8 @@ class LegalRetriever:
         results = []
 
         for idx in top_idx:
+            if threshold is not None and final_scores[idx] < threshold:
+                continue
             global_idx = indices[idx]
             row = self.df_corpus.iloc[global_idx]
 

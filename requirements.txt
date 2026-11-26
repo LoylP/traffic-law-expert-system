@@ -6,7 +6,11 @@ python-dotenv
 google-genai
 rank-bm25
 underthesea
-google.generativeai
+google-generativeai
 fastapi
 uvicorn
 pytest
+openai
+requests
+pydantic>=2
+pyyaml

@@ -16,6 +16,10 @@ from src.kg.llm_processor import GeminiQueryProcessor
 from src.db.history_store import QueryHistoryDB
 from src.extract.legal_corpus_builder import canonical_citation_id
 from src.extract.vehicle_mapping import detect_vehicle
+from src.reasoning.kb_report import kb_stats
+from src.reasoning.llm_client import LLMClient
+from src.reasoning.pipeline import ConsultOptions, ConsultOutcome, ExpertPipeline
+from src.reasoning.schema import ConsultResult
 
 
 BASE_DIR = Path(__file__).resolve().parents[2]
@@ -72,6 +76,12 @@ class LLMSearchRequest(BaseModel):
     alpha: float = Field(0.5, ge=0.0, le=1.0, description="Trọng số BM25")
 
 
+class ConsultRequest(BaseModel):
+    message: str = Field(..., min_length=1, max_length=2000, description="Mô tả vụ việc")
+    session_id: Optional[str] = Field(None, max_length=64)
+    use_llm_extractor: bool = True
+
+
 class SearchResponse(BaseModel):
     success: bool
     api_type: str
@@ -99,12 +109,15 @@ async def lifespan(app: FastAPI):
         raise FileNotFoundError(f"Không tìm thấy file KG: {KG_NODES_FILE}")
 
     retriever = LegalRetriever(KG_NODES_FILE, EMB_CACHE_DIR)
-    llm_engine = GeminiQueryProcessor()
+    llm_client = LLMClient()
+    llm_engine = GeminiQueryProcessor(llm_client)
+    pipeline = ExpertPipeline(retriever=retriever, llm_client=llm_client)
     amendment_map = load_amendment_map(AMENDMENT_MAP_FILE)
     history_db = QueryHistoryDB(SQLITE_DB_FILE)
 
     app.state.retriever = retriever
     app.state.llm_engine = llm_engine
+    app.state.pipeline = pipeline
     app.state.amendment_map = amendment_map
     app.state.history_db = history_db
 
@@ -246,6 +259,56 @@ def search_llm(payload: LLMSearchRequest):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Lỗi llm search: {str(e)}")
+
+
+def consult_history_record(outcome: ConsultOutcome) -> Dict[str, Any]:
+    result = outcome.result
+    return {
+        "session_id": result.session_id,
+        "status": result.status,
+        "facts": result.facts.model_dump(mode="json"),
+        "violations": [v.citation_id for v in result.violations],
+        "total_recommended_fine": result.total_recommended_fine,
+        "trace": [step.model_dump(mode="json") for step in result.explanation.chain],
+        "answer_text": result.answer_text,
+        "extractor": outcome.extractor,
+        "writer": outcome.writer,
+        "llm_calls": outcome.llm_calls,
+        "warnings": outcome.warnings,
+        "latency_ms": result.latency_ms,
+    }
+
+
+@app.post("/consult", response_model=ConsultResult)
+def consult(payload: ConsultRequest):
+    try:
+        pipeline: ExpertPipeline = app.state.pipeline
+        history_db: QueryHistoryDB = app.state.history_db
+
+        outcome = pipeline.consult_detailed(
+            payload.message,
+            session_id=payload.session_id,
+            options=ConsultOptions(use_llm_extractor=payload.use_llm_extractor),
+        )
+        history_db.insert_history(
+            api_type="consult",
+            original_query=payload.message,
+            processed_query=None,
+            top_k=len(outcome.result.violations),
+            results=[consult_history_record(outcome)],
+        )
+        return outcome.result
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Lỗi tư vấn: {str(e)}")
+
+
+@app.get("/knowledge/stats")
+def knowledge_stats():
+    try:
+        return kb_stats()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Lỗi thống kê tri thức: {str(e)}")
 
 
 @app.get("/history", response_model=HistoryResponse)

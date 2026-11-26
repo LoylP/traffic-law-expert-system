@@ -1,5 +1,14 @@
 # Changelog
 
+## P3
+- Mới: `llm_client.py` (ollama native / openai_compatible / gemini; constrained → prompt_only, bỏ `<think>`, retry, cache, metadata chế độ), `extractor_llm.py`, `extractor_regex.py`, `grounder.py`, `answer_writer.py`, `pipeline.py`.
+- Chốt chặn xác định trên output LLM: bỏ ID lạ, số tốc độ/nồng độ cồn/ngày không có trong câu, `ACT_HIT_AND_RUN` khi câu không nói tai nạn, `ACT_SPEEDING` khi câu không nói tốc độ; câu trả lời sai số tiền/Điều/khoản/điểm/tháng/hình thức phạt thì dùng template.
+- Grounder: thêm ngưỡng `GROUND_MIN_COSINE` (0.84) vì điểm hybrid là min-max trong tập ứng viên (câu không liên quan vẫn đạt ~1.0); vi phạm thuộc luật core được ánh xạ về Act. Ngưỡng mới thử trên ít câu, cần chỉnh ở P4.
+- API: `POST /consult`, `GET /knowledge/stats`; không còn bắt buộc `GOOGLE_API_KEY`; `/search/llm` dùng `LLMClient`.
+- `LegalRetriever.search`: thêm `vehicle_classes`, `threshold` (tùy chọn); tính lại cache embedding khi số dòng lệch.
+- `TraceStep.type` thêm `ground`; thêm `ExtractionResult`; `kb_report.kb_stats()`; `.env.example`, `scripts/demo_consult.sh`; `.gitignore` bỏ qua cache embedding và DB lịch sử.
+- Test: `tests/test_pipeline_offline.py`, `tests/test_llm_layer.py`.
+
 ## P2.2
 - Đối chiếu 56 violation mất `sanctions` so với bản commit trước: tất cả là `remedy` gán nhầm từ chữ “buộc” trong mô tả hành vi, giữ bỏ; không đổi logic gán chế tài. Thêm test cho tước GPLX cồn mức 3 (ô tô, xe máy) và các trường hợp gán nhầm.
 - Điểm trừ có điều kiện (Điều 20 K2, K4; Điều 32 K5, K6): `points_deducted` giữ mức thấp (4), thêm `points_conditional`; `PenaltyDecider` và CLI hiển thị điều kiện, không tự áp.

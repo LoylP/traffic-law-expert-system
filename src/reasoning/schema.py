@@ -137,6 +137,13 @@ class Facts(BaseModel):
     evidence: dict[str, str] = Field(default_factory=dict)
 
 
+class ExtractionResult(BaseModel):
+    facts: Facts
+    source: Literal["llm", "regex", "answer"]
+    warnings: list[str] = Field(default_factory=list)
+    llm: dict[str, Any] | None = None  # CallMetadata of the LLM call
+
+
 # ---------------------------------------------------------------------------
 # Engine output
 # ---------------------------------------------------------------------------
@@ -144,7 +151,7 @@ class Facts(BaseModel):
 
 class TraceStep(BaseModel):
     rule_id: str
-    type: RuleType
+    type: RuleType | Literal["ground"]  # "ground" = OntologyGrounder, not a rule
     matched_facts: dict[str, Any] = Field(default_factory=dict)
     produced: dict[str, Any] = Field(default_factory=dict)
     explain: str | None = None

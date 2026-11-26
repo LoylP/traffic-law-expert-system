@@ -1,20 +1,22 @@
-import os
-import json
-import google.generativeai as genai
-from dotenv import load_dotenv
+import re
 
-load_dotenv()
+from src.reasoning.llm_client import LLMClient
 
-class GeminiQueryProcessor:
-    def __init__(self):
-        api_key = os.getenv("GOOGLE_API_KEY")
-        if not api_key:
-            raise ValueError("Vui lòng cấu hình GOOGLE_API_KEY trong file .env")
-            
-        genai.configure(api_key=api_key)
-        # Sử dụng flash để tốc độ nhanh nhất
-        self.model = genai.GenerativeModel('models/gemini-3-flash-preview')
-        
+REWRITE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "rewritten_query": {"type": "string"},
+        "vehicle_type": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+        "expand_query": {"type": "array", "items": {"type": "string"}, "maxItems": 6},
+    },
+    "required": ["rewritten_query", "vehicle_type", "expand_query"],
+}
+
+
+class LLMQueryProcessor:
+    def __init__(self, client=None):
+        self.client = client or LLMClient()
+
         self.system_prompt = """Bạn là bộ tiền xử lý truy vấn cho hệ thống tra cứu luật giao thông Việt Nam.
 
         Nhiệm vụ:
@@ -31,16 +33,12 @@ class GeminiQueryProcessor:
         """
 
     def rewrite(self, user_query):
-        prompt = f"{self.system_prompt}\n\nCâu hỏi: {user_query}"
+        messages = [
+            {"role": "system", "content": self.system_prompt},
+            {"role": "user", "content": f"Câu hỏi: {user_query}"},
+        ]
         try:
-            response = self.model.generate_content(prompt)
-            # Làm sạch chuỗi JSON (đôi khi Gemini trả về kèm markdown ```json)
-            raw_text = response.text.strip()
-            if "{" in raw_text:
-                json_part = raw_text[raw_text.find("{"):raw_text.rfind("}")+1]
-                data = json.loads(json_part)
-                return data
-            return {"rewritten_query": user_query, "vehicle_type": None}
+            return self.client.chat_json(messages, REWRITE_SCHEMA)
         except Exception as e:
             print(f"Lỗi LLM: {e}")
             return {"rewritten_query": user_query, "vehicle_type": None}
@@ -106,9 +104,9 @@ class GeminiQueryProcessor:
         """
         
         try:
-            response = self.model.generate_content(prompt)
-            raw_text = response.text.strip()
-            selected_idx = int(raw_text)
+            raw_text = self.client.chat_text([{"role": "user", "content": prompt}])
+            found = re.search(r"-?\d+", raw_text)
+            selected_idx = int(found.group(0)) if found else 0
             if selected_idx == -1:
                 # Fallback to first if no match
                 return results[0] if results else None
@@ -118,3 +116,7 @@ class GeminiQueryProcessor:
         except Exception as e:
             print(f"Lỗi chọn kết quả: {e}")
             return results[0] if results else None
+
+
+# Old name, still imported by src/kg/main.py.
+GeminiQueryProcessor = LLMQueryProcessor

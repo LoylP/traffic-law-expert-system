@@ -212,3 +212,8 @@ node_modules/
 
 ./docs
 ./.github
+
+# Regenerable runtime artefacts
+data/kg/embedding_cache/
+data/db/
+.llm_cache/

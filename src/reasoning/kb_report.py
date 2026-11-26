@@ -27,6 +27,33 @@ def count_verified(items: List[dict]) -> tuple:
     return verified, unverified
 
 
+def kb_stats() -> dict:
+    """The report figures as JSON (read-only; used by GET /knowledge/stats)."""
+
+    def summary(items: List[dict]) -> dict:
+        verified, unverified = count_verified(items)
+        return {"total": len(items), "verified": verified, "unverified": unverified}
+
+    ontology = load_yaml(KNOWLEDGE_DIR / "ontology.yaml")
+    circumstances = load_yaml(KNOWLEDGE_DIR / "circumstances.yaml")
+    rules = {
+        path.stem: load_yaml(path).get("rules", [])
+        for path in sorted((KNOWLEDGE_DIR / "rules").glob("*.yaml"))
+    }
+    return {
+        "ontology": {
+            key: len(value) for key, value in ontology.items() if key != "relationships"
+        },
+        "acts": summary(load_yaml(KNOWLEDGE_DIR / "acts.yaml")["acts"]),
+        "circumstances": {
+            kind: summary(circumstances[f"{kind}_circumstances"])
+            for kind in ("mitigating", "aggravating")
+        },
+        "rules": {name: summary(items) for name, items in rules.items()},
+        "rules_total": summary([rule for items in rules.values() for rule in items]),
+    }
+
+
 def generate_report():
     """Generate knowledge base report"""
     print("=" * 80)
