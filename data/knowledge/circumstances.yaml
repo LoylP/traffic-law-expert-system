@@ -1,0 +1,270 @@
+# Circumstances - Danh mục tình tiết giảm nhẹ và tăng nặng
+# Nguồn: Luật XLVPHC Điều 9, 10 từ file luat_xlvphc_dieu_9_10.txt
+# KHÔNG viết từ trí nhớ, PARSE nguyên văn từ văn bản
+# Ghi chú: Đối chiếu với văn bản hợp nhất Luật XLVPHC sau sửa đổi 2025 (Luật 88/2025/QH15)
+
+mitigating_circumstances:
+  - id: CIR_PREVENT_HARM
+    kind: mitigating
+    label: "Ngăn chặn, làm giảm bớt hậu quả hoặc tự nguyện khắc phục"
+    legal_text: "Người vi phạm hành chính đã có hành vi ngăn chặn, làm giảm bớt hậu quả của vi phạm hoặc tự nguyện khắc phục hậu quả, bồi thường thiệt hại"
+    synonyms:
+      - "ngăn chặn hậu quả"
+      - "giảm bớt thiệt hại"
+      - "tự nguyện khắc phục"
+      - "bồi thường thiệt hại"
+      - "chủ động sửa chữa"
+      - "giúp đỡ nạn nhân"
+    legal_ref: "Luật XLVPHC Điều 9 khoản 1"
+    verified: true
+
+  - id: CIR_VOLUNTARY_CONFESS
+    kind: mitigating
+    label: "Tự nguyện khai báo, thành thật hối lỗi"
+    legal_text: "Người vi phạm hành chính đã tự nguyện khai báo, thành thật hối lỗi; tích cực giúp đỡ cơ quan chức năng phát hiện vi phạm hành chính, xử lý vi phạm hành chính"
+    synonyms:
+      - "tự nguyện khai báo"
+      - "thành thật hối lỗi"
+      - "thừa nhận lỗi"
+      - "hợp tác với cơ quan chức năng"
+      - "giúp đỡ cơ quan điều tra"
+      - "ăn năn hối cải"
+    legal_ref: "Luật XLVPHC Điều 9 khoản 2"
+    verified: true
+
+  - id: CIR_PROVOKED
+    kind: mitigating
+    label: "Bị kích động tinh thần do hành vi trái pháp luật của người khác"
+    legal_text: "Vi phạm hành chính trong tình trạng bị kích động về tinh thần do hành vi trái pháp luật của người khác gây ra; vượt quá giới hạn phòng vệ chính đáng; vượt quá yêu cầu của tình thế cấp thiết"
+    synonyms:
+      - "bị kích động"
+      - "bị khiêu khích"
+      - "phản ứng lại hành vi trái pháp luật"
+      - "tình trạng căng thẳng tinh thần"
+      - "bị gây sự trước"
+      - "phòng vệ quá mức"
+    legal_ref: "Luật XLVPHC Điều 9 khoản 3"
+    verified: true
+
+  - id: CIR_COERCED
+    kind: mitigating
+    label: "Bị ép buộc hoặc bị lệ thuộc về vật chất hoặc tinh thần"
+    legal_text: "Vi phạm hành chính do bị ép buộc hoặc bị lệ thuộc về vật chất hoặc tinh thần"
+    synonyms:
+      - "bị ép buộc"
+      - "bị lệ thuộc"
+      - "bị cưỡng bức"
+      - "không tự nguyện"
+      - "bị chi phối"
+    legal_ref: "Luật XLVPHC Điều 9 khoản 4"
+    verified: true
+
+  - id: CIR_PREGNANT_ELDERLY_DISABLED
+    kind: mitigating
+    label: "Phụ nữ mang thai, người già yếu, người khuyết tật"
+    legal_text: "Người vi phạm hành chính là phụ nữ mang thai, người già yếu, người có bệnh hoặc khuyết tật làm hạn chế khả năng nhận thức hoặc khả năng điều khiển hành vi của mình"
+    synonyms:
+      - "phụ nữ mang thai"
+      - "người già"
+      - "người khuyết tật"
+      - "người yếu"
+      - "người ốm đau"
+      - "hạn chế khả năng nhận thức"
+    legal_ref: "Luật XLVPHC Điều 9 khoản 5"
+    verified: true
+
+  - id: CIR_HARDSHIP
+    kind: mitigating
+    label: "Hoàn cảnh đặc biệt khó khăn không do mình gây ra"
+    legal_text: "Vi phạm hành chính vì hoàn cảnh đặc biệt khó khăn mà không do mình gây ra"
+    synonyms:
+      - "hoàn cảnh khó khăn"
+      - "hoàn cảnh đặc biệt"
+      - "hoàn cảnh éo le"
+      - "bất đắc dĩ"
+      - "tình thế khó khăn"
+      - "hoàn cảnh bắt buộc"
+    legal_ref: "Luật XLVPHC Điều 9 khoản 6"
+    verified: true
+
+  - id: CIR_BACKWARD
+    kind: mitigating
+    label: "Trình độ lạc hậu"
+    legal_text: "Vi phạm hành chính do trình độ lạc hậu"
+    synonyms:
+      - "trình độ thấp"
+      - "thiếu hiểu biết"
+      - "chưa nhận thức đầy đủ"
+      - "lạc hậu"
+      - "chưa được giáo dục"
+    legal_ref: "Luật XLVPHC Điều 9 khoản 7"
+    verified: true
+
+aggravating_circumstances:
+  - id: CIR_ORGANIZED
+    kind: aggravating
+    label: "Vi phạm hành chính có tổ chức"
+    legal_text: "Vi phạm hành chính có tổ chức"
+    synonyms:
+      - "có tổ chức"
+      - "có kế hoạch"
+      - "vi phạm có hệ thống"
+      - "cấu kết vi phạm"
+      - "vi phạm theo nhóm có tổ chức"
+    legal_ref: "Luật XLVPHC Điều 10 khoản 1 điểm a"
+    verified: true
+
+  - id: CIR_REPEAT
+    kind: aggravating
+    label: "Tái phạm"
+    legal_text: "Vi phạm hành chính nhiều lần; tái phạm"
+    synonyms:
+      - "tái phạm"
+      - "vi phạm lại"
+      - "phạm lần hai"
+      - "tái vi phạm"
+      - "đã từng bị xử phạt"
+      - "phạm lại trong thời gian"
+    legal_ref: "Luật XLVPHC Điều 10 khoản 1 điểm b"
+    verified: true
+
+  - id: CIR_MULTIPLE_TIMES
+    kind: aggravating
+    label: "Vi phạm nhiều lần"
+    legal_text: "Vi phạm hành chính nhiều lần; tái phạm"
+    synonyms:
+      - "vi phạm nhiều lần"
+      - "phạm nhiều lần"
+      - "liên tục vi phạm"
+      - "vi phạm lặp đi lặp lại"
+      - "thường xuyên vi phạm"
+    legal_ref: "Luật XLVPHC Điều 10 khoản 1 điểm b"
+    verified: true
+
+  - id: CIR_INCITE_MINOR
+    kind: aggravating
+    label: "Xúi giục, lôi kéo, sử dụng người chưa thành niên vi phạm"
+    legal_text: "Xúi giục, lôi kéo, sử dụng người chưa thành niên vi phạm; ép buộc người bị lệ thuộc vào mình về vật chất, tinh thần thực hiện hành vi vi phạm hành chính"
+    synonyms:
+      - "xúi giục trẻ em"
+      - "lôi kéo người chưa thành niên"
+      - "bắt trẻ em vi phạm"
+      - "sử dụng trẻ nhỏ"
+      - "ép người khác vi phạm"
+    legal_ref: "Luật XLVPHC Điều 10 khoản 1 điểm c"
+    verified: true
+
+  - id: CIR_USE_MENTALLY_ILL
+    kind: aggravating
+    label: "Sử dụng người bị tâm thần hoặc bệnh khác để vi phạm"
+    legal_text: "Sử dụng người biết rõ là đang bị tâm thần hoặc bệnh khác làm mất khả năng nhận thức hoặc khả năng điều khiển hành vi để vi phạm hành chính"
+    synonyms:
+      - "lợi dụng người bệnh tâm thần"
+      - "sử dụng người mất khả năng nhận thức"
+      - "dùng người không tỉnh táo"
+    legal_ref: "Luật XLVPHC Điều 10 khoản 1 điểm d"
+    verified: true
+
+  - id: CIR_INSULT_OFFICER
+    kind: aggravating
+    label: "Lăng mạ, phỉ báng người thi hành công vụ"
+    legal_text: "Lăng mạ, phỉ báng người đang thi hành công vụ; vi phạm hành chính có tính chất côn đồ"
+    synonyms:
+      - "lăng mạ CSGT"
+      - "phỉ báng người thi hành công vụ"
+      - "xúc phạm cán bộ"
+      - "chửi bới người thi hành công vụ"
+      - "hành động côn đồ"
+      - "xâm phạm danh dự"
+    legal_ref: "Luật XLVPHC Điều 10 khoản 1 điểm đ"
+    verified: true
+
+  - id: CIR_ABUSE_POSITION
+    kind: aggravating
+    label: "Lợi dụng chức vụ, quyền hạn"
+    legal_text: "Lợi dụng chức vụ, quyền hạn để vi phạm hành chính"
+    synonyms:
+      - "lợi dụng chức vụ"
+      - "lạm dụng quyền lực"
+      - "dùng chức vụ vi phạm"
+      - "lợi dụng quyền hạn"
+    legal_ref: "Luật XLVPHC Điều 10 khoản 1 điểm e"
+    verified: true
+
+  - id: CIR_EXPLOIT_DISASTER
+    kind: aggravating
+    label: "Lợi dụng hoàn cảnh chiến tranh, thiên tai, dịch bệnh"
+    legal_text: "Lợi dụng hoàn cảnh chiến tranh, thiên tai, thảm họa, dịch bệnh hoặc những khó khăn đặc biệt khác của xã hội để vi phạm hành chính"
+    synonyms:
+      - "lợi dụng thiên tai"
+      - "lợi dụng dịch bệnh"
+      - "lợi dụng khó khăn"
+      - "lợi dụng hoàn cảnh đặc biệt"
+    legal_ref: "Luật XLVPHC Điều 10 khoản 1 điểm g"
+    verified: true
+
+  - id: CIR_DURING_SENTENCE
+    kind: aggravating
+    label: "Vi phạm trong thời gian đang chấp hành hình phạt"
+    legal_text: "Vi phạm trong thời gian đang chấp hành hình phạt của bản án hình sự hoặc đang chấp hành quyết định áp dụng biện pháp xử lý vi phạm hành chính"
+    synonyms:
+      - "đang chấp hành án"
+      - "vi phạm trong thời gian thụ án"
+      - "đang thi hành hình phạt"
+    legal_ref: "Luật XLVPHC Điều 10 khoản 1 điểm h"
+    verified: true
+
+  - id: CIR_CONTINUE_AFTER_STOP
+    kind: aggravating
+    label: "Tiếp tục vi phạm dù đã được yêu cầu chấm dứt"
+    legal_text: "Tiếp tục thực hiện hành vi vi phạm hành chính mặc dù người có thẩm quyền đã yêu cầu chấm dứt hành vi đó"
+    synonyms:
+      - "không chấm dứt khi được yêu cầu"
+      - "tiếp tục vi phạm sau cảnh báo"
+      - "cố tình vi phạm"
+      - "bất chấp yêu cầu"
+      - "không nghe can ngăn"
+    legal_ref: "Luật XLVPHC Điều 10 khoản 1 điểm i"
+    verified: true
+
+  - id: CIR_CONCEAL
+    kind: aggravating
+    label: "Trốn tránh, che giấu vi phạm"
+    legal_text: "Sau khi vi phạm đã có hành vi trốn tránh, che giấu vi phạm hành chính"
+    synonyms:
+      - "trốn tránh"
+      - "che giấu"
+      - "bỏ trốn"
+      - "phi tang"
+      - "che đậy vi phạm"
+      - "làm mất dấu vết"
+    legal_ref: "Luật XLVPHC Điều 10 khoản 1 điểm k"
+    verified: true
+
+  - id: CIR_LARGE_SCALE
+    kind: aggravating
+    label: "Quy mô lớn, số lượng hoặc trị giá lớn"
+    legal_text: "Vi phạm hành chính có quy mô lớn, số lượng hoặc trị giá hàng hóa lớn"
+    synonyms:
+      - "quy mô lớn"
+      - "trị giá lớn"
+      - "số lượng lớn"
+      - "vi phạm nghiêm trọng"
+    legal_ref: "Luật XLVPHC Điều 10 khoản 1 điểm l"
+    verified: true
+
+  - id: CIR_MANY_VICTIMS
+    kind: aggravating
+    label: "Vi phạm đối với nhiều người, trẻ em, người già, người khuyết tật"
+    legal_text: "Vi phạm hành chính đối với nhiều người, trẻ em, người già, người khuyết tật, phụ nữ mang thai"
+    synonyms:
+      - "gây hại nhiều người"
+      - "vi phạm đối với trẻ em"
+      - "gây hại người yếu thế"
+      - "ảnh hưởng nhiều người"
+    legal_ref: "Luật XLVPHC Điều 10 khoản 1 điểm m"
+    verified: true
+
+notes:
+  - "Tình tiết tại Điều 10 khoản 2: Tình tiết đã được quy định là hành vi vi phạm thì không được coi là tình tiết tăng nặng"
+  - "Ví dụ: nếu vi phạm đã có yếu tố 'gây tai nạn' trong cấu thành vi phạm thì không tính lại làm tình tiết tăng nặng"

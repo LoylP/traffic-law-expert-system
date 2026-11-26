@@ -1,0 +1,268 @@
+# Ontology - Định nghĩa các lớp, enum và quan hệ theo DESIGN §4.1-4.4
+# Nguồn: NĐ 168/2024/NĐ-CP, Điều 6, Điều 7
+# Mọi ID phải khớp với DESIGN; mọi ngưỡng phải verify với nguyên văn
+
+vehicle_classes:
+  - id: VEH_ANY
+    label: "Phương tiện bất kỳ"
+    parent: null
+    description: "Lớp gốc cho mọi phương tiện"
+    verified: true
+
+  - id: VEH_MOTOR
+    label: "Phương tiện cơ giới"
+    parent: VEH_ANY
+    description: "Phương tiện có gắn động cơ"
+    verified: true
+
+  - id: VEH_CAR
+    label: "Ô tô"
+    parent: VEH_MOTOR
+    description: "Ô tô, xe chở người/hàng bốn bánh có gắn động cơ, xe tương tự ô tô (Điều 6)"
+    legal_ref: "NĐ 168/2024, Điều 6"
+    verified: true
+
+  - id: VEH_MOTORBIKE
+    label: "Mô tô, xe gắn máy"
+    parent: VEH_MOTOR
+    description: "Mô tô, xe gắn máy, xe tương tự (Điều 7)"
+    legal_ref: "NĐ 168/2024, Điều 7"
+    verified: true
+
+  - id: VEH_SPECIAL
+    label: "Xe máy chuyên dùng"
+    parent: VEH_ANY
+    description: "Xe máy chuyên dùng (Điều 8)"
+    legal_ref: "NĐ 168/2024, Điều 8"
+    verified: true
+
+  - id: VEH_BICYCLE_RUDIMENTARY
+    label: "Xe đạp, xe thô sơ"
+    parent: VEH_ANY
+    description: "Xe đạp, xe đạp máy, xe thô sơ (Điều 9)"
+    legal_ref: "NĐ 168/2024, Điều 9"
+    verified: true
+
+  - id: VEH_PEDESTRIAN
+    label: "Người đi bộ"
+    parent: VEH_ANY
+    description: "Người đi bộ (Điều 10)"
+    legal_ref: "NĐ 168/2024, Điều 10"
+    verified: true
+
+road_types:
+  - id: ROAD_EXPRESSWAY
+    label: "Đường cao tốc"
+    verified: true
+
+  - id: ROAD_RESIDENTIAL
+    label: "Khu dân cư"
+    verified: true
+
+  - id: ROAD_TUNNEL
+    label: "Hầm đường bộ"
+    verified: true
+
+  - id: ROAD_NORMAL
+    label: "Đường thường"
+    verified: true
+
+time_contexts:
+  - id: TIME_NIGHT
+    label: "Ban đêm (18h-6h)"
+    description: "Thời gian từ 18 giờ ngày hôm trước đến 06 giờ ngày hôm sau"
+    verified: true
+
+  - id: TIME_DAY
+    label: "Ban ngày"
+    description: "Thời gian ngoài khung 18h-6h"
+    verified: true
+
+# Ngưỡng nồng độ cồn - TÌM TRONG NĐ 168 Điều 6, 7
+alcohol_levels:
+  - id: BAC_L1
+    label: "Nồng độ cồn mức 1"
+    blood_mg_100ml_min: 0.001
+    blood_mg_100ml_max: 50
+    breath_mg_l_min: 0.001
+    breath_mg_l_max: 0.25
+    description: "Chưa vượt quá 50 mg/100ml máu hoặc 0.25 mg/l khí thở"
+    citation_id: "ND168-D6-K6-Pc"  # Điều 6 khoản 6 điểm c (xe ô tô)
+    legal_text: "Điều khiển xe trên đường mà trong máu hoặc hơi thở có nồng độ cồn nhưng chưa vượt quá 50 miligam/100 mililít máu hoặc chưa vượt quá 0,25 miligam/1 lít khí thở"
+    verified: true
+
+  - id: BAC_L2
+    label: "Nồng độ cồn mức 2"
+    blood_mg_100ml_min: 50.001
+    blood_mg_100ml_max: 80
+    breath_mg_l_min: 0.25001
+    breath_mg_l_max: 0.4
+    description: "Vượt quá 50 đến 80 mg/100ml máu hoặc vượt quá 0.25 đến 0.4 mg/l khí thở"
+    citation_id: "ND168-D6-K9-Pa"  # Điều 6 khoản 9 điểm a (xe ô tô)
+    legal_text: "Điều khiển xe trên đường mà trong máu hoặc hơi thở có nồng độ cồn vượt quá 50 miligam đến 80 miligam/100 mililít máu hoặc vượt quá 0,25 miligam đến 0,4 miligam/1 lít khí thở"
+    verified: true
+
+  - id: BAC_L3
+    label: "Nồng độ cồn mức 3"
+    blood_mg_100ml_min: 80.001
+    blood_mg_100ml_max: null
+    breath_mg_l_min: 0.4001
+    breath_mg_l_max: null
+    description: "Vượt quá 80 mg/100ml máu hoặc vượt quá 0.4 mg/l khí thở"
+    citation_id: "ND168-D6-K11-Pa"  # Điều 6 khoản 11 điểm a (xe ô tô)
+    legal_text: "Điều khiển xe trên đường mà trong máu hoặc hơi thở có nồng độ cồn vượt quá 80 miligam/100 mililít máu hoặc vượt quá 0,4 miligam/1 lít khí thở"
+    verified: true
+
+# Ngưỡng tốc độ - TÌM TRONG NĐ 168 Điều 6 (ô tô) và Điều 7 (xe máy)
+speed_bands:
+  - id: SPEED_5_10
+    label: "Vượt tốc độ 5-10 km/h"
+    over_kmh_min: 5
+    over_kmh_max: 9
+    citation_car: "ND168-D6-K3-Pa"  # Điều 6 khoản 3 điểm a
+    citation_motorbike: "ND168-D7-K2-Pb"  # Điều 7 khoản 2 điểm b
+    legal_text: "Điều khiển xe chạy quá tốc độ quy định từ 05 km/h đến dưới 10 km/h"
+    verified: true
+
+  - id: SPEED_10_20
+    label: "Vượt tốc độ 10-20 km/h"
+    over_kmh_min: 10
+    over_kmh_max: 20
+    citation_car: "ND168-D6-K5-Pđ"  # Điều 6 khoản 5 điểm đ
+    citation_motorbike: "ND168-D7-K4-Pa"  # Điều 7 khoản 4 điểm a
+    legal_text: "Điều khiển xe chạy quá tốc độ quy định từ 10 km/h đến 20 km/h"
+    verified: true
+
+  - id: SPEED_20_35
+    label: "Vượt tốc độ 20-35 km/h"
+    over_kmh_min: 20.001
+    over_kmh_max: 35
+    citation_car: "ND168-D6-K6-Pa"  # Điều 6 khoản 6 điểm a
+    citation_motorbike: "ND168-D7-K8-Pa"  # Điều 7 khoản 8 điểm a
+    legal_text_car: "Điều khiển xe chạy quá tốc độ quy định trên 20 km/h đến 35 km/h"
+    legal_text_motorbike: "Điều khiển xe chạy quá tốc độ quy định trên 20 km/h"
+    verified: true
+
+  - id: SPEED_OVER_35
+    label: "Vượt tốc độ trên 35 km/h"
+    over_kmh_min: 35.001
+    over_kmh_max: null
+    citation_car: "ND168-D6-K7-Pa"  # Điều 6 khoản 7 điểm a
+    citation_motorbike: "ND168-D7-K8-Pa"  # Điều 7 khoản 8 (trên 20 km/h, không phân thêm mức 35)
+    legal_text_car: "Điều khiển xe chạy quá tốc độ quy định trên 35 km/h"
+    note: "Xe máy chỉ có mức trên 20 km/h, không phân biệt thêm 35 km/h"
+    verified: true
+
+consequences:
+  - id: CONS_ACCIDENT
+    label: "Gây tai nạn giao thông"
+    description: "Hành vi vi phạm gây ra tai nạn giao thông"
+    verified: true
+
+resistance_behaviors:
+  - id: RES_FLEE
+    label: "Bỏ chạy"
+    description: "Bỏ chạy khi người thi hành công vụ ra hiệu lệnh dừng xe"
+    verified: true
+
+  - id: RES_OBSTRUCT
+    label: "Cản trở"
+    description: "Cản trở người thi hành công vụ"
+    verified: true
+
+  - id: RES_INSULT_OFFICER
+    label: "Lăng mạ, phỉ báng người thi hành công vụ"
+    description: "Lăng mạ, phỉ báng người đang thi hành công vụ"
+    legal_ref: "Luật XLVPHC Điều 10 khoản 1 điểm đ"
+    verified: true
+
+subjects:
+  - id: SUBJ_INDIVIDUAL
+    label: "Cá nhân"
+    description: "Người vi phạm là cá nhân"
+    verified: true
+
+  - id: SUBJ_ORGANIZATION
+    label: "Tổ chức"
+    description: "Người vi phạm là tổ chức, đơn vị, doanh nghiệp"
+    legal_ref: "NĐ 168/2024, Điều 2 khoản 2"
+    verified: true
+
+additional_sanction_types:
+  - id: SANC_REVOKE_LICENSE
+    type: revoke_license
+    label: "Tước quyền sử dụng giấy phép lái xe"
+    description: "Tước quyền sử dụng giấy phép lái xe có thời hạn"
+    legal_ref: "NĐ 168/2024, Điều 5"
+    verified: true
+
+  - id: SANC_CONFISCATE
+    type: confiscate
+    label: "Tịch thu phương tiện"
+    description: "Tịch thu phương tiện được sử dụng để vi phạm"
+    legal_ref: "NĐ 168/2024, Điều 3 khoản 1 điểm c"
+    verified: true
+
+  - id: SANC_REMEDY
+    type: remedy
+    label: "Biện pháp khắc phục hậu quả"
+    description: "Buộc thực hiện biện pháp khắc phục hậu quả"
+    legal_ref: "NĐ 168/2024, Điều 3 khoản 3"
+    verified: true
+
+# Các quan hệ (edge types)
+relationships:
+  - type: BASED_ON
+    description: "Violation → LegalUnit (vi phạm dựa trên điều luật)"
+    source: Violation
+    target: LegalUnit
+
+  - type: INSTANCE_OF_ACT
+    description: "Violation → Act (vi phạm là thể hiện của hành vi)"
+    source: Violation
+    target: Act
+
+  - type: APPLIES_TO
+    description: "Violation → VehicleClass (vi phạm áp dụng cho loại xe)"
+    source: Violation
+    target: VehicleClass
+
+  - type: REQUIRES_CONTEXT
+    description: "Violation → context node (yêu cầu ngữ cảnh: road/time/alcohol/speed)"
+    source: Violation
+    target: "[RoadType, TimeContext, AlcoholLevel, SpeedBand]"
+
+  - type: HAS_SANCTION
+    description: "Violation → AdditionalSanction"
+    source: Violation
+    target: AdditionalSanction
+
+  - type: ESCALATES_TO
+    description: "Violation → Violation (leo thang khi có hậu quả)"
+    source: Violation
+    target: Violation
+
+  - type: EXCLUDES
+    description: "Violation → Violation (loại trừ)"
+    source: Violation
+    target: Violation
+
+  - type: SUBCLASS_OF
+    description: "VehicleClass → VehicleClass, Circumstance → parent"
+    source: "[VehicleClass, Circumstance]"
+    target: "[VehicleClass, CircumstanceCategory]"
+
+  - type: BELONGS_TO_DECREE
+    description: "LegalUnit → Decree"
+    source: LegalUnit
+    target: Decree
+
+  - type: IN_CHAPTER
+    description: "LegalUnit → Chapter"
+    source: LegalUnit
+    target: Chapter
+
+  - type: AMENDED_BY
+    description: "LegalUnit → AmendmentEvent"
+    source: LegalUnit
+    target: AmendmentEvent

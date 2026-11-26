@@ -1,0 +1,315 @@
+# Derive Rules - Luật suy diễn gián tiếp (≥15 luật)
+# Suy ra fact mới (act, level, flag) từ fact khác
+# Format: id, type=derive, priority, when (AND điều kiện), then, explain, source, verified
+
+rules:
+  # Nhóm 1: Tính speed_over_kmh và map sang SpeedBand
+  - id: R-DER-SPEED-01
+    type: derive
+    priority: 60
+    when:
+      actual_speed_kmh: {not_null: true}
+      speed_limit_kmh: {not_null: true}
+    then:
+      compute_speed_over: true
+    explain: "Tính speed_over_kmh = actual_speed_kmh − speed_limit_kmh"
+    source: "Logic tính toán"
+    verified: true
+
+  - id: R-DER-SPEED-02
+    type: derive
+    priority: 55
+    when:
+      speed_over_kmh: {gte: 5, lt: 10}
+    then:
+      add_context: [SPEED_5_10]
+    explain: "Vượt tốc độ từ 5 đến dưới 10 km/h → SPEED_5_10"
+    source: "NĐ 168/2024, Điều 6 khoản 3 điểm a; Điều 7 khoản 2 điểm b"
+    verified: true
+
+  - id: R-DER-SPEED-03
+    type: derive
+    priority: 55
+    when:
+      speed_over_kmh: {gte: 10, lte: 20}
+    then:
+      add_context: [SPEED_10_20]
+    explain: "Vượt tốc độ từ 10 đến 20 km/h → SPEED_10_20"
+    source: "NĐ 168/2024, Điều 6 khoản 5 điểm đ; Điều 7 khoản 4 điểm a"
+    verified: true
+
+  - id: R-DER-SPEED-04
+    type: derive
+    priority: 55
+    when:
+      speed_over_kmh: {gt: 20, lte: 35}
+    then:
+      add_context: [SPEED_20_35]
+    explain: "Vượt tốc độ trên 20 đến 35 km/h → SPEED_20_35"
+    source: "NĐ 168/2024, Điều 6 khoản 6 điểm a"
+    verified: true
+
+  - id: R-DER-SPEED-05
+    type: derive
+    priority: 55
+    when:
+      speed_over_kmh: {gt: 35}
+    then:
+      add_context: [SPEED_OVER_35]
+    explain: "Vượt tốc độ trên 35 km/h → SPEED_OVER_35"
+    source: "NĐ 168/2024, Điều 6 khoản 7 điểm a"
+    verified: true
+
+  - id: R-DER-SPEED-06
+    type: derive
+    priority: 54
+    when:
+      has_context: SPEED_5_10
+    then:
+      add_acts: [ACT_SPEEDING]
+    explain: "Có band tốc độ → thêm hành vi ACT_SPEEDING"
+    source: "Suy diễn của nhóm"
+    verified: true
+
+  - id: R-DER-SPEED-07
+    type: derive
+    priority: 54
+    when:
+      has_context: SPEED_10_20
+    then:
+      add_acts: [ACT_SPEEDING]
+    explain: "Có band tốc độ → thêm hành vi ACT_SPEEDING"
+    source: "Suy diễn của nhóm"
+    verified: true
+
+  - id: R-DER-SPEED-08
+    type: derive
+    priority: 54
+    when:
+      has_context: SPEED_20_35
+    then:
+      add_acts: [ACT_SPEEDING]
+    explain: "Có band tốc độ → thêm hành vi ACT_SPEEDING"
+    source: "Suy diễn của nhóm"
+    verified: true
+
+  - id: R-DER-SPEED-09
+    type: derive
+    priority: 54
+    when:
+      has_context: SPEED_OVER_35
+    then:
+      add_acts: [ACT_SPEEDING]
+    explain: "Có band tốc độ → thêm hành vi ACT_SPEEDING"
+    source: "Suy diễn của nhóm"
+    verified: true
+
+  # Nhóm 2: Map BAC → AlcoholLevel
+  - id: R-DER-ALC-01
+    type: derive
+    priority: 60
+    when:
+      bac_blood_mg_100ml: {gt: 0, lte: 50}
+    then:
+      add_context: [BAC_L1]
+    explain: "Nồng độ cồn trong máu > 0 và ≤ 50 mg/100ml → BAC_L1"
+    source: "NĐ 168/2024, Điều 6 khoản 6 điểm c; Điều 7 khoản 6 điểm a"
+    verified: true
+
+  - id: R-DER-ALC-02
+    type: derive
+    priority: 60
+    when:
+      bac_breath_mg_l: {gt: 0, lte: 0.25}
+    then:
+      add_context: [BAC_L1]
+    explain: "Nồng độ cồn trong hơi thở > 0 và ≤ 0.25 mg/l → BAC_L1"
+    source: "NĐ 168/2024, Điều 6 khoản 6 điểm c; Điều 7 khoản 6 điểm a"
+    verified: true
+
+  - id: R-DER-ALC-03
+    type: derive
+    priority: 60
+    when:
+      bac_blood_mg_100ml: {gt: 50, lte: 80}
+    then:
+      add_context: [BAC_L2]
+    explain: "Nồng độ cồn trong máu > 50 và ≤ 80 mg/100ml → BAC_L2"
+    source: "NĐ 168/2024, Điều 6 khoản 9 điểm a; Điều 7 khoản 8 điểm b"
+    verified: true
+
+  - id: R-DER-ALC-04
+    type: derive
+    priority: 60
+    when:
+      bac_breath_mg_l: {gt: 0.25, lte: 0.4}
+    then:
+      add_context: [BAC_L2]
+    explain: "Nồng độ cồn trong hơi thở > 0.25 và ≤ 0.4 mg/l → BAC_L2"
+    source: "NĐ 168/2024, Điều 6 khoản 9 điểm a; Điều 7 khoản 8 điểm b"
+    verified: true
+
+  - id: R-DER-ALC-05
+    type: derive
+    priority: 60
+    when:
+      bac_blood_mg_100ml: {gt: 80}
+    then:
+      add_context: [BAC_L3]
+    explain: "Nồng độ cồn trong máu > 80 mg/100ml → BAC_L3"
+    source: "NĐ 168/2024, Điều 6 khoản 11 điểm a; Điều 7 khoản 9 điểm d"
+    verified: true
+
+  - id: R-DER-ALC-06
+    type: derive
+    priority: 60
+    when:
+      bac_breath_mg_l: {gt: 0.4}
+    then:
+      add_context: [BAC_L3]
+    explain: "Nồng độ cồn trong hơi thở > 0.4 mg/l → BAC_L3"
+    source: "NĐ 168/2024, Điều 6 khoản 11 điểm a; Điều 7 khoản 9 điểm d"
+    verified: true
+
+  - id: R-DER-ALC-07
+    type: derive
+    priority: 55
+    when:
+      has_context: [BAC_L1]
+    then:
+      add_acts: [ACT_ALCOHOL]
+    explain: "Có mức nồng độ cồn → thêm hành vi ACT_ALCOHOL"
+    source: "Suy diễn của nhóm"
+    verified: true
+
+  - id: R-DER-ALC-08
+    type: derive
+    priority: 55
+    when:
+      has_context: [BAC_L2]
+    then:
+      add_acts: [ACT_ALCOHOL]
+    explain: "Có mức nồng độ cồn → thêm hành vi ACT_ALCOHOL"
+    source: "Suy diễn của nhóm"
+    verified: true
+
+  - id: R-DER-ALC-09
+    type: derive
+    priority: 55
+    when:
+      has_context: [BAC_L3]
+    then:
+      add_acts: [ACT_ALCOHOL]
+    explain: "Có mức nồng độ cồn → thêm hành vi ACT_ALCOHOL"
+    source: "Suy diễn của nhóm"
+    verified: true
+
+  # Nhóm 3: Resistance behavior → Act + Circumstance
+  - id: R-DER-RES-01
+    type: derive
+    priority: 50
+    when:
+      resistance: [RES_FLEE]
+      officer_signal: true
+    then:
+      add_acts: [ACT_IGNORE_OFFICER]
+    explain: "Bỏ chạy khi người thi hành công vụ ra hiệu dừng xe được xem là không chấp hành hiệu lệnh"
+    source: "Suy diễn của nhóm từ NĐ 168/2024, Điều 6 khoản 9 điểm c; Điều 7 khoản 7 điểm d"
+    verified: true
+
+  - id: R-DER-RES-02
+    type: derive
+    priority: 50
+    when:
+      resistance: [RES_OBSTRUCT]
+    then:
+      add_acts: [ACT_OBSTRUCT_OFFICER]
+    explain: "Hành vi cản trở người thi hành công vụ"
+    source: "Suy diễn của nhóm"
+    verified: true
+
+  - id: R-DER-RES-03
+    type: derive
+    priority: 50
+    when:
+      resistance: [RES_INSULT_OFFICER]
+    then:
+      add_circumstances: [CIR_INSULT_OFFICER]
+    explain: "Lăng mạ, phỉ báng người thi hành công vụ là tình tiết tăng nặng"
+    source: "Luật XLVPHC Điều 10 khoản 1 điểm đ"
+    verified: true
+
+  - id: R-DER-RES-04
+    type: derive
+    priority: 51
+    when:
+      consequence: [CONS_ACCIDENT]
+      resistance: [RES_FLEE]
+      officer_signal: {not_true: true}
+    then:
+      add_acts: [ACT_HIT_AND_RUN]
+    explain: "Gây tai nạn rồi bỏ chạy (không phải do có hiệu lệnh dừng) → hành vi hit-and-run"
+    source: "NĐ 168/2024, Điều 6 khoản 8; Điều 7 khoản 9 điểm c"
+    note: "Nếu officer_signal=true, có thể là ACT_IGNORE_OFFICER thay vì hit-and-run; not_true = null hoặc false"
+    verified: true
+
+  # Nhóm 4: Chở quá người (xe máy)
+  - id: R-DER-PASS-01
+    type: derive
+    priority: 50
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      passengers_count: {gte: 2}
+    then:
+      add_acts: [ACT_OVERLOAD_PASSENGER]
+    explain: "Xe máy chở ≥2 người (không tính người lái, trừ ngoại lệ trẻ em <12t, người già yếu, khuyết tật) → ACT_OVERLOAD_PASSENGER"
+    source: "NĐ 168/2024, Điều 7 khoản 2 điểm g (chở 2 người), khoản 3 điểm b (từ 3 người trở lên)"
+    note: "Cần kiểm tra điều kiện ngoại lệ: chở người bệnh cấp cứu, trẻ em <12t, người già yếu, khuyết tật, áp giải"
+    verified: true
+
+  # Nhóm 5: Mũ bảo hiểm
+  - id: R-DER-HEL-01
+    type: derive
+    priority: 50
+    when:
+      no_helmet_who: driver
+    then:
+      add_acts: [ACT_NO_HELMET]
+    explain: "Người điều khiển không đội mũ bảo hiểm → ACT_NO_HELMET"
+    source: "NĐ 168/2024, Điều 7 khoản 2 điểm h"
+    verified: true
+
+  - id: R-DER-HEL-02
+    type: derive
+    priority: 50
+    when:
+      no_helmet_who: passenger
+    then:
+      add_acts: [ACT_PASSENGER_NO_HELMET]
+    explain: "Hành khách không đội mũ bảo hiểm → ACT_PASSENGER_NO_HELMET"
+    source: "NĐ 168/2024, Điều 7 khoản 2 điểm i"
+    verified: true
+
+  - id: R-DER-HEL-03
+    type: derive
+    priority: 50
+    when:
+      no_helmet_who: both
+    then:
+      add_acts: [ACT_NO_HELMET, ACT_PASSENGER_NO_HELMET]
+    explain: "Cả người lái và hành khách đều không đội mũ"
+    source: "NĐ 168/2024, Điều 7 khoản 2 điểm h, i"
+    verified: true
+
+  # Nhóm 6: Đi ngược chiều, sai làn
+  - id: R-DER-WAY-01
+    type: derive
+    priority: 50
+    when:
+      free_behaviors: ["đi vào đường một chiều theo chiều ngược lại"]
+    then:
+      add_acts: [ACT_WRONG_WAY]
+    explain: "Mô tả 'đi vào đường một chiều theo chiều ngược lại' → ACT_WRONG_WAY"
+    source: "NĐ 168/2024, Điều 6 khoản 9 điểm d; Điều 7 khoản 7 điểm a"
+    note: "Rule này sẽ chạy sau OntologyGrounder; nếu grounder đã map thì không cần"
+    verified: true

@@ -1,0 +1,29 @@
+# Temporal Rules - Luật chọn văn bản áp dụng theo ngày vi phạm
+# Vi phạm trước 01/01/2025 → out_of_scope_temporal
+
+rules:
+  - id: R-TMP-ND100
+    type: temporal
+    priority: 70
+    when:
+      violation_date: {before: "2025-01-01"}
+    then:
+      set_status: out_of_scope_temporal
+      message: "Vi phạm xảy ra trước ngày 01/01/2025. Áp dụng NĐ 100/2019/NĐ-CP (sửa đổi bởi NĐ 123/2021/NĐ-CP). Hệ thống chỉ xử lý chi tiết các vi phạm từ 01/01/2025 theo NĐ 168/2024/NĐ-CP."
+      reference_decree: "NĐ 100/2019/NĐ-CP"
+      reference_amendment: "NĐ 123/2021/NĐ-CP"
+    explain: "Nghị định 168/2024 có hiệu lực từ 01/01/2025, thay thế NĐ 100/2019 và NĐ 123/2021"
+    source: "NĐ 168/2024/NĐ-CP, Điều 53 khoản 1; Điều 54 (chuyển tiếp)"
+    verified: true
+
+  # Tùy chọn P1c: NĐ 238/2026 (hiệu lực 15/8/2026)
+  # - id: R-TMP-ND238
+  #   type: temporal
+  #   priority: 70
+  #   when:
+  #     violation_date: {from: "2026-08-15"}
+  #   then:
+  #     apply_amendments: ["ND238-2026"]
+  #   explain: "Nghị định 238/2026 sửa đổi một số điều của NĐ 168/2024, có hiệu lực từ 15/08/2026"
+  #   source: "NĐ 238/2026/NĐ-CP (giả định)"
+  #   verified: true

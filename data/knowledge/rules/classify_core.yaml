@@ -1,0 +1,433 @@
+# Classify Core Rules - Luật phân loại viết tay cho 6 nhóm làm sâu
+# (vehicle_class, act, context) → ViolationHit(citation_id)
+# TÌM citation bằng nội dung văn bản trong violations_168_clean.json, KHÔNG đoán
+# Mỗi rule có legal_excerpt (≤200 ký tự nguyên văn) để kiểm tra
+
+rules:
+  # 1. Nhóm đèn tín hiệu (ACT_RED_LIGHT)
+  - id: R-CLS-RED-CAR
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_RED_LIGHT
+    then:
+      add_violation: "ND168-D6-K9-Pb"
+    legal_excerpt: "Không chấp hành hiệu lệnh của đèn tín hiệu giao thông"
+    source: "NĐ 168/2024, Điều 6 khoản 9 điểm b"
+    verified: true
+
+  - id: R-CLS-RED-MOTO
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_RED_LIGHT
+    then:
+      add_violation: "ND168-D7-K7-Pc"
+    legal_excerpt: "Không chấp hành hiệu lệnh của đèn tín hiệu giao thông"
+    source: "NĐ 168/2024, Điều 7 khoản 7 điểm c"
+    verified: true
+
+  # 2. Nhóm nồng độ cồn (ACT_ALCOHOL) - 3 mức × 2 loại xe = 6 rules
+  - id: R-CLS-ALC-CAR-L1
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_ALCOHOL
+      has_context: BAC_L1
+    then:
+      add_violation: "ND168-D6-K6-Pc"
+    legal_excerpt: "Điều khiển xe trên đường mà trong máu hoặc hơi thở có nồng độ cồn nhưng chưa vượt quá 50 miligam/100 mililít máu hoặc chưa vượt quá 0,25 miligam/1 lít khí thở"
+    source: "NĐ 168/2024, Điều 6 khoản 6 điểm c"
+    verified: true
+
+  - id: R-CLS-ALC-CAR-L2
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_ALCOHOL
+      has_context: BAC_L2
+    then:
+      add_violation: "ND168-D6-K9-Pa"
+    legal_excerpt: "Điều khiển xe trên đường mà trong máu hoặc hơi thở có nồng độ cồn vượt quá 50 miligam đến 80 miligam/100 mililít máu hoặc vượt quá 0,25 miligam đến 0,4 miligam/1 lít khí thở"
+    source: "NĐ 168/2024, Điều 6 khoản 9 điểm a"
+    verified: true
+
+  - id: R-CLS-ALC-CAR-L3
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_ALCOHOL
+      has_context: BAC_L3
+    then:
+      add_violation: "ND168-D6-K11-Pa"
+    legal_excerpt: "Điều khiển xe trên đường mà trong máu hoặc hơi thở có nồng độ cồn vượt quá 80 miligam/100 mililít máu hoặc vượt quá 0,4 miligam/1 lít khí thở"
+    source: "NĐ 168/2024, Điều 6 khoản 11 điểm a"
+    verified: true
+
+  - id: R-CLS-ALC-MOTO-L1
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_ALCOHOL
+      has_context: BAC_L1
+    then:
+      add_violation: "ND168-D7-K6-Pa"
+    legal_excerpt: "Điều khiển xe trên đường mà trong máu hoặc hơi thở có nồng độ cồn nhưng chưa vượt quá 50 miligam/100 mililít máu hoặc chưa vượt quá 0,25 miligam/1 lít khí thở"
+    source: "NĐ 168/2024, Điều 7 khoản 6 điểm a"
+    verified: true
+
+  - id: R-CLS-ALC-MOTO-L2
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_ALCOHOL
+      has_context: BAC_L2
+    then:
+      add_violation: "ND168-D7-K8-Pb"
+    legal_excerpt: "Điều khiển xe trên đường mà trong máu hoặc hơi thở có nồng độ cồn vượt quá 50 miligam đến 80 miligam/100 mililít máu hoặc vượt quá 0,25 miligam đến 0,4 miligam/1 lít khí thở"
+    source: "NĐ 168/2024, Điều 7 khoản 8 điểm b"
+    verified: true
+
+  - id: R-CLS-ALC-MOTO-L3
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_ALCOHOL
+      has_context: BAC_L3
+    then:
+      add_violation: "ND168-D7-K9-Pd"
+    legal_excerpt: "Điều khiển xe trên đường mà trong máu hoặc hơi thở có nồng độ cồn vượt quá 80 miligam/100 mililít máu hoặc vượt quá 0,4 miligam/1 lít khí thở"
+    source: "NĐ 168/2024, Điều 7 khoản 9 điểm d"
+    verified: true
+
+  # 3. Nhóm tốc độ (ACT_SPEEDING) - 4 band × 2 loại xe
+  - id: R-CLS-SPD-CAR-5-10
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_SPEEDING
+      has_context: SPEED_5_10
+    then:
+      add_violation: "ND168-D6-K3-Pa"
+    legal_excerpt: "Điều khiển xe chạy quá tốc độ quy định từ 05 km/h đến dưới 10 km/h"
+    source: "NĐ 168/2024, Điều 6 khoản 3 điểm a"
+    verified: true
+
+  - id: R-CLS-SPD-CAR-10-20
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_SPEEDING
+      has_context: SPEED_10_20
+    then:
+      add_violation: "ND168-D6-K5-Pđ"
+    legal_excerpt: "Điều khiển xe chạy quá tốc độ quy định từ 10 km/h đến 20 km/h"
+    source: "NĐ 168/2024, Điều 6 khoản 5 điểm đ"
+    verified: true
+
+  - id: R-CLS-SPD-CAR-20-35
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_SPEEDING
+      has_context: SPEED_20_35
+    then:
+      add_violation: "ND168-D6-K6-Pa"
+    legal_excerpt: "Điều khiển xe chạy quá tốc độ quy định trên 20 km/h đến 35 km/h"
+    source: "NĐ 168/2024, Điều 6 khoản 6 điểm a"
+    verified: true
+
+  - id: R-CLS-SPD-CAR-OVER-35
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_SPEEDING
+      has_context: SPEED_OVER_35
+    then:
+      add_violation: "ND168-D6-K7-Pa"
+    legal_excerpt: "Điều khiển xe chạy quá tốc độ quy định trên 35 km/h"
+    source: "NĐ 168/2024, Điều 6 khoản 7 điểm a"
+    verified: true
+
+  - id: R-CLS-SPD-MOTO-5-10
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_SPEEDING
+      has_context: SPEED_5_10
+    then:
+      add_violation: "ND168-D7-K2-Pb"
+    legal_excerpt: "Điều khiển xe chạy quá tốc độ quy định từ 05 km/h đến dưới 10 km/h"
+    source: "NĐ 168/2024, Điều 7 khoản 2 điểm b"
+    verified: true
+
+  - id: R-CLS-SPD-MOTO-10-20
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_SPEEDING
+      has_context: SPEED_10_20
+    then:
+      add_violation: "ND168-D7-K4-Pa"
+    legal_excerpt: "Điều khiển xe chạy quá tốc độ quy định từ 10 km/h đến 20 km/h"
+    source: "NĐ 168/2024, Điều 7 khoản 4 điểm a"
+    verified: true
+
+  - id: R-CLS-SPD-MOTO-OVER-20
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_SPEEDING
+      has_context: [SPEED_20_35, SPEED_OVER_35]
+    then:
+      add_violation: "ND168-D7-K8-Pa"
+    legal_excerpt: "Điều khiển xe chạy quá tốc độ quy định trên 20 km/h"
+    source: "NĐ 168/2024, Điều 7 khoản 8 điểm a"
+    note: "Xe máy chỉ có mức trên 20 km/h, không phân thêm mức 35 km/h"
+    verified: true
+
+  # 4. Nhóm mũ bảo hiểm (xe máy)
+  - id: R-CLS-HEL-DRIVER
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_NO_HELMET
+    then:
+      add_violation: "ND168-D7-K2-Ph"
+    legal_excerpt: "Không đội 'mũ bảo hiểm cho người đi mô tô, xe máy' hoặc đội 'mũ bảo hiểm cho người đi mô tô, xe máy' không cài quai đúng quy cách khi điều khiển xe tham gia giao thông trên đường bộ"
+    source: "NĐ 168/2024, Điều 7 khoản 2 điểm h"
+    verified: true
+
+  - id: R-CLS-HEL-PASS
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_PASSENGER_NO_HELMET
+      passenger_helmet_exception: {not_true: true}
+    then:
+      add_violation: "ND168-D7-K2-Pi"
+    legal_excerpt: 'Chở người ngồi trên xe không đội "mũ bảo hiểm cho người đi mô tô, xe máy" hoặc đội "mũ bảo hiểm cho người đi mô tô, xe máy" không cài quai đúng quy cách, trừ trường hợp chở người bệnh đi cấp cứu, trẻ em dưới 06 tuổi, áp giải người có hành vi vi phạm pháp luật;'
+    source: "NĐ 168/2024, Điều 7 khoản 2 điểm i"
+    note: "Không áp dụng khi passenger_helmet_exception=true (chở người bệnh đi cấp cứu, trẻ em dưới 06 tuổi, áp giải người có hành vi vi phạm pháp luật)"
+    verified: true
+
+  # 5. Nhóm không chấp hành hiệu lệnh / chống đối
+  - id: R-CLS-IGN-CAR
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_IGNORE_OFFICER
+    then:
+      add_violation: "ND168-D6-K9-Pc"
+    legal_excerpt: "Không chấp hành hiệu lệnh, hướng dẫn của người điều khiển giao thông hoặc người kiểm soát giao thông"
+    source: "NĐ 168/2024, Điều 6 khoản 9 điểm c"
+    verified: true
+
+  - id: R-CLS-IGN-MOTO
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_IGNORE_OFFICER
+    then:
+      add_violation: "ND168-D7-K7-Pd"
+    legal_excerpt: "Không chấp hành hiệu lệnh, hướng dẫn của người điều khiển giao thông hoặc người kiểm soát giao thông"
+    source: "NĐ 168/2024, Điều 7 khoản 7 điểm d"
+    verified: true
+
+  # 6. Nhóm sai làn, ngược chiều
+  - id: R-CLS-LANE-CAR
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_WRONG_LANE
+    then:
+      add_violation: "ND168-D6-K5-Pb"
+    legal_excerpt: "Điều khiển xe không đi bên phải theo chiều đi của mình; đi không đúng phần đường hoặc làn đường quy định (làn cùng chiều hoặc làn ngược chiều)"
+    source: "NĐ 168/2024, Điều 6 khoản 5 điểm b"
+    verified: true
+
+  - id: R-CLS-LANE-MOTO
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_WRONG_LANE
+    then:
+      add_violation: "ND168-D7-K3-Pd"
+    legal_excerpt: "Điều khiển xe không đi bên phải theo chiều đi của mình; đi không đúng phần đường, làn đường quy định (làn cùng chiều hoặc làn ngược chiều)"
+    source: "NĐ 168/2024, Điều 7 khoản 3 điểm d"
+    verified: true
+
+  - id: R-CLS-WAY-CAR
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_WRONG_WAY
+    then:
+      add_violation: "ND168-D6-K9-Pd"
+    legal_excerpt: "Đi ngược chiều của đường một chiều, đi ngược chiều trên đường có biển 'Cấm đi ngược chiều'"
+    source: "NĐ 168/2024, Điều 6 khoản 9 điểm d"
+    verified: true
+
+  - id: R-CLS-WAY-MOTO
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_WRONG_WAY
+    then:
+      add_violation: "ND168-D7-K7-Pa"
+    legal_excerpt: "Đi ngược chiều của đường một chiều, đi ngược chiều trên đường có biển 'Cấm đi ngược chiều'"
+    source: "NĐ 168/2024, Điều 7 khoản 7 điểm a"
+    verified: true
+
+  # NEW: R-CLS-WAY-CAR-EXPRESSWAY - VEH_CAR + ACT_WRONG_WAY + road_type ROAD_EXPRESSWAY → ND168-D6-K11-Pđ
+  - id: R-CLS-WAY-CAR-EXPRESSWAY
+    type: classify
+    priority: 45  # priority cao hơn R-CLS-WAY-CAR (40)
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_WRONG_WAY
+      road_type: ROAD_EXPRESSWAY
+    then:
+      add_violation: "ND168-D6-K11-Pđ"
+    legal_excerpt: "Điều khiển xe đi ngược chiều trên đường cao tốc, lùi xe trên đường cao tốc, quay đầu xe trên đường cao tốc, trừ các xe ưu tiên đang đi làm nhiệm vụ khẩn cấp theo quy định"
+    source: "NĐ 168/2024, Điều 6 khoản 11 điểm đ"
+    verified: true
+
+  # NEW: R-EXC-WAY-CAR-EXPRESSWAY - exclude ND168-D6-K9-Pd khi đã có ND168-D6-K11-Pđ
+  - id: R-EXC-WAY-CAR-EXPRESSWAY
+    type: exclude
+    priority: 30
+    when:
+      has_violation: ["ND168-D6-K11-Pđ"]
+      also_has_violation: ["ND168-D6-K9-Pd"]
+    then:
+      remove_violation: "ND168-D6-K9-Pd"
+    explain: "Đi ngược chiều trên đường cao tốc (K11-đ) áp dụng thay thế cho đi ngược chiều thông thường (K9-d), theo câu 'trừ… điểm đ khoản 11'"
+    source: "NĐ 168/2024, Điều 6 khoản 9 điểm d (trừ… điểm đ khoản 11)"
+    verified: true
+
+  # Acts phụ: chở quá người, dùng điện thoại
+  - id: R-CLS-PASS-MOTO-2
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_OVERLOAD_PASSENGER
+      passengers_count: 2
+      passenger_exception: {not_true: true}
+    then:
+      add_violation: "ND168-D7-K2-Pg"
+    legal_excerpt: "Chở theo 02 người trên xe, trừ trường hợp chở người bệnh đi cấp cứu, trẻ em dưới 12 tuổi, người già yếu hoặc người khuyết tật, áp giải người có hành vi vi phạm pháp luật"
+    source: "NĐ 168/2024, Điều 7 khoản 2 điểm g"
+    note: "Không áp dụng khi có passenger_exception (người bệnh cấp cứu, trẻ em <12t, người già yếu, khuyết tật, áp giải)"
+    verified: true
+
+  - id: R-CLS-PASS-MOTO-3PLUS
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_OVERLOAD_PASSENGER
+      passengers_count: {gte: 3}
+    then:
+      add_violation: "ND168-D7-K3-Pb"
+    legal_excerpt: "Chở theo từ 03 người trở lên trên xe"
+    source: "NĐ 168/2024, Điều 7 khoản 3 điểm b"
+    verified: true
+
+  - id: R-CLS-PHONE-CAR
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_PHONE_WHILE_DRIVING
+    then:
+      add_violation: "ND168-D6-K5-Ph"
+    legal_excerpt: "Dùng tay cầm và sử dụng điện thoại hoặc các thiết bị điện tử khác khi điều khiển phương tiện tham gia giao thông đang di chuyển trên đường bộ"
+    source: "NĐ 168/2024, Điều 6 khoản 5 điểm h"
+    verified: true
+
+  - id: R-CLS-PHONE-MOTO
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_PHONE_WHILE_DRIVING
+    then:
+      add_violation: "ND168-D7-K4-Pđ"
+    legal_excerpt: "Người đang điều khiển xe sử dụng ô (dù), thiết bị âm thanh (trừ thiết bị trợ thính), dùng tay cầm và sử dụng điện thoại hoặc các thiết bị điện tử khác"
+    source: "NĐ 168/2024, Điều 7 khoản 4 điểm đ"
+    verified: true
+
+  # NEW: Không chấp hành yêu cầu kiểm tra nồng độ cồn (ACT_REFUSE_ALCOHOL_TEST)
+  - id: R-CLS-REFUSE-ALC-CAR
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_REFUSE_ALCOHOL_TEST
+    then:
+      add_violation: "ND168-D6-K11-Pb"
+    legal_excerpt: "Không chấp hành yêu cầu kiểm tra về nồng độ cồn của người thi hành công vụ"
+    source: "NĐ 168/2024, Điều 6 khoản 11 điểm b"
+    verified: true
+
+  - id: R-CLS-REFUSE-ALC-MOTO
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_REFUSE_ALCOHOL_TEST
+    then:
+      add_violation: "ND168-D7-K9-Pđ"
+    legal_excerpt: "Không chấp hành yêu cầu kiểm tra về nồng độ cồn của người thi hành công vụ"
+    source: "NĐ 168/2024, Điều 7 khoản 9 điểm đ"
+    verified: true
+
+  # NEW: Gây tai nạn rồi bỏ chạy (ACT_HIT_AND_RUN)
+  - id: R-CLS-HITRUN-CAR
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_CAR
+      has_act: ACT_HIT_AND_RUN
+    then:
+      add_violation: "ND168-D6-K8"
+    legal_excerpt: "Phạt tiền từ 16.000.000 đồng đến 18.000.000 đồng đối với người điều khiển xe thực hiện hành vi vi phạm gây tai nạn giao thông không dừng ngay phương tiện, không giữ nguyên hiện trường, không trợ giúp người bị nạn, không ở lại hiện trường hoặc không đến trình báo ngay với cơ quan công an, Ủy ban nhân dân nơi gần nhất."
+    source: "NĐ 168/2024, Điều 6 khoản 8"
+    verified: true
+
+  - id: R-CLS-HITRUN-MOTO
+    type: classify
+    priority: 40
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      has_act: ACT_HIT_AND_RUN
+    then:
+      add_violation: "ND168-D7-K9-Pc"
+    legal_excerpt: "Gây tai nạn giao thông không dừng ngay phương tiện, không giữ nguyên hiện trường, không trợ giúp người bị nạn, không ở lại hiện trường hoặc không đến trình báo ngay với cơ quan công an, Ủy ban nhân dân nơi gần nhất;"
+    source: "NĐ 168/2024, Điều 7 khoản 9 điểm c"
+    verified: true

@@ -1,0 +1,245 @@
+# Escalate Rules - Leo thang khi có hậu quả (gây tai nạn)
+# Tìm trong Điều 6, 7 các khoản có cụm "gây tai nạn giao thông"
+# Luật escalate từ vi phạm gốc → khoản gây tai nạn tương ứng
+
+rules:
+  # Điều 6 khoản 10 - xe ô tô gây tai nạn
+  - id: R-ESC-CAR-GEN
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_CAR
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D6-K3-Pa", "ND168-D6-K5-Pđ", "ND168-D6-K6-Pa", "ND168-D6-K7-Pa"]
+    then:
+      escalate_to: "ND168-D6-K10-Pa"
+    legal_excerpt: "Điều khiển xe chạy quá tốc độ quy định gây tai nạn giao thông"
+    source: "NĐ 168/2024, Điều 6 khoản 10 điểm a"
+    note: "Mọi mức tốc độ gây tai nạn → khoản 10 điểm a"
+    verified: true
+
+  - id: R-ESC-CAR-SIGNS
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_CAR
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D6-K1-Pa", "ND168-D6-K1-Pb", "ND168-D6-K1-Pc", "ND168-D6-K1-Pd", "ND168-D6-K1-Pđ"]
+    then:
+      escalate_to: "ND168-D6-K10-Pb"
+    legal_excerpt: "Vi phạm quy định tại điểm a, điểm b, điểm c, điểm d, điểm đ khoản 1 Điều này mà gây tai nạn giao thông"
+    source: "NĐ 168/2024, Điều 6 khoản 10 điểm b"
+    verified: true
+
+  - id: R-ESC-CAR-YIELD
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_CAR
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D6-K2-Pc"]
+    then:
+      escalate_to: "ND168-D6-K10-Pb"
+    legal_excerpt: "Vi phạm quy định tại điểm c khoản 2 Điều này mà gây tai nạn giao thông"
+    source: "NĐ 168/2024, Điều 6 khoản 10 điểm b"
+    verified: true
+
+  - id: R-ESC-CAR-LIGHT
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_CAR
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D6-K3-Pb", "ND168-D6-K3-Pg", "ND168-D6-K3-Ph", "ND168-D6-K3-Pn", "ND168-D6-K3-Po", "ND168-D6-K3-Pp"]
+    then:
+      escalate_to: "ND168-D6-K10-Pb"
+    legal_excerpt: "Vi phạm quy định tại điểm b, điểm g, điểm h, điểm n, điểm o, điểm p khoản 3 Điều này mà gây tai nạn giao thông"
+    source: "NĐ 168/2024, Điều 6 khoản 10 điểm b"
+    verified: true
+
+  - id: R-ESC-CAR-TUNNEL
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_CAR
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D6-K4-Pa", "ND168-D6-K4-Pc", "ND168-D6-K4-Pd"]
+    then:
+      escalate_to: "ND168-D6-K10-Pb"
+    legal_excerpt: "Vi phạm quy định tại điểm a, điểm c, điểm d khoản 4 Điều này mà gây tai nạn giao thông"
+    source: "NĐ 168/2024, Điều 6 khoản 10 điểm b"
+    verified: true
+
+  - id: R-ESC-CAR-PASS-LANE
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_CAR
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D6-K5-Pc", "ND168-D6-K5-Pd", "ND168-D6-K5-Pe", "ND168-D6-K5-Ph", "ND168-D6-K5-Pn", "ND168-D6-K5-Po", "ND168-D6-K5-Pq"]
+    then:
+      escalate_to: "ND168-D6-K10-Pb"
+    legal_excerpt: "Vi phạm quy định tại điểm c, điểm d, điểm e, điểm h, điểm n, điểm o, điểm q khoản 5 Điều này mà gây tai nạn giao thông"
+    source: "NĐ 168/2024, Điều 6 khoản 10 điểm b"
+    verified: true
+
+  - id: R-ESC-CAR-HIGHWAY
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_CAR
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D6-K7-Pb"]
+    then:
+      escalate_to: "ND168-D6-K10-Pb"
+    legal_excerpt: "Vi phạm quy định tại điểm b khoản 7 Điều này mà gây tai nạn giao thông"
+    source: "NĐ 168/2024, Điều 6 khoản 10 điểm b"
+    verified: true
+
+  - id: R-ESC-CAR-REDLIGHT-OFFICER
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_CAR
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D6-K9-Pb", "ND168-D6-K9-Pc", "ND168-D6-K9-Pd"]
+    then:
+      escalate_to: "ND168-D6-K10-Pb"
+    legal_excerpt: "Vi phạm quy định tại điểm b, điểm c, điểm d khoản 9 Điều này mà gây tai nạn giao thông"
+    source: "NĐ 168/2024, Điều 6 khoản 10 điểm b"
+    verified: true
+
+  # NEW: VEH_CAR + CONS_ACCIDENT + has_violation ND168-D6-K5-Pb → ND168-D6-K10-Pa
+  - id: R-ESC-CAR-WRONGLANE-ACCIDENT
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_CAR
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D6-K5-Pb"]
+    then:
+      escalate_to: "ND168-D6-K10-Pa"
+    legal_excerpt: "Điều khiển xe không quan sát, giảm tốc độ hoặc dừng lại để bảo đảm an toàn theo quy định mà gây tai nạn giao thông; điều khiển xe chạy quá tốc độ quy định gây tai nạn giao thông; dừng xe, đỗ xe, quay đầu xe, lùi xe, tránh xe, vượt xe, chuyển hướng, chuyển làn đường không đúng quy định gây tai nạn giao thông; không đi đúng phần đường, làn đường, không giữ khoảng cách an toàn giữa hai xe theo quy định gây tai nạn giao thông hoặc đi vào đường có biển báo hiệu có nội dung cấm đi vào đối với loại phương tiện đang điều khiển gây tai nạn giao thông, trừ các hành vi vi phạm quy định tại điểm đ khoản 11 Điều này"
+    source: "NĐ 168/2024, Điều 6 khoản 10 điểm a"
+    note: "Không đi đúng phần đường, làn đường (ND168-D6-K5-Pb) gây tai nạn → khoản 10 điểm a"
+    verified: true
+
+  # Điều 7 khoản 10 - xe máy gây tai nạn
+  - id: R-ESC-MOTO-GEN
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D7-K2-Pb", "ND168-D7-K4-Pa", "ND168-D7-K8-Pa"]
+    then:
+      escalate_to: "ND168-D7-K10-Pa"
+    legal_excerpt: "Điều khiển xe chạy quá tốc độ quy định gây tai nạn giao thông"
+    source: "NĐ 168/2024, Điều 7 khoản 10 điểm a"
+    verified: true
+
+  - id: R-ESC-MOTO-SIGNS
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D7-K1-Pa", "ND168-D7-K1-Pd", "ND168-D7-K1-Pđ", "ND168-D7-K1-Pg", "ND168-D7-K1-Ph", "ND168-D7-K1-Pi", "ND168-D7-K1-Pk"]
+    then:
+      escalate_to: "ND168-D7-K10-Pb"
+    legal_excerpt: "Vi phạm quy định tại điểm a, điểm d, điểm đ, điểm g, điểm h, điểm i, điểm k khoản 1 Điều này mà gây tai nạn giao thông"
+    source: "NĐ 168/2024, Điều 7 khoản 10 điểm b"
+    verified: true
+
+  - id: R-ESC-MOTO-PARK
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D7-K2-Pc", "ND168-D7-K2-Pđ", "ND168-D7-K2-Pg"]
+    then:
+      escalate_to: "ND168-D7-K10-Pb"
+    legal_excerpt: "Vi phạm quy định tại điểm c, điểm đ, điểm g khoản 2 Điều này mà gây tai nạn giao thông"
+    source: "NĐ 168/2024, Điều 7 khoản 10 điểm b"
+    verified: true
+
+  - id: R-ESC-MOTO-CARRY
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D7-K3-Pb", "ND168-D7-K3-Pe", "ND168-D7-K3-Pg", "ND168-D7-K3-Ph", "ND168-D7-K3-Pk"]
+    then:
+      escalate_to: "ND168-D7-K10-Pb"
+    legal_excerpt: "Vi phạm quy định tại điểm b, điểm e, điểm g, điểm h, điểm k khoản 3 Điều này mà gây tai nạn giao thông"
+    source: "NĐ 168/2024, Điều 7 khoản 10 điểm b"
+    verified: true
+
+  - id: R-ESC-MOTO-PHONE
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D7-K4-Pđ"]
+    then:
+      escalate_to: "ND168-D7-K10-Pb"
+    legal_excerpt: "Vi phạm quy định tại điểm đ khoản 4 Điều này mà gây tai nạn giao thông"
+    source: "NĐ 168/2024, Điều 7 khoản 10 điểm b"
+    verified: true
+
+  - id: R-ESC-MOTO-YIELD
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D7-K6-Pc", "ND168-D7-K6-Pd"]
+    then:
+      escalate_to: "ND168-D7-K10-Pb"
+    legal_excerpt: "Vi phạm quy định tại điểm c, điểm d khoản 6 Điều này mà gây tai nạn giao thông"
+    source: "NĐ 168/2024, Điều 7 khoản 10 điểm b"
+    verified: true
+
+  - id: R-ESC-MOTO-REDLIGHT-OFFICER
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D7-K7-Pc", "ND168-D7-K7-Pd", "ND168-D7-K7-Pđ"]
+    then:
+      escalate_to: "ND168-D7-K10-Pb"
+    legal_excerpt: "Vi phạm quy định tại điểm c, điểm d, điểm đ khoản 7 Điều này mà gây tai nạn giao thông"
+    source: "NĐ 168/2024, Điều 7 khoản 10 điểm b"
+    verified: true
+
+  - id: R-ESC-MOTO-GROUP
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D7-K9-Pa", "ND168-D7-K9-Pb", "ND168-D7-K9-Ph", "ND168-D7-K9-Pk"]
+    then:
+      escalate_to: "ND168-D7-K10-Pb"
+    legal_excerpt: "Vi phạm quy định tại điểm a, điểm b, điểm h, điểm k khoản 9 Điều này mà gây tai nạn giao thông"
+    source: "NĐ 168/2024, Điều 7 khoản 10 điểm b"
+    verified: true
+
+  # NEW: VEH_MOTORBIKE + CONS_ACCIDENT + has_violation [ND168-D7-K3-Pd, ND168-D7-K7-Pa] → ND168-D7-K10-Pa
+  - id: R-ESC-MOTO-WRONGLANE-WAY-ACCIDENT
+    type: escalate
+    priority: 35
+    when:
+      vehicle_class: VEH_MOTORBIKE
+      consequence: [CONS_ACCIDENT]
+      has_violation: ["ND168-D7-K3-Pd", "ND168-D7-K7-Pa"]
+    then:
+      escalate_to: "ND168-D7-K10-Pa"
+    legal_excerpt: "Điều khiển xe không quan sát, giảm tốc độ hoặc dừng lại để bảo đảm an toàn theo quy định mà gây tai nạn giao thông; điều khiển xe chạy quá tốc độ quy định gây tai nạn giao thông; đi vào đường cao tốc, dừng xe, đỗ xe, quay đầu xe, lùi xe, vượt xe, chuyển hướng, chuyển làn đường không đúng quy định gây tai nạn giao thông; không đi đúng phần đường, làn đường, không giữ khoảng cách an toàn giữa hai xe theo quy định gây tai nạn giao thông hoặc đi vào đường có biển báo hiệu có nội dung cấm đi vào đối với loại phương tiện đang điều khiển, đi ngược chiều của đường một chiều, đi ngược chiều trên đường có biển 'Cấm đi ngược chiều' gây tai nạn giao thông"
+    source: "NĐ 168/2024, Điều 7 khoản 10 điểm a"
+    note: "Không đi đúng phần đường/làn đường (K3-Pd) hoặc đi ngược chiều (K7-Pa) gây tai nạn → khoản 10 điểm a"
+    verified: true

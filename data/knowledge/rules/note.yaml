@@ -1,0 +1,20 @@
+# Note Rules - Ghi chú cho người dùng, chạy SAU classify/escalate/exclude, TRƯỚC ask
+# Không thêm violation. Có thể thêm notes[] và đặt status khi chưa có violation nào.
+# then:
+#   add_notes: [str]                         # luôn thêm vào notes[]
+#   set_status_if_no_violation: out_of_scope # chỉ áp dụng khi violations rỗng
+
+rules:
+  # ACT_OBSTRUCT_OFFICER - không có điều khoản trong NĐ 168/2024
+  - id: R-NOTE-OBSTRUCT
+    type: note
+    priority: 25
+    when:
+      has_act: ACT_OBSTRUCT_OFFICER
+    then:
+      add_notes: ["Hành vi chống đối/cản trở người thi hành công vụ không được quy định tại NĐ 168/2024; có thể bị xử lý theo văn bản khác (lĩnh vực an ninh, trật tự) — ngoài phạm vi hệ thống."]
+      set_status_if_no_violation: out_of_scope
+    explain: "ACT_OBSTRUCT_OFFICER không có điều khoản cụ thể trong NĐ 168/2024"
+    source: "Phân tích từ NĐ 168/2024 không có quy định cụ thể cho hành vi này"
+    note: "Không đổi status nếu đã có violation khác; chỉ đặt status out_of_scope khi không có violation nào"
+    verified: true

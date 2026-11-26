@@ -1,0 +1,94 @@
+# Ask Rules - Luật hỏi bổ sung khi thiếu dữ kiện bắt buộc
+# Dữ kiện bắt buộc thiếu → câu hỏi bổ sung với options
+
+rules:
+  # Hỏi nồng độ cồn khi có ACT_ALCOHOL nhưng thiếu BAC
+  - id: R-ASK-ALC-01
+    type: ask
+    priority: 20
+    when:
+      has_act: ACT_ALCOHOL
+      bac_blood_mg_100ml: {is_null: true}
+      bac_breath_mg_l: {is_null: true}
+      alcohol_test_refused: {not_true: true}
+    then:
+      ask_field: bac_breath_mg_l
+      question_text: "Nồng độ cồn đo được trong hơi thở là bao nhiêu?"
+      options:
+        - value: 0.2
+          label: "Đến 0,25 mg/l"
+        - value: 0.3
+          label: "Trên 0,25 đến 0,4 mg/l"
+        - value: 0.5
+          label: "Trên 0,4 mg/l"
+        - value: refuse
+          label: "Từ chối kiểm tra nồng độ cồn"
+          # Engine.apply_answer: không ghi "refuse" vào bac_breath_mg_l mà áp dụng các hiệu ứng sau
+          set_facts: {alcohol_test_refused: true}
+          set_acts: [ACT_REFUSE_ALCOHOL_TEST]
+          remove_acts: [ACT_ALCOHOL]
+    explain: "Cần biết mức nồng độ cồn chính xác để xác định khoản xử phạt, hoặc biết có từ chối kiểm tra"
+    source: "Suy diễn của nhóm"
+    note: "Chọn 'refuse' → engine.apply_answer đặt alcohol_test_refused=true, thêm ACT_REFUSE_ALCOHOL_TEST, bỏ ACT_ALCOHOL"
+    verified: true
+
+  # Hỏi tốc độ khi có ACT_SPEEDING nhưng thiếu speed hoặc chưa tính được speed_over_kmh
+  - id: R-ASK-SPD-01
+    type: ask
+    priority: 20
+    when:
+      has_act: ACT_SPEEDING
+      speed_over_kmh: {is_null: true}
+      actual_speed_kmh: {is_null: true}
+    then:
+      ask_field: actual_speed_kmh
+      question_text: "Tốc độ thực tế của xe là bao nhiêu km/h?"
+      input_type: number
+      unit: "km/h"
+    explain: "Cần biết tốc độ thực tế để tính mức vượt tốc độ"
+    source: "Suy diễn của nhóm"
+    verified: true
+
+  - id: R-ASK-SPD-02
+    type: ask
+    priority: 20
+    when:
+      has_act: ACT_SPEEDING
+      speed_over_kmh: {is_null: true}
+      speed_limit_kmh: {is_null: true}
+    then:
+      ask_field: speed_limit_kmh
+      question_text: "Tốc độ cho phép trên đoạn đường đó là bao nhiêu km/h?"
+      input_type: number
+      unit: "km/h"
+    explain: "Cần biết tốc độ giới hạn để tính mức vượt tốc độ"
+    source: "Suy diễn của nhóm"
+    verified: true
+
+  # Hỏi loại phương tiện khi vehicle_class null mà có act
+  - id: R-ASK-VEH-01
+    type: ask
+    priority: 25
+    when:
+      vehicle_class: {is_null: true}
+      acts: {not_empty: true}
+    then:
+      ask_field: vehicle_class
+      question_text: "Loại phương tiện vi phạm là gì?"
+      options:
+        - value: VEH_CAR
+          label: "Ô tô"
+        - value: VEH_MOTORBIKE
+          label: "Xe máy (mô tô, xe gắn máy)"
+        - value: VEH_SPECIAL
+          label: "Xe máy chuyên dùng"
+        - value: VEH_BICYCLE_RUDIMENTARY
+          label: "Xe đạp, xe thô sơ"
+        - value: VEH_PEDESTRIAN
+          label: "Người đi bộ"
+    explain: "Cần biết loại phương tiện để xác định điều khoản xử phạt chính xác"
+    source: "Suy diễn của nhóm"
+    verified: true
+
+  # KHÔNG hỏi khi acts rỗng và không ground được
+  # Theo DESIGN: "acts rỗng và không ground được → không hỏi, để unknown"
