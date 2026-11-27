@@ -1,0 +1,295 @@
+{
+  "config": "oracle_facts",
+  "env": {
+    "git": {
+      "sha": "0b2bb3f1ebf0753393b083468bdcdd9ca6b5ef38",
+      "tag": "eval-v1",
+      "dirty": false
+    },
+    "model": null,
+    "gpus": [
+      "Tesla T4, Tesla T4"
+    ],
+    "seed": 42,
+    "n_cases": 155,
+    "cases_file": "data/eval/test_cases.jsonl",
+    "case_ids_sha1": "99a73ea88239b004df78bd6893295afeb63bc62e",
+    "n_unverified_cases": 0,
+    "limit": null,
+    "last_run_duration_s": 0.9,
+    "total_case_time_s": 0.9,
+    "finished_at": "2026-11-26T19:12:56+00:00"
+  },
+  "metrics": {
+    "overall": {
+      "n_cases": 155,
+      "extraction": null,
+      "reasoning": {
+        "violation": {
+          "precision": 1.0,
+          "recall": 0.8975903614457831,
+          "f1": 0.946031746031746,
+          "tp": 149,
+          "fp": 0,
+          "fn": 17
+        },
+        "exact_set_match": 0.8903225806451613,
+        "citation_accuracy": 0.8975903614457831,
+        "citation_exists_rate": 1.0,
+        "fine_range_accuracy": 0.8682170542635659,
+        "recommended_fine_exact": 0.8682170542635659,
+        "points_accuracy": 0.9612403100775194,
+        "sanctions": {
+          "precision": 0.9285714285714286,
+          "recall": 0.9285714285714286,
+          "f1": 0.9285714285714286,
+          "tp": 13,
+          "fp": 1,
+          "fn": 1
+        },
+        "aggravating_exact": 1.0,
+        "mitigating_exact": 1.0,
+        "n_answered": 129
+      },
+      "dialog": {
+        "first_status_accuracy": null,
+        "first_status_confusion": null,
+        "first_ask_slot_accuracy": null,
+        "status_accuracy": 0.896774193548387,
+        "avg_question_turns": null,
+        "followup_mismatches": 0
+      },
+      "end_to_end_accuracy": 0.8838709677419355
+    },
+    "by_group": {
+      "A": {
+        "n_cases": 38,
+        "extraction": null,
+        "reasoning": {
+          "violation": {
+            "precision": 1.0,
+            "recall": 0.7631578947368421,
+            "f1": 0.8656716417910447,
+            "tp": 29,
+            "fp": 0,
+            "fn": 9
+          },
+          "exact_set_match": 0.7631578947368421,
+          "citation_accuracy": 0.7631578947368421,
+          "citation_exists_rate": 1.0,
+          "fine_range_accuracy": 0.7631578947368421,
+          "recommended_fine_exact": 0.7631578947368421,
+          "points_accuracy": 0.9210526315789473,
+          "sanctions": {
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571428571428571,
+            "tp": 3,
+            "fp": 0,
+            "fn": 1
+          },
+          "aggravating_exact": 1.0,
+          "mitigating_exact": 1.0,
+          "n_answered": 38
+        },
+        "dialog": {
+          "first_status_accuracy": null,
+          "first_status_confusion": null,
+          "first_ask_slot_accuracy": null,
+          "status_accuracy": 0.7631578947368421,
+          "avg_question_turns": null,
+          "followup_mismatches": 0
+        },
+        "end_to_end_accuracy": 0.7631578947368421
+      },
+      "B": {
+        "n_cases": 33,
+        "extraction": null,
+        "reasoning": {
+          "violation": {
+            "precision": 1.0,
+            "recall": 0.8787878787878788,
+            "f1": 0.9354838709677419,
+            "tp": 29,
+            "fp": 0,
+            "fn": 4
+          },
+          "exact_set_match": 0.8787878787878788,
+          "citation_accuracy": 0.8787878787878788,
+          "citation_exists_rate": 1.0,
+          "fine_range_accuracy": 0.8787878787878788,
+          "recommended_fine_exact": 0.8787878787878788,
+          "points_accuracy": 0.9393939393939394,
+          "sanctions": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 4,
+            "fp": 0,
+            "fn": 0
+          },
+          "aggravating_exact": 1.0,
+          "mitigating_exact": 1.0,
+          "n_answered": 33
+        },
+        "dialog": {
+          "first_status_accuracy": null,
+          "first_status_confusion": null,
+          "first_ask_slot_accuracy": null,
+          "status_accuracy": 0.8787878787878788,
+          "avg_question_turns": null,
+          "followup_mismatches": 0
+        },
+        "end_to_end_accuracy": 0.8787878787878788
+      },
+      "C": {
+        "n_cases": 24,
+        "extraction": null,
+        "reasoning": {
+          "violation": {
+            "precision": 1.0,
+            "recall": 0.9661016949152542,
+            "f1": 0.9827586206896551,
+            "tp": 57,
+            "fp": 0,
+            "fn": 2
+          },
+          "exact_set_match": 0.9166666666666666,
+          "citation_accuracy": 0.9661016949152542,
+          "citation_exists_rate": 1.0,
+          "fine_range_accuracy": 0.9166666666666666,
+          "recommended_fine_exact": 0.9166666666666666,
+          "points_accuracy": 1.0,
+          "sanctions": {
+            "precision": 0.8,
+            "recall": 1.0,
+            "f1": 0.8888888888888888,
+            "tp": 4,
+            "fp": 1,
+            "fn": 0
+          },
+          "aggravating_exact": 1.0,
+          "mitigating_exact": 1.0,
+          "n_answered": 24
+        },
+        "dialog": {
+          "first_status_accuracy": null,
+          "first_status_confusion": null,
+          "first_ask_slot_accuracy": null,
+          "status_accuracy": 1.0,
+          "avg_question_turns": null,
+          "followup_mismatches": 0
+        },
+        "end_to_end_accuracy": 0.9166666666666666
+      },
+      "D": {
+        "n_cases": 30,
+        "extraction": null,
+        "reasoning": {
+          "violation": {
+            "precision": 1.0,
+            "recall": 0.9354838709677419,
+            "f1": 0.9666666666666667,
+            "tp": 29,
+            "fp": 0,
+            "fn": 2
+          },
+          "exact_set_match": 0.9333333333333333,
+          "citation_accuracy": 0.9354838709677419,
+          "citation_exists_rate": 1.0,
+          "fine_range_accuracy": 0.9310344827586207,
+          "recommended_fine_exact": 0.9310344827586207,
+          "points_accuracy": 1.0,
+          "sanctions": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "aggravating_exact": 1.0,
+          "mitigating_exact": 1.0,
+          "n_answered": 29
+        },
+        "dialog": {
+          "first_status_accuracy": null,
+          "first_status_confusion": null,
+          "first_ask_slot_accuracy": null,
+          "status_accuracy": 0.9333333333333333,
+          "avg_question_turns": null,
+          "followup_mismatches": 0
+        },
+        "end_to_end_accuracy": 0.9333333333333333
+      },
+      "E": {
+        "n_cases": 30,
+        "extraction": null,
+        "reasoning": {
+          "violation": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 5,
+            "fp": 0,
+            "fn": 0
+          },
+          "exact_set_match": 1.0,
+          "citation_accuracy": 1.0,
+          "citation_exists_rate": 1.0,
+          "fine_range_accuracy": 1.0,
+          "recommended_fine_exact": 1.0,
+          "points_accuracy": 1.0,
+          "sanctions": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "aggravating_exact": 1.0,
+          "mitigating_exact": 1.0,
+          "n_answered": 5
+        },
+        "dialog": {
+          "first_status_accuracy": null,
+          "first_status_confusion": null,
+          "first_ask_slot_accuracy": null,
+          "status_accuracy": 0.9666666666666667,
+          "avg_question_turns": null,
+          "followup_mismatches": 0
+        },
+        "end_to_end_accuracy": 0.9666666666666667
+      }
+    }
+  },
+  "system": {
+    "latency_ms": {
+      "engine": {
+        "n": 155,
+        "mean": 5.47,
+        "p50": 4.7,
+        "p95": 9.43
+      },
+      "total": {
+        "n": 155,
+        "mean": 5.47,
+        "p50": 4.7,
+        "p95": 9.43
+      }
+    },
+    "llm": null,
+    "faithfulness": null
+  },
+  "error_counts": {
+    "rule": 18,
+    "penalty": 1
+  },
+  "notes": [
+    "Độ trễ chỉ lấy từ lần gọi thật: bước/lượt trúng cache LLM không được tính (xem system.latency_ms.*.n và system.llm.cache_hits).",
+    "latency_ms.write là LLM answer writer, chỉ đo trên mẫu writer (config full); không nằm trong latency_ms.total.",
+    "Trạng thái out_of_scope được quy về unknown khi so với ground truth.",
+    "oracle_facts bỏ qua trích xuất và hội thoại: không có chỉ số extraction/first_status."
+  ]
+}

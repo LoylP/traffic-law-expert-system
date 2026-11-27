@@ -224,7 +224,7 @@ def grouped_bars(ax, categories: list[str], series: dict[str, list[float | None]
 
 
 def _save(figure, path: Path) -> Path:
-    figure.savefig(path, dpi=160, bbox_inches="tight", facecolor=SURFACE)
+    figure.savefig(path, dpi=200, bbox_inches="tight", facecolor=SURFACE)
     plt.close(figure)
     return path
 
@@ -279,11 +279,37 @@ def chart_latency(path: Path, runs: dict[str, dict]) -> Path | None:
         ax.annotate(f" {total:,.0f} ms", (total, row), va="center", fontsize=8, color=INK)
     ax.invert_yaxis()
     ax.set_xlim(0, max(left) * 1.15)
-    ax.set_xlabel("ms trung bình (write = answer writer LLM, đo trên mẫu)", color=MUTED)
+    ax.set_xlabel(
+        "ms trung bình (write = answer writer LLM, đo trên mẫu)\n"
+        "ground + engine < 10 ms, không hiển thị được ở thang này",
+        color=MUTED,
+    )
     ax.xaxis.grid(True, color=GRID, linewidth=0.8)
     ax.set_axisbelow(True)
     _style(ax)
     ax.set_title("Độ trễ theo bước", color=INK, loc="left")
+    ax.legend(loc="upper left", bbox_to_anchor=(1.0, 1.0), frameon=False, fontsize=8)
+    return _save(figure, path)
+
+
+def chart_full_vs_llm(path: Path, summaries: list[dict]) -> Path | None:
+    """end_to_end accuracy per model, bars grouped by config: full vs llm_only."""
+    configs = ("full", "llm_only")
+    names: list[str] = []
+    values: dict[str, dict[str, float | None]] = {c: {} for c in configs}
+    for s in summaries:
+        if s["slug"] == NO_LLM_DIR or s["config"] not in configs:
+            continue
+        name = model_name(s)
+        if name not in names:
+            names.append(name)
+        values[s["config"]][name] = dig(s["metrics"]["overall"], COLUMNS["end_to_end"])
+    if not names:
+        return None
+    series = {c: [values[c].get(n) for n in names] for c in configs}
+    figure, ax = plt.subplots(figsize=(11, 4.5), layout="constrained")
+    grouped_bars(ax, names, series)
+    ax.set_title("end_to_end: full so với llm_only, theo model", color=INK, loc="left")
     ax.legend(loc="upper left", bbox_to_anchor=(1.0, 1.0), frameon=False, fontsize=8)
     return _save(figure, path)
 
@@ -333,7 +359,7 @@ def build_report(results: Path, report: Path, main_model: str = MAIN_MODEL) -> l
                 model="(không LLM)" if s["slug"] == NO_LLM_DIR else model_name(s),
                 tier="mốc" if s["slug"] == NO_LLM_DIR else tier(s),
                 config=s["config"],
-                gpu=", ".join(s["env"].get("gpus", [])),
+                gpu=", ".join(dict.fromkeys(s["env"].get("gpus", []))),
             )
             for s in models
         ])
@@ -356,14 +382,12 @@ def build_report(results: Path, report: Path, main_model: str = MAIN_MODEL) -> l
 
     full_runs = {model_name(s): s for s in models if s["config"] == "full" and s["slug"] != NO_LLM_DIR}
     if full_runs:
-        panels = []
-        for name in ("nhỏ", "lớn", "chưa rõ"):
-            members = [(label, s) for label, s in full_runs.items() if tier(s) == name]
-            for start in range(0, len(members), len(SERIES)):
-                panels.append((f"Tầng {name}", dict(members[start : start + len(SERIES)])))
+        labelled = {f"{n} ({tier(s)})": s for n, s in full_runs.items()}
         written.append(chart_by_metric(
-            report / "metrics_by_model.png", "Chỉ số chính theo model (config full)", panels
+            report / "metrics_by_model.png", "Chỉ số chính theo model (config full)",
+            [("Tất cả model", labelled)],
         ))
+        written.append(chart_full_vs_llm(report / "full_vs_llm_only.png", models))
     if "full" in ablation:
         written.append(chart_groups(report / "full_by_group.png", ablation["full"]))
         written.append(chart_confusion(report / "confusion_status.png", ablation["full"]))

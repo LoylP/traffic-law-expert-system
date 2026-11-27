@@ -1,0 +1,156 @@
+﻿id,group,query,gt_first_status,first_status,gt_first_ask_slot,first_ask_slot,gt_status,status,gt_violations,violations,gt_fine,fine,gt_points,points,gt_sanctions,sanctions,exact_set,end_to_end,error_types
+A-001,A,Người điều khiển ô tô không chấp hành hiệu lệnh của đèn tín hiệu giao thông bị phạt thế nào?,answered,answered,,,answered,answered,ND168-D6-K9-Pb,ND168-D6-K9-Pb,19000000,19000000,4,4,,,True,True,
+A-002,A,Tôi đi xe máy vượt đèn đỏ thì bị phạt bao nhiêu?,answered,answered,,,answered,answered,ND168-D7-K7-Pc,ND168-D7-K7-Pc,5000000,5000000,4,4,,,True,True,
+A-003,A,"Lái ô tô mà trong hơi thở có nồng độ cồn 0,2 mg/l khí thở thì mức phạt là gì?",answered,answered,,,answered,answered,ND168-D6-K6-Pc,ND168-D6-K6-Pc,7000000,7000000,4,4,,,True,True,
+A-004,A,Điều khiển xe mô tô có nồng độ cồn 65 mg/100 ml máu bị xử phạt ra sao?,answered,answered,,,answered,answered,ND168-D7-K8-Pb,ND168-D7-K8-Pb,7000000,7000000,10,10,,,True,True,
+A-005,A,Ô tô chạy quá tốc độ quy định 7 km/h thì bị phạt bao nhiêu tiền?,answered,answered,,,answered,answered,ND168-D6-K3-Pa,ND168-D6-K3-Pa,900000,900000,0,0,,,True,True,
+A-006,A,Xe mô tô chạy quá tốc độ quy định 15 km/h bị xử phạt thế nào?,answered,answered,,,answered,answered,ND168-D7-K4-Pa,ND168-D7-K4-Pa,900000,900000,0,0,,,True,True,
+A-007,A,Người đi xe máy không đội mũ bảo hiểm bị phạt bao nhiêu?,answered,unknown,,,answered,unknown,ND168-D7-K2-Ph,,500000,0,0,0,,,False,False,extract|dialog
+A-008,A,Điều khiển ô tô đi ngược chiều trên đường cao tốc bị phạt thế nào?,answered,answered,,,answered,answered,ND168-D6-K11-Pđ,ND168-D6-K11-Pđ,35000000,35000000,10,10,,,True,True,
+A-009,A,Xe máy đi ngược chiều của đường một chiều thì mức phạt là bao nhiêu?,answered,answered,,,answered,answered,ND168-D7-K7-Pa,ND168-D7-K7-Pa,5000000,5000000,2,2,,,True,True,
+A-010,A,Ô tô đi không đúng làn đường quy định bị xử phạt như thế nào?,answered,answered,,,answered,answered,ND168-D6-K5-Pb,ND168-D6-K5-Pb,5000000,5000000,2,2,,,True,True,
+A-011,A,Người đang lái xe ô tô dùng tay cầm và sử dụng điện thoại thì bị phạt bao nhiêu?,answered,answered,,,answered,answered,ND168-D6-K5-Ph,ND168-D6-K5-Ph,5000000,5000000,4,4,,,True,True,
+A-012,A,Người đi xe máy không chấp hành yêu cầu kiểm tra về nồng độ cồn bị phạt thế nào?,answered,need_info,,vehicle,answered,need_info,ND168-D7-K9-Pđ,,9000000,0,0,0,revoke_license,,False,False,extract|dialog
+A-013,A,Người lái ô tô không thắt dây đai an toàn bị phạt bao nhiêu tiền?,answered,answered,,,answered,answered,ND168-D6-K3-Pk,ND168-D6-K3-Pk,900000,900000,0,0,,,True,True,
+A-014,A,Người điều khiển ô tô không có giấy phép lái xe thì bị phạt bao nhiêu?,answered,answered,,,answered,answered,ND168-D18-K9-Pb,ND168-D18-K9-Pb,19000000,19000000,0,0,remedy,remedy,True,True,
+A-015,A,Đi xe mô tô 150 phân khối nhưng bằng lái không đúng hạng thì bị phạt thế nào?,answered,answered,,,answered,answered,ND168-D18-K7-Pa,ND168-D18-K7-Pa,7000000,7000000,0,0,,,True,True,
+A-016,A,Lái ô tô khi giấy phép lái xe đã hết hạn 3 tháng thì mức phạt là bao nhiêu?,answered,answered,,,answered,answered,ND168-D18-K8-Pa,ND168-D18-K8-Pa,9000000,9000000,0,0,,,True,True,
+A-017,A,Tài xế ô tô kinh doanh vận tải không mang theo giấy phép lái xe bị phạt bao nhiêu?,answered,answered,,,answered,answered,ND168-D18-K3-Pa,ND168-D18-K3-Pa,350000,350000,0,0,,,True,True,
+A-018,A,Người đi xe đạp không chấp hành hiệu lệnh của đèn tín hiệu giao thông bị phạt bao nhiêu?,answered,answered,,,answered,answered,ND168-D9-K2-Pđ,ND168-D9-K2-Pđ,200000,200000,0,0,,,True,True,
+A-019,A,Người đi bộ vượt đèn đỏ thì bị xử phạt thế nào?,answered,answered,,,answered,answered,ND168-D10-K1-Pb,ND168-D10-K1-Pb,200000,200000,0,0,,,True,True,
+B-001,B,"hqua e chạy xe máy tới ngã tư đèn đỏ rồi mà vẫn phóng qua luôn, bị tuýt còi, giờ phạt nhiu v ạ",answered,answered,,,answered,answered,ND168-D7-K7-Pc,ND168-D7-K7-Pc,5000000,5000000,4,4,,,True,True,
+B-002,B,"nhậu 3 lon xong lái oto về, đo ra 0.35 mg/l khí thở, mức phạt sao ad",answered,answered,,,answered,answered,ND168-D6-K9-Pa,ND168-D6-K9-Pa,19000000,19000000,10,10,,,True,True,
+B-003,B,"Tối đi đám cưới về, làm vài ly rượu rồi chạy xe gắn máy, thổi lên 0,52 miligam trên 1 lít khí thở.",answered,answered,,,answered,answered,ND168-D7-K9-Pd,ND168-D7-K9-Pd,9000000,9000000,0,0,revoke_license,revoke_license,True,True,
+B-004,B,"Đoạn đường cho chạy 60 mà tui phóng xe hơi 87 km/h, bị bắn tốc độ rồi, đóng bao nhiêu?",answered,answered,,,answered,answered,ND168-D6-K6-Pa,ND168-D6-K6-Pa,7000000,7000000,4,4,,,True,True,
+B-005,B,xe may chay 78km/h cho gioi han 50km/h phat bao nhieu,answered,need_info,,vehicle,answered,need_info,ND168-D7-K8-Pa,,7000000,0,4,0,,,False,False,extract|dialog
+B-006,B,"Mình đi xe máy kẹp ba đi học về, có bị gì không?",answered,answered,,,answered,answered,ND168-D7-K2-Pg,ND168-D7-K2-Pg,500000,500000,0,0,,,True,True,
+B-007,B,"Thằng bạn tôi chạy xe máy mà chở thêm 3 đứa nữa phía sau, vậy là bị phạt sao?",answered,answered,,,answered,answered,ND168-D7-K3-Pb,ND168-D7-K3-Pb,700000,700000,2,2,,,True,True,
+B-008,B,"Chạy xe máy, mấy chú CSGT vẫy gậy bắt dừng xe mà mình sợ quá rồ ga bỏ chạy luôn.",answered,answered,,,answered,answered,ND168-D7-K7-Pd,ND168-D7-K7-Pd,5000000,5000000,4,4,,,True,True,
+B-009,B,Tôi lái ô tô quẹt trúng một người đi đường rồi hoảng quá bỏ đi luôn không dừng lại.,answered,answered,,,answered,answered,ND168-D6-K8,ND168-D6-K8,17000000,17000000,6,6,,,True,True,
+B-010,B,"đang cầm lái xe máy mà tay bấm điện thoại nhắn tin cho bồ, bị công an chụp lại",answered,answered,,,answered,answered,ND168-D7-K4-Pđ,ND168-D7-K4-Pđ,900000,900000,4,4,,,True,True,
+B-011,B,"CSGT chặn xe hơi của tôi kêu thổi cồn, tôi nhất quyết không chịu thổi.",answered,answered,,,answered,answered,ND168-D6-K11-Pb,ND168-D6-K11-Pb,35000000,35000000,0,0,revoke_license,revoke_license,True,True,
+B-012,B,"Ra đầu ngõ mua đồ nên đầu trần chạy xe máy, không đội cái nón bảo hiểm nào, phạt nhiu?",answered,answered,,,answered,answered,ND168-D7-K2-Ph,ND168-D7-K2-Ph,500000,500000,0,0,,,True,True,
+B-013,B,"Chở nhỏ em ngồi sau xe máy mà nó không chịu đội mũ bảo hiểm, tôi có bị phạt không?",answered,answered,,,answered,answered,ND168-D7-K2-Pi,ND168-D7-K2-Pi,500000,500000,0,0,,,True,True,
+B-014,B,"Lỡ quẹo nhầm vô đường một chiều bằng xe máy, thành ra chạy ngược lại dòng xe.",answered,answered,,,answered,answered,ND168-D7-K7-Pa,ND168-D7-K7-Pa,5000000,5000000,2,2,,,True,True,
+B-015,B,Đang chạy ô tô mà không cài dây an toàn thì có sao không mọi người,answered,answered,,,answered,answered,ND168-D6-K3-Pk,ND168-D6-K3-Pk,900000,900000,0,0,,,True,True,
+B-016,B,"Xe nhà tôi là ô tô 4 chỗ, chở bà chị ngồi ghế phụ mà chị không thắt dây an toàn.",answered,answered,,,answered,answered,ND168-D6-K3-Pl,ND168-D6-K3-Pl,900000,900000,0,0,,,True,True,
+B-017,B,khong that day an toan khi lái thì phat the nao,answered,unknown,,,answered,unknown,ND168-D6-K3-Pk,,900000,0,0,0,,,False,False,extract|dialog
+B-018,B,"em chạy xe máy 110cc đi làm mà chưa thi bằng lái, bị công an giữ lại thì sao ạ",answered,answered,,,answered,answered,ND168-D18-K5-Pa,ND168-D18-K5-Pa,3000000,3000000,0,0,remedy,remedy,True,True,
+C-001,C,Tôi đi xe máy vượt đèn đỏ mà còn không đội mũ bảo hiểm.,answered,answered,,,answered,answered,ND168-D7-K2-Ph|ND168-D7-K7-Pc,ND168-D7-K2-Ph|ND168-D7-K7-Pc,5500000,5500000,4,4,,,True,True,
+C-002,C,"xe máy kẹp 3, cả 3 đứa đều ko đội nón bảo hiểm, phạt hết bao nhiêu",answered,answered,,,answered,answered,ND168-D7-K2-Pg|ND168-D7-K2-Ph|ND168-D7-K2-Pi,ND168-D7-K2-Pg|ND168-D7-K2-Ph|ND168-D7-K2-Pi,1500000,1500000,0,0,,,True,True,
+C-003,C,Lái ô tô vừa nghe điện thoại cầm trên tay vừa vượt đèn đỏ.,answered,answered,,,answered,answered,ND168-D6-K5-Ph|ND168-D6-K9-Pb,ND168-D6-K5-Ph|ND168-D6-K9-Pb,24000000,24000000,4,4,,,True,True,
+C-004,C,"Chạy xe hơi trong khu dân cư giới hạn 50 km/h mà đi tới 66 km/h, lại còn không thắt dây an toàn.",answered,answered,,,answered,answered,ND168-D6-K3-Pk|ND168-D6-K5-Pđ,ND168-D6-K3-Pk|ND168-D6-K5-Pđ,5900000,5900000,2,2,,,True,True,
+C-005,C,"Uống bia xong tôi chạy xe máy, đo được 0,18 mg/l, trên đường về còn vượt đèn đỏ và không đội mũ bảo hiểm.",answered,answered,,,answered,answered,ND168-D7-K2-Ph|ND168-D7-K6-Pa|ND168-D7-K7-Pc,ND168-D7-K2-Ph|ND168-D7-K6-Pa|ND168-D7-K7-Pc,8000000,8000000,4,4,,,True,True,
+C-006,C,"Đêm qua đi ô tô ngược chiều đường một chiều, bị CSGT ra hiệu dừng xe thì tôi tăng ga bỏ chạy.",need_info,need_info,road,road,answered,answered,ND168-D6-K9-Pc|ND168-D6-K9-Pd,ND168-D6-K9-Pc|ND168-D6-K9-Pd,38000000,38000000,4,4,,,True,True,
+C-007,C,"Chạy xe máy lấn sang làn ô tô, vừa đi vừa cầm điện thoại xem bản đồ.",answered,answered,,,answered,answered,ND168-D7-K3-Pd|ND168-D7-K4-Pđ,ND168-D7-K3-Pd|ND168-D7-K4-Pđ,1600000,1600000,4,4,,,True,True,
+C-008,C,"Tôi lái ô tô đi sai làn, chạy quá tốc độ cho phép 28 km/h và đang dùng điện thoại cầm tay.",answered,answered,,,answered,answered,ND168-D6-K5-Pb|ND168-D6-K5-Ph|ND168-D6-K6-Pa,ND168-D6-K5-Pb|ND168-D6-K5-Ph|ND168-D6-K6-Pa,17000000,17000000,4,4,,,True,True,
+C-009,C,"Ô tô của tôi vượt đèn đỏ, CSGT thổi còi yêu cầu dừng nhưng tôi không dừng, kiểm tra nồng độ cồn tôi cũng từ chối.",answered,answered,,,answered,answered,ND168-D6-K11-Pb|ND168-D6-K9-Pb|ND168-D6-K9-Pc,ND168-D6-K11-Pb|ND168-D6-K9-Pb|ND168-D6-K9-Pc,73000000,73000000,4,4,revoke_license,revoke_license,True,True,
+C-010,C,"Chiều nay em đi xe máy chở 2 bạn, bạn ngồi sau không đội mũ, em còn chạy quá 8 km/h nữa.",answered,answered,,,answered,answered,ND168-D7-K2-Pb|ND168-D7-K2-Pg|ND168-D7-K2-Pi,ND168-D7-K2-Pb|ND168-D7-K2-Pg|ND168-D7-K2-Pi,1500000,1500000,0,0,,,True,True,
+C-011,C,"Kể chuyện hơi dài: sáng nay đi làm trễ, tôi lấy xe máy phóng đi mà quên đội mũ bảo hiểm, đến ngã tư thấy vắng nên vượt đèn đỏ, rồi chạy ngược chiều một đoạn đường một chiều cho nhanh.",answered,answered,,,answered,answered,ND168-D7-K2-Ph|ND168-D7-K7-Pa|ND168-D7-K7-Pc,ND168-D7-K2-Ph|ND168-D7-K7-Pa|ND168-D7-K7-Pc,10500000,10500000,4,4,,,True,True,
+C-012,C,"Say rượu lái ô tô, nồng độ cồn 90 mg/100ml máu, đã vậy còn đi ngược chiều trên cao tốc.",answered,answered,,,answered,answered,ND168-D6-K11-Pa|ND168-D6-K11-Pđ,ND168-D6-K11-Pa|ND168-D6-K11-Pđ,70000000,70000000,10,10,revoke_license,revoke_license,True,True,
+D-001,D,Tôi lái ô tô chạy quá tốc độ 15 km/h và gây tai nạn giao thông.,answered,answered,,,answered,answered,ND168-D6-K10-Pa,ND168-D6-K10-Pa,21000000,21000000,10,10,,,True,True,
+D-002,D,"Xe máy của tôi chạy 72 km/h ở đoạn giới hạn 50, đâm vào xe phía trước gây tai nạn.",answered,answered,,,answered,answered,ND168-D7-K10-Pa,ND168-D7-K10-Pa,12000000,12000000,10,10,,,True,True,
+D-003,D,"Ô tô vượt đèn đỏ gây tai nạn thì bị xử lý thế nào, tôi đã tự nguyện khắc phục hậu quả.",answered,answered,,,answered,answered,ND168-D6-K10-Pb,ND168-D6-K10-Pb,20500000,20500000,10,10,,,True,True,
+D-004,D,"Chạy xe máy đi ngược chiều đường một chiều rồi tông vào người ta gây tai nạn, đây là lần tái phạm.",answered,answered,,,answered,answered,ND168-D7-K10-Pa,ND168-D7-K10-Pa,13000000,13000000,10,10,,,True,True,
+D-005,D,Công ty chúng tôi điều khiển xe ô tô vượt đèn đỏ thì tổ chức bị phạt bao nhiêu?,answered,answered,,,answered,answered,ND168-D6-K9-Pb,ND168-D6-K9-Pb,38000000,38000000,4,4,,,True,True,
+D-006,D,"Doanh nghiệp vi phạm: xe ô tô chạy quá tốc độ 25 km/h, vi phạm nhiều lần và có tổ chức.",answered,answered,,,answered,answered,ND168-D6-K6-Pa,ND168-D6-K6-Pa,16000000,16000000,4,4,,,True,True,
+D-007,D,"Tôi đi xe máy vượt đèn đỏ, đã tự nguyện khai báo và thành thật hối lỗi.",answered,answered,,,answered,answered,ND168-D7-K7-Pc,ND168-D7-K7-Pc,4500000,4500000,4,4,,,True,True,
+D-008,D,"Tôi đang mang thai, đi xe máy không đội mũ bảo hiểm, tôi thành thật hối lỗi và tự nguyện khai báo.",answered,answered,,,answered,answered,ND168-D7-K2-Ph,ND168-D7-K2-Ph,400000,400000,0,0,,,True,True,
+D-009,D,Do bị người khác ép buộc nên tôi phải lái ô tô đi sai làn đường.,answered,answered,,,answered,answered,ND168-D6-K5-Pb,ND168-D6-K5-Pb,4500000,4500000,2,2,,,True,True,
+D-010,D,"Bị người ta chặn đường chửi mắng làm tôi bị kích động, phóng ô tô quá tốc độ 12 km/h; nhà tôi hoàn cảnh đặc biệt khó khăn.",answered,answered,,,answered,answered,ND168-D6-K5-Pđ,ND168-D6-K5-Pđ,4000000,4000000,2,2,,,True,True,
+D-011,D,"Tôi ở vùng sâu, trình độ lạc hậu, đi xe máy ngược chiều mà không biết là sai.",answered,answered,,,answered,answered,ND168-D7-K7-Pa,ND168-D7-K7-Pa,4500000,4500000,2,2,,,True,True,
+D-012,D,"Đi xe máy vượt đèn đỏ, CSGT yêu cầu dừng xe thì tôi chửi bới CSGT.",answered,answered,,,answered,answered,ND168-D7-K7-Pc,ND168-D7-K7-Pc|ND168-D7-K7-Pd,5500000,11000000,4,4,,,False,False,extract
+D-013,D,"Tôi rủ rê, xúi giục trẻ em chạy xe máy vượt đèn đỏ cùng mình, bị yêu cầu dừng vi phạm mà vẫn tiếp tục.",answered,answered,,,answered,answered,ND168-D7-K7-Pc,ND168-D7-K7-Pc|ND168-D7-K7-Pd,6000000,12000000,4,4,,,False,False,extract
+D-014,D,"Một người lợi dụng chức vụ quyền hạn để lái ô tô đi ngược chiều đường một chiều, sau đó còn trốn tránh, che giấu vi phạm. Đoạn đường đó không phải cao tốc.",answered,need_info,,road,answered,need_info,ND168-D6-K9-Pd,,20000000,0,4,0,,,False,False,extract|dialog
+D-015,D,"Lợi dụng lúc đang có dịch bệnh, đường vắng, tôi chạy xe máy quá tốc độ 30 km/h trong thời gian đang chấp hành hình phạt.",answered,answered,,,answered,answered,ND168-D7-K8-Pa,ND168-D7-K8-Pa,8000000,8000000,4,4,,,True,True,
+D-016,D,"Vi phạm quy mô lớn, ảnh hưởng đến nhiều người và trẻ em: một đoàn xe ô tô vượt đèn đỏ, tôi là một người trong đó.",answered,answered,,,answered,answered,ND168-D6-K9-Pb,ND168-D6-K9-Pb,20000000,20000000,4,4,,,True,True,
+D-017,D,Tôi sử dụng người bị tâm thần điều khiển xe máy vượt đèn đỏ.,answered,answered,,,answered,answered,ND168-D7-K7-Pc,ND168-D7-K7-Pc,5500000,5500000,4,4,,,True,True,
+D-018,D,"Lái ô tô gây tai nạn khi đang dùng điện thoại, tôi đã ngăn chặn hậu quả nhưng đây là lần tái phạm.",answered,answered,,,answered,answered,ND168-D6-K10-Pb,ND168-D6-K10-Pb,21000000,21000000,10,10,,,True,True,
+E-001,E,Vượt đèn đỏ phạt bao nhiêu?,need_info,unknown,vehicle,,need_info,unknown,,,0,0,0,0,,,True,False,extract|dialog
+E-002,E,vượt đèn đỏ bị sao,need_info,need_info,vehicle,vehicle,answered,answered,ND168-D6-K9-Pb,ND168-D6-K9-Pb,19000000,19000000,4,4,,,True,True,
+E-003,E,Tôi uống rượu rồi chạy xe máy về nhà thì bị phạt bao nhiêu?,need_info,need_info,alcohol,alcohol,answered,answered,ND168-D7-K8-Pb,ND168-D7-K8-Pb,7000000,7000000,10,10,,,True,True,
+E-004,E,Đi ô tô chạy quá tốc độ bị phạt thế nào?,need_info,need_info,speed,speed,need_info,need_info,,,0,0,0,0,,,True,True,
+E-005,E,xe máy chạy quá tốc độ trên đường giới hạn 40 km/h,need_info,need_info,speed,speed,answered,answered,ND168-D7-K4-Pa,ND168-D7-K4-Pa,900000,900000,0,0,,,True,True,
+E-006,E,Xe máy chở quá số người quy định thì phạt nhiêu?,need_info,unknown,passengers,,need_info,unknown,,,0,0,0,0,,,True,False,extract|dialog
+E-007,E,Lái xe sau khi nhậu bị xử phạt sao?,need_info,need_info,vehicle,vehicle,answered,answered,ND168-D6-K9-Pa,ND168-D6-K9-Pa,19000000,19000000,10,10,,,True,True,
+E-008,E,Ngày 20/10/2024 tôi đi xe máy vượt đèn đỏ thì mức phạt là bao nhiêu?,unknown,unknown,,,unknown,unknown,,,0,0,0,0,,,True,True,
+E-009,E,"Xe máy chống đối, cản trở CSGT đang làm nhiệm vụ.",unknown,unknown,,,unknown,unknown,,,0,0,0,0,,,True,True,
+E-010,E,Thủ tục sang tên đổi chủ xe máy cần những giấy tờ gì?,unknown,unknown,,,unknown,unknown,,,0,0,0,0,,,True,True,
+E-011,E,"Hôm nay trời mưa to quá, đường đi làm kẹt cứng.",unknown,unknown,,,unknown,unknown,,,0,0,0,0,,,True,True,
+E-012,E,Tôi chạy xe máy mà không có bằng lái thì bị phạt bao nhiêu?,need_info,need_info,license_class,license_class,answered,answered,ND168-D18-K7-Pb,ND168-D18-K7-Pb,7000000,7000000,0,0,remedy,remedy,True,True,
+E-013,E,"Tôi đi xe máy, không kinh doanh vận tải, quên mang bằng lái thì phạt bao nhiêu?",unknown,unknown,,,unknown,unknown,,,0,0,0,0,,,True,True,
+A-M001,A,Xe máy vượt đèn đỏ bị phạt bao nhiêu tiền?,answered,need_info,,vehicle,answered,need_info,ND168-D7-K7-Pc,,5000000,0,4,0,,,False,False,extract|dialog
+A-M002,A,Ô tô chạy quá tốc độ 25 km/h thì bị xử phạt thế nào?,answered,answered,,,answered,answered,ND168-D6-K6-Pa,ND168-D6-K6-Pa,7000000,7000000,4,4,,,True,True,
+B-M003,B,sáng nay e chở 2 đứa bạn đi học bằng xe máy bị csgt thổi,answered,answered,,,answered,answered,ND168-D7-K2-Pg,ND168-D7-K2-Pg,500000,500000,0,0,,,True,True,
+B-M004,B,toi vua bi bat vi vua chay xe may vua nghe dien thoai,answered,need_info,,vehicle,answered,need_info,ND168-D7-K4-Pđ,,900000,0,4,0,,,False,False,extract|dialog
+B-M005,B,Đang chạy trên cao tốc thì ông kia quay đầu xe ô tô lại đi ngược chiều luôn,answered,answered,,,answered,answered,ND168-D6-K11-Pđ,ND168-D6-K11-Pđ,35000000,35000000,10,10,,,True,True,
+C-M006,C,"Tối qua đi nhậu về, chạy xe máy không đội nón, tới ngã tư còn vượt đèn đỏ, thổi ra 0,3 mg/l",answered,answered,,,answered,answered,ND168-D7-K2-Ph|ND168-D7-K7-Pc|ND168-D7-K8-Pb,ND168-D7-K2-Ph|ND168-D7-K7-Pc|ND168-D7-K8-Pb,12500000,12500000,10,10,,,True,True,
+C-M007,C,lái ô tô vừa đè vạch chuyển làn bậy vừa không thắt dây an toàn,answered,answered,,,answered,answered,ND168-D6-K2-Pa|ND168-D6-K3-Pk,ND168-D6-K3-Pk|ND168-D6-K5-Pb,1600000,5900000,0,2,,,False,False,extract
+D-M008,D,"Công ty tôi có xe tải chạy quá tốc độ 15 km/h, tài xế là nhân viên công ty",answered,answered,,,answered,answered,ND168-D6-K5-Pđ,ND168-D6-K5-Pđ,5000000,10000000,2,2,,,True,False,extract
+D-M009,D,"Tôi lái ô tô có nồng độ cồn 0,2 mg/l, đây là lần thứ 2 trong năm bị phạt lỗi này nhưng tôi đã thành khẩn khai báo",answered,answered,,,answered,answered,ND168-D6-K6-Pc,ND168-D6-K6-Pc,7000000,6500000,4,4,,,True,False,extract
+D-M010,D,"Xe máy vượt đèn đỏ đâm vào người đi bộ, người đó bị thương nhẹ, tôi bỏ chạy luôn",answered,answered,,,answered,answered,ND168-D7-K10-Pb|ND168-D7-K9-Pc,ND168-D7-K10-Pb|ND168-D7-K9-Pc,21000000,21000000,10,10,,,True,True,
+E-M011,E,nhậu xong chạy xe về có sao không,need_info,need_info,vehicle,vehicle,need_info,need_info,,,0,0,0,0,,,True,True,
+E-M012,E,cho hỏi thủ tục đổi giấy phép lái xe ở đâu,unknown,unknown,,,unknown,unknown,,,0,0,0,0,,,True,True,
+A-M003,A,Xe máy chạy quá tốc độ 20 km/h bị phạt gì?,answered,answered,,,answered,answered,ND168-D7-K4-Pa,ND168-D7-K4-Pa,900000,900000,0,0,,,True,True,
+A-M004,A,Xe ô tô vượt tốc độ 40 km/h phạt bao nhiêu?,answered,answered,,,answered,answered,ND168-D6-K7-Pa,ND168-D6-K7-Pa,13000000,13000000,6,6,,,True,True,
+A-M005,A,"Lái ô tô có nồng độ cồn vượt quá 0,4 mg/l khí thở bị phạt ra sao?",answered,answered,,,answered,answered,ND168-D6-K11-Pa,ND168-D6-K9-Pa,35000000,19000000,0,10,revoke_license,,False,False,extract
+A-M006,A,"Xe máy bị thổi nồng độ cồn 0,35 mg/l phạt bao nhiêu?",answered,answered,,,answered,answered,ND168-D7-K8-Pb,ND168-D7-K8-Pb,7000000,7000000,10,10,,,True,True,
+A-M007,A,Lái ô tô không thắt dây an toàn bị phạt bao nhiêu?,answered,answered,,,answered,answered,ND168-D6-K3-Pk,ND168-D6-K3-Pk,900000,900000,0,0,,,True,True,
+A-M008,A,Xe máy đi ngược chiều trên đường một chiều phạt bao nhiêu?,answered,answered,,,answered,answered,ND168-D7-K7-Pa,ND168-D7-K7-Pa,5000000,5000000,2,2,,,True,True,
+A-M009,A,Xe máy đi vào đường cao tốc bị phạt bao nhiêu tiền?,answered,unknown,,,answered,unknown,ND168-D7-K7-Pb,,5000000,0,6,0,,,False,False,rule|dialog
+A-M010,A,Tôi lái xe ô tô con nhưng dùng giấy phép lái xe hạng A1 thì bị xử phạt lỗi gì?,answered,answered,,,answered,answered,ND168-D18-K9-Pa,ND168-D18-K9-Pa,19000000,19000000,0,0,,,True,True,
+A-M012,A,Đi bộ sang đường không đúng nơi quy định bị phạt gì?,answered,answered,,,answered,answered,ND168-D10-K1-Pa,ND168-D10-K1-Pa,200000,200000,0,0,,,True,True,
+A-M013,A,Ô tô chạy quá tốc độ 5 km/h bị phạt bao nhiêu?,answered,answered,,,answered,answered,ND168-D6-K3-Pa,ND168-D6-K3-Pa,900000,900000,0,0,,,True,True,
+A-M014,A,Người đi bộ đi vào đường cao tốc bị phạt bao nhiêu?,answered,unknown,,,answered,unknown,ND168-D10-K2-Pa,,500000,0,0,0,,,False,False,rule|dialog
+A-M015,A,Người đi bộ vượt qua dải phân cách bị phạt bao nhiêu?,answered,unknown,,,answered,unknown,ND168-D10-K1-Pa,,200000,0,0,0,,,False,False,rule|dialog
+A-M016,A,Đi xe đạp vào đường cao tốc bị phạt bao nhiêu?,answered,unknown,,,answered,unknown,ND168-D9-K5,,1000000,0,0,0,,,False,False,rule|dialog
+A-M017,A,Xe máy không gắn biển số bị phạt thế nào?,answered,unknown,,,answered,unknown,ND168-D14-K3-Pa,,5000000,0,6,0,,,False,False,rule|dialog
+A-M018,A,Lái ô tô không nhường đường cho xe cứu thương đang làm nhiệm vụ bị phạt bao nhiêu?,answered,unknown,,,answered,unknown,ND168-D6-K6-Pb,,7000000,0,4,0,,,False,False,rule|dialog
+A-M019,A,Lái ô tô mà trong cơ thể có chất ma túy bị xử phạt thế nào?,answered,unknown,,,answered,unknown,ND168-D6-K11-Pc,,35000000,0,0,0,revoke_license,,False,False,rule|dialog
+A-M020,A,Xe máy rẽ trái không bật xi-nhan bị phạt bao nhiêu?,answered,unknown,,,answered,unknown,ND168-D7-K3-Pa,,700000,0,0,0,,,False,False,rule|dialog
+B-M021,B,tối qua lỡ làm 2 lon bia xong chạy honda về gặp chốt đo lên 0.15 thì đi bao nhiêu củ,need_info,need_info,vehicle,vehicle,answered,answered,ND168-D7-K6-Pa,ND168-D7-K6-Pa,2500000,2500000,4,4,,,True,True,
+B-M022,B,chạy xe hơi 80 km/h đoạn biển 60 phạt mấy triệu,answered,answered,,,answered,answered,ND168-D6-K5-Pđ,ND168-D6-K5-Pđ,5000000,5000000,2,2,,,True,True,
+B-M023,B,ko doi mbh phat bao nhieu vay,answered,unknown,,,answered,unknown,ND168-D7-K2-Ph,,500000,0,0,0,,,False,False,extract|dialog
+B-M024,B,xe dap dien vuot den do co bi phat ko,answered,need_info,,vehicle,answered,need_info,ND168-D9-K2-Pđ,,200000,0,0,0,,,False,False,extract|dialog
+B-M025,B,chay xe may len via he bi phat ntn,answered,unknown,,,answered,unknown,ND168-D7-K7-Pa,,5000000,0,2,0,,,False,False,extract|dialog
+B-M027,B,quên bật đèn lúc 7h tối chạy xe máy ngoài đường bị phạt nhiu z,answered,unknown,,,answered,unknown,ND168-D7-K1-Pg,,300000,0,0,0,,,False,False,rule|dialog
+B-M028,B,bữa trước lái xe bán tải đậu ngay góc ngã tư cách có 3m bị phạt nguội,answered,unknown,,,answered,unknown,ND168-D6-K3-Pđ,,900000,0,0,0,,,False,False,extract|dialog
+B-M029,B,lái xe 4 chỗ mà gắn cái giá che mất 1 số trên biển số sau bị phạt nặng ko,answered,unknown,,,answered,unknown,ND168-D13-K8-Pb,,23000000,0,6,0,,,False,False,extract|dialog
+B-M031,B,bị csgt kêu thổi nồng độ cồn mà tôi chạy xe máy không chịu thổi thì sao,answered,answered,,,answered,answered,ND168-D7-K9-Pđ,ND168-D7-K9-Pđ,9000000,9000000,0,0,revoke_license,revoke_license,True,True,
+B-M033,B,tối qua nhậu xong chạy xe máy về bị thổi 0.25 phạt mấy triệu vậy,answered,answered,,,answered,answered,ND168-D7-K6-Pa,ND168-D7-K6-Pa,2500000,2500000,4,4,,,True,True,
+B-M034,B,bị bắt vì chạy xe hổng có mủ bảo hiểm nè,answered,answered,,,answered,answered,ND168-D7-K2-Ph,ND168-D7-K2-Ph,500000,500000,0,0,,,True,True,
+B-M035,B,thằng bạn t lái xe hơi mà cầm điện thoại facetime bị bắt phạt 5 triệu,answered,answered,,,answered,answered,ND168-D6-K5-Ph,ND168-D6-K5-Ph,5000000,5000000,4,4,,,True,True,
+C-M036,C,Chạy xe máy quá tốc độ 30 km/h mà còn vượt đèn đỏ luôn,answered,answered,,,answered,answered,ND168-D7-K7-Pc|ND168-D7-K8-Pa,ND168-D7-K7-Pc|ND168-D7-K8-Pa,12000000,12000000,4,4,,,True,True,
+C-M037,C,"Lái ô tô không thắt dây an toàn, vừa nghe điện thoại vừa chạy quá tốc độ 12 km/h",answered,answered,,,answered,answered,ND168-D6-K3-Pk|ND168-D6-K5-Ph|ND168-D6-K5-Pđ,ND168-D6-K3-Pk|ND168-D6-K5-Ph|ND168-D6-K5-Pđ,10900000,10900000,4,4,,,True,True,
+C-M038,C,"Đi xe máy không đội mũ bảo hiểm, chở thêm 2 người nữa, lại còn đi ngược chiều",answered,answered,,,answered,answered,ND168-D7-K2-Pg|ND168-D7-K2-Ph|ND168-D7-K7-Pa,ND168-D7-K2-Pg|ND168-D7-K2-Ph|ND168-D7-K7-Pa,6000000,6000000,2,2,,,True,True,
+C-M039,C,"Uống rượu xong lái ô tô đi ngược chiều trên cao tốc, thổi ra 0,5 mg/l",answered,answered,,,answered,answered,ND168-D6-K11-Pa|ND168-D6-K11-Pđ,ND168-D6-K11-Pa|ND168-D6-K11-Pđ,70000000,70000000,10,10,revoke_license,revoke_license,True,True,
+C-M040,C,Lái ô tô quá tốc độ 40 km/h trên cao tốc mà không thắt dây an toàn,answered,answered,,,answered,answered,ND168-D6-K3-Pk|ND168-D6-K7-Pa,ND168-D6-K3-Pk|ND168-D6-K7-Pa,13900000,13900000,6,6,,,True,True,
+C-M041,C,chay xe may wave 110cc khong doi non khong co bang lai vuot den do,answered,answered,,,answered,answered,ND168-D18-K5-Pa|ND168-D7-K2-Ph|ND168-D7-K7-Pc,ND168-D18-K5-Pa|ND168-D7-K2-Ph|ND168-D7-K7-Pc,8500000,8500000,4,4,,remedy,True,True,extract
+C-M042,C,Lái ô tô vừa sử dụng điện thoại vừa vượt đèn đỏ tại ngã tư,answered,answered,,,answered,answered,ND168-D6-K5-Ph|ND168-D6-K9-Pb,ND168-D6-K5-Ph|ND168-D6-K9-Pb,24000000,24000000,4,4,,,True,True,
+C-M043,C,Đi xe đạp điện không đội mũ bảo hiểm và vượt đèn đỏ,answered,answered,,,answered,answered,ND168-D9-K2-Pđ|ND168-D9-K4-Pd,ND168-D9-K2-Pđ,700000,200000,0,0,,,False,False,rule
+C-M044,C,"Lái ô tô có nồng độ cồn 0,5 mg/l mà còn vượt đèn đỏ",answered,answered,,,answered,answered,ND168-D6-K11-Pa|ND168-D6-K9-Pb,ND168-D6-K11-Pa|ND168-D6-K9-Pb,54000000,54000000,4,4,revoke_license,revoke_license,True,True,
+C-M045,C,vua chay xe may vua nghe dt khong doi non vuot den do luon,answered,answered,,,answered,answered,ND168-D7-K2-Ph|ND168-D7-K4-Pđ|ND168-D7-K7-Pc,ND168-D7-K2-Ph|ND168-D7-K4-Pđ|ND168-D7-K7-Pc,6400000,6400000,4,4,,,True,True,
+D-M046,D,Lái ô tô gây tai nạn rồi bỏ chạy không cứu giúp nạn nhân bị phạt thế nào?,answered,answered,,,answered,answered,ND168-D6-K8,ND168-D6-K8,17000000,17000000,6,6,,,True,True,
+D-M047,D,Tôi lái ô tô đi ngược chiều gây tai nạn làm hư hỏng xe khác nhưng đã tự nguyện bồi thường thiệt hại cho họ,need_info,need_info,road,road,need_info,need_info,,,0,0,0,0,,,True,True,
+D-M048,D,"Tôi đang mang thai, đi xe máy vượt đèn đỏ thì có được giảm nhẹ không?",answered,answered,,,answered,answered,ND168-D7-K7-Pc,ND168-D7-K7-Pc,4500000,4500000,4,4,,,True,True,
+D-M049,D,"3 tháng trước tôi bị phạt lỗi vượt đèn đỏ, nay lái ô tô lại vượt đèn đỏ lần nữa",answered,answered,,,answered,answered,ND168-D6-K9-Pb,ND168-D6-K9-Pb,19500000,19000000,4,4,,,True,False,extract
+D-M050,D,"Tôi lái ô tô vượt đèn đỏ, khi bị dừng xe còn lăng mạ chửi bới CSGT",answered,answered,,,answered,answered,ND168-D6-K9-Pb,ND168-D6-K9-Pb|ND168-D6-K9-Pc,19500000,39000000,4,4,,,False,False,extract
+D-M051,D,Bị CSGT ra hiệu dừng xe máy nhưng tôi không chấp hành mà bỏ chạy,answered,answered,,,answered,answered,ND168-D7-K7-Pd,ND168-D7-K7-Pd,5000000,5000000,4,4,,,True,True,
+D-M052,D,"Doanh nghiệp vận tải của tôi giao xe đầu kéo cho tài xế không có giấy phép lái xe chạy, công ty bị phạt bao nhiêu?",need_info,need_info,vehicle,vehicle,answered,answered,ND168-D32-K14-Pi,ND168-D18-K9-Pb,58000000,38000000,0,0,,remedy,False,False,extract
+D-M053,D,"Tôi cho bạn mượn xe máy, bạn tôi chưa có bằng lái và chạy vượt đèn đỏ thì tôi có bị phạt không?",answered,need_info,,license_class,answered,need_info,ND168-D32-K10,ND168-D7-K7-Pc,9000000,5000000,0,4,,,False,False,extract|dialog
+D-M054,D,"Lái xe máy có nồng độ cồn 0,5 mg/l gây tai nạn rồi bỏ chạy, bị xử lý ra sao?",answered,answered,,,answered,answered,ND168-D7-K9-Pc|ND168-D7-K9-Pd,ND168-D7-K9-Pc|ND168-D7-K9-Pd,18000000,18000000,6,6,revoke_license,revoke_license,True,True,
+E-M055,E,e uong 2 lon bia roi lai xe co bi phat ko,need_info,need_info,vehicle,vehicle,need_info,need_info,,,0,0,0,0,,,True,True,
+E-M056,E,vượt đèn đỏ phạt nhiêu vậy bạn,need_info,unknown,vehicle,,need_info,unknown,,,0,0,0,0,,,True,False,extract|dialog
+E-M057,E,bi ban toc do vuot 20km phat bao nhieu,need_info,need_info,vehicle,vehicle,need_info,need_info,,,0,0,0,0,,,True,True,
+E-M058,E,Đi xe máy không có bằng lái bị phạt bao nhiêu?,need_info,need_info,license_class,license_class,need_info,need_info,,,0,0,0,0,,,True,True,
+E-M059,E,GPLX hết hạn mà vẫn lái xe thì sao,need_info,need_info,vehicle,vehicle,need_info,need_info,,,0,0,0,0,,,True,True,
+E-M060,E,cách tra cứu phạt nguội ô tô trên điện thoại như thế nào,unknown,unknown,,,unknown,unknown,,,0,0,0,0,,,True,True,
+E-M061,E,mua xe máy cũ nhưng chủ cũ không chịu đi làm thủ tục sang tên thì kiện ở đâu,unknown,unknown,,,unknown,unknown,,,0,0,0,0,,,True,True,
+E-M062,E,tai nạn giao thông thì bồi thường bao nhiêu tiền,unknown,unknown,,,unknown,unknown,,,0,0,0,0,,,True,True,
+E-M063,E,có cách nào tránh bị phạt không,unknown,unknown,,,unknown,unknown,,,0,0,0,0,,,True,True,
+E-M064,E,đi sai làn bị phạt bao nhiêu,need_info,need_info,vehicle,vehicle,need_info,need_info,,,0,0,0,0,,,True,True,
+E-M065,E,chở quá người bị phạt bao nhiêu tiền,need_info,unknown,vehicle,,need_info,unknown,,,0,0,0,0,,,True,False,extract|dialog
+E-M066,E,chạy xe máy 60 km/h có bị phạt không,need_info,unknown,speed,,need_info,unknown,,,0,0,0,0,,,True,False,rule|dialog
+E-M067,E,csgt thổi ndc 0.3 phạt bn ae,need_info,need_info,vehicle,vehicle,need_info,need_info,,,0,0,0,0,,,True,True,
+E-M068,E,chạy quá tốt độ 30 cây số bị phạt bao nhiêu,need_info,need_info,vehicle,vehicle,need_info,need_info,,,0,0,0,0,,,True,True,
+E-M069,E,giá xe VinFast VF8 bao nhiêu tiền,unknown,unknown,,,unknown,unknown,,,0,0,0,0,,,True,True,

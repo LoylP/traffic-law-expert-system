@@ -1,0 +1,1275 @@
+{
+  "config": "regex_extractor",
+  "env": {
+    "git": {
+      "sha": "0b2bb3f1ebf0753393b083468bdcdd9ca6b5ef38",
+      "tag": "eval-v1",
+      "dirty": false
+    },
+    "model": null,
+    "gpus": [
+      "Tesla T4, Tesla T4"
+    ],
+    "seed": 42,
+    "n_cases": 155,
+    "cases_file": "data/eval/test_cases.jsonl",
+    "case_ids_sha1": "99a73ea88239b004df78bd6893295afeb63bc62e",
+    "n_unverified_cases": 0,
+    "limit": null,
+    "last_run_duration_s": 68.5,
+    "total_case_time_s": 3.5,
+    "finished_at": "2026-11-26T19:14:05+00:00"
+  },
+  "metrics": {
+    "overall": {
+      "n_cases": 155,
+      "extraction": {
+        "slot": {
+          "precision": 0.93048128342246,
+          "recall": 0.7435897435897436,
+          "f1": 0.8266033254156769,
+          "tp": 348,
+          "fp": 26,
+          "fn": 120
+        },
+        "per_slot": {
+          "acts": {
+            "precision": 0.9278350515463918,
+            "recall": 0.5625,
+            "f1": 0.7003891050583657,
+            "tp": 90,
+            "fp": 7,
+            "fn": 70
+          },
+          "actual_speed_kmh": {
+            "precision": 0.7777777777777778,
+            "recall": 1.0,
+            "f1": 0.875,
+            "tp": 7,
+            "fp": 2,
+            "fn": 0
+          },
+          "alcohol_level": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "tp": 1,
+            "fp": 0,
+            "fn": 1
+          },
+          "alcohol_test_refused": {
+            "precision": null,
+            "recall": 0.0,
+            "f1": 0.0,
+            "tp": 0,
+            "fp": 0,
+            "fn": 4
+          },
+          "bac_blood_mg_100ml": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 2,
+            "fp": 0,
+            "fn": 0
+          },
+          "bac_breath_mg_l": {
+            "precision": 0.9166666666666666,
+            "recall": 0.7857142857142857,
+            "f1": 0.8461538461538461,
+            "tp": 11,
+            "fp": 1,
+            "fn": 3
+          },
+          "circumstances": {
+            "precision": 1.0,
+            "recall": 0.5925925925925926,
+            "f1": 0.7441860465116279,
+            "tp": 16,
+            "fp": 0,
+            "fn": 11
+          },
+          "consequence": {
+            "precision": 1.0,
+            "recall": 0.9,
+            "f1": 0.9473684210526315,
+            "tp": 9,
+            "fp": 0,
+            "fn": 1
+          },
+          "drank_alcohol": {
+            "precision": 0.7619047619047619,
+            "recall": 0.8888888888888888,
+            "f1": 0.8205128205128205,
+            "tp": 16,
+            "fp": 5,
+            "fn": 2
+          },
+          "engine_capacity_cc": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 4,
+            "fp": 0,
+            "fn": 0
+          },
+          "license_expired_months": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "no_helmet_who": {
+            "precision": 0.8571428571428571,
+            "recall": 0.375,
+            "f1": 0.5217391304347826,
+            "tp": 6,
+            "fp": 1,
+            "fn": 10
+          },
+          "officer_signal": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 5,
+            "fp": 0,
+            "fn": 0
+          },
+          "passengers_count": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 6,
+            "fp": 0,
+            "fn": 0
+          },
+          "resistance": {
+            "precision": 1.0,
+            "recall": 0.9,
+            "f1": 0.9473684210526315,
+            "tp": 9,
+            "fp": 0,
+            "fn": 1
+          },
+          "road_type": {
+            "precision": 0.8333333333333334,
+            "recall": 0.9090909090909091,
+            "f1": 0.8695652173913043,
+            "tp": 10,
+            "fp": 2,
+            "fn": 1
+          },
+          "speed_limit_kmh": {
+            "precision": 0.5714285714285714,
+            "recall": 0.6666666666666666,
+            "f1": 0.6153846153846154,
+            "tp": 4,
+            "fp": 3,
+            "fn": 2
+          },
+          "speed_over_kmh": {
+            "precision": 1.0,
+            "recall": 0.7222222222222222,
+            "f1": 0.8387096774193549,
+            "tp": 13,
+            "fp": 0,
+            "fn": 5
+          },
+          "subject": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "tp": 3,
+            "fp": 1,
+            "fn": 0
+          },
+          "time_context": {
+            "precision": 0.42857142857142855,
+            "recall": 0.75,
+            "f1": 0.5454545454545454,
+            "tp": 3,
+            "fp": 4,
+            "fn": 1
+          },
+          "transport_use": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 2,
+            "fp": 0,
+            "fn": 0
+          },
+          "vehicle_class": {
+            "precision": 1.0,
+            "recall": 0.9416058394160584,
+            "f1": 0.9699248120300752,
+            "tp": 129,
+            "fp": 0,
+            "fn": 8
+          },
+          "violation_date": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "tp": 1,
+            "fp": 0,
+            "fn": 0
+          }
+        },
+        "acts": {
+          "precision": 0.9278350515463918,
+          "recall": 0.5625,
+          "f1": 0.7003891050583657,
+          "tp": 90,
+          "fp": 7,
+          "fn": 70
+        },
+        "hallucinated_slot_rate": 0.05263157894736842
+      },
+      "reasoning": {
+        "violation": {
+          "precision": 0.9008264462809917,
+          "recall": 0.6566265060240963,
+          "f1": 0.759581881533101,
+          "tp": 109,
+          "fp": 12,
+          "fn": 57
+        },
+        "exact_set_match": 0.6709677419354839,
+        "citation_accuracy": 0.7108433734939759,
+        "citation_exists_rate": 1.0,
+        "fine_range_accuracy": 0.6201550387596899,
+        "recommended_fine_exact": 0.5813953488372093,
+        "points_accuracy": 0.8217054263565892,
+        "sanctions": {
+          "precision": 0.8333333333333334,
+          "recall": 0.7142857142857143,
+          "f1": 0.7692307692307693,
+          "tp": 10,
+          "fp": 2,
+          "fn": 4
+        },
+        "aggravating_exact": 0.9534883720930233,
+        "mitigating_exact": 0.9689922480620154,
+        "n_answered": 129
+      },
+      "dialog": {
+        "first_status_accuracy": 0.7483870967741936,
+        "first_status_confusion": {
+          "answered": {
+            "answered": 90,
+            "need_info": 8,
+            "unknown": 23
+          },
+          "need_info": {
+            "answered": 1,
+            "need_info": 17,
+            "unknown": 5
+          },
+          "unknown": {
+            "answered": 2,
+            "need_info": 0,
+            "unknown": 9
+          }
+        },
+        "first_ask_slot_accuracy": 0.7391304347826086,
+        "status_accuracy": 0.7419354838709677,
+        "avg_question_turns": 0.17419354838709677,
+        "followup_mismatches": 0
+      },
+      "end_to_end_accuracy": 0.5806451612903226
+    },
+    "by_group": {
+      "A": {
+        "n_cases": 38,
+        "extraction": {
+          "slot": {
+            "precision": 0.9166666666666666,
+            "recall": 0.875,
+            "f1": 0.8953488372093024,
+            "tp": 77,
+            "fp": 7,
+            "fn": 11
+          },
+          "per_slot": {
+            "acts": {
+              "precision": 0.9166666666666666,
+              "recall": 0.7586206896551724,
+              "f1": 0.8301886792452831,
+              "tp": 22,
+              "fp": 2,
+              "fn": 7
+            },
+            "alcohol_level": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 1
+            },
+            "alcohol_test_refused": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 1
+            },
+            "bac_blood_mg_100ml": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "bac_breath_mg_l": {
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8,
+              "tp": 2,
+              "fp": 1,
+              "fn": 0
+            },
+            "drank_alcohol": {
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.6666666666666666,
+              "tp": 2,
+              "fp": 2,
+              "fn": 0
+            },
+            "engine_capacity_cc": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "license_expired_months": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "no_helmet_who": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "road_type": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 4,
+              "fp": 0,
+              "fn": 0
+            },
+            "speed_limit_kmh": {
+              "precision": 0.0,
+              "recall": null,
+              "f1": 0.0,
+              "tp": 0,
+              "fp": 2,
+              "fn": 0
+            },
+            "speed_over_kmh": {
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "f1": 0.8,
+              "tp": 4,
+              "fp": 0,
+              "fn": 2
+            },
+            "transport_use": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "vehicle_class": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 38,
+              "fp": 0,
+              "fn": 0
+            }
+          },
+          "acts": {
+            "precision": 0.9166666666666666,
+            "recall": 0.7586206896551724,
+            "f1": 0.8301886792452831,
+            "tp": 22,
+            "fp": 2,
+            "fn": 7
+          },
+          "hallucinated_slot_rate": 0.05952380952380952
+        },
+        "reasoning": {
+          "violation": {
+            "precision": 0.9090909090909091,
+            "recall": 0.7894736842105263,
+            "f1": 0.8450704225352113,
+            "tp": 30,
+            "fp": 3,
+            "fn": 8
+          },
+          "exact_set_match": 0.7894736842105263,
+          "citation_accuracy": 0.8157894736842105,
+          "citation_exists_rate": 1.0,
+          "fine_range_accuracy": 0.7894736842105263,
+          "recommended_fine_exact": 0.8157894736842105,
+          "points_accuracy": 0.9210526315789473,
+          "sanctions": {
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571428571428571,
+            "tp": 3,
+            "fp": 0,
+            "fn": 1
+          },
+          "aggravating_exact": 1.0,
+          "mitigating_exact": 1.0,
+          "n_answered": 38
+        },
+        "dialog": {
+          "first_status_accuracy": 0.868421052631579,
+          "first_status_confusion": {
+            "answered": {
+              "answered": 33,
+              "need_info": 2,
+              "unknown": 3
+            },
+            "need_info": {
+              "answered": 0,
+              "need_info": 0,
+              "unknown": 0
+            },
+            "unknown": {
+              "answered": 0,
+              "need_info": 0,
+              "unknown": 0
+            }
+          },
+          "first_ask_slot_accuracy": null,
+          "status_accuracy": 0.868421052631579,
+          "avg_question_turns": 0.05263157894736842,
+          "followup_mismatches": 0
+        },
+        "end_to_end_accuracy": 0.7894736842105263
+      },
+      "B": {
+        "n_cases": 33,
+        "extraction": {
+          "slot": {
+            "precision": 0.8679245283018868,
+            "recall": 0.5287356321839081,
+            "f1": 0.6571428571428571,
+            "tp": 46,
+            "fp": 7,
+            "fn": 41
+          },
+          "per_slot": {
+            "acts": {
+              "precision": 0.8,
+              "recall": 0.14814814814814814,
+              "f1": 0.25,
+              "tp": 4,
+              "fp": 1,
+              "fn": 23
+            },
+            "actual_speed_kmh": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 3,
+              "fp": 0,
+              "fn": 0
+            },
+            "alcohol_test_refused": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 2
+            },
+            "bac_breath_mg_l": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666,
+              "tp": 2,
+              "fp": 0,
+              "fn": 2
+            },
+            "consequence": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 1
+            },
+            "drank_alcohol": {
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8,
+              "tp": 4,
+              "fp": 2,
+              "fn": 0
+            },
+            "engine_capacity_cc": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "no_helmet_who": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 4
+            },
+            "officer_signal": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "passengers_count": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 3,
+              "fp": 0,
+              "fn": 0
+            },
+            "resistance": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666,
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "road_type": {
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.6666666666666666,
+              "tp": 1,
+              "fp": 1,
+              "fn": 0
+            },
+            "speed_limit_kmh": {
+              "precision": 1.0,
+              "recall": 0.3333333333333333,
+              "f1": 0.5,
+              "tp": 1,
+              "fp": 0,
+              "fn": 2
+            },
+            "time_context": {
+              "precision": 0.25,
+              "recall": 1.0,
+              "f1": 0.4,
+              "tp": 1,
+              "fp": 3,
+              "fn": 0
+            },
+            "vehicle_class": {
+              "precision": 1.0,
+              "recall": 0.8,
+              "f1": 0.8888888888888888,
+              "tp": 24,
+              "fp": 0,
+              "fn": 6
+            }
+          },
+          "acts": {
+            "precision": 0.8,
+            "recall": 0.14814814814814814,
+            "f1": 0.25,
+            "tp": 4,
+            "fp": 1,
+            "fn": 23
+          },
+          "hallucinated_slot_rate": 0.11320754716981132
+        },
+        "reasoning": {
+          "violation": {
+            "precision": 0.8461538461538461,
+            "recall": 0.3333333333333333,
+            "f1": 0.4782608695652174,
+            "tp": 11,
+            "fp": 2,
+            "fn": 22
+          },
+          "exact_set_match": 0.3333333333333333,
+          "citation_accuracy": 0.36363636363636365,
+          "citation_exists_rate": 1.0,
+          "fine_range_accuracy": 0.3333333333333333,
+          "recommended_fine_exact": 0.36363636363636365,
+          "points_accuracy": 0.6363636363636364,
+          "sanctions": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "tp": 2,
+            "fp": 0,
+            "fn": 2
+          },
+          "aggravating_exact": 1.0,
+          "mitigating_exact": 1.0,
+          "n_answered": 33
+        },
+        "dialog": {
+          "first_status_accuracy": 0.42424242424242425,
+          "first_status_confusion": {
+            "answered": {
+              "answered": 13,
+              "need_info": 3,
+              "unknown": 16
+            },
+            "need_info": {
+              "answered": 0,
+              "need_info": 1,
+              "unknown": 0
+            },
+            "unknown": {
+              "answered": 0,
+              "need_info": 0,
+              "unknown": 0
+            }
+          },
+          "first_ask_slot_accuracy": 1.0,
+          "status_accuracy": 0.3939393939393939,
+          "avg_question_turns": 0.15151515151515152,
+          "followup_mismatches": 0
+        },
+        "end_to_end_accuracy": 0.3333333333333333
+      },
+      "C": {
+        "n_cases": 24,
+        "extraction": {
+          "slot": {
+            "precision": 0.9431818181818182,
+            "recall": 0.6693548387096774,
+            "f1": 0.7830188679245284,
+            "tp": 83,
+            "fp": 5,
+            "fn": 41
+          },
+          "per_slot": {
+            "acts": {
+              "precision": 0.9642857142857143,
+              "recall": 0.47368421052631576,
+              "f1": 0.6352941176470588,
+              "tp": 27,
+              "fp": 1,
+              "fn": 30
+            },
+            "actual_speed_kmh": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "alcohol_test_refused": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 1
+            },
+            "bac_blood_mg_100ml": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "bac_breath_mg_l": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 4,
+              "fp": 0,
+              "fn": 0
+            },
+            "drank_alcohol": {
+              "precision": 0.8333333333333334,
+              "recall": 1.0,
+              "f1": 0.9090909090909091,
+              "tp": 5,
+              "fp": 1,
+              "fn": 0
+            },
+            "engine_capacity_cc": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "no_helmet_who": {
+              "precision": 0.8,
+              "recall": 0.4,
+              "f1": 0.5333333333333333,
+              "tp": 4,
+              "fp": 1,
+              "fn": 6
+            },
+            "officer_signal": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "passengers_count": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 3,
+              "fp": 0,
+              "fn": 0
+            },
+            "resistance": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "road_type": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 5,
+              "fp": 0,
+              "fn": 0
+            },
+            "speed_limit_kmh": {
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.6666666666666666,
+              "tp": 1,
+              "fp": 1,
+              "fn": 0
+            },
+            "speed_over_kmh": {
+              "precision": 1.0,
+              "recall": 0.8,
+              "f1": 0.8888888888888888,
+              "tp": 4,
+              "fp": 0,
+              "fn": 1
+            },
+            "time_context": {
+              "precision": 0.6666666666666666,
+              "recall": 0.6666666666666666,
+              "f1": 0.6666666666666666,
+              "tp": 2,
+              "fp": 1,
+              "fn": 1
+            },
+            "vehicle_class": {
+              "precision": 1.0,
+              "recall": 0.9166666666666666,
+              "f1": 0.9565217391304348,
+              "tp": 22,
+              "fp": 0,
+              "fn": 2
+            }
+          },
+          "acts": {
+            "precision": 0.9642857142857143,
+            "recall": 0.47368421052631576,
+            "f1": 0.6352941176470588,
+            "tp": 27,
+            "fp": 1,
+            "fn": 30
+          },
+          "hallucinated_slot_rate": 0.0375
+        },
+        "reasoning": {
+          "violation": {
+            "precision": 0.972972972972973,
+            "recall": 0.6101694915254238,
+            "f1": 0.75,
+            "tp": 36,
+            "fp": 1,
+            "fn": 23
+          },
+          "exact_set_match": 0.4166666666666667,
+          "citation_accuracy": 0.7288135593220338,
+          "citation_exists_rate": 1.0,
+          "fine_range_accuracy": 0.4166666666666667,
+          "recommended_fine_exact": 0.4583333333333333,
+          "points_accuracy": 0.7916666666666666,
+          "sanctions": {
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571428571428571,
+            "tp": 3,
+            "fp": 0,
+            "fn": 1
+          },
+          "aggravating_exact": 1.0,
+          "mitigating_exact": 1.0,
+          "n_answered": 24
+        },
+        "dialog": {
+          "first_status_accuracy": 0.7916666666666666,
+          "first_status_confusion": {
+            "answered": {
+              "answered": 18,
+              "need_info": 2,
+              "unknown": 3
+            },
+            "need_info": {
+              "answered": 0,
+              "need_info": 1,
+              "unknown": 0
+            },
+            "unknown": {
+              "answered": 0,
+              "need_info": 0,
+              "unknown": 0
+            }
+          },
+          "first_ask_slot_accuracy": 1.0,
+          "status_accuracy": 0.7916666666666666,
+          "avg_question_turns": 0.125,
+          "followup_mismatches": 0
+        },
+        "end_to_end_accuracy": 0.4166666666666667
+      },
+      "D": {
+        "n_cases": 30,
+        "extraction": {
+          "slot": {
+            "precision": 0.9532710280373832,
+            "recall": 0.8571428571428571,
+            "f1": 0.9026548672566371,
+            "tp": 102,
+            "fp": 5,
+            "fn": 17
+          },
+          "per_slot": {
+            "acts": {
+              "precision": 0.8888888888888888,
+              "recall": 0.8275862068965517,
+              "f1": 0.8571428571428571,
+              "tp": 24,
+              "fp": 3,
+              "fn": 5
+            },
+            "actual_speed_kmh": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "bac_breath_mg_l": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "circumstances": {
+              "precision": 1.0,
+              "recall": 0.5925925925925926,
+              "f1": 0.7441860465116279,
+              "tp": 16,
+              "fp": 0,
+              "fn": 11
+            },
+            "consequence": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 9,
+              "fp": 0,
+              "fn": 0
+            },
+            "drank_alcohol": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "no_helmet_who": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "officer_signal": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 2,
+              "fp": 0,
+              "fn": 0
+            },
+            "resistance": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 6,
+              "fp": 0,
+              "fn": 0
+            },
+            "road_type": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "tp": 0,
+              "fp": 1,
+              "fn": 1
+            },
+            "speed_limit_kmh": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "speed_over_kmh": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 5,
+              "fp": 0,
+              "fn": 0
+            },
+            "subject": {
+              "precision": 0.75,
+              "recall": 1.0,
+              "f1": 0.8571428571428571,
+              "tp": 3,
+              "fp": 1,
+              "fn": 0
+            },
+            "vehicle_class": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 30,
+              "fp": 0,
+              "fn": 0
+            }
+          },
+          "acts": {
+            "precision": 0.8888888888888888,
+            "recall": 0.8275862068965517,
+            "f1": 0.8571428571428571,
+            "tp": 24,
+            "fp": 3,
+            "fn": 5
+          },
+          "hallucinated_slot_rate": 0.029411764705882353
+        },
+        "reasoning": {
+          "violation": {
+            "precision": 0.9,
+            "recall": 0.8709677419354839,
+            "f1": 0.8852459016393442,
+            "tp": 27,
+            "fp": 3,
+            "fn": 4
+          },
+          "exact_set_match": 0.8666666666666667,
+          "citation_accuracy": 0.8709677419354839,
+          "citation_exists_rate": 1.0,
+          "fine_range_accuracy": 0.8275862068965517,
+          "recommended_fine_exact": 0.5517241379310345,
+          "points_accuracy": 0.896551724137931,
+          "sanctions": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "tp": 1,
+            "fp": 1,
+            "fn": 0
+          },
+          "aggravating_exact": 0.7931034482758621,
+          "mitigating_exact": 0.8620689655172413,
+          "n_answered": 29
+        },
+        "dialog": {
+          "first_status_accuracy": 0.9333333333333333,
+          "first_status_confusion": {
+            "answered": {
+              "answered": 26,
+              "need_info": 1,
+              "unknown": 1
+            },
+            "need_info": {
+              "answered": 0,
+              "need_info": 2,
+              "unknown": 0
+            },
+            "unknown": {
+              "answered": 0,
+              "need_info": 0,
+              "unknown": 0
+            }
+          },
+          "first_ask_slot_accuracy": 1.0,
+          "status_accuracy": 0.9333333333333333,
+          "avg_question_turns": 0.1,
+          "followup_mismatches": 0
+        },
+        "end_to_end_accuracy": 0.5666666666666667
+      },
+      "E": {
+        "n_cases": 30,
+        "extraction": {
+          "slot": {
+            "precision": 0.9523809523809523,
+            "recall": 0.8,
+            "f1": 0.8695652173913043,
+            "tp": 40,
+            "fp": 2,
+            "fn": 10
+          },
+          "per_slot": {
+            "acts": {
+              "precision": 1.0,
+              "recall": 0.7222222222222222,
+              "f1": 0.8387096774193549,
+              "tp": 13,
+              "fp": 0,
+              "fn": 5
+            },
+            "actual_speed_kmh": {
+              "precision": 0.5,
+              "recall": 1.0,
+              "f1": 0.6666666666666666,
+              "tp": 2,
+              "fp": 2,
+              "fn": 0
+            },
+            "alcohol_level": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "bac_breath_mg_l": {
+              "precision": 1.0,
+              "recall": 0.5,
+              "f1": 0.6666666666666666,
+              "tp": 1,
+              "fp": 0,
+              "fn": 1
+            },
+            "drank_alcohol": {
+              "precision": 1.0,
+              "recall": 0.6,
+              "f1": 0.75,
+              "tp": 3,
+              "fp": 0,
+              "fn": 2
+            },
+            "engine_capacity_cc": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "resistance": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "speed_limit_kmh": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "speed_over_kmh": {
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "tp": 0,
+              "fp": 0,
+              "fn": 2
+            },
+            "transport_use": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            },
+            "vehicle_class": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 15,
+              "fp": 0,
+              "fn": 0
+            },
+            "violation_date": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 1,
+              "fp": 0,
+              "fn": 0
+            }
+          },
+          "acts": {
+            "precision": 1.0,
+            "recall": 0.7222222222222222,
+            "f1": 0.8387096774193549,
+            "tp": 13,
+            "fp": 0,
+            "fn": 5
+          },
+          "hallucinated_slot_rate": 0.047619047619047616
+        },
+        "reasoning": {
+          "violation": {
+            "precision": 0.625,
+            "recall": 1.0,
+            "f1": 0.7692307692307693,
+            "tp": 5,
+            "fp": 3,
+            "fn": 0
+          },
+          "exact_set_match": 0.9,
+          "citation_accuracy": 1.0,
+          "citation_exists_rate": 1.0,
+          "fine_range_accuracy": 1.0,
+          "recommended_fine_exact": 1.0,
+          "points_accuracy": 1.0,
+          "sanctions": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "tp": 1,
+            "fp": 1,
+            "fn": 0
+          },
+          "aggravating_exact": 1.0,
+          "mitigating_exact": 1.0,
+          "n_answered": 5
+        },
+        "dialog": {
+          "first_status_accuracy": 0.7333333333333333,
+          "first_status_confusion": {
+            "answered": {
+              "answered": 0,
+              "need_info": 0,
+              "unknown": 0
+            },
+            "need_info": {
+              "answered": 1,
+              "need_info": 13,
+              "unknown": 5
+            },
+            "unknown": {
+              "answered": 2,
+              "need_info": 0,
+              "unknown": 9
+            }
+          },
+          "first_ask_slot_accuracy": 0.6842105263157895,
+          "status_accuracy": 0.7333333333333333,
+          "avg_question_turns": 0.4666666666666667,
+          "followup_mismatches": 0
+        },
+        "end_to_end_accuracy": 0.7333333333333333
+      }
+    }
+  },
+  "system": {
+    "latency_ms": {
+      "extract": {
+        "n": 155,
+        "mean": 3.73,
+        "p50": 3.46,
+        "p95": 4.81
+      },
+      "ground": {
+        "n": 164,
+        "mean": 9.82,
+        "p50": 0.13,
+        "p95": 68.64
+      },
+      "engine": {
+        "n": 164,
+        "mean": 7.75,
+        "p50": 7.13,
+        "p95": 15.88
+      },
+      "total": {
+        "n": 164,
+        "mean": 21.14,
+        "p50": 11.18,
+        "p95": 79.36
+      }
+    },
+    "llm": null,
+    "faithfulness": null
+  },
+  "error_counts": {
+    "extract": 56,
+    "ground": 5,
+    "rule": 5
+  },
+  "notes": [
+    "Độ trễ chỉ lấy từ lần gọi thật: bước/lượt trúng cache LLM không được tính (xem system.latency_ms.*.n và system.llm.cache_hits).",
+    "latency_ms.write là LLM answer writer, chỉ đo trên mẫu writer (config full); không nằm trong latency_ms.total.",
+    "Trạng thái out_of_scope được quy về unknown khi so với ground truth."
+  ]
+}
