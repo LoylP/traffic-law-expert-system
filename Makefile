@@ -1,6 +1,6 @@
 PYTHON ?= python3.11
 
-.PHONY: data test eval-validate eval-smoke eval-local
+.PHONY: data test owl figures eval-validate eval-smoke eval-local
 
 data:
 	$(PYTHON) -m src.extract.legal_corpus_builder
@@ -11,6 +11,13 @@ data:
 
 test:
 	$(PYTHON) -m pytest
+
+# Report artefacts (DESIGN §5.4); both only read the frozen knowledge base.
+owl:
+	$(PYTHON) -m src.kg.export_owl
+
+figures:
+	$(PYTHON) -m src.kg.draw_ontology
 
 eval-validate:
 	$(PYTHON) scripts/validate_cases.py
